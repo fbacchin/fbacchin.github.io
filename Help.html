@@ -1,10 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-    <title>Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Le mie App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .app-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .app-section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .app-section h3 {
+            color: #555;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .app-section p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .app-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .app-section li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .contact-section {
+            background: #667eea;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .contact-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .contact-section a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+        
+        .faq {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        
+        .faq-item strong {
+            color: #1976d2;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .app-section {
+                padding: 20px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Ciao</h1>
+    <div class="container">
+        <header>
+            <h1>📱 Help & Support</h1>
+            <p>Centro assistenza per tutte le mie applicazioni</p>
+        </header>
+        
+        <div class="content">
+            
+            <!-- Sezione app generica - personalizza con le tue app -->
+            <div class="app-section">
+                <h2>🎯 Le Mie Applicazioni</h2>
+                <p>Benvenuto nel centro assistenza delle mie app. Qui troverai tutte le informazioni necessarie per utilizzare al meglio le applicazioni.</p>
+                
+                <h3>Come utilizzare le app</h3>
+                <ul>
+                    <li>Scarica l'app da App Store o Google Play</li>
+                    <li>Apri l'applicazione e segui la procedura guidata</li>
+                    <li>Consulta questa guida per eventuali dubbi</li>
+                </ul>
+            </div>
+            
+            <!-- Domande Frequenti -->
+            <div class="app-section">
+                <h2>❓ Domande Frequenti (FAQ)</h2>
+                
+                <div class="faq">
+                    <div class="faq-item">
+                        <strong>Come posso contattare il supporto?</strong>
+                        <p>Puoi contattarci tramite email utilizzando i contatti nella sezione in fondo alla pagina.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <strong>L'app è gratuita?</strong>
+                        <p>Consulta la descrizione specifica dell'app nello store per informazioni su prezzi e acquisti in-app.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <strong>Come posso segnalare un problema?</strong>
+                        <p>Contattaci via email descrivendo il problema riscontrato. Risponderemo nel più breve tempo possibile.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <strong>Posso richiedere nuove funzionalità?</strong>
+                        <p>Certamente! Siamo sempre aperti a suggerimenti per migliorare le nostre app.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Privacy & Terms -->
+            <div class="app-section">
+                <h2>🔒 Privacy e Termini</h2>
+                <p>La tua privacy è importante per noi. Le nostre app raccolgono solo i dati necessari per il funzionamento e nel rispetto delle normative vigenti.</p>
+                <ul>
+                    <li>Non vendiamo i tuoi dati a terzi</li>
+                    <li>Usiamo i dati solo per migliorare l'esperienza utente</li>
+                    <li>Puoi richiedere la cancellazione dei tuoi dati in qualsiasi momento</li>
+                </ul>
+            </div>
+            
+            <!-- Contatti -->
+            <div class="contact-section">
+                <h2>📧 Hai bisogno di aiuto?</h2>
+                <p>Non esitare a contattarci per qualsiasi domanda o problema</p>
+                <p style="margin-top: 20px;">
+                    Email: <a href="mailto:support@example.com">support@example.com</a>
+                </p>
+            </div>
+            
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 - Tutti i diritti riservati</p>
+        </footer>
+    </div>
 </body>
 </html>
-
