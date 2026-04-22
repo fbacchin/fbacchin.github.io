@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATP Ranking Simulator — Sinner vs Alcaraz 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" aria-label="Tennis ball icon">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M6 6C10 12 10 20 6 26" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M26 6C22 12 22 20 26 26" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+      <span>ATP Ranking Simulator</span>
+    </div>
+    <div class="header-right">
+      <span class="header-date">Stagione 2026</span>
+      <button data-theme-toggle aria-label="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <!-- Scoreboard -->
+  <section class="scoreboard" id="scoreboard">
+    <div class="player-card sinner-card">
+      <div class="player-flag">🇮🇹</div>
+      <div class="player-name">Jannik Sinner</div>
+      <div class="player-rank" id="sinner-rank">#2</div>
+      <div class="player-points-label">Punti</div>
+      <div class="player-points" id="sinner-points">10,400</div>
+    </div>
+    <div class="vs-badge">
+      <div class="gap-label">Gap</div>
+      <div class="gap-value" id="gap-value">-3,150</div>
+      <div class="gap-bar-container">
+        <div class="gap-bar" id="gap-bar"></div>
+      </div>
+    </div>
+    <div class="player-card alcaraz-card">
+      <div class="player-flag">🇪🇸</div>
+      <div class="player-name">Carlos Alcaraz</div>
+      <div class="player-rank" id="alcaraz-rank">#1</div>
+      <div class="player-points-label">Punti</div>
+      <div class="player-points" id="alcaraz-points">13,550</div>
+    </div>
+  </section>
+
+  <!-- Status bar -->
+  <div class="status-bar" id="status-bar">
+    <span class="status-icon">⚠️</span>
+    <span id="status-text">Sinner ha bisogno di recuperare 3,150 punti per diventare N.1</span>
+  </div>
+
+  <!-- Simulator Controls -->
+  <section class="simulator-section">
+    <h2 class="section-title">Simula i prossimi tornei</h2>
+    <p class="section-desc">Seleziona il risultato ipotetico di ciascun giocatore nei tornei futuri. I punti vengono aggiornati automaticamente.</p>
+
+    <div class="preset-bar">
+      <button class="preset-btn" onclick="applyPreset('sinnerWins')">Sinner vince tutto</button>
+      <button class="preset-btn" onclick="applyPreset('alcarazWins')">Alcaraz vince tutto</button>
+      <button class="preset-btn" onclick="applyPreset('splitSlams')">Si dividono gli Slam</button>
+      <button class="preset-btn preset-reset" onclick="applyPreset('reset')">Reset</button>
+    </div>
+
+    <div class="tournament-grid" id="tournament-grid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- Points to defend -->
+  <section class="defend-section">
+    <h2 class="section-title">Punti da difendere</h2>
+    <p class="section-desc">Punti che scadranno nei prossimi mesi dalla classifica attuale.</p>
+    <div class="defend-grid">
+      <div class="defend-col">
+        <h3 class="defend-player sinner-accent">🇮🇹 Sinner</h3>
+        <div class="defend-list" id="sinner-defend"></div>
+      </div>
+      <div class="defend-col">
+        <h3 class="defend-player alcaraz-accent">🇪🇸 Alcaraz</h3>
+        <div class="defend-list" id="alcaraz-defend"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Points table reference -->
+  <section class="reference-section">
+    <h2 class="section-title">Tabella punti ATP 2026</h2>
+    <div class="table-scroll">
+      <table class="points-table">
+        <thead>
+          <tr>
+            <th>Risultato</th>
+            <th>Grand Slam</th>
+            <th>Masters 1000</th>
+            <th>ATP 500</th>
+            <th>ATP 250</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>W</td><td>2000</td><td>1000</td><td>500</td><td>250</td></tr>
+          <tr><td>F</td><td>1300</td><td>650</td><td>330</td><td>165</td></tr>
+          <tr><td>SF</td><td>800</td><td>400</td><td>200</td><td>100</td></tr>
+          <tr><td>QF</td><td>400</td><td>200</td><td>100</td><td>50</td></tr>
+          <tr><td>R16</td><td>200</td><td>100</td><td>50</td><td>25</td></tr>
+          <tr><td>R32</td><td>100</td><td>50</td><td>—</td><td>—</td></tr>
+          <tr><td>R64</td><td>50</td><td>30</td><td>—</td><td>—</td></tr>
+          <tr><td>R128</td><td>10</td><td>10</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Dati basati su classifica ATP al 15 marzo 2026. Simulazione a scopo illustrativo.</p>
+  <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>
