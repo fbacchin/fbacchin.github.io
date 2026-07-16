@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>fbacchin — app che tengono il conto</title>
+<meta name="description" content="App iOS e strumenti web di Francesco Bacchin: Euribor X, Gottardo Live, Burraco Score, Tarocchi · Arcani Maggiori, ONON Tracker, simulatore ranking ATP.">
+<meta property="og:title" content="fbacchin — app che tengono il conto">
+<meta property="og:description" content="Sei cose che guardano un numero che si muove e lo rendono leggibile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fbacchin.github.io/">
+<meta property="og:locale" content="it_IT">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ardesia:   #171A1F;
+    --pannello:  #20242C;
+    --rilievo:   #272C36;
+    --gesso:     #EDEAE3;
+    --nebbia:    #8B93A1;
+    --linea:     rgba(237,234,227,0.10);
+    --ambra:     #F2A93B;
+    --verde:     #5DAE83;
+    --rosso:     #D9605F;
+
+    --testo:     'Archivo', system-ui, -apple-system, sans-serif;
+    --dato:      'Martian Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ardesia);
+    color: var(--gesso);
+    font-family: var(--testo);
+    font-variation-settings: 'wdth' 100;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding:
+      env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--ambra);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  .foglio {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px 88px;
+  }
+
+  /* ── etichette condensate: il lettering stretto dei pannelli stradali ── */
+  .etichetta {
+    font-family: var(--testo);
+    font-variation-settings: 'wdth' 62;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--nebbia);
+  }
+
+  /* ── intestazione ─────────────────────────────────────────────── */
+  .testata {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--linea);
+  }
+  .testata__ora {
+    font-family: var(--dato);
+    font-variation-settings: 'wdth' 87.5;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--nebbia);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .apertura { padding: 56px 0 40px; }
+
+  h1 {
+    font-variation-settings: 'wdth' 125;
+    font-weight: 800;
+    font-size: clamp(52px, 13vw, 116px);
+    line-height: 0.86;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  h1 .h1__seconda { color: var(--ambra); }
+
+  .tesi {
+    max-width: 46ch;
+    margin-top: 26px;
+    color: var(--nebbia);
+    font-size: 19px;
+  }
+  .tesi strong { color: var(--gesso); font-weight: 500; }
+
+  /* ── il tabellone ──────────────────────────────────────────────── */
+  .tabellone { margin-top: 12px; }
+
+  .tabellone__testa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .spia {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--ambra);
+    box-shadow: 0 0 10px rgba(242,169,59,0.6);
+    flex: none;
+  }
+
+  .pannello {
+    list-style: none;
+    background: var(--pannello);
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .riga {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 190px 22px;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 22px;
+    border-top: 1px solid var(--linea);
+    transition: background 0.18s ease;
+  }
+  .riga:first-child { border-top: none; }
+  .riga:hover { background: var(--rilievo); }
+
+  .riga__nome {
+    font-variation-settings: 'wdth' 112;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .riga__nome a { text-decoration: none; }
+  .riga__nome a::after {           /* rende cliccabile tutta la riga */
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .riga__che {
+    margin-top: 4px;
+    font-size: 15px;
+    color: var(--nebbia);
+  }
+
+  .riga__dato {
+    font-family: var(--dato);
+    font-variation-settings: 'wdth' 87.5;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ambra);
+    font-variant-numeric: tabular-nums;
+    word-break: break-word;
+  }
+  .riga__dato[data-stato="attesa"]  { color: var(--nebbia); }
+  .riga__dato[data-stato="fermo"]   { color: var(--nebbia); }
+  .riga__dato[data-stato="assente"] { color: var(--nebbia); }
+  .riga__dato .misura { color: var(--gesso); }
+  .riga__dato .verde  { color: var(--verde); }
+  .riga__dato .ambra  { color: var(--ambra); }
+  .riga__dato .rosso  { color: var(--rosso); }
+  .riga__dato .quando {
+    display: block;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--nebbia);
+    margin-top: 3px;
+  }
+
+  .riga__freccia {
+    font-family: var(--dato);
+    font-size: 15px;
+    color: var(--nebbia);
+    justify-self: end;
+    transition: transform 0.18s ease, color 0.18s ease;
+  }
+  .riga:hover .riga__freccia { transform: translateX(3px); color: var(--ambra); }
+
+  .riga__oltre {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-top: 2px;
+  }
+  .riga__oltre a {
+    position: relative;
+    z-index: 1;
+    font-variation-settings: 'wdth' 62;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nebbia);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+  }
+  .riga__oltre a:hover {
+    color: var(--gesso);
+    border-bottom-color: var(--ambra);
+  }
+
+  .tabellone__nota {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--nebbia);
+  }
+
+  /* ── sezioni ───────────────────────────────────────────────────── */
+  .sezione { padding-top: 64px; }
+  .sezione__titolo {
+    font-variation-settings: 'wdth' 125;
+    font-weight: 800;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin: 8px 0 6px;
+  }
+  .sezione__intro {
+    max-width: 52ch;
+    color: var(--nebbia);
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .coppia {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .scheda {
+    position: relative;
+    background: var(--pannello);
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+  .scheda:hover { background: var(--rilievo); border-color: rgba(242,169,59,0.35); }
+  .scheda__nome {
+    font-variation-settings: 'wdth' 112;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .scheda__nome a { text-decoration: none; }
+  .scheda__nome a::after { content: ""; position: absolute; inset: 0; }
+  .scheda__che {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--nebbia);
+  }
+  .scheda__piede {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .scheda__piede a {
+    position: relative;
+    z-index: 1;
+    font-variation-settings: 'wdth' 62;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nebbia);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .scheda__piede a:hover { color: var(--gesso); border-bottom-color: var(--ambra); }
+  .scheda__freccia {
+    font-family: var(--dato);
+    color: var(--nebbia);
+    transition: transform 0.18s ease, color 0.18s ease;
+  }
+  .scheda:hover .scheda__freccia { transform: translateX(3px); color: var(--ambra); }
+
+  /* ── officina ──────────────────────────────────────────────────── */
+  .officina {
+    background: var(--pannello);
+    border: 1px solid var(--linea);
+    border-left: 2px solid var(--ambra);
+    border-radius: 0 14px 14px 0;
+    padding: 24px 22px;
+  }
+  .officina p { color: var(--nebbia); font-size: 15px; max-width: 60ch; }
+  .officina p + p { margin-top: 10px; }
+  .officina a { color: var(--gesso); text-decoration: none; border-bottom: 1px solid var(--ambra); }
+  .officina a:hover { color: var(--ambra); }
+
+  /* ── piede ─────────────────────────────────────────────────────── */
+  .piede {
+    margin-top: 72px;
+    padding-top: 22px;
+    border-top: 1px solid var(--linea);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px 24px;
+    flex-wrap: wrap;
+  }
+  .piede__link { display: flex; gap: 20px; flex-wrap: wrap; }
+  .piede a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+  }
+  .piede a:hover { border-bottom-color: var(--ambra); color: var(--gesso); }
+
+  /* ── entrata: il pannello si compone riga per riga ─────────────── */
+  .entra {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: entra 0.5s cubic-bezier(0.2,0.7,0.3,1) forwards;
+  }
+  @keyframes entra { to { opacity: 1; transform: none; } }
+
+  @media (max-width: 700px) {
+    .foglio { padding: 40px 18px 72px; }
+    .apertura { padding: 40px 0 32px; }
+    .riga {
+      grid-template-columns: minmax(0,1fr) 22px;
+      gap: 12px;
+      padding: 20px 18px;
+    }
+    .riga__dato {
+      grid-column: 1 / -1;
+      font-size: 12px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--linea);
+    }
+    .coppia { grid-template-columns: 1fr; }
+    .sezione { padding-top: 48px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+    .entra { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <span class="etichetta">fbacchin · Zug, CH</span>
+    <span class="testata__ora" id="ora">—</span>
+  </header>
+
+  <div class="apertura">
+    <h1>Cose che<br><span class="h1__seconda">cambiano</span></h1>
+    <p class="tesi">
+      Sei app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
+      punteggio, un fixing, una coda al tunnel, un titolo, un ranking — e renderlo
+      leggibile in due secondi.
+    </p>
+  </div>
+
+  <section class="tabellone" aria-labelledby="t-app">
+    <div class="tabellone__testa">
+      <span class="spia" aria-hidden="true"></span>
+      <h2 class="etichetta" id="t-app">Le app · dati in diretta</h2>
+    </div>
+
+    <ul class="pannello">
+
+      <li class="riga entra" style="animation-delay:.05s">
+        <div>
+          <div class="riga__nome"><a href="https://fbacchin.github.io/app/Euribor/">Euribor X</a></div>
+          <div class="riga__che">I tassi di riferimento europei, aggiornati ogni giorno lavorativo. Anche in versione Light.</div>
+          <div class="riga__oltre">
+            <a href="https://fbacchin.github.io/app/Euribor/">Dati e formato</a>
+            <a href="https://fbacchin.github.io/app/Euribor/EURIBOR.csv">EURIBOR.csv</a>
+            <a href="https://fbacchin.github.io/app/Euribor/ESTER.csv">ESTER.csv</a>
+          </div>
+        </div>
+        <div class="riga__dato" id="dato-euribor" data-stato="attesa">carico…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.13s">
+        <div>
+          <div class="riga__nome"><a href="https://fbacchin.github.io/app/gotthard/">Gottardo Live</a></div>
+          <div class="riga__che">Code, attese e webcam al tunnel del San Gottardo, dal feed ufficiale VMZ-CH. Notifica quando la coda si forma.</div>
+          <div class="riga__oltre">
+            <a href="https://fbacchin.github.io/app/gotthard/support-gotthard.html">Assistenza</a>
+            <a href="https://fbacchin.github.io/app/gotthard/privacy-gotthard.html">Privacy</a>
+            <a href="https://fbacchin.github.io/app/gotthard/">Come funziona</a>
+          </div>
+        </div>
+        <div class="riga__dato" id="dato-gottardo" data-stato="attesa">carico…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.21s">
+        <div>
+          <div class="riga__nome"><a href="https://fbacchin.github.io/app/Burraco/support-burraco.html">Burraco Score</a></div>
+          <div class="riga__che">Il tabellone del burraco: uno contro uno o a coppie, mani illimitate, mazziere che ruota da solo. Anche in versione Light.</div>
+          <div class="riga__oltre">
+            <a href="https://fbacchin.github.io/app/Burraco/support-burraco.html">Assistenza</a>
+            <a href="https://fbacchin.github.io/app/Burraco/privacy-burraco.html">Privacy</a>
+          </div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">2005</span> punti al traguardo
+          <span class="quando">mani illimitate</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.29s">
+        <div>
+          <div class="riga__nome"><a href="https://fbacchin.github.io/app/tarocchi/support-tarocchi.html">Tarocchi · Arcani Maggiori</a></div>
+          <div class="riga__che">Tre stese, uno specchio simbolico per riflettere. Non predice il futuro, e lo dice.</div>
+          <div class="riga__oltre">
+            <a href="https://fbacchin.github.io/app/tarocchi/support-tarocchi.html">Assistenza</a>
+            <a href="https://fbacchin.github.io/app/tarocchi/privacy-tarocchi.html">Privacy</a>
+          </div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">22</span> arcani · <span class="misura">3</span> stese
+          <span class="quando">3 crediti per iniziare</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+    </ul>
+
+    <p class="tabellone__nota">
+      Le prime due righe leggono gli stessi file che leggono le app: il CSV dei fixing
+      e il campione del collector del Gottardo, ricampionato ogni 5 minuti.
+    </p>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-web">
+    <span class="etichetta" id="t-web">Sul web · niente da installare</span>
+    <h2 class="sezione__titolo">Si aprono e basta</h2>
+    <p class="sezione__intro">
+      Due pagine singole, ospitate qui. Nessun account, nessun download: apri il link
+      e il conto è già fatto.
+    </p>
+
+    <div class="coppia">
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://fbacchin.github.io/finance/ONtracker.html">ONON Tracker</a></div>
+        <p class="scheda__che">
+          Il titolo On Holding sotto osservazione: prezzo, andamento e i livelli che
+          contano, in un pannello solo.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://github.com/fbacchin/finance">Codice su GitHub</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://fbacchin.github.io/ATP-Sinner-Alcaraz-Ranking/">Simulatore ranking ATP</a></div>
+        <p class="scheda__che">
+          Sinner contro Alcaraz: sposti i risultati dei tornei che restano e vedi
+          subito chi chiude l'anno da numero 1.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://github.com/fbacchin/ATP-Sinner-Alcaraz-Ranking">Codice su GitHub</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-officina">
+    <span class="etichetta" id="t-officina">Dietro le quinte</span>
+    <h2 class="sezione__titolo">L'officina</h2>
+    <div class="officina">
+      <p>
+        I dati non si aggiornano da soli. Le
+        <a href="https://fbacchin.github.io/app/skills/">skill di Claude</a> che scaricano
+        i fixing e li pubblicano sono versionate in chiaro, accanto agli script che
+        invocano — insieme al collector del Gottardo, che gira su GitHub Actions.
+      </p>
+      <p>
+        Tutto quello che sta sotto queste app vive in una repo sola:
+        <a href="https://github.com/fbacchin/app">github.com/fbacchin/app</a>.
+      </p>
+    </div>
+  </section>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Francesco Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>
+      <a href="https://github.com/fbacchin">GitHub</a>
+      <a href="https://fbacchin.github.io/privacy-and-support/">Privacy e assistenza</a>
+    </nav>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var lento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* orologio della testata */
+  function ora() {
+    var d = new Date();
+    var el = document.getElementById('ora');
+    if (el) el.textContent = d.toLocaleTimeString('it-CH', { hour: '2-digit', minute: '2-digit' }) + ' · ora locale';
+  }
+  ora();
+  setInterval(ora, 30000);
+
+  /* il numero si assesta come una paletta a lamelle */
+  var CIFRE = '0123456789';
+  function scrivi(el, corpo, nota) {
+    el.innerHTML = corpo + '<span class="quando">' + nota + '</span>';
+  }
+  function assesta(el, corpo, nota) {
+    if (lento) { scrivi(el, corpo, nota); return; }
+    var finale = corpo.replace(/<[^>]+>/g, '');
+    var giri = 0;
+    var t = setInterval(function () {
+      giri++;
+      var mosso = finale.replace(/\d/g, function () {
+        return CIFRE[Math.floor(Math.random() * 10)];
+      });
+      el.innerHTML = mosso.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+                     '<span class="quando">' + nota + '</span>';
+      if (giri > 7) { clearInterval(t); scrivi(el, corpo, nota); }
+    }, 45);
+  }
+
+  /* Euribor — stesso CSV che legge l'app */
+  fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    .then(function (testo) {
+      var righe = testo.trim().split(/\r?\n/);
+      var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
+      var data = campi[0], tre = campi[6], dodici = campi[8];
+      var el = document.getElementById('dato-euribor');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        '3M <span class="misura">' + tre + '%</span> · 12M <span class="misura">' + dodici + '%</span>',
+        'fixing del ' + data);
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-euribor');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
+    });
+
+  /* Gottardo — stesso campione che legge l'app */
+  fetch('/app/gotthard/data/latest.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      function verso(v) {
+        var m = v && typeof v.wait === 'number' ? v.wait : 0;
+        var classe = m >= 60 ? 'rosso' : (m >= 20 ? 'ambra' : 'verde');
+        return '<span class="' + classe + '">' + m + '\u2032</span>';
+      }
+      var q = new Date(d.time);
+      var el = document.getElementById('dato-gottardo');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        'nord ' + verso(d.north) + ' · sud ' + verso(d.south),
+        'rilevato alle ' + q.toLocaleTimeString('it-CH', { hour: '2-digit', minute: '2-digit' }));
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-gottardo');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Collector non raggiungibile<span class="quando">l\u2019app legge il feed in diretta</span>';
+    });
+})();
+</script>
+</body>
+</html>
