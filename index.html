@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>fbacchin — app che tengono il conto</title>
-<meta name="description" content="App iOS e strumenti web di Fabrizio Bacchin: Euribor X, Gottardo Live, Burraco Score, Tarocchi · Arcani Maggiori, ONON Tracker, simulatore ranking ATP.">
+<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Gottardo Live, Burraco Score, Tarocchi · Arcani Maggiori, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sei cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
@@ -384,7 +384,7 @@
   <div class="apertura">
     <h1>Cose che<br><span class="h1__seconda">cambiano</span></h1>
     <p class="tesi">
-      Sei app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
+      Sette app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
       punteggio, un fixing, una coda al tunnel, un titolo, un ranking — e renderlo
       leggibile in due secondi.
     </p>
@@ -411,7 +411,19 @@
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
-      <li class="riga entra" style="animation-delay:.13s">
+      <li class="riga entra" style="animation-delay:.09s">
+        <div>
+          <div class="riga__nome"><a href="https://fbacchin.github.io/app/EuriborMac/support.html">Euribor per Mac</a></div>
+          <div class="riga__che">La stessa materia sulla scrivania: €STR e cinque tenor in sei card, storici a 3 mesi e calcolatore di rata che si aggiorna da solo.</div>
+          <div class="riga__oltre">
+            <a href="https://fbacchin.github.io/app/EuriborMac/privacy.html">Privacy</a>
+          </div>
+        </div>
+        <div class="riga__dato" id="dato-estr" data-stato="attesa">carico…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.15s">
         <div>
           <div class="riga__nome"><a href="https://fbacchin.github.io/app/gotthard/support-gotthard.html">Gottardo Live</a></div>
           <div class="riga__che">Code, attese e webcam al tunnel del San Gottardo, dal feed ufficiale VMZ-CH. Notifica quando la coda si forma.</div>
@@ -424,7 +436,7 @@
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
-      <li class="riga entra" style="animation-delay:.21s">
+      <li class="riga entra" style="animation-delay:.22s">
         <div>
           <div class="riga__nome"><a href="https://fbacchin.github.io/app/Burraco/support-burraco.html">Burraco Score</a></div>
           <div class="riga__che">Il tabellone del burraco: uno contro uno o a coppie, mani illimitate, mazziere che ruota da solo. Anche in versione Light.</div>
@@ -572,6 +584,24 @@
     })
     .catch(function () {
       var el = document.getElementById('dato-euribor');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
+    });
+
+  /* €STR — la colonna ON di ESTER.csv */
+  fetch('/app/Euribor/ESTER.csv', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    .then(function (testo) {
+      var righe = testo.trim().split(/\r?\n/);
+      var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
+      var el = document.getElementById('dato-estr');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        '\u20acSTR <span class="misura">' + campi[2] + '%</span>',
+        'fixing del ' + campi[0]);
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-estr');
       el.dataset.stato = 'assente';
       el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
     });
