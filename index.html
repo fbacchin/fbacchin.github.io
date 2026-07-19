@@ -6,10 +6,15 @@
 <title>fbacchin — app che tengono il conto</title>
 <meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Gottardo Live, Burraco Score, Tarocchi · Arcani Maggiori, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
-<meta property="og:description" content="Sei cose che guardano un numero che si muove e lo rendono leggibile.">
+<meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fbacchin.github.io/">
+<meta property="og:image" content="https://fbacchin.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
@@ -23,7 +28,7 @@
     --linea:     rgba(237,234,227,0.10);
     --ambra:     #F2A93B;
     --verde:     #5DAE83;
-    --rosso:     #D9605F;
+    --rosso:     #E07270;
 
     --testo:     'Archivo', system-ui, -apple-system, sans-serif;
     --dato:      'Martian Mono', ui-monospace, SFMono-Regular, monospace;
@@ -92,10 +97,13 @@
 
   .apertura { padding: 56px 0 40px; }
 
+  h1, h2 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
   h1 {
     font-variation-settings: 'wdth' 125;
     font-weight: 800;
-    font-size: clamp(52px, 13vw, 116px);
+    font-size: clamp(52px, 12vw, 96px);
     line-height: 0.86;
     letter-spacing: -0.03em;
     text-transform: uppercase;
@@ -211,6 +219,10 @@
   .riga__oltre a {
     position: relative;
     z-index: 1;
+    padding-top: 8px;
+    margin-top: -8px;
+    padding-bottom: 8px;
+    margin-bottom: -8px;
     font-variation-settings: 'wdth' 62;
     font-weight: 600;
     font-size: 11px;
@@ -240,7 +252,7 @@
     font-size: 30px;
     text-transform: uppercase;
     letter-spacing: -0.01em;
-    margin: 8px 0 6px;
+    margin: 0 0 6px;
   }
   .sezione__intro {
     max-width: 52ch;
@@ -286,6 +298,10 @@
   .scheda__piede a {
     position: relative;
     z-index: 1;
+    padding-top: 10px;
+    margin-top: -10px;
+    padding-bottom: 10px;
+    margin-bottom: -10px;
     font-variation-settings: 'wdth' 62;
     font-weight: 600;
     font-size: 11px;
@@ -305,10 +321,9 @@
 
   /* ── officina ──────────────────────────────────────────────────── */
   .officina {
-    background: var(--pannello);
-    border: 1px solid var(--linea);
-    border-left: 2px solid var(--ambra);
-    border-radius: 0 14px 14px 0;
+    background: linear-gradient(rgba(242,169,59,0.05), rgba(242,169,59,0.05)) var(--pannello);
+    border: 1px solid rgba(242,169,59,0.28);
+    border-radius: 14px;
     padding: 24px 22px;
   }
   .officina p { color: var(--nebbia); font-size: 15px; max-width: 60ch; }
@@ -331,7 +346,8 @@
   .piede a {
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    padding-bottom: 1px;
+    padding: 10px 0;
+    margin: -10px 0;
   }
   .piede a:hover { border-bottom-color: var(--ambra); color: var(--gesso); }
 
@@ -372,6 +388,10 @@
     .entra { opacity: 1; transform: none; }
   }
 </style>
+<noscript><style>
+  .riga__dato[data-stato="attesa"] { display: none; }
+  #ora { display: none; }
+</style></noscript>
 </head>
 <body>
 <div class="foglio">
@@ -470,16 +490,15 @@
     </ul>
 
     <p class="tabellone__nota">
-      Le prime due righe leggono gli stessi file che leggono le app: il CSV dei fixing
+      Le prime tre righe leggono gli stessi file che leggono le app: i CSV dei fixing
       e il campione del collector del Gottardo, ricampionato ogni 5 minuti.
     </p>
   </section>
 
   <section class="sezione" aria-labelledby="t-web">
-    <span class="etichetta" id="t-web">Sul web · niente da installare</span>
-    <h2 class="sezione__titolo">Si aprono e basta</h2>
+    <h2 class="sezione__titolo" id="t-web">Si aprono e basta</h2>
     <p class="sezione__intro">
-      Due pagine singole, ospitate qui. Nessun account, nessun download: apri il link
+      Due pagine singole, ospitate qui: niente da installare, nessun account. Apri il link
       e il conto è già fatto.
     </p>
 
@@ -511,8 +530,7 @@
   </section>
 
   <section class="sezione" aria-labelledby="t-officina">
-    <span class="etichetta" id="t-officina">Dietro le quinte</span>
-    <h2 class="sezione__titolo">L'officina</h2>
+    <h2 class="sezione__titolo" id="t-officina">L'officina</h2>
     <div class="officina">
       <p>
         I dati non si aggiornano da soli. Il collector del Gottardo gira su GitHub
