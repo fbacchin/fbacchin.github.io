@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>fbacchin — app che tengono il conto</title>
-<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Gottardo Live, Burraco Score, Tarocchi · Arcani Maggiori, ONON Tracker, simulatore ranking ATP.">
+<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Gottardo Live, Burraco Score, Arcana, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
@@ -18,380 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ardesia:   #171A1F;
-    --pannello:  #20242C;
-    --rilievo:   #272C36;
-    --gesso:     #EDEAE3;
-    --nebbia:    #8B93A1;
-    --linea:     rgba(237,234,227,0.10);
-    --ambra:     #F2A93B;
-    --verde:     #5DAE83;
-    --rosso:     #E07270;
-
-    --testo:     'Archivo', system-ui, -apple-system, sans-serif;
-    --dato:      'Martian Mono', ui-monospace, SFMono-Regular, monospace;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--ardesia);
-    color: var(--gesso);
-    font-family: var(--testo);
-    font-variation-settings: 'wdth' 100;
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    padding:
-      env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-
-  a { color: inherit; }
-
-  :focus-visible {
-    outline: 2px solid var(--ambra);
-    outline-offset: 3px;
-    border-radius: 3px;
-  }
-
-  .foglio {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 56px 24px 88px;
-  }
-
-  /* ── etichette condensate: il lettering stretto dei pannelli stradali ── */
-  .etichetta {
-    font-family: var(--testo);
-    font-variation-settings: 'wdth' 62;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--nebbia);
-  }
-
-  /* ── intestazione ─────────────────────────────────────────────── */
-  .testata {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--linea);
-  }
-  .testata__ora {
-    font-family: var(--dato);
-    font-variation-settings: 'wdth' 87.5;
-    font-weight: 300;
-    font-size: 12px;
-    color: var(--nebbia);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .apertura { padding: 56px 0 40px; }
-
-  h1, h2 { text-wrap: balance; }
-  p { text-wrap: pretty; }
-
-  h1 {
-    font-variation-settings: 'wdth' 125;
-    font-weight: 800;
-    font-size: clamp(52px, 12vw, 96px);
-    line-height: 0.86;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-  }
-  h1 .h1__seconda { color: var(--ambra); }
-
-  .tesi {
-    max-width: 46ch;
-    margin-top: 26px;
-    color: var(--nebbia);
-    font-size: 19px;
-  }
-  .tesi strong { color: var(--gesso); font-weight: 500; }
-
-  /* ── il tabellone ──────────────────────────────────────────────── */
-  .tabellone { margin-top: 12px; }
-
-  .tabellone__testa {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-  .spia {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--ambra);
-    box-shadow: 0 0 10px rgba(242,169,59,0.6);
-    flex: none;
-  }
-
-  .pannello {
-    list-style: none;
-    background: var(--pannello);
-    border: 1px solid var(--linea);
-    border-radius: 14px;
-    overflow: hidden;
-  }
-
-  .riga {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0,1fr) 190px 22px;
-    align-items: center;
-    gap: 20px;
-    padding: 22px 22px;
-    border-top: 1px solid var(--linea);
-    transition: background 0.18s ease;
-  }
-  .riga:first-child { border-top: none; }
-  .riga:hover { background: var(--rilievo); }
-
-  .riga__nome {
-    font-variation-settings: 'wdth' 112;
-    font-weight: 700;
-    font-size: 21px;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-  }
-  .riga__nome a { text-decoration: none; }
-  .riga__nome a::after {           /* rende cliccabile tutta la riga */
-    content: "";
-    position: absolute;
-    inset: 0;
-  }
-  .riga__che {
-    margin-top: 4px;
-    font-size: 15px;
-    color: var(--nebbia);
-  }
-
-  .riga__dato {
-    font-family: var(--dato);
-    font-variation-settings: 'wdth' 87.5;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 1.45;
-    color: var(--ambra);
-    font-variant-numeric: tabular-nums;
-    word-break: break-word;
-  }
-  .riga__dato[data-stato="attesa"]  { color: var(--nebbia); }
-  .riga__dato[data-stato="fermo"]   { color: var(--nebbia); }
-  .riga__dato[data-stato="assente"] { color: var(--nebbia); }
-  .riga__dato .misura { color: var(--gesso); }
-  .riga__dato .verde  { color: var(--verde); }
-  .riga__dato .ambra  { color: var(--ambra); }
-  .riga__dato .rosso  { color: var(--rosso); }
-  .riga__dato .quando {
-    display: block;
-    font-size: 11px;
-    font-weight: 300;
-    color: var(--nebbia);
-    margin-top: 3px;
-  }
-
-  .riga__freccia {
-    font-family: var(--dato);
-    font-size: 15px;
-    color: var(--nebbia);
-    justify-self: end;
-    transition: transform 0.18s ease, color 0.18s ease;
-  }
-  .riga:hover .riga__freccia { transform: translateX(3px); color: var(--ambra); }
-
-  .riga__oltre {
-    grid-column: 1 / -1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 18px;
-    margin-top: 2px;
-  }
-  .riga__oltre a {
-    position: relative;
-    z-index: 1;
-    padding-top: 8px;
-    margin-top: -8px;
-    padding-bottom: 8px;
-    margin-bottom: -8px;
-    font-variation-settings: 'wdth' 62;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--nebbia);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 1px;
-  }
-  .riga__oltre a:hover {
-    color: var(--gesso);
-    border-bottom-color: var(--ambra);
-  }
-
-  .tabellone__nota {
-    margin-top: 12px;
-    font-size: 13px;
-    color: var(--nebbia);
-  }
-
-  /* ── sezioni ───────────────────────────────────────────────────── */
-  .sezione { padding-top: 64px; }
-  .sezione__titolo {
-    font-variation-settings: 'wdth' 125;
-    font-weight: 800;
-    font-size: 30px;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin: 0 0 6px;
-  }
-  .sezione__intro {
-    max-width: 52ch;
-    color: var(--nebbia);
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
-
-  .coppia {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-  .scheda {
-    position: relative;
-    background: var(--pannello);
-    border: 1px solid var(--linea);
-    border-radius: 14px;
-    padding: 24px 22px;
-    transition: background 0.18s ease, border-color 0.18s ease;
-  }
-  .scheda:hover { background: var(--rilievo); border-color: rgba(242,169,59,0.35); }
-  .scheda__nome {
-    font-variation-settings: 'wdth' 112;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-  .scheda__nome a { text-decoration: none; }
-  .scheda__nome a::after { content: ""; position: absolute; inset: 0; }
-  .scheda__che {
-    margin-top: 8px;
-    font-size: 15px;
-    color: var(--nebbia);
-  }
-  .scheda__piede {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 20px;
-  }
-  .scheda__piede a {
-    position: relative;
-    z-index: 1;
-    padding-top: 10px;
-    margin-top: -10px;
-    padding-bottom: 10px;
-    margin-bottom: -10px;
-    font-variation-settings: 'wdth' 62;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--nebbia);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-  }
-  .scheda__piede a:hover { color: var(--gesso); border-bottom-color: var(--ambra); }
-  .scheda__freccia {
-    font-family: var(--dato);
-    color: var(--nebbia);
-    transition: transform 0.18s ease, color 0.18s ease;
-  }
-  .scheda:hover .scheda__freccia { transform: translateX(3px); color: var(--ambra); }
-
-  /* ── officina ──────────────────────────────────────────────────── */
-  .officina {
-    background: linear-gradient(rgba(242,169,59,0.05), rgba(242,169,59,0.05)) var(--pannello);
-    border: 1px solid rgba(242,169,59,0.28);
-    border-radius: 14px;
-    padding: 24px 22px;
-  }
-  .officina p { color: var(--nebbia); font-size: 15px; max-width: 60ch; }
-  .officina p + p { margin-top: 10px; }
-  .officina a { color: var(--gesso); text-decoration: none; border-bottom: 1px solid var(--ambra); }
-  .officina a:hover { color: var(--ambra); }
-
-  /* ── piede ─────────────────────────────────────────────────────── */
-  .piede {
-    margin-top: 72px;
-    padding-top: 22px;
-    border-top: 1px solid var(--linea);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 14px 24px;
-    flex-wrap: wrap;
-  }
-  .piede__link { display: flex; gap: 20px; flex-wrap: wrap; }
-  .piede a {
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding: 10px 0;
-    margin: -10px 0;
-  }
-  .piede a:hover { border-bottom-color: var(--ambra); color: var(--gesso); }
-
-  /* ── entrata: il pannello si compone riga per riga ─────────────── */
-  .entra {
-    opacity: 0;
-    transform: translateY(8px);
-    animation: entra 0.5s cubic-bezier(0.2,0.7,0.3,1) forwards;
-  }
-  @keyframes entra { to { opacity: 1; transform: none; } }
-
-  @media (max-width: 700px) {
-    .foglio { padding: 40px 18px 72px; }
-    .apertura { padding: 40px 0 32px; }
-    .riga {
-      grid-template-columns: minmax(0,1fr) 22px;
-      gap: 12px;
-      padding: 20px 18px;
-    }
-    .riga__dato {
-      grid-column: 1 / -1;
-      font-size: 12px;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px dashed var(--linea);
-    }
-    .coppia { grid-template-columns: 1fr; }
-    .sezione { padding-top: 48px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-    }
-    .entra { opacity: 1; transform: none; }
-  }
-</style>
-<noscript><style>
-  .riga__dato[data-stato="attesa"] { display: none; }
-  #ora { display: none; }
-</style></noscript>
+<link rel="stylesheet" href="stile.css">
+<noscript><link rel="stylesheet" href="stile.css"></noscript>
 </head>
 <body>
 <div class="foglio">
@@ -420,13 +48,8 @@
 
       <li class="riga entra" style="animation-delay:.05s">
         <div>
-          <div class="riga__nome"><a href="https://fbacchin.github.io/app/EuriborX/support.html">Euribor X</a></div>
+          <div class="riga__nome"><a href="EuriborX.html">Euribor X</a></div>
           <div class="riga__che">I tassi di riferimento europei, aggiornati ogni giorno lavorativo. Anche in versione Light.</div>
-          <div class="riga__oltre">
-            <a href="https://fbacchin.github.io/app/EuriborX/privacy.html">Privacy</a>
-            <a href="https://fbacchin.github.io/app/Euribor/EURIBOR.csv">EURIBOR.csv</a>
-            <a href="https://fbacchin.github.io/app/Euribor/ESTER.csv">ESTER.csv</a>
-          </div>
         </div>
         <div class="riga__dato" id="dato-euribor" data-stato="attesa">carico…</div>
         <span class="riga__freccia" aria-hidden="true">→</span>
@@ -434,11 +57,8 @@
 
       <li class="riga entra" style="animation-delay:.09s">
         <div>
-          <div class="riga__nome"><a href="https://fbacchin.github.io/app/EuriborMac/support.html">Euribor per Mac</a></div>
+          <div class="riga__nome"><a href="EuriborMac.html">Euribor per Mac</a></div>
           <div class="riga__che">La stessa materia sulla scrivania: €STR e cinque tenor in sei card, storici a 3 mesi e calcolatore di rata che si aggiorna da solo.</div>
-          <div class="riga__oltre">
-            <a href="https://fbacchin.github.io/app/EuriborMac/privacy.html">Privacy</a>
-          </div>
         </div>
         <div class="riga__dato" id="dato-estr" data-stato="attesa">carico…</div>
         <span class="riga__freccia" aria-hidden="true">→</span>
@@ -446,12 +66,8 @@
 
       <li class="riga entra" style="animation-delay:.15s">
         <div>
-          <div class="riga__nome"><a href="https://fbacchin.github.io/app/gotthard/support-gotthard.html">Gottardo Live</a></div>
+          <div class="riga__nome"><a href="gotthard.html">Gottardo Live</a></div>
           <div class="riga__che">Code, attese e webcam al tunnel del San Gottardo, dal feed ufficiale VMZ-CH. Notifica quando la coda si forma.</div>
-          <div class="riga__oltre">
-            <a href="https://fbacchin.github.io/app/gotthard/privacy-gotthard.html">Privacy</a>
-            <a href="https://fbacchin.github.io/app/gotthard/">Come raccoglie i dati</a>
-          </div>
         </div>
         <div class="riga__dato" id="dato-gottardo" data-stato="attesa">carico…</div>
         <span class="riga__freccia" aria-hidden="true">→</span>
@@ -459,11 +75,8 @@
 
       <li class="riga entra" style="animation-delay:.22s">
         <div>
-          <div class="riga__nome"><a href="https://fbacchin.github.io/app/Burraco/support-burraco.html">Burraco Score</a></div>
+          <div class="riga__nome"><a href="Burraco.html">Burraco Score</a></div>
           <div class="riga__che">Il tabellone del burraco: uno contro uno o a coppie, mani illimitate, mazziere che ruota da solo. Anche in versione Light.</div>
-          <div class="riga__oltre">
-            <a href="https://fbacchin.github.io/app/Burraco/privacy-burraco.html">Privacy</a>
-          </div>
         </div>
         <div class="riga__dato" data-stato="fermo">
           <span class="misura">2005</span> punti al traguardo
@@ -474,14 +87,11 @@
 
       <li class="riga entra" style="animation-delay:.29s">
         <div>
-          <div class="riga__nome"><a href="https://fbacchin.github.io/app/tarocchi/support-tarocchi.html">Tarocchi · Arcani Maggiori</a></div>
-          <div class="riga__che">Tre stese, uno specchio simbolico per riflettere. Non predice il futuro, e lo dice.</div>
-          <div class="riga__oltre">
-            <a href="https://fbacchin.github.io/app/tarocchi/privacy-tarocchi.html">Privacy</a>
-          </div>
+          <div class="riga__nome"><a href="tarocchi.html">Arcana · Tarocchi</a></div>
+          <div class="riga__che">Rifletti e Decidi: gli Arcani Maggiori come specchio simbolico. Non predice il futuro, e lo dice.</div>
         </div>
         <div class="riga__dato" data-stato="fermo">
-          <span class="misura">22</span> arcani · <span class="misura">3</span> stese
+          <span class="misura">22</span> arcani · <span class="misura">4</span> stese
           <span class="quando">3 crediti per iniziare</span>
         </div>
         <span class="riga__freccia" aria-hidden="true">→</span>
@@ -490,8 +100,8 @@
     </ul>
 
     <p class="tabellone__nota">
-      Le prime tre righe leggono gli stessi file che leggono le app: i CSV dei fixing
-      e il campione del collector del Gottardo, ricampionato ogni 5 minuti.
+      Ogni riga apre la pagina della sua app. Le prime tre leggono in diretta gli stessi
+      file che leggono le app: i CSV dei fixing e il campione del collector del Gottardo.
     </p>
   </section>
 

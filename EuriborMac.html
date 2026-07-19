@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Euribor per Mac — la dashboard dei tassi euro</title>
+<meta name="description" content="€STR e cinque tenor Euribor in sei card sulla scrivania del Mac: storici, navigazione per data, notifiche e calcolatore di rata.">
+<meta property="og:title" content="Euribor per Mac — la dashboard dei tassi euro">
+<meta property="og:description" content="€STR e cinque tenor Euribor in sei card sulla scrivania del Mac: storici, navigazione per data, notifiche e calcolatore di rata.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fbacchin.github.io/og.png">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stile.css">
+<noscript><style>.dato-grande[data-vivo] { display: none; }</style></noscript>
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="./">Fabrizio Bacchin</a>
+    <a class="etichetta" href="./#t-app">Tutte le app</a>
+  </header>
+
+  <div class="app-hero">
+    <h1>Euribor per Mac</h1>
+    <p class="tesi">La stessa materia, sulla scrivania: <strong>sei card, una per tasso</strong>, con storici a tre mesi, navigazione tra i giorni di fixing e un calcolatore di rata che si ricalcola da solo. Per macOS.</p>
+    <div class="dato-grande" data-vivo aria-live="polite">
+      <div class="dato-grande__griglia" id="griglia-tassi">
+        <div class="cifra"><div class="cifra__nome">€STR</div><div class="cifra__valore" id="t-estr">—</div></div>
+        <div class="cifra"><div class="cifra__nome">1 settimana</div><div class="cifra__valore" id="t-1w">—</div></div>
+        <div class="cifra"><div class="cifra__nome">1 mese</div><div class="cifra__valore" id="t-1m">—</div></div>
+        <div class="cifra"><div class="cifra__nome">3 mesi</div><div class="cifra__valore" id="t-3m">—</div></div>
+        <div class="cifra"><div class="cifra__nome">6 mesi</div><div class="cifra__valore" id="t-6m">—</div></div>
+        <div class="cifra"><div class="cifra__nome">12 mesi</div><div class="cifra__valore" id="t-12m">—</div></div>
+      </div>
+      <div class="dato-grande__quando" id="t-quando">carico i fixing…</div>
+    </div>
+  </div>
+
+  <div class="racconto">
+    <h2>La dashboard</h2>
+    <p>Sei card: il fixing più recente in grande, la variazione in basis point con la freccia di tendenza, il mini-grafico dei trenta giorni, il valore precedente con le date dei due fixing. Un clic sulla card apre lo storico degli ultimi tre mesi.</p>
+    <h2>La barra strumenti</h2>
+    <p>Le frecce <strong>‹ ›</strong> navigano ai giorni di fixing precedenti e successivi — tutte le card si aggiornano alla data scelta. <strong>⟳</strong> ricarica i tassi, <strong>⧉</strong> copia negli appunti i valori del giorno pronti da incollare, <strong>%</strong> apre il calcolatore.</p>
+    <h2>Il calcolatore di rata</h2>
+    <p>Mutuo o leasing: importo, anticipo e riscatto, numero di rate, tasso di riferimento scelto dal menu o digitato, spread, rate anticipate o posticipate. Nessun pulsante da premere: la rata si ricalcola a ogni modifica.</p>
+    <h2>Le notifiche</h2>
+    <p>Se vuoi, l’app ti avvisa quando i tassi si aggiornano. L’autorizzazione viene chiesta al primo avvio e si cambia quando ti pare dalle Impostazioni di Sistema.</p>
+    <dl class="scheda-tecnica">
+      <div><dt>Piattaforma</dt><dd>macOS 11.5 o successivo</dd></div>
+      <div><dt>Dati</dt><dd>EMMI (Euribor) e Banca Centrale Europea (€STR) — <a href="app/Euribor/EURIBOR.csv">EURIBOR.csv</a> · <a href="app/Euribor/ESTER.csv">ESTER.csv</a></dd></div>
+      <div><dt>Assistenza</dt><dd><a href="app/EuriborMac/support.html">Guida all’uso e domande frequenti</a></dd></div>
+      <div><dt>Privacy</dt><dd><a href="app/EuriborMac/privacy.html">Informativa</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Altre app">
+      <a href="EuriborX.html">← Euribor X</a>
+      <a href="gotthard.html">Gottardo Live →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>
+      <a href="./">Tabellone</a>
+    </nav>
+  </footer>
+
+</div>
+<script>
+(function () {
+  function campi(riga) { return riga.split('","').map(function (c) { return c.replace(/"/g, ''); }); }
+  function metti(id, v) { var e = document.getElementById(id); if (e && v) e.textContent = v + '%'; }
+  Promise.all([
+    fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
+    fetch('/app/Euribor/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
+  ]).then(function (t) {
+    var e = campi(t[0].trim().split(/\r?\n/)[1]);   // Date,Wd,1W,?,1M,?,3M,?,12M — vedi intestazione reale
+    var testa = campi(t[0].trim().split(/\r?\n/)[0]);
+    var idx = {};
+    testa.forEach(function (nome, i) { idx[nome] = i; });
+    metti('t-1w',  e[idx['1W']]);
+    metti('t-1m',  e[idx['1M']]);
+    metti('t-3m',  e[idx['3M']]);
+    metti('t-6m',  e[idx['6M']]);
+    metti('t-12m', e[idx['12M']]);
+    var s = campi(t[1].trim().split(/\r?\n/)[1]);
+    metti('t-estr', s[2]);
+    document.getElementById('t-quando').textContent =
+      'Euribor: fixing del ' + e[0] + ' · €STR: fixing del ' + s[0] + ' — gli stessi CSV che scarica l\u2019app';
+  }).catch(function () {
+    document.getElementById('t-quando').textContent = 'Fixing non raggiungibili in questo momento — i dati restano nei CSV.';
+  });
+})();
+</script>
+</body>
+</html>
