@@ -484,3 +484,5 @@
   .app-hero { padding: 36px 0 4px; }
   .scheda-tecnica div { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
 }
+
+.cifra__valore .gesso-num { color: var(--gesso); }

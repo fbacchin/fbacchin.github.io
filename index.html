@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>fbacchin — app che tengono il conto</title>
-<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Gottardo Live, Burraco Score, Arcana, ONON Tracker, simulatore ranking ATP.">
+<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Libor X, Gottardo Live, Burraco Score, Arcana, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
@@ -32,7 +32,7 @@
   <div class="apertura">
     <h1>Cose che<br><span class="h1__seconda">cambiano</span></h1>
     <p class="tesi">
-      Sette app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
+      Otto app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
       punteggio, un fixing, una coda al tunnel, un titolo, un ranking — e renderlo
       leggibile in due secondi.
     </p>
@@ -64,7 +64,16 @@
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
-      <li class="riga entra" style="animation-delay:.15s">
+      <li class="riga entra" style="animation-delay:.13s">
+        <div>
+          <div class="riga__nome"><a href="LiborX.html">Libor X</a></div>
+          <div class="riga__che">I successori del LIBOR in una schermata: SOFR e Term SOFR, SONIA, SARON, TONAR. Storici e confronto tra mercati, su iPhone e iPad.</div>
+        </div>
+        <div class="riga__dato" id="dato-sofr" data-stato="attesa">carico…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.17s">
         <div>
           <div class="riga__nome"><a href="gotthard.html">Gottardo Live</a></div>
           <div class="riga__che">Code, attese e webcam al tunnel del San Gottardo, dal feed ufficiale VMZ-CH. Notifica quando la coda si forma.</div>
@@ -73,7 +82,7 @@
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
-      <li class="riga entra" style="animation-delay:.22s">
+      <li class="riga entra" style="animation-delay:.25s">
         <div>
           <div class="riga__nome"><a href="Burraco.html">Burraco Score</a></div>
           <div class="riga__che">Il tabellone del burraco: uno contro uno o a coppie, mani illimitate, mazziere che ruota da solo. Anche in versione Light.</div>
@@ -85,7 +94,7 @@
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
-      <li class="riga entra" style="animation-delay:.29s">
+      <li class="riga entra" style="animation-delay:.33s">
         <div>
           <div class="riga__nome"><a href="tarocchi.html">Arcana · Tarocchi</a></div>
           <div class="riga__che">Rifletti e Decidi: gli Arcani Maggiori come specchio simbolico. Non predice il futuro, e lo dice.</div>
@@ -231,6 +240,25 @@
     })
     .catch(function () {
       var el = document.getElementById('dato-estr');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
+    });
+
+  /* SOFR overnight — la colonna ON del CSV SOFR */
+  fetch('/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    .then(function (testo) {
+      var righe = testo.trim().split(/\r?\n/);
+      var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
+      var v = Math.round(parseFloat(campi[2]) * 1000) / 1000;
+      var el = document.getElementById('dato-sofr');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        'SOFR <span class="misura">' + v.toFixed(3) + '%</span>',
+        'overnight · ' + campi[0]);
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-sofr');
       el.dataset.stato = 'assente';
       el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
     });
