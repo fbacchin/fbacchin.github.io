@@ -16,7 +16,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
-  html, body { overflow-x: clip; }
 
   body {
     background: var(--ardesia);
@@ -83,12 +82,10 @@
   h1 {
     font-variation-settings: 'wdth' 125;
     font-weight: 800;
-    font-size: clamp(40px, 11vw, 96px);
+    font-size: clamp(52px, 12vw, 96px);
     line-height: 0.86;
     letter-spacing: -0.03em;
     text-transform: uppercase;
-    overflow-wrap: anywhere;
-    min-width: 0;
   }
   h1 .h1__seconda { color: var(--ambra); }
 
