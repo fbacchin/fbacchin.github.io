@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>fbacchin — app che tengono il conto</title>
-<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Libor X, Mortgage Calculator, Gottardo Live, Burraco Score, Arcana, ONON Tracker, simulatore ranking ATP.">
+<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Libor X, Mortgage e Leasing Calculator, Gottardo Live, Burraco Score, Arcana, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
@@ -32,7 +32,7 @@
   <div class="apertura">
     <h1>Cose che<br><span class="h1__seconda">cambiano</span></h1>
     <p class="tesi">
-      Nove app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
+      Undici app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
       punteggio, un fixing, una coda al tunnel, un titolo, un ranking — e renderlo
       leggibile in due secondi.
     </p>
@@ -87,6 +87,18 @@
 
       <li class="riga entra" style="animation-delay:.21s">
         <div>
+          <div class="riga__nome"><a href="Leasing.html">Leasing Calculator</a></div>
+          <div class="riga__che">Rata di leasing con maxicanone e riscatto, piano riga per riga, e il confronto fra cinque scenari per ciascuna leva.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">5</span> scenari per leva
+          <span class="quando">maxicanone e riscatto</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.25s">
+        <div>
           <div class="riga__nome"><a href="gotthard.html">Gottardo Live</a></div>
           <div class="riga__che">Code, attese e webcam al tunnel del San Gottardo, dal feed ufficiale VMZ-CH. Notifica quando la coda si forma.</div>
         </div>
@@ -94,7 +106,7 @@
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
-      <li class="riga entra" style="animation-delay:.29s">
+      <li class="riga entra" style="animation-delay:.33s">
         <div>
           <div class="riga__nome"><a href="Burraco.html">Burraco Score</a></div>
           <div class="riga__che">Il tabellone del burraco: uno contro uno o a coppie, mani illimitate, mazziere che ruota da solo. Anche in versione Light.</div>
@@ -107,6 +119,15 @@
       </li>
 
       <li class="riga entra" style="animation-delay:.37s">
+        <div>
+          <div class="riga__nome"><a href="codici.html">Codice di Gara Burraco</a></div>
+          <div class="riga__che">I regolamenti ufficiali FIBur e FITaB, con l’indice che apre il documento sulla pagina giusta. Anche offline.</div>
+        </div>
+        <div class="riga__dato" id="dato-codici" data-stato="attesa">carico…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.41s">
         <div>
           <div class="riga__nome"><a href="tarocchi.html">Arcana · Tarocchi</a></div>
           <div class="riga__che">Rifletti e Decidi: gli Arcani Maggiori come specchio simbolico. Non predice il futuro, e lo dice.</div>
@@ -285,6 +306,24 @@
       var el = document.getElementById('dato-sofr');
       el.dataset.stato = 'assente';
       el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
+    });
+
+  /* Codici di gara — le edizioni dal manifesto */
+  fetch('/app/codici/manifest.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      var c = d.codici || [];
+      var el = document.getElementById('dato-codici');
+      el.dataset.stato = 'vivo';
+      var voci = c.reduce(function (n, x) { return n + ((x.indice && x.indice.voci) || 0); }, 0);
+      assesta(el,
+        '<span class="misura">' + voci + '</span> articoli indicizzati',
+        c.map(function (x) { return x.nome + ' ' + x.edizione; }).join(' · '));
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-codici');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'FIBur e FITaB<span class="quando">edizioni ufficiali complete</span>';
     });
 
   /* Gottardo — stesso campione che legge l'app */
