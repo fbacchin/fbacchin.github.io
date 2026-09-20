@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>fbacchin — app che tengono il conto</title>
-<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Libor X, Mortgage e Leasing Calculator, Gottardo Live, Burraco Score, Arcana, ONON Tracker, simulatore ranking ATP.">
+<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Libor X, Mortgage e Leasing Calculator, Gottardo Live, Burraco Score, Perspecta, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
@@ -129,12 +129,12 @@
 
       <li class="riga entra" style="animation-delay:.41s">
         <div>
-          <div class="riga__nome"><a href="tarocchi.html">Arcana · Tarocchi</a></div>
-          <div class="riga__che">Rifletti e Decidi: gli Arcani Maggiori come specchio simbolico. Non predice il futuro, e lo dice.</div>
+          <div class="riga__nome"><a href="perspecta.html">Perspecta</a></div>
+          <div class="riga__che">Diario riflessivo: scrivi ciò che hai in mente e lo esplori con domande scritte su misura. Aiuta a pensare, non predice.</div>
         </div>
         <div class="riga__dato" data-stato="fermo">
-          <span class="misura">22</span> arcani · <span class="misura">4</span> stese
-          <span class="quando">3 crediti per iniziare</span>
+          <span class="misura">4</span> esercizi guidati
+          <span class="quando">3 riflessioni per iniziare</span>
         </div>
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
@@ -280,7 +280,7 @@
       var el = document.getElementById('dato-estr');
       el.dataset.stato = 'vivo';
       assesta(el,
-        '\u20acSTR <span class="misura">' + campi[2] + '%</span>',
+        '\u20acSTR <span class="misura">' + (Math.round(parseFloat(campi[2]) * 1000) / 1000).toFixed(3) + '%</span>',
         'fixing del ' + campi[0]);
     })
     .catch(function () {

@@ -76,7 +76,10 @@
 <script>
 (function () {
   function campi(riga) { return riga.split('","').map(function (c) { return c.replace(/"/g, ''); }); }
-  function metti(id, v) { var e = document.getElementById(id); if (e && v) e.textContent = v + '%'; }
+  function metti(id, v) {
+    var e = document.getElementById(id);
+    if (e && v) e.textContent = (Math.round(parseFloat(v) * 1000) / 1000).toFixed(3) + '%';
+  }
   Promise.all([
     fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
     fetch('/app/Euribor/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
