@@ -1,0 +1,35 @@
+name: Euribor oggi
+# Rigenera euribor-oggi.html dai CSV pubblici dei tassi (repository app, cartella
+# Euribor/) e la pubblica. I cron di GitHub sono "best effort", e il CSV non si
+# aggiorna a un'ora fissa: quattro passaggi al giorno coprono entrambe le cose.
+# Se il fixing non è cambiato la pagina esce identica e non si committa niente.
+on:
+  schedule:
+    - cron: "30 6,10,14,18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: euribor-oggi
+  cancel-in-progress: false
+
+jobs:
+  genera:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Genera la pagina
+        run: python3 strumenti/euribor_oggi.py
+      - name: Pubblica se è cambiata
+        run: |
+          if git diff --quiet; then
+            echo "Nessun fixing nuovo: niente da pubblicare."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add euribor-oggi.html sitemap.xml
+          git commit -m "Euribor oggi: nuovo fixing"
+          git push

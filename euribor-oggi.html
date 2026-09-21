@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Euribor oggi, 18 settembre: 3 mesi 2,620%, 12 mesi 3,343%</title>
+<meta name="description" content="Euribor di venerdì 18 settembre 2026: 1 mese 2,473%, 3 mesi 2,620%, 6 mesi 2,978%, 12 mesi 3,343%. Variazioni, grafico di un anno e cosa significa per la rata del mutuo.">
+<meta property="og:title" content="Euribor oggi, 18 settembre: 3 mesi 2,620%, 12 mesi 3,343%">
+<meta property="og:description" content="Euribor di venerdì 18 settembre 2026: 1 mese 2,473%, 3 mesi 2,620%, 6 mesi 2,978%, 12 mesi 3,343%. Variazioni, grafico di un anno e cosa significa per la rata del mutuo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bacchin.app/euribor-oggi">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/stile.css?v=2026-09-21c">
+<link rel="canonical" href="https://bacchin.app/euribor-oggi">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Che cos'è l'Euribor?", "acceptedAnswer": {"@type": "Answer", "text": "È il tasso medio a cui le principali banche dell'area euro si prestano denaro senza garanzie. Lo calcola ogni giorno lavorativo l'EMMI (European Money Markets Institute) per cinque scadenze: 1 settimana, 1, 3, 6 e 12 mesi. È l'indice a cui è agganciata la maggior parte dei mutui e dei finanziamenti a tasso variabile in Italia."}}, {"@type": "Question", "name": "Quale Euribor usa il mio mutuo?", "acceptedAnswer": {"@type": "Answer", "text": "Lo trovi nel contratto, alla voce che descrive il tasso: di solito è l'Euribor a 1 o a 3 mesi, più uno spread fisso stabilito dalla banca. Il contratto dice anche ogni quanto la rata viene ricalcolata e quale fixing si usa, per esempio la media del mese precedente o il valore di un giorno preciso."}}, {"@type": "Question", "name": "Quando viene pubblicato?", "acceptedAnswer": {"@type": "Answer", "text": "L'EMMI pubblica l'Euribor ogni giorno lavorativo del calendario TARGET, verso le 11 ora di Bruxelles. Questa pagina si aggiorna in automatico quando il nuovo fixing è disponibile nei dati pubblici, di norma entro il giorno lavorativo successivo. Nei fine settimana e nei festivi TARGET non esce nessun fixing."}}, {"@type": "Question", "name": "Che cos'è l'€STR?", "acceptedAnswer": {"@type": "Answer", "text": "È il tasso a un giorno (overnight) del mercato monetario in euro, calcolato dalla Banca Centrale Europea. Misura il costo del denaro da un giorno all'altro ed è il riferimento più vicino alle decisioni della BCE; l'Euribor a 1 settimana gli si muove intorno."}}, {"@type": "Question", "name": "Cosa vuol dire «pb»?", "acceptedAnswer": {"@type": "Answer", "text": "Punti base: un centesimo di punto percentuale. Se l'Euribor passa dal 2,620% al 2,633% è salito di 1,3 punti base."}}]}</script>
+<style>
+  .dato-grande__griglia { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .cifra__var { font-family: var(--dato); font-size: 12px; color: var(--nebbia); margin-top: 2px; white-space: nowrap; }
+  .tabella { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; }
+  .tabella th, .tabella td { padding: 10px 8px; border-bottom: 1px solid var(--linea); text-align: left; }
+  .tabella thead th { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--nebbia); font-weight: 600; }
+  .tabella .num { font-family: var(--dato); text-align: right; white-space: nowrap; }
+  .tabella .nota { color: var(--nebbia); font-size: 13px; font-weight: 400; }
+  .scorre { overflow-x: auto; }
+  @media (max-width: 700px) {
+    .tabella { font-size: 13.5px; }
+    .tabella th, .tabella td { padding: 9px 5px; }
+    .tabella tr > :nth-child(4), .tabella tr > :nth-child(6) { display: none; }
+    .tabella .nota { display: block; }
+  }
+  .grafico { width: 100%; height: auto; margin-top: 8px; }
+  .g-riga { stroke: var(--linea); stroke-width: 1; }
+  .g-asse { fill: var(--nebbia); font-family: var(--dato); font-size: 13px; }
+  .g-linea { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
+  .g-3m { stroke: var(--ambra); }
+  .g-12m { stroke: var(--gesso); opacity: .75; }
+  .legenda { font-family: var(--dato); font-size: 12px; color: var(--nebbia); margin-top: 6px; }
+  .legenda .a { color: var(--ambra); } .legenda .g { color: var(--gesso); }
+  .racconto h3 { font-size: 17px; margin: 22px 0 6px; }
+  .invito { margin-top: 36px; padding: 22px; background: var(--pannello); border: 1px solid var(--linea); border-radius: 14px; }
+  .invito a { color: var(--ambra); }
+</style>
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/#t-app">Tutte le app</a>
+  </header>
+
+  <div class="app-hero">
+    <h1>Euribor oggi</h1>
+    <p class="tesi">I tassi Euribor del <strong>fixing di venerdì 18 settembre 2026</strong>, con la variazione rispetto al giorno prima, il grafico dell'ultimo anno e <strong>cosa significa per la rata di un mutuo variabile</strong>. La pagina si aggiorna da sola ogni giorno lavorativo.</p>
+    <div class="dato-grande">
+      <div class="dato-grande__griglia">
+        <div class="cifra"><div class="cifra__nome">€STR</div><div class="cifra__valore">2,440%</div><div class="cifra__var">▼ −0,1 pb</div></div><div class="cifra"><div class="cifra__nome">1 settimana</div><div class="cifra__valore">2,357%</div><div class="cifra__var">▲ +0,3 pb</div></div><div class="cifra"><div class="cifra__nome">1 mese</div><div class="cifra__valore">2,473%</div><div class="cifra__var">▼ −0,2 pb</div></div><div class="cifra"><div class="cifra__nome">3 mesi</div><div class="cifra__valore">2,620%</div><div class="cifra__var">▼ −1,3 pb</div></div><div class="cifra"><div class="cifra__nome">6 mesi</div><div class="cifra__valore">2,978%</div><div class="cifra__var">▲ +1,6 pb</div></div><div class="cifra"><div class="cifra__nome">12 mesi</div><div class="cifra__valore">3,343%</div><div class="cifra__var">▼ −0,2 pb</div></div>
+      </div>
+      <div class="dato-grande__quando">Euribor: fixing del 18 settembre 2026 · €STR: 17 settembre 2026 · variazioni in punti base (pb) rispetto al fixing precedente</div>
+    </div>
+  </div>
+
+  <div class="racconto">
+    <h2>La lettura di oggi</h2>
+    <p>Nel fixing di venerdì 18 settembre 2026 l'Euribor a 3 mesi è sceso di 1,3 pb, a 2,620%. È il 3° ribasso di fila. In un mese è salito di 12 pb: il 18 agosto 2026 era a 2,500%. Negli ultimi dodici mesi è andato da un minimo di 1,980% (25 settembre 2025) a un massimo di 2,682% (15 settembre 2026).</p>
+    <p>L'Euribor a 12 mesi (3,343%) è sopra quello a 3 mesi di 72 punti base. Quando la scadenza lunga rende più di quella corta, il mercato non si aspetta tagli dei tassi nei prossimi mesi: semmai tassi stabili o in leggera salita.</p>
+    <p>Su un mutuo a tasso variabile da 100.000 € a 20 anni, indicizzato all'Euribor 3 mesi con uno spread dell'1%, la rata con l'ultimo fixing è di circa 586 € al mese: 30 € in più rispetto a un anno fa, quando l'indice era a 2,029%.</p>
+
+    <h2>Le variazioni</h2>
+    <div class="scorre">
+    <table class="tabella">
+      <thead><tr><th scope="col">Tasso</th><th scope="col" class="num">Valore</th><th scope="col" class="num">Giorno</th><th scope="col" class="num">Settimana</th><th scope="col" class="num">Mese</th><th scope="col" class="num">Anno</th></tr></thead>
+      <tbody>
+      <tr><th scope="row">Euribor 1 settimana</th><td class="num">2,357%</td><td class="num">+0,3 pb</td><td class="num">+12,0 pb</td><td class="num">+19,5 pb</td><td class="num">+42,0 pb</td></tr><tr><th scope="row">Euribor 1 mese</th><td class="num">2,473%</td><td class="num">−0,2 pb</td><td class="num">+8,5 pb</td><td class="num">+27,2 pb</td><td class="num">+54,3 pb</td></tr><tr><th scope="row">Euribor 3 mesi</th><td class="num">2,620%</td><td class="num">−1,3 pb</td><td class="num">−2,7 pb</td><td class="num">+12,0 pb</td><td class="num">+59,1 pb</td></tr><tr><th scope="row">Euribor 6 mesi</th><td class="num">2,978%</td><td class="num">+1,6 pb</td><td class="num">+15,8 pb</td><td class="num">+28,1 pb</td><td class="num">+88,0 pb</td></tr><tr><th scope="row">Euribor 12 mesi</th><td class="num">3,343%</td><td class="num">−0,2 pb</td><td class="num">+18,3 pb</td><td class="num">+38,7 pb</td><td class="num">+118,3 pb</td></tr><tr><th scope="row">€STR <span class="nota">(17 settembre 2026)</span></th><td class="num">2,440%</td><td class="num">−0,1 pb</td><td class="num">+25,0 pb</td><td class="num">+25,3 pb</td><td class="num">+51,3 pb</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>Gli ultimi dodici mesi</h2>
+    <svg class="grafico" viewBox="0 0 1000 320" role="img" aria-label="Euribor 3 e 12 mesi, ultimi dodici mesi">
+<line x1="56" x2="984" y1="286.0" y2="286.0" class="g-riga"/><text x="48" y="290.0" class="g-asse" text-anchor="end">1,50%</text>
+<line x1="56" x2="984" y1="218.5" y2="218.5" class="g-riga"/><text x="48" y="222.5" class="g-asse" text-anchor="end">2,00%</text>
+<line x1="56" x2="984" y1="151.0" y2="151.0" class="g-riga"/><text x="48" y="155.0" class="g-asse" text-anchor="end">2,50%</text>
+<line x1="56" x2="984" y1="83.5" y2="83.5" class="g-riga"/><text x="48" y="87.5" class="g-asse" text-anchor="end">3,00%</text>
+<line x1="56" x2="984" y1="16.0" y2="16.0" class="g-riga"/><text x="48" y="20.0" class="g-asse" text-anchor="end">3,50%</text>
+<text x="89.1" y="310" class="g-asse" text-anchor="middle">ott 25</text>
+<text x="323.0" y="310" class="g-asse" text-anchor="middle">gen 26</text>
+<text x="551.8" y="310" class="g-asse" text-anchor="middle">apr 26</text>
+<text x="783.1" y="310" class="g-asse" text-anchor="middle">lug 26</text>
+<polyline points="56.0,214.6 58.5,216.3 66.2,218.0 68.7,219.0 71.3,219.4 73.8,221.2 76.3,218.5 84.0,216.3 86.5,214.2 89.1,216.2 91.6,218.5 94.1,215.8 101.8,215.0 104.3,214.6 106.8,215.9 109.4,215.1 111.9,217.3 119.6,215.0 122.1,215.7 124.6,216.3 127.2,218.0 129.7,217.2 137.4,216.5 139.9,213.4 142.4,209.6 145.0,209.7 147.5,208.8 155.2,207.2 157.7,208.5 160.2,209.6 162.8,211.8 165.3,213.1 173.0,215.4 175.5,216.6 178.0,219.8 180.6,218.8 183.1,217.3 190.8,217.8 193.3,214.2 195.8,212.0 198.4,209.9 200.9,209.2 208.5,212.0 211.1,211.6 213.6,209.6 216.2,211.2 218.7,212.2 226.3,210.5 228.9,209.6 231.4,209.2 234.0,210.3 236.5,210.4 244.1,210.4 246.7,212.7 249.2,214.6 251.8,211.1 254.3,208.4 261.9,209.2 264.5,206.6 267.0,207.4 269.6,205.0 272.1,207.4 279.7,208.8 282.3,210.8 284.8,211.9 287.4,213.8 289.9,218.2 297.5,215.5 300.1,216.1 315.3,215.9 317.9,216.3 320.4,215.0 325.5,214.6 333.1,213.9 335.7,215.0 338.2,214.2 340.8,214.3 343.3,215.9 350.9,215.8 353.5,216.3 356.0,216.3 358.6,215.0 361.1,214.0 368.7,214.6 371.3,214.9 373.8,213.9 376.4,214.5 378.9,213.4 386.5,213.4 389.1,213.2 391.6,215.0 394.1,215.8 396.7,214.3 404.3,215.5 406.9,214.6 409.4,213.1 411.9,215.8 414.5,218.6 422.1,220.9 424.7,221.1 427.2,219.3 429.7,220.7 432.3,218.6 439.9,218.6 442.5,217.0 445.0,217.7 447.5,215.3 450.1,215.3 457.7,213.9 460.3,213.0 462.8,217.0 465.3,216.7 467.9,216.7 475.5,215.0 478.0,213.8 480.6,210.9 483.1,212.3 485.7,211.9 493.3,208.0 495.8,199.9 498.4,202.0 500.9,198.2 503.5,197.3 511.1,197.3 513.6,198.5 516.2,202.2 518.7,203.9 521.3,203.5 528.9,201.1 531.4,194.5 534.0,200.3 536.5,200.3 539.1,201.4 546.7,202.0 549.2,207.8 551.8,208.4 554.3,204.6 567.0,195.6 569.6,196.6 572.1,198.2 574.7,191.8 582.3,191.0 584.8,185.7 587.4,186.1 589.9,186.4 592.5,191.0 600.1,192.3 602.6,195.8 605.2,196.8 607.7,196.2 610.3,196.5 617.9,195.6 620.4,198.2 623.0,198.4 625.5,191.6 635.7,191.5 638.2,189.1 640.8,186.1 643.3,185.0 645.9,186.9 653.5,184.2 656.0,184.5 658.6,180.3 661.1,186.2 663.6,187.2 671.3,188.9 673.8,191.4 676.4,194.1 678.9,192.2 681.4,191.0 689.1,191.0 691.6,192.8 694.2,187.6 696.7,187.3 699.2,182.3 706.9,185.4 709.4,181.2 712.0,178.1 714.5,176.5 717.0,176.4 724.7,171.1 727.2,168.1 729.8,164.9 732.3,164.4 734.8,167.2 742.5,163.6 745.0,163.4 747.6,162.2 750.1,166.4 752.6,173.9 760.3,176.2 762.8,174.8 765.3,177.6 767.9,178.9 770.4,179.2 778.1,175.7 780.6,174.8 783.1,176.4 785.7,173.3 788.2,175.2 795.9,175.2 798.4,176.2 800.9,170.8 803.5,167.5 806.0,162.9 813.7,160.3 816.2,157.5 818.7,152.3 821.3,153.0 823.8,153.3 831.5,151.9 834.0,154.4 836.5,156.9 839.1,154.8 841.6,152.6 849.2,157.2 851.8,158.4 854.3,156.5 856.9,154.8 859.4,153.2 867.0,156.3 869.6,151.3 872.1,151.8 874.7,154.1 877.2,154.5 884.8,154.4 887.4,152.3 889.9,150.3 892.5,149.5 895.0,149.9 902.6,150.9 905.2,151.0 907.7,152.1 910.3,150.1 912.8,147.8 920.4,146.0 923.0,144.9 925.5,143.7 928.1,143.3 930.6,141.1 938.2,138.4 940.8,136.4 943.3,131.3 945.9,130.1 948.4,126.8 956.0,128.2 958.6,132.8 961.1,134.0 963.7,131.7 966.2,131.2 973.8,128.9 976.4,126.4 978.9,129.3 981.5,133.0 984.0,134.8" class="g-linea g-3m"/>
+<polyline points="56.0,196.9 58.5,197.7 66.2,197.0 68.7,196.9 71.3,195.4 73.8,194.3 76.3,194.3 84.0,193.0 86.5,192.4 89.1,191.0 91.6,188.3 94.1,188.3 101.8,188.0 104.3,188.4 106.8,189.3 109.4,190.3 111.9,191.2 119.6,191.4 122.1,193.9 124.6,196.5 127.2,196.1 129.7,196.4 137.4,199.7 139.9,197.3 142.4,197.4 145.0,197.4 147.5,197.0 155.2,194.9 157.7,192.2 160.2,193.5 162.8,193.4 165.3,192.0 173.0,191.6 175.5,190.7 178.0,189.9 180.6,190.0 183.1,189.9 190.8,190.0 193.3,189.3 195.8,188.3 198.4,186.9 200.9,186.8 208.5,186.8 211.1,187.0 213.6,187.6 216.2,188.7 218.7,188.8 226.3,190.3 228.9,190.7 231.4,190.7 234.0,190.2 236.5,190.3 244.1,187.9 246.7,185.6 249.2,184.6 251.8,184.2 254.3,184.2 261.9,185.3 264.5,182.3 267.0,180.2 269.6,178.3 272.1,178.8 279.7,176.7 282.3,176.0 284.8,179.2 287.4,182.9 289.9,182.6 297.5,182.2 300.1,182.7 315.3,183.7 317.9,184.8 320.4,185.7 325.5,185.4 333.1,184.1 335.7,183.3 338.2,183.5 340.8,185.2 343.3,184.6 350.9,184.9 353.5,184.8 356.0,184.6 358.6,184.3 361.1,185.0 368.7,183.5 371.3,186.6 373.8,187.7 376.4,189.3 378.9,185.7 386.5,185.2 389.1,184.9 391.6,185.3 394.1,187.7 396.7,188.0 404.3,189.1 406.9,188.1 409.4,186.9 411.9,188.1 414.5,187.9 422.1,188.5 424.7,187.9 427.2,187.3 429.7,185.3 432.3,185.0 439.9,186.6 442.5,189.3 445.0,191.8 447.5,191.8 450.1,190.8 457.7,190.8 460.3,190.7 462.8,190.4 465.3,189.2 467.9,188.5 475.5,187.6 478.0,187.2 480.6,177.1 483.1,175.8 485.7,174.9 493.3,169.0 495.8,144.0 498.4,168.7 500.9,156.9 503.5,148.0 511.1,145.6 513.6,144.7 516.2,147.2 518.7,147.8 521.3,129.7 528.9,118.6 531.4,93.1 534.0,108.9 536.5,107.8 539.1,102.4 546.7,92.7 549.2,101.0 551.8,104.4 554.3,110.6 567.0,100.8 569.6,102.4 572.1,126.7 574.7,122.0 582.3,122.9 584.8,115.0 587.4,116.4 589.9,120.9 592.5,126.0 600.1,123.7 602.6,130.1 605.2,132.1 607.7,125.8 610.3,119.3 617.9,115.5 620.4,119.8 623.0,115.2 625.5,104.0 635.7,99.3 638.2,105.5 640.8,101.5 643.3,111.2 645.9,122.9 653.5,113.5 656.0,110.8 658.6,102.4 661.1,107.7 663.6,108.5 671.3,106.4 673.8,104.0 676.4,107.1 678.9,106.7 681.4,113.2 689.1,112.9 691.6,121.0 694.2,118.3 696.7,115.8 699.2,110.0 706.9,115.8 709.4,112.4 712.0,110.4 714.5,103.6 717.0,104.8 724.7,108.3 727.2,101.6 729.8,105.0 732.3,104.3 734.8,100.5 742.5,111.0 745.0,116.6 747.6,116.0 750.1,117.5 752.6,112.0 760.3,109.3 762.8,108.2 765.3,113.1 767.9,112.5 770.4,115.4 778.1,119.7 780.6,120.2 783.1,120.4 785.7,119.5 788.2,122.8 795.9,124.9 798.4,124.7 800.9,119.0 803.5,108.7 806.0,106.3 813.7,110.5 816.2,107.1 818.7,94.8 821.3,100.2 823.8,100.6 831.5,99.6 834.0,94.6 836.5,95.4 839.1,90.7 841.6,84.4 849.2,85.9 851.8,91.2 854.3,91.5 856.9,89.2 859.4,88.4 867.0,91.7 869.6,93.4 872.1,92.9 874.7,99.2 877.2,97.3 884.8,96.3 887.4,95.2 889.9,89.3 892.5,91.2 895.0,91.7 902.6,92.0 905.2,89.4 907.7,86.6 910.3,84.8 912.8,83.1 920.4,84.4 923.0,85.0 925.5,82.6 928.1,89.4 930.6,86.1 938.2,83.1 940.8,79.6 943.3,74.3 945.9,68.8 948.4,68.9 956.0,67.8 958.6,67.7 961.1,64.9 963.7,64.9 966.2,61.9 973.8,41.4 976.4,39.5 978.9,33.0 981.5,36.9 984.0,37.2" class="g-linea g-12m"/>
+</svg>
+    <p class="legenda"><span class="a">━ Euribor 3 mesi</span> &nbsp; <span class="g">━ Euribor 12 mesi</span></p>
+
+    <div class="invito">
+      <p><strong>Lo stesso, sul telefono.</strong> <a href="https://apps.apple.com/it/app/id951735963">Euribor X Light</a> mostra i fixing di ogni giorno con i grafici storici e un simulatore di mutuo, anche senza rete. Gratis su iPhone e iPad.</p>
+      <p>Per esplorare tutto lo storico e confrontarlo con il tasso BCE c'è la <a href="https://fbacchin.github.io/finance/ecb_euribor_dashboard.html">dashboard BCE &amp; Euribor</a>.</p>
+    </div>
+
+    <h2>Domande frequenti</h2>
+    <h3>Che cos'è l'Euribor?</h3>
+    <p>È il tasso medio a cui le principali banche dell'area euro si prestano denaro senza garanzie. Lo calcola ogni giorno lavorativo l'EMMI (European Money Markets Institute) per cinque scadenze: 1 settimana, 1, 3, 6 e 12 mesi. È l'indice a cui è agganciata la maggior parte dei mutui e dei finanziamenti a tasso variabile in Italia.</p>
+    <h3>Quale Euribor usa il mio mutuo?</h3>
+    <p>Lo trovi nel contratto, alla voce che descrive il tasso: di solito è l'Euribor a 1 o a 3 mesi, più uno spread fisso stabilito dalla banca. Il contratto dice anche ogni quanto la rata viene ricalcolata e quale fixing si usa, per esempio la media del mese precedente o il valore di un giorno preciso.</p>
+    <h3>Quando viene pubblicato?</h3>
+    <p>L'EMMI pubblica l'Euribor ogni giorno lavorativo del calendario TARGET, verso le 11 ora di Bruxelles. Questa pagina si aggiorna in automatico quando il nuovo fixing è disponibile nei dati pubblici, di norma entro il giorno lavorativo successivo. Nei fine settimana e nei festivi TARGET non esce nessun fixing.</p>
+    <h3>Che cos'è l'€STR?</h3>
+    <p>È il tasso a un giorno (overnight) del mercato monetario in euro, calcolato dalla Banca Centrale Europea. Misura il costo del denaro da un giorno all'altro ed è il riferimento più vicino alle decisioni della BCE; l'Euribor a 1 settimana gli si muove intorno.</p>
+    <h3>Cosa vuol dire «pb»?</h3>
+    <p>Punti base: un centesimo di punto percentuale. Se l'Euribor passa dal 2,620% al 2,633% è salito di 1,3 punti base.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Dati</dt><dd>Euribor (EMMI) ed €STR (BCE) — <a href="https://fbacchin.github.io/app/Euribor/EURIBOR.csv">EURIBOR.csv</a> · <a href="https://fbacchin.github.io/app/Euribor/ESTER.csv">ESTER.csv</a>, le stesse serie usate dall'app</dd></div>
+      <div><dt>Esempio di rata</dt><dd>Mutuo da 100.000 € a 20 anni, rata mensile ad ammortamento francese, Euribor 3 mesi + 1%. È un esempio: la rata vera dipende da contratto, spread e calendario di revisione.</dd></div>
+      <div><dt>Aggiornamento</dt><dd>Ogni giorno lavorativo, in automatico</dd></div>
+    </dl>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>
+      <a href="/">Tabellone</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
