@@ -90,7 +90,9 @@
   h1 .h1__seconda { color: var(--ambra); }
 
   .tesi {
-    max-width: 46ch;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
     margin-top: 26px;
     color: var(--nebbia);
     font-size: 19px;
@@ -234,7 +236,9 @@
     margin: 0 0 6px;
   }
   .sezione__intro {
-    max-width: 52ch;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
     color: var(--nebbia);
     font-size: 16px;
     margin-bottom: 24px;
@@ -305,7 +309,7 @@
     border-radius: 14px;
     padding: 24px 22px;
   }
-  .officina p { color: var(--nebbia); font-size: 15px; max-width: 60ch; }
+  .officina p { color: var(--nebbia); font-size: 15px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
   .officina p + p { margin-top: 10px; }
   .officina a { color: var(--gesso); text-decoration: none; border-bottom: 1px solid var(--ambra); }
   .officina a:hover { color: var(--ambra); }
@@ -429,7 +433,9 @@
   margin: 44px 0 12px;
 }
 .racconto p {
-  max-width: 62ch;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
   color: var(--nebbia);
   font-size: 16.5px;
 }
