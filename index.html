@@ -254,7 +254,7 @@
   }
 
   /* Euribor — stesso CSV che legge l'app */
-  fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -273,7 +273,7 @@
     });
 
   /* €STR — la colonna ON di ESTER.csv */
-  fetch('/app/Euribor/ESTER.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -291,7 +291,7 @@
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
-  fetch('/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -310,7 +310,7 @@
     });
 
   /* Codici di gara — le edizioni dal manifesto */
-  fetch('/app/codici/manifest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/codici/manifest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       var c = d.codici || [];
@@ -328,7 +328,7 @@
     });
 
   /* Gottardo — stesso campione che legge l'app */
-  fetch('/app/gotthard/data/latest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       function verso(v) {

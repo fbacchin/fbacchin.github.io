@@ -82,7 +82,7 @@
 </div>
 <script>
 (function () {
-  fetch('/app/codici/manifest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/codici/manifest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       var voci = 0;

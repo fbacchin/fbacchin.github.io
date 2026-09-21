@@ -84,8 +84,8 @@
     if (e && v) e.textContent = (Math.round(parseFloat(v) * 1000) / 1000).toFixed(3) + '%';
   }
   Promise.all([
-    fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
-    fetch('/app/Euribor/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
+    fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
   ]).then(function (t) {
     var e = campi(t[0].trim().split(/\r?\n/)[1]);   // Date,Wd,1W,?,1M,?,3M,?,12M — vedi intestazione reale
     var testa = campi(t[0].trim().split(/\r?\n/)[0]);

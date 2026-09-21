@@ -74,7 +74,7 @@
 </div>
 <script>
 (function () {
-  fetch('/app/gotthard/data/latest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       function scrivi(id, v) {

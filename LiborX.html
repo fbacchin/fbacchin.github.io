@@ -91,7 +91,7 @@
   ];
   var date = [];
   Promise.all(fonti.map(function (f) {
-    return fetch('/app/Euribor/' + f[1] + '.csv', { cache: 'no-store' })
+    return fetch('https://fbacchin.github.io/app/Euribor/' + f[1] + '.csv', { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw 0; return r.text(); })
       .then(function (t) {
         var c = ultima(t);
