@@ -1,4 +1,4 @@
-/* Versione del foglio di stile: le pagine lo richiamano come stile.css?v=2026-09-21b.
+/* Versione del foglio di stile: le pagine lo richiamano come stile.css?v=2026-09-21c.
    Dopo ogni modifica a questo file, cambiare ?v= in TUTTE le pagine .html,
    altrimenti i browser che hanno già visitato il sito continuano a usare la copia vecchia. */
 
@@ -499,17 +499,9 @@
 
 /* ── schermi larghi (PC) ─────────────────────────────────────────────
    Sotto i 1100px il layout resta quello di sempre. Sopra, la colonna si
-   allarga e i testi crescono di pari passo, perché righe più lunghe
-   restino leggibili. */
+   allarga fino a 1080px; i caratteri restano della stessa dimensione. */
 @media (min-width: 1100px) {
-  .foglio { max-width: 1180px; padding-left: 40px; padding-right: 40px; }
-  .tesi { font-size: 22px; }
-  .sezione__intro { font-size: 17.5px; }
-  .racconto p { font-size: 18px; }
-  .racconto h2 { font-size: 28px; }
-  .officina p { font-size: 16.5px; }
+  .foglio { max-width: 1080px; padding-left: 40px; padding-right: 40px; }
   .riga { grid-template-columns: minmax(0,1fr) 240px 22px; }
-  .riga__nome { font-size: 23px; }
-  .riga__che, .scheda__che { font-size: 16px; }
-  .scheda-tecnica div { grid-template-columns: 220px 1fr; font-size: 16px; }
+  .scheda-tecnica div { grid-template-columns: 220px 1fr; }
 }
