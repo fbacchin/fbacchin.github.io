@@ -8,8 +8,8 @@
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fbacchin.github.io/">
-<meta property="og:image" content="https://fbacchin.github.io/og.png">
+<meta property="og:url" content="https://bacchin.app/">
+<meta property="og:image" content="https://bacchin.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="it_IT">
@@ -20,6 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stile.css">
 <noscript><link rel="stylesheet" href="stile.css"></noscript>
+<link rel="canonical" href="https://bacchin.app/">
 </head>
 <body>
 <div class="foglio">
@@ -253,7 +254,7 @@
   }
 
   /* Euribor — stesso CSV che legge l'app */
-  fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -272,7 +273,7 @@
     });
 
   /* €STR — la colonna ON di ESTER.csv */
-  fetch('/app/Euribor/ESTER.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -290,7 +291,7 @@
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
-  fetch('/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -309,7 +310,7 @@
     });
 
   /* Codici di gara — le edizioni dal manifesto */
-  fetch('/app/codici/manifest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/codici/manifest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       var c = d.codici || [];
@@ -327,7 +328,7 @@
     });
 
   /* Gottardo — stesso campione che legge l'app */
-  fetch('/app/gotthard/data/latest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       function verso(v) {
