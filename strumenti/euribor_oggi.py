@@ -274,6 +274,12 @@ def pagina(eur, est):
   .tabella .num {{ font-family: var(--dato); text-align: right; white-space: nowrap; }}
   .tabella .nota {{ color: var(--nebbia); font-size: 13px; font-weight: 400; }}
   .scorre {{ overflow-x: auto; }}
+  @media (max-width: 700px) {{
+    .tabella {{ font-size: 13.5px; }}
+    .tabella th, .tabella td {{ padding: 9px 5px; }}
+    .tabella tr > :nth-child(4), .tabella tr > :nth-child(6) {{ display: none; }}
+    .tabella .nota {{ display: block; }}
+  }}
   .grafico {{ width: 100%; height: auto; margin-top: 8px; }}
   .g-riga {{ stroke: var(--linea); stroke-width: 1; }}
   .g-asse {{ fill: var(--nebbia); font-family: var(--dato); font-size: 13px; }}
