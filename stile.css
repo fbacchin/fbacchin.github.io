@@ -82,7 +82,7 @@
   h1 {
     font-variation-settings: 'wdth' 125;
     font-weight: 800;
-    font-size: clamp(52px, 12vw, 96px);
+    font-size: clamp(30px, 10.4vw, 96px);
     line-height: 0.86;
     letter-spacing: -0.03em;
     text-transform: uppercase;
@@ -388,7 +388,7 @@
 }
 .dato-grande__griglia {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
   gap: 18px 24px;
 }
 .cifra { min-width: 0; }
