@@ -62,11 +62,12 @@ def pct(v, cifre=3):
     return f"{v:.{cifre}f}".replace(".", ",").replace("-", "−") + "%"
 
 
-def pb(delta):
+def pb(delta, prosa=False):
     x = round(delta * 100, 1)
     if abs(x) < 0.05:
         return "invariato"
-    s = (f"{abs(x):.0f}" if abs(x) == int(abs(x)) else f"{abs(x):.1f}").replace(".", ",")
+    intero = prosa and abs(x) == int(abs(x))
+    s = (f"{abs(x):.0f}" if intero else f"{abs(x):.1f}").replace(".", ",")
     return ("+" if x > 0 else "−") + s + " pb"
 
 
@@ -102,7 +103,7 @@ def lettura(s3, s12, oggi):
         frasi.append(f"Nel fixing di {data_lunga(d0)} l'Euribor a 3 mesi è rimasto fermo a {pct(v)}.")
     else:
         frasi.append(f"Nel fixing di {data_lunga(d0)} l'Euribor a 3 mesi è {'salito' if diff > 0 else 'sceso'} "
-                     f"di {pb(abs(diff))[1:] if diff > 0 else pb(abs(diff))[1:]}, a {pct(v)}.")
+                     f"di {pb(abs(diff), True)[1:]}, a {pct(v)}.")
         segno, serie = (1 if diff > 0 else -1), 0
         for i in range(len(s3) - 1, 0, -1):
             dd = s3[i][1] - s3[i - 1][1]
@@ -117,7 +118,7 @@ def lettura(s3, s12, oggi):
         if abs(dm) < 0.0005:
             frasi.append(f"Rispetto a un mese fa ({data_media(rif_m[0])}) è allo stesso livello.")
         else:
-            frasi.append(f"In un mese è {'salito' if dm > 0 else 'sceso'} di {pb(abs(dm))[1:]}: "
+            frasi.append(f"In un mese è {'salito' if dm > 0 else 'sceso'} di {pb(abs(dm), True)[1:]}: "
                          f"il {data_media(rif_m[0])} era a {pct(rif_m[1])}.")
     anno = [(d, x) for d, x in s3 if d > d0 - timedelta(days=365)]
     dmin, vmin = min(anno, key=lambda t: (t[1], -t[0].toordinal()))
@@ -162,16 +163,14 @@ def grafico(serie_12m, d0):
     inizio = d0 - timedelta(days=365)
     linee = [(k, [(d, v) for d, v in serie_12m[k] if d >= inizio]) for k in ("3M", "12M")]
     tutti = [v for _, s in linee for _, v in s]
-    lo, hi = math.floor(min(tutti) * 4) / 4, math.ceil(max(tutti) * 4) / 4
-    if hi - lo < 0.5:
-        hi = lo + 0.5
+    passo = next(p for p in (0.1, 0.2, 0.25, 0.5, 1.0) if (max(tutti) - min(tutti)) / p <= 5)
+    lo, hi = math.floor(min(tutti) / passo) * passo, math.ceil(max(tutti) / passo) * passo
     W, H, sx, dx, su, giu = 1000, 320, 56, 16, 16, 34
     def x(d): return sx + (d - inizio).days / 365 * (W - sx - dx)
     def y(v): return su + (hi - v) / (hi - lo) * (H - su - giu)
     parti = [f'<svg class="grafico" viewBox="0 0 {W} {H}" role="img" aria-label="Euribor 3 e 12 mesi, ultimi dodici mesi">']
-    passi = 4
-    for i in range(passi + 1):
-        v = lo + (hi - lo) * i / passi
+    for i in range(round((hi - lo) / passo) + 1):
+        v = lo + passo * i
         parti.append(f'<line x1="{sx}" x2="{W - dx}" y1="{y(v):.1f}" y2="{y(v):.1f}" class="g-riga"/>'
                      f'<text x="{sx - 8}" y="{y(v) + 4:.1f}" class="g-asse" text-anchor="end">{pct(v, 2)}</text>')
     m = date(inizio.year, inizio.month, 1)
