@@ -267,6 +267,7 @@ def pagina(eur, est):
 <link rel="canonical" href="{URL}">
 <script type="application/ld+json">{faq_ld}</script>
 <style>
+  .dato-grande__griglia {{ grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }}
   .cifra__var {{ font-family: var(--dato); font-size: 12px; color: var(--nebbia); margin-top: 2px; white-space: nowrap; }}
   .tabella {{ width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; }}
   .tabella th, .tabella td {{ padding: 10px 8px; border-bottom: 1px solid var(--linea); text-align: left; }}
