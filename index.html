@@ -8,8 +8,8 @@
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fbacchin.github.io/">
-<meta property="og:image" content="https://fbacchin.github.io/og.png">
+<meta property="og:url" content="https://bacchin.app/">
+<meta property="og:image" content="https://bacchin.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="it_IT">
@@ -18,8 +18,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="stile.css">
-<noscript><link rel="stylesheet" href="stile.css"></noscript>
+<link rel="stylesheet" href="stile.css?v=2026-09-21c">
+<noscript><link rel="stylesheet" href="stile.css?v=2026-09-21c"></noscript>
+<link rel="canonical" href="https://bacchin.app/">
 </head>
 <body>
 <div class="foglio">
@@ -150,11 +151,23 @@
   <section class="sezione" aria-labelledby="t-web">
     <h2 class="sezione__titolo" id="t-web">Si aprono e basta</h2>
     <p class="sezione__intro">
-      Tre pagine singole, ospitate qui: niente da installare, nessun account. Apri il link
+      Quattro pagine singole, ospitate qui: niente da installare, nessun account. Apri il link
       e il conto è già fatto.
     </p>
 
     <div class="coppia">
+      <article class="scheda">
+        <div class="scheda__nome"><a href="/euribor-oggi">Euribor oggi</a></div>
+        <p class="scheda__che">
+          I fixing del giorno per tutte le scadenze, il grafico dell'anno e cosa
+          significano per la rata di un mutuo variabile. Si aggiorna da sola.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://fbacchin.github.io/app/Euribor/EURIBOR.csv">I dati in CSV</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
       <article class="scheda">
         <div class="scheda__nome"><a href="https://fbacchin.github.io/finance/ONtracker.html">ONON Tracker</a></div>
         <p class="scheda__che">
@@ -187,6 +200,60 @@
         </p>
         <div class="scheda__piede">
           <a href="https://github.com/fbacchin/finance">Codice su GitHub</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-giochi">
+    <h2 class="sezione__titolo" id="t-giochi">Giochi</h2>
+    <p class="sezione__intro">
+      Quattro classici da bar, uno per pagina: si aggiungono alla schermata Home del telefono
+      e funzionano anche senza rete.
+    </p>
+
+    <div class="coppia">
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/guerre-stellari/">Assalto alla Morte Nera</a></div>
+        <p class="scheda__che">
+          Fan game arcade: battaglia spaziale in X-wing, duello con Darth Vader e corsa nella trincea fino al condotto di scarico.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tutti i giochi</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/laser-invaders/">Laser Invaders</a></div>
+        <p class="scheda__che">
+          Sparatutto anni '80: squadriglie in picchiata e un laser che si potenzia, da singolo a doppio a triplo.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tutti i giochi</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/pong/">Pong</a></div>
+        <p class="scheda__che">
+          Il classico da bar. Contro il computer, su tre livelli che cambiano il modo di giocare, o in due sullo stesso schermo.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tutti i giochi</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/tetris/">Tetris</a></div>
+        <p class="scheda__che">
+          Il pozzo, i sette pezzi, le righe da chiudere. Pezzo fantasma, anteprima e pezzo da parte, come nei cabinati.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tutti i giochi</a>
           <span class="scheda__freccia" aria-hidden="true">→</span>
         </div>
       </article>
@@ -253,12 +320,13 @@
   }
 
   /* Euribor — stesso CSV che legge l'app */
-  fetch('/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
       var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
-      var data = campi[0], tre = campi[6], dodici = campi[8];
+      function tre_dec(v) { return (Math.round(parseFloat(v) * 1000) / 1000).toFixed(3); }
+      var data = campi[0], tre = tre_dec(campi[6]), dodici = tre_dec(campi[8]);
       var el = document.getElementById('dato-euribor');
       el.dataset.stato = 'vivo';
       assesta(el,
@@ -272,7 +340,7 @@
     });
 
   /* €STR — la colonna ON di ESTER.csv */
-  fetch('/app/Euribor/ESTER.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -290,7 +358,7 @@
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
-  fetch('/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
@@ -309,7 +377,7 @@
     });
 
   /* Codici di gara — le edizioni dal manifesto */
-  fetch('/app/codici/manifest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/codici/manifest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       var c = d.codici || [];
@@ -327,7 +395,7 @@
     });
 
   /* Gottardo — stesso campione che legge l'app */
-  fetch('/app/gotthard/data/latest.json', { cache: 'no-store' })
+  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       function verso(v) {
