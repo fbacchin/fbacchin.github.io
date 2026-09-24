@@ -349,7 +349,7 @@ def pagina(eur, est):
   <footer class="piede">
     <span class="etichetta">© {d0.year} Fabrizio Bacchin</span>
     <nav class="piede__link etichetta">
-      <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
       <a href="/privacy">Privacy e assistenza</a>
     </nav>
   </footer>
