@@ -126,7 +126,7 @@
     <section class="card">
       <h2>Statistiche d'uso</h2>
       <p>Entrambe le app misurano <b>come vengono usate</b>, per capire quali funzioni servono davvero e quali no. Il servizio è <b>PostHog</b>, sui server <b>europei</b> (<code>eu.i.posthog.com</code>). La raccolta è anonima: non c'è account, non c'è profilo, e nessun dato permette di risalire a te.</p>
-      <p>Escono dall'app <b>soltanto</b> questi nove segnali, e nient'altro:</p>
+      <p>Escono dall'app <b>soltanto</b> questi undici segnali, e nient'altro:</p>
       <table>
         <tr><th>Segnale</th><th>Che cosa dice</th></tr>
         <tr><td>Apertura di una scheda</td><td>Quale delle quattro schede è stata aperta: Calcolo, Piano di ammortamento, Scenari, App info.</td></tr>
@@ -138,8 +138,10 @@
         <tr><td>Esito del tracciamento</td><td>Solo in Mortgage Calculators: se hai autorizzato o rifiutato il prompt di Apple. Non l'IDFA, solo la risposta.</td></tr>
         <tr><td>Passaggio dalla versione a pagamento</td><td>Solo in Mortgage Calculators, una volta sola: che la pubblicità è stata tolta gratis perché su questo dispositivo c'era la versione a pagamento. Nessun dettaglio in più.</td></tr>
         <tr><td>Negozio non disponibile</td><td>Solo in Mortgage Calculators: che il negozio non ha risposto come doveva (offerte non caricate, acquisto non riuscito, ripristino senza acquisti). Porta soltanto il motivo, scelto fra poche voci fisse. Se rinunci a un acquisto, non viene registrato nulla.</td></tr>
+        <tr><td>Acquisto avviato</td><td>Solo in Mortgage Calculators: che hai toccato uno dei due pulsanti per togliere la pubblicità. Porta soltanto quale delle due opzioni (annuale o per sempre). Dice quante persone si fermano davanti al foglio di pagamento di Apple.</td></tr>
+        <tr><td>Pubblicità tolta</td><td>Solo in Mortgage Calculators: che un acquisto è andato a buon fine e la pubblicità è stata tolta. Porta soltanto quale delle due opzioni. Il ripristino su un altro dispositivo non viene contato.</td></tr>
       </table>
-      <p>A ogni segnale è allegata un'informazione in più: <b>quale delle due app</b> lo ha mandato; «Negozio non disponibile» porta anche il motivo descritto sopra. Non viene raccolta la posizione, non vengono creati identificatori nostri per queste statistiche, non viene mandato alcun testo scritto da te, e <b>nessun numero fra quelli che inserisci</b>. Non c'è registrazione dello schermo. Queste statistiche non sono tracciamento e non usano l'IDFA: il tracciamento riguarda solo la pubblicità di Mortgage Calculators, ed è descritto più sotto.</p>
+      <p>A ogni segnale è allegata un'informazione in più: <b>quale delle due app</b> lo ha mandato; «Negozio non disponibile» porta anche il motivo descritto sopra, «Acquisto avviato» e «Pubblicità tolta» l'opzione scelta. Non viene raccolta la posizione, non vengono creati identificatori nostri per queste statistiche, non viene mandato alcun testo scritto da te, e <b>nessun numero fra quelli che inserisci</b>. Non c'è registrazione dello schermo. Queste statistiche non sono tracciamento e non usano l'IDFA: il tracciamento riguarda solo la pubblicità di Mortgage Calculators, ed è descritto più sotto.</p>
       <p>Informativa di PostHog: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -255,7 +257,7 @@
     <section class="card">
       <h2>Usage statistics</h2>
       <p>Both apps measure <b>how they are used</b>, to understand which features genuinely help and which do not. The service is <b>PostHog</b>, hosted on its <b>European</b> servers (<code>eu.i.posthog.com</code>). Collection is anonymous: there is no account, no profile, and nothing that can be traced back to you.</p>
-      <p>The apps send <b>only</b> these nine signals, and nothing else:</p>
+      <p>The apps send <b>only</b> these eleven signals, and nothing else:</p>
       <table>
         <tr><th>Signal</th><th>What it says</th></tr>
         <tr><td>Tab opened</td><td>Which of the four tabs was opened: Calculator, Amortization plan, Scenarios, App info.</td></tr>
@@ -267,8 +269,10 @@
         <tr><td>Tracking outcome</td><td>Mortgage Calculators only: whether you allowed or refused Apple's prompt. Not the IDFA, just the answer.</td></tr>
         <tr><td>Move from the paid version</td><td>Mortgage Calculators only, once: that the ads were removed free of charge because the paid version was on this device. No further detail.</td></tr>
         <tr><td>Store unavailable</td><td>Mortgage Calculators only: that the store did not respond as it should (offers not loaded, purchase failed, restore found nothing). It carries only the reason, picked from a few fixed values. If you cancel a purchase, nothing is recorded.</td></tr>
+        <tr><td>Purchase started</td><td>Mortgage Calculators only: that you tapped one of the two buttons to remove the ads. It carries only which of the two options (yearly or forever). It shows how many people stop at Apple's payment sheet.</td></tr>
+        <tr><td>Ads removed</td><td>Mortgage Calculators only: that a purchase went through and the ads were removed. It carries only which of the two options. Restoring on another device is not counted.</td></tr>
       </table>
-      <p>One further item travels with each signal: <b>which of the two apps</b> sent it; "Store unavailable" also carries the reason described above. No location is collected, no identifiers of ours are created for these statistics, no text you write is sent, and <b>none of the figures you enter</b>. There is no screen recording. These statistics are not tracking and do not use the IDFA: tracking concerns only advertising in Mortgage Calculators, described below.</p>
+      <p>One further item travels with each signal: <b>which of the two apps</b> sent it; "Store unavailable" also carries the reason described above, "Purchase started" and "Ads removed" the option chosen. No location is collected, no identifiers of ours are created for these statistics, no text you write is sent, and <b>none of the figures you enter</b>. There is no screen recording. These statistics are not tracking and do not use the IDFA: tracking concerns only advertising in Mortgage Calculators, described below.</p>
       <p>PostHog's policy: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -384,7 +388,7 @@
     <section class="card">
       <h2>Nutzungsstatistiken</h2>
       <p>Beide Apps messen, <b>wie sie genutzt werden</b>, um zu verstehen, welche Funktionen wirklich helfen und welche nicht. Der Dienst ist <b>PostHog</b>, auf dessen <b>europäischen</b> Servern (<code>eu.i.posthog.com</code>). Die Erhebung ist anonym: kein Konto, kein Profil, nichts, was sich auf dich zurückführen lässt.</p>
-      <p>Die Apps senden <b>nur</b> diese neun Signale und nichts sonst:</p>
+      <p>Die Apps senden <b>nur</b> diese elf Signale und nichts sonst:</p>
       <table>
         <tr><th>Signal</th><th>Was es aussagt</th></tr>
         <tr><td>Tab geöffnet</td><td>Welcher der vier Tabs geöffnet wurde: Berechnung, Tilgungsplan, Szenarien, App-Info.</td></tr>
@@ -396,8 +400,10 @@
         <tr><td>Ergebnis des Trackings</td><td>Nur in Mortgage Calculators: ob du Apples Dialog erlaubt oder abgelehnt hast. Nicht die IDFA, nur die Antwort.</td></tr>
         <tr><td>Umzug von der kostenpflichtigen Version</td><td>Nur in Mortgage Calculators, ein einziges Mal: dass die Werbung kostenlos entfernt wurde, weil auf diesem Gerät die kostenpflichtige Version war. Ohne weitere Angaben.</td></tr>
         <tr><td>Store nicht verfügbar</td><td>Nur in Mortgage Calculators: dass der Store nicht wie vorgesehen geantwortet hat (Angebote nicht geladen, Kauf fehlgeschlagen, Wiederherstellung ohne Käufe). Enthält nur den Grund, ausgewählt aus wenigen festen Werten. Brichst du einen Kauf ab, wird nichts erfasst.</td></tr>
+        <tr><td>Kauf begonnen</td><td>Nur in Mortgage Calculators: dass du einen der beiden Knöpfe zum Entfernen der Werbung angetippt hast. Enthält nur, welche der beiden Optionen (jährlich oder für immer). Zeigt, wie viele beim Zahlungsfenster von Apple aufhören.</td></tr>
+        <tr><td>Werbung entfernt</td><td>Nur in Mortgage Calculators: dass ein Kauf erfolgreich war und die Werbung entfernt wurde. Enthält nur, welche der beiden Optionen. Die Wiederherstellung auf einem anderen Gerät wird nicht gezählt.</td></tr>
       </table>
-      <p>Jedem Signal ist eine weitere Information beigefügt: <b>welche der beiden Apps</b> es gesendet hat; «Store nicht verfügbar» enthält zusätzlich den oben beschriebenen Grund. Es wird kein Standort erhoben, es werden für diese Statistiken keine eigenen Kennungen erzeugt, es wird kein von dir geschriebener Text gesendet und <b>keine der Zahlen, die du eingibst</b>. Es gibt keine Bildschirmaufzeichnung. Diese Statistiken sind kein Tracking und verwenden die IDFA nicht: Tracking betrifft ausschliesslich die Werbung in Mortgage Calculators und wird unten beschrieben.</p>
+      <p>Jedem Signal ist eine weitere Information beigefügt: <b>welche der beiden Apps</b> es gesendet hat; «Store nicht verfügbar» enthält zusätzlich den oben beschriebenen Grund, «Kauf begonnen» und «Werbung entfernt» die gewählte Option. Es wird kein Standort erhoben, es werden für diese Statistiken keine eigenen Kennungen erzeugt, es wird kein von dir geschriebener Text gesendet und <b>keine der Zahlen, die du eingibst</b>. Es gibt keine Bildschirmaufzeichnung. Diese Statistiken sind kein Tracking und verwenden die IDFA nicht: Tracking betrifft ausschliesslich die Werbung in Mortgage Calculators und wird unten beschrieben.</p>
       <p>Datenschutzerklärung von PostHog: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -513,7 +519,7 @@
     <section class="card">
       <h2>Estadísticas de uso</h2>
       <p>Ambas apps miden <b>cómo se usan</b>, para entender qué funciones sirven de verdad y cuáles no. El servicio es <b>PostHog</b>, en sus servidores <b>europeos</b> (<code>eu.i.posthog.com</code>). La recogida es anónima: no hay cuenta, no hay perfil y ningún dato permite identificarte.</p>
-      <p>De la app salen <b>solo</b> estas nueve señales, y nada más:</p>
+      <p>De la app salen <b>solo</b> estas once señales, y nada más:</p>
       <table>
         <tr><th>Señal</th><th>Qué indica</th></tr>
         <tr><td>Pestaña abierta</td><td>Cuál de las cuatro pestañas se ha abierto: Cálculo, Cuadro de amortización, Escenarios, Info app.</td></tr>
@@ -525,8 +531,10 @@
         <tr><td>Resultado del seguimiento</td><td>Solo en Mortgage Calculators: si autorizaste o rechazaste el aviso de Apple. No el IDFA, solo la respuesta.</td></tr>
         <tr><td>Paso desde la versión de pago</td><td>Solo en Mortgage Calculators, una única vez: que la publicidad se quitó gratis porque en este dispositivo estaba la versión de pago. Sin ningún otro detalle.</td></tr>
         <tr><td>Tienda no disponible</td><td>Solo en Mortgage Calculators: que la tienda no respondió como debía (ofertas no cargadas, compra fallida, restauración sin compras). Lleva solo el motivo, elegido entre unos pocos valores fijos. Si renuncias a una compra, no se registra nada.</td></tr>
+        <tr><td>Compra iniciada</td><td>Solo en Mortgage Calculators: que has tocado uno de los dos botones para quitar la publicidad. Lleva solo cuál de las dos opciones (anual o para siempre). Indica cuántas personas se detienen ante la hoja de pago de Apple.</td></tr>
+        <tr><td>Publicidad quitada</td><td>Solo en Mortgage Calculators: que una compra se ha completado y la publicidad se ha quitado. Lleva solo cuál de las dos opciones. La restauración en otro dispositivo no se cuenta.</td></tr>
       </table>
-      <p>A cada señal se adjunta una información más: <b>cuál de las dos apps</b> la ha enviado; «Tienda no disponible» lleva además el motivo descrito arriba. No se recoge la ubicación, no se crean identificadores propios para estas estadísticas, no se envía ningún texto escrito por ti y <b>ninguna de las cifras que introduces</b>. No hay grabación de pantalla. Estas estadísticas no son seguimiento y no usan el IDFA: el seguimiento afecta solo a la publicidad de Mortgage Calculators y se describe más abajo.</p>
+      <p>A cada señal se adjunta una información más: <b>cuál de las dos apps</b> la ha enviado; «Tienda no disponible» lleva además el motivo descrito arriba, «Compra iniciada» y «Publicidad quitada» la opción elegida. No se recoge la ubicación, no se crean identificadores propios para estas estadísticas, no se envía ningún texto escrito por ti y <b>ninguna de las cifras que introduces</b>. No hay grabación de pantalla. Estas estadísticas no son seguimiento y no usan el IDFA: el seguimiento afecta solo a la publicidad de Mortgage Calculators y se describe más abajo.</p>
       <p>Política de PostHog: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -642,7 +650,7 @@
     <section class="card">
       <h2>Statistiques d'usage</h2>
       <p>Les deux apps mesurent <b>comment elles sont utilisées</b>, afin de comprendre quelles fonctions servent vraiment et lesquelles non. Le service est <b>PostHog</b>, sur ses serveurs <b>européens</b> (<code>eu.i.posthog.com</code>). La collecte est anonyme : pas de compte, pas de profil, et aucune donnée ne permet de remonter jusqu'à vous.</p>
-      <p>Les apps n'envoient <b>que</b> ces neuf signaux, et rien d'autre :</p>
+      <p>Les apps n'envoient <b>que</b> ces onze signaux, et rien d'autre :</p>
       <table>
         <tr><th>Signal</th><th>Ce qu'il indique</th></tr>
         <tr><td>Onglet ouvert</td><td>Lequel des quatre onglets a été ouvert : Calcul, Tableau d'amortissement, Scénarios, Infos app.</td></tr>
@@ -654,8 +662,10 @@
         <tr><td>Résultat du suivi</td><td>Mortgage Calculators uniquement : si vous avez autorisé ou refusé l'invite d'Apple. Pas l'IDFA, seulement la réponse.</td></tr>
         <tr><td>Passage depuis la version payante</td><td>Mortgage Calculators uniquement, une seule fois : que la publicité a été supprimée gratuitement parce que la version payante se trouvait sur cet appareil. Sans autre détail.</td></tr>
         <tr><td>Boutique indisponible</td><td>Mortgage Calculators uniquement : que la boutique n'a pas répondu comme prévu (offres non chargées, achat échoué, restauration sans achat). Il ne porte que le motif, choisi parmi quelques valeurs fixes. Si vous renoncez à un achat, rien n'est enregistré.</td></tr>
+        <tr><td>Achat commencé</td><td>Mortgage Calculators uniquement : que vous avez touché l'un des deux boutons pour supprimer la publicité. Il ne porte que l'option choisie (annuelle ou à vie). Il indique combien de personnes s'arrêtent devant la feuille de paiement d'Apple.</td></tr>
+        <tr><td>Publicité supprimée</td><td>Mortgage Calculators uniquement : qu'un achat a abouti et que la publicité a été supprimée. Il ne porte que l'option choisie. La restauration sur un autre appareil n'est pas comptée.</td></tr>
       </table>
-      <p>Une information supplémentaire accompagne chaque signal : <b>laquelle des deux apps</b> l'a envoyé ; « Boutique indisponible » porte en outre le motif décrit plus haut. Aucune localisation n'est collectée, aucun identifiant de notre part n'est créé pour ces statistiques, aucun texte écrit par vous n'est envoyé, et <b>aucun des chiffres que vous saisissez</b>. Il n'y a pas d'enregistrement de l'écran. Ces statistiques ne sont pas du suivi et n'utilisent pas l'IDFA : le suivi ne concerne que la publicité de Mortgage Calculators, décrite plus bas.</p>
+      <p>Une information supplémentaire accompagne chaque signal : <b>laquelle des deux apps</b> l'a envoyé ; « Boutique indisponible » porte en outre le motif décrit plus haut, « Achat commencé » et « Publicité supprimée » l'option choisie. Aucune localisation n'est collectée, aucun identifiant de notre part n'est créé pour ces statistiques, aucun texte écrit par vous n'est envoyé, et <b>aucun des chiffres que vous saisissez</b>. Il n'y a pas d'enregistrement de l'écran. Ces statistiques ne sont pas du suivi et n'utilisent pas l'IDFA : le suivi ne concerne que la publicité de Mortgage Calculators, décrite plus bas.</p>
       <p>Politique de PostHog : <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
