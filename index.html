@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>fbacchin — app che tengono il conto</title>
-<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Euribor per Mac, Libor X, Mortgage e Leasing Calculator, Gottardo Live, Burraco Score, Perspecta, ONON Tracker, simulatore ranking ATP.">
+<meta name="description" content="App e strumenti web di Fabrizio Bacchin: Euribor X, Libor X, Mortgage e Leasing Calculator, Gottardo Live, Burraco Score, Perspecta, ONON Tracker, simulatore ranking ATP.">
 <meta property="og:title" content="fbacchin — app che tengono il conto">
 <meta property="og:description" content="Sette cose che guardano un numero che si muove e lo rendono leggibile.">
 <meta property="og:type" content="website">
@@ -31,7 +31,7 @@
   <div class="apertura">
     <h1>Cose che<br><span class="h1__seconda">cambiano</span></h1>
     <p class="tesi">
-      Undici app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
+      Dieci app, un metodo solo: <strong>prendere un numero che si muove</strong> — un
       punteggio, un fixing, una coda al tunnel, un titolo, un ranking — e renderlo
       leggibile in due secondi.
     </p>
@@ -51,15 +51,6 @@
           <div class="riga__che">I tassi di riferimento europei, aggiornati ogni giorno lavorativo. Anche in versione Light.</div>
         </div>
         <div class="riga__dato" id="dato-euribor" data-stato="attesa">carico…</div>
-        <span class="riga__freccia" aria-hidden="true">→</span>
-      </li>
-
-      <li class="riga entra" style="animation-delay:.09s">
-        <div>
-          <div class="riga__nome"><a href="EuriborMac.html">Euribor per Mac</a></div>
-          <div class="riga__che">La stessa materia sulla scrivania: €STR e cinque tenor in sei card, storici a 3 mesi e calcolatore di rata che si aggiorna da solo.</div>
-        </div>
-        <div class="riga__dato" id="dato-estr" data-stato="attesa">carico…</div>
         <span class="riga__freccia" aria-hidden="true">→</span>
       </li>
 
@@ -333,24 +324,6 @@
     })
     .catch(function () {
       var el = document.getElementById('dato-euribor');
-      el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
-    });
-
-  /* €STR — la colonna ON di ESTER.csv */
-  fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv', { cache: 'no-store' })
-    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
-    .then(function (testo) {
-      var righe = testo.trim().split(/\r?\n/);
-      var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
-      var el = document.getElementById('dato-estr');
-      el.dataset.stato = 'vivo';
-      assesta(el,
-        '\u20acSTR <span class="misura">' + (Math.round(parseFloat(campi[2]) * 1000) / 1000).toFixed(3) + '%</span>',
-        'fixing del ' + campi[0]);
-    })
-    .catch(function () {
-      var el = document.getElementById('dato-estr');
       el.dataset.stato = 'assente';
       el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
     });
