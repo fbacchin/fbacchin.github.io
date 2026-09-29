@@ -157,6 +157,7 @@
   var CAT = {
     M1000: { W: 1000, F: 650, SF: 400, QF: 200, R16: 100, R32: 50, R64: 30 },
     A500:  { W: 500, F: 330, SF: 200, QF: 100, R16: 50 },
+    // A250 resta per un eventuale ATP 250 a cui uno dei due risulti iscritto (Almaty, Bruxelles, Stoccolma)
     A250:  { W: 250, F: 165, SF: 100, QF: 50, R16: 25 },
     // Finals: 200 per vittoria nel girone, +400 semifinale vinta, +500 finale vinta
     FIN:   { RR0: 0, RR1: 200, RR2: 400, SF2: 400, SF3: 600, F2: 800, F3: 1000, W2: 1300, W3: 1500 }
@@ -170,9 +171,6 @@
     { id: 'sha', cat: 'M1000', nome: { it: 'Shanghai', en: 'Shanghai' }, quando: { it: '7 – 18 ottobre', en: '7 – 18 October' },
       s: { cade: 50, nota: { it: '2025: terzo turno, 50 punti', en: '2025: third round, 50 points' } },
       z: { cade: 50, nota: { it: '2025: terzo turno, 50 punti', en: '2025: third round, 50 points' } } },
-    { id: 'a250', cat: 'A250', nome: { it: 'Un ATP 250 (Almaty, Bruxelles o Stoccolma)', en: 'An ATP 250 (Almaty, Brussels or Stockholm)' }, quando: { it: '19 ott – 15 nov', en: '19 Oct – 15 Nov' },
-      s: { cade: 0, nota: { it: 'Facoltativo', en: 'Optional' } },
-      z: { cade: 0, nota: { it: 'Facoltativo', en: 'Optional' } } },
     { id: 'a500', cat: 'A500', nome: { it: 'Vienna o Basilea', en: 'Vienna or Basel' }, quando: { it: '26 ott – 1 nov', en: '26 Oct – 1 Nov' },
       s: { cade: 500, nota: { it: '2025: vince Vienna, 500 punti', en: '2025: won Vienna, 500 points' } },
       z: { cade: 330, nota: { it: '2025: finale a Vienna, 330 punti', en: '2025: Vienna final, 330 points' } } },
@@ -190,8 +188,8 @@
     { dopo: ['pek'], it: 'Dopo Pechino', en: 'After Beijing' },
     { dopo: ['pek', 'sha'], it: 'Dopo Shanghai', en: 'After Shanghai' },
     { dopo: ['pek', 'sha', 'a500'], it: 'Dopo Vienna e Basilea', en: 'After Vienna and Basel' },
-    { dopo: ['pek', 'sha', 'a500', 'par', 'a250'], it: 'Dopo Parigi (con l’eventuale 250)', en: 'After Paris (plus any 250)' },
-    { dopo: ['pek', 'sha', 'a500', 'par', 'a250', 'fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
+    { dopo: ['pek', 'sha', 'a500', 'par'], it: 'Dopo Parigi', en: 'After Paris' },
+    { dopo: ['pek', 'sha', 'a500', 'par', 'fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
   ];
 
   var ETICHETTE = {
@@ -325,7 +323,7 @@
       });
       var vinceS = /^W/.test(stato.s[tr.id] || ''), vinceZ = /^W/.test(stato.z[tr.id] || '');
       // Vienna e Basilea si giocano nella stessa settimana: due vincitori sono possibili
-      document.getElementById('av-' + tr.id).hidden = !(vinceS && vinceZ && tr.id !== 'a500' && tr.id !== 'a250');
+      document.getElementById('av-' + tr.id).hidden = !(vinceS && vinceZ && tr.id !== 'a500');
     });
 
     document.getElementById('settimane').innerHTML = TAPPE.map(function (tp, i) {
