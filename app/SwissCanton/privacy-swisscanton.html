@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Privacy Policy — Guess the Swiss Canton</title>
+<style>
+  :root { --accent: #C8102E; --accent-soft: #FBE9EC; --ink: #13203A; --ink-soft: #5D6B84; --paper: #EEF1F6; --card: #FFFFFF; --line: #DCE3EE; }
+  @media (prefers-color-scheme: dark) {
+    :root { --accent: #FF6B7A; --accent-soft: #2A1820; --ink: #EEF2F8; --ink-soft: #9BA9C2; --paper: #0A1428; --card: #111E38; --line: #22314F; }
+    .cta, .langbar button[aria-pressed="true"] { color: #0A1428 !important; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom); }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 0 64px; }
+  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  h1 { font-size: 1.9em; line-height: 1.2; }
+  .sub { color: var(--ink-soft); margin: 0 0 6px; }
+  .updated, .tag { color: var(--ink-soft); margin: 6px 0 6px; font-size: .9em; text-align: left; }
+  .langbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 28px; }
+  .langbar button { font: inherit; padding: 6px 16px; border-radius: 99px; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+  .langbar button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  h2 { color: var(--accent); font-size: 1.25em; margin: 36px 0 10px; }
+  p, li { color: var(--ink); margin-bottom: 10px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  ul { padding-left: 22px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 14px 0; }
+  .tldr { background: var(--accent-soft); border-color: transparent; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .cta { display: inline-block; background: var(--accent); color: #fff !important; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; margin: 6px 0 10px; }
+  details { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  details:last-of-type { border-bottom: none; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin-top: 8px; color: var(--ink-soft); }
+  a { color: var(--accent); }
+  a[href^="mailto:"] { white-space: nowrap; }
+  footer { color: var(--ink-soft); font-size: .85em; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+  [lang-block] { display: none; }
+  html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"],
+  html[data-lang="de"] [lang-block="de"], html[data-lang="fr"] [lang-block="fr"] { display: block; }
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">
+    <img src="icon.png" width="44" height="44" alt="" style="border-radius:10px;display:block">
+    <h1>Guess the Swiss Canton</h1>
+  </div>
+  <p class="sub" lang-block="en">Privacy Policy</p>
+  <p class="sub" lang-block="de">Datenschutzerklärung</p>
+  <p class="sub" lang-block="fr">Politique de confidentialité</p>
+  <p class="sub" lang-block="it">Informativa sulla privacy</p>
+  <div class="langbar">
+    <button id="btn-en" aria-pressed="true" onclick="setLang('en')">English</button>
+    <button id="btn-de" aria-pressed="false" onclick="setLang('de')">Deutsch</button>
+    <button id="btn-fr" aria-pressed="false" onclick="setLang('fr')">Français</button>
+    <button id="btn-it" aria-pressed="false" onclick="setLang('it')">Italiano</button>
+  </div>
+
+  <div lang-block="en">
+  <p class="updated">Last updated October 3, 2026 — applies from version 3.0</p>
+  <div class="card tldr"><strong>In short:</strong> your answers and scores stay on your device and there are no accounts. The app sends only a few anonymous usage statistics, for example which game mode is chosen: never answers or scores. The app is free and shows Google AdMob ads suitable for all ages. In Europe the ads first ask for your consent; then the app asks whether you allow ad tracking, and you can decline. Premium removes the ads.</div>
+  <h2>1. Who we are</h2>
+  <p>Guess the Swiss Canton (for iPhone and iPad) is an app by Fabrizio Bacchin (Switzerland) for learning to recognize the 26 cantons of Switzerland. Up to version 2.0 the app was paid, for iPad only, and contained no advertising and no usage statistics; from version 3.0 it is free, with ads that Premium removes.</p>
+  <h2>2. Your data stays on your device</h2>
+  <p>The answers you type or choose, your scores and your game progress stay on your device and are not uploaded anywhere. There is no account and no cloud sync.</p>
+  <p>If you use <strong>Game Center</strong> and complete a game, the app sends your final score to the Game Center leaderboard of the mode you played. Game Center is an Apple service governed by Apple's privacy policy: we only see the leaderboards, like any other player.</p>
+  <h2>3. Push notifications</h2>
+  <p>If — and only if — you allow notifications, the app registers your device with our notification service (Back4App, a Parse hosting provider). The registration contains:</p>
+  <div class="card"><ul><li>your device's anonymous notification token (APNs)</li><li>a random installation identifier generated by the app</li><li>the device type ("ios"), the app name and version, the time zone and the language setting</li></ul></div>
+  <p>None of this identifies you personally and none of it is linked to an account. It is used only to send occasional notifications about the app, and it is never sold or shared for advertising. If you decline notifications, or turn them off later, no registration is used. You can ask us to delete it at any time by writing to us.</p>
+  <h2>4. Advertising</h2>
+  <p>The app is supported by <strong>Google AdMob</strong> advertising (banners and full-screen ads between cantons). To choose and measure ads, Google may process data such as device and advertising identifiers, your IP address (which indicates an approximate location) and information about how you interact with ads.</p>
+  <p>Because the app is also used by children and teenagers, it asks Google for <strong>ads suitable for all ages only</strong> (rating "G").</p>
+  <p><strong>Your consent (EEA, UK and Switzerland).</strong> Before the app requests an ad, Google's consent message appears. If you agree, ads can be personalized. If you decline, the app keeps showing ads, but <em>limited</em> and non-personalized ones. You can change your mind at any time: in the app tap <strong>&#9432;</strong> and then <strong>"Privacy settings"</strong>.</p>
+  <p><strong>Tracking (App Tracking Transparency).</strong> After Google's consent message, the app uses Apple's system prompt to ask whether you allow it to track your activity across other companies' apps and websites.</p>
+  <div class="card"><ul><li>If you allow it, Google can use the device's advertising identifier (IDFA) to show you more relevant ads and measure their results.</li><li>If you decline, the IDFA is not used and you still see ads, just less personalized.</li><li>The prompt does not appear if you declined Google's consent or if you have Premium.</li><li>You can change your choice at any time in Settings › Privacy &amp; Security › Tracking.</li></ul></div>
+  <p>How Google uses this data is explained in <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a> and in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+  <p>With Premium (section 6) the app shows no ads, does not contact Google AdMob and does not ask for advertising consent.</p>
+  <h2>5. Anonymous usage statistics</h2>
+  <p>To understand which features are really used, the app sends a few anonymous usage statistics to <strong>PostHog</strong>, on servers in the European Union. They are always and only these signals:</p>
+  <div class="card"><ul><li>which screen you open: mode selection, information, Premium</li><li>the start of a game, its completion or abandonment, with the chosen mode (Classic or Multiple choice)</li><li>the opening of the Premium page, and where it was opened from</li><li>a possible in-app purchase problem, reduced to a generic cause (for example "products unreachable")</li></ul></div>
+  <p>Each signal also carries whether you use an iPhone or an iPad, a random identifier generated by the app and the technical data that comes with any internet request (device model, system and app versions, language, IP address). Answers, scores and other game content never leave the device. No profile is built and the screen is never recorded. This data is not used to track you across other companies' apps or websites: the tracking in section 4 concerns Google advertising only, and only if you allow it.</p>
+  <h2>6. Premium</h2>
+  <p>You can buy <strong>Premium</strong> with a yearly subscription or a one-time purchase. Premium removes the ads and unlocks the Classic mode, in which you type the name of the canton. Payment is handled by Apple: we never see your payment details. To verify the purchase the app uses <strong>RevenueCat</strong>, which receives the purchase receipt from Apple together with a random identifier generated by the app: no name, no email, no account. You manage and cancel the subscription in your App Store account settings; purchases can be restored in the app, on the Premium screen.</p>
+  <h2>7. What we don't do</h2>
+  <ul><li>No accounts, no profiles</li><li>No tracking unless you allow it, and only for Google advertising (section 4)</li><li>No statistics that identify you: those in section 5 are anonymous and build no profiles</li><li>No location: the app never asks for it</li><li>No advertising with Premium</li><li>No selling of your data</li><li>No personal data knowingly collected from children</li></ul>
+  <h2>8. Your rights</h2>
+  <p>Under the Swiss Federal Act on Data Protection (FADP) and the GDPR you can request access to, correction or deletion of the data described in section 3. Since we keep no information that identifies you, please tell us the approximate date you enabled notifications, so we can find the registration. For the advertising data in section 4, Google acts as an independent controller: you can also exercise your rights directly with Google, through the links above. The statistics in section 5 and the purchase data in section 6 contain nothing that identifies you, so we cannot link them to you. Write to <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
+  <h2>9. Changes</h2>
+  <p>If the app gains new features that change how data is handled, this policy will be updated before their release, and the "last updated" date above will change.</p>
+  </div>
+  <div lang-block="de">
+  <p class="updated">Letzte Aktualisierung: 3. Oktober 2026 — gilt ab Version 3.0</p>
+  <div class="card tldr"><strong>Kurz gesagt:</strong> Deine Antworten und Punktestände bleiben auf deinem Gerät, und es gibt keine Konten. Die App sendet nur wenige anonyme Nutzungsstatistiken, zum Beispiel welcher Spielmodus gewählt wird: nie Antworten oder Punktestände. Die App ist kostenlos und zeigt Werbung von Google AdMob, die für alle Altersgruppen geeignet ist. In Europa wird zuerst deine Einwilligung eingeholt; danach fragt die App, ob du das Werbe-Tracking erlaubst, und du kannst ablehnen. Premium entfernt die Werbung.</div>
+  <h2>1. Wer wir sind</h2>
+  <p>Guess the Swiss Canton (für iPhone und iPad) ist eine App von Fabrizio Bacchin (Schweiz), mit der man die 26 Kantone der Schweiz erkennen lernt. Bis Version 2.0 war die App kostenpflichtig, nur für das iPad, und enthielt weder Werbung noch Nutzungsstatistiken; ab Version 3.0 ist sie kostenlos, mit Werbung, die Premium entfernt.</p>
+  <h2>2. Deine Daten bleiben auf deinem Gerät</h2>
+  <p>Die Antworten, die du schreibst oder auswählst, deine Punktestände und dein Spielfortschritt bleiben auf deinem Gerät und werden nirgendwohin hochgeladen. Es gibt kein Konto und keine Cloud-Synchronisierung.</p>
+  <p>Wenn du <strong>Game Center</strong> nutzt und ein Spiel beendest, sendet die App deinen Endstand an die Game Center-Rangliste des gespielten Modus. Game Center ist ein Dienst von Apple und unterliegt der Datenschutzerklärung von Apple: Wir sehen nur die Ranglisten, wie jeder andere Spieler.</p>
+  <h2>3. Push-Mitteilungen</h2>
+  <p>Wenn – und nur wenn – du Mitteilungen erlaubst, registriert die App dein Gerät bei unserem Mitteilungsdienst (Back4App, ein Parse-Hosting-Anbieter). Die Registrierung enthält:</p>
+  <div class="card"><ul><li>das anonyme Mitteilungs-Token deines Geräts (APNs)</li><li>eine zufällige, von der App erzeugte Installationskennung</li><li>den Gerätetyp («ios»), Name und Version der App, die Zeitzone und die Spracheinstellung</li></ul></div>
+  <p>Nichts davon identifiziert dich persönlich, und nichts ist mit einem Konto verknüpft. Die Daten dienen nur dazu, gelegentlich Mitteilungen zur App zu senden, und werden nie verkauft oder für Werbung weitergegeben. Wenn du Mitteilungen ablehnst oder später ausschaltest, wird keine Registrierung verwendet. Du kannst jederzeit ihre Löschung verlangen, indem du uns schreibst.</p>
+  <h2>4. Werbung</h2>
+  <p>Die App finanziert sich durch Werbung von <strong>Google AdMob</strong> (Banner und Vollbildwerbung zwischen den Kantonen). Um Werbung auszuwählen und zu messen, kann Google Daten wie Geräte- und Werbekennungen, deine IP-Adresse (die einen ungefähren Standort anzeigt) und Informationen über deine Interaktion mit der Werbung verarbeiten.</p>
+  <p>Da die App auch von Kindern und Jugendlichen genutzt wird, verlangt sie von Google <strong>nur Werbung, die für alle Altersgruppen geeignet ist</strong> (Einstufung «G»).</p>
+  <p><strong>Deine Einwilligung (EWR, Vereinigtes Königreich und Schweiz).</strong> Bevor die App Werbung anfordert, erscheint die Einwilligungsabfrage von Google. Wenn du zustimmst, kann die Werbung personalisiert werden. Wenn du ablehnst, zeigt die App weiterhin Werbung, aber <em>eingeschränkte</em>, nicht personalisierte. Du kannst deine Meinung jederzeit ändern: Tippe in der App auf <strong>&#9432;</strong> und dann auf <strong>«Datenschutz-Einstellungen»</strong>.</p>
+  <p><strong>Tracking (App Tracking Transparency).</strong> Nach der Einwilligungsabfrage von Google fragt die App über den Systemdialog von Apple, ob du erlaubst, deine Aktivität über Apps und Websites anderer Unternehmen hinweg zu verfolgen.</p>
+  <div class="card"><ul><li>Wenn du es erlaubst, kann Google die Werbekennung des Geräts (IDFA) verwenden, um dir passendere Werbung zu zeigen und deren Ergebnisse zu messen.</li><li>Wenn du ablehnst, wird die IDFA nicht verwendet, und du siehst weiterhin Werbung, nur weniger personalisiert.</li><li>Der Dialog erscheint nicht, wenn du die Einwilligung von Google abgelehnt hast oder Premium hast.</li><li>Du kannst deine Wahl jederzeit unter Einstellungen › Datenschutz &amp; Sicherheit › Tracking ändern.</li></ul></div>
+  <p>Wie Google diese Daten verwendet, steht in <a href="https://policies.google.com/technologies/partner-sites">Wie Google Informationen von Websites oder Apps verwendet, die unsere Dienste nutzen</a> und in der <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>.</p>
+  <p>Mit Premium (Abschnitt 6) zeigt die App keine Werbung, kontaktiert Google AdMob nicht und fragt nicht nach der Werbe-Einwilligung.</p>
+  <h2>5. Anonyme Nutzungsstatistiken</h2>
+  <p>Um zu verstehen, welche Funktionen wirklich genutzt werden, sendet die App einige anonyme Nutzungsstatistiken an <strong>PostHog</strong>, auf Servern in der Europäischen Union. Es sind immer und nur diese Signale:</p>
+  <div class="card"><ul><li>welchen Bildschirm du öffnest: Moduswahl, Informationen, Premium</li><li>Beginn, Abschluss oder Abbruch eines Spiels, mit dem gewählten Modus (Klassisch oder Auswahl)</li><li>das Öffnen der Premium-Seite und von wo aus sie geöffnet wurde</li><li>ein mögliches Problem beim In-App-Kauf, reduziert auf eine allgemeine Ursache (zum Beispiel «Produkte nicht erreichbar»)</li></ul></div>
+  <p>Jedes Signal enthält ausserdem, ob du ein iPhone oder ein iPad benutzt, eine zufällige, von der App erzeugte Kennung und die technischen Daten, die jede Internetanfrage begleiten (Gerätemodell, System- und App-Version, Sprache, IP-Adresse). Antworten, Punktestände und andere Spielinhalte verlassen das Gerät nie. Es wird kein Profil erstellt, und der Bildschirm wird nie aufgezeichnet. Diese Daten werden nicht verwendet, um dich über Apps oder Websites anderer Unternehmen hinweg zu verfolgen: Das Tracking in Abschnitt 4 betrifft nur die Werbung von Google, und nur, wenn du es erlaubst.</p>
+  <h2>6. Premium</h2>
+  <p>Du kannst <strong>Premium</strong> mit einem Jahresabo oder einem einmaligen Kauf erwerben. Premium entfernt die Werbung und schaltet den Modus Klassisch frei, in dem du den Namen des Kantons schreibst. Die Zahlung wird von Apple abgewickelt: Deine Zahlungsdaten sehen wir nie. Um den Kauf zu prüfen, verwendet die App <strong>RevenueCat</strong>, das von Apple den Kaufbeleg zusammen mit einer zufälligen, von der App erzeugten Kennung erhält: kein Name, keine E-Mail, kein Konto. Das Abo verwaltest und kündigst du in den Einstellungen deines App Store-Accounts; Käufe lassen sich in der App auf dem Premium-Bildschirm wiederherstellen.</p>
+  <h2>7. Was wir nicht tun</h2>
+  <ul><li>Keine Konten, keine Profile</li><li>Kein Tracking, es sei denn, du erlaubst es, und nur für die Werbung von Google (Abschnitt 4)</li><li>Keine Statistiken, die dich identifizieren: Die in Abschnitt 5 sind anonym und erstellen keine Profile</li><li>Kein Standort: Die App fragt nie danach</li><li>Keine Werbung mit Premium</li><li>Kein Verkauf deiner Daten</li><li>Keine wissentliche Erhebung personenbezogener Daten von Kindern</li></ul>
+  <h2>8. Deine Rechte</h2>
+  <p>Nach dem Schweizer Datenschutzgesetz (DSG) und der DSGVO kannst du Auskunft, Berichtigung oder Löschung der in Abschnitt 3 beschriebenen Daten verlangen. Da wir keine Informationen speichern, die dich identifizieren, nenne uns bitte das ungefähre Datum, an dem du die Mitteilungen aktiviert hast, damit wir die Registrierung finden können. Für die Werbedaten in Abschnitt 4 ist Google eigenständig verantwortlich: Du kannst deine Rechte auch direkt bei Google über die obigen Links ausüben. Die Statistiken in Abschnitt 5 und die Kaufdaten in Abschnitt 6 enthalten nichts, was dich identifiziert, daher können wir sie dir nicht zuordnen. Schreibe an <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
+  <h2>9. Änderungen</h2>
+  <p>Wenn die App neue Funktionen erhält, die den Umgang mit Daten ändern, wird diese Erklärung vor deren Veröffentlichung aktualisiert, und das Datum der «letzten Aktualisierung» oben ändert sich.</p>
+  </div>
+  <div lang-block="fr">
+  <p class="updated">Dernière mise à jour : 3 octobre 2026 — valable à partir de la version 3.0</p>
+  <div class="card tldr"><strong>En bref :</strong> vos réponses et vos scores restent sur votre appareil et il n'y a aucun compte. L'app n'envoie que quelques statistiques d'utilisation anonymes, par exemple le mode de jeu choisi : jamais les réponses ni les scores. L'app est gratuite et affiche des publicités Google AdMob adaptées à tous les âges. En Europe, votre consentement est d'abord demandé ; l'app demande ensuite si vous autorisez le suivi publicitaire, et vous pouvez refuser. Premium supprime les publicités.</div>
+  <h2>1. Qui nous sommes</h2>
+  <p>Guess the Swiss Canton (pour iPhone et iPad) est une app de Fabrizio Bacchin (Suisse) pour apprendre à reconnaître les 26 cantons suisses. Jusqu'à la version 2.0, l'app était payante, pour iPad uniquement, sans publicité ni statistiques d'utilisation ; à partir de la version 3.0 elle est gratuite, avec des publicités que Premium supprime.</p>
+  <h2>2. Vos données restent sur votre appareil</h2>
+  <p>Les réponses que vous écrivez ou choisissez, vos scores et votre progression restent sur votre appareil et ne sont envoyés nulle part. Il n'y a ni compte ni synchronisation dans le nuage.</p>
+  <p>Si vous utilisez <strong>Game Center</strong> et terminez une partie, l'app envoie votre score final au classement Game Center du mode joué. Game Center est un service d'Apple régi par la politique de confidentialité d'Apple : nous ne voyons que les classements, comme n'importe quel joueur.</p>
+  <h2>3. Notifications push</h2>
+  <p>Si — et seulement si — vous autorisez les notifications, l'app enregistre votre appareil auprès de notre service de notifications (Back4App, un hébergeur Parse). L'enregistrement contient :</p>
+  <div class="card"><ul><li>le jeton de notification anonyme de votre appareil (APNs)</li><li>un identifiant d'installation aléatoire généré par l'app</li><li>le type d'appareil (« ios »), le nom et la version de l'app, le fuseau horaire et la langue</li></ul></div>
+  <p>Rien de tout cela ne vous identifie personnellement ni n'est lié à un compte. Ces données servent uniquement à envoyer des notifications occasionnelles sur l'app ; elles ne sont jamais vendues ni partagées à des fins publicitaires. Si vous refusez les notifications, ou les désactivez plus tard, aucun enregistrement n'est utilisé. Vous pouvez en demander la suppression à tout moment en nous écrivant.</p>
+  <h2>4. Publicité</h2>
+  <p>L'app est financée par la publicité <strong>Google AdMob</strong> (bannières et publicités plein écran entre les cantons). Pour choisir et mesurer les publicités, Google peut traiter des données telles que les identifiants de l'appareil et publicitaires, votre adresse IP (qui indique une position approximative) et des informations sur vos interactions avec les publicités.</p>
+  <p>Comme l'app est aussi utilisée par des enfants et des adolescents, elle demande à Google <strong>uniquement des publicités adaptées à tous les âges</strong> (classification « G »).</p>
+  <p><strong>Votre consentement (EEE, Royaume-Uni et Suisse).</strong> Avant que l'app ne demande une publicité, le message de consentement de Google s'affiche. Si vous acceptez, les publicités peuvent être personnalisées. Si vous refusez, l'app continue d'afficher des publicités, mais <em>limitées</em> et non personnalisées. Vous pouvez changer d'avis à tout moment : dans l'app, touchez <strong>&#9432;</strong> puis <strong>« Réglages de confidentialité »</strong>.</p>
+  <p><strong>Suivi (App Tracking Transparency).</strong> Après le message de consentement de Google, l'app utilise la fenêtre système d'Apple pour demander si vous l'autorisez à suivre votre activité dans les apps et sur les sites d'autres entreprises.</p>
+  <div class="card"><ul><li>Si vous l'autorisez, Google peut utiliser l'identifiant publicitaire de l'appareil (IDFA) pour vous montrer des publicités plus pertinentes et en mesurer les résultats.</li><li>Si vous refusez, l'IDFA n'est pas utilisé et vous voyez quand même des publicités, simplement moins personnalisées.</li><li>La fenêtre n'apparaît pas si vous avez refusé le consentement de Google ou si vous avez Premium.</li><li>Vous pouvez modifier votre choix à tout moment dans Réglages › Confidentialité et sécurité › Suivi.</li></ul></div>
+  <p>L'utilisation de ces données par Google est expliquée dans <a href="https://policies.google.com/technologies/partner-sites">Comment Google utilise les informations provenant de sites ou d'applications qui utilisent nos services</a> et dans les <a href="https://policies.google.com/privacy">Règles de confidentialité de Google</a>.</p>
+  <p>Avec Premium (section 6), l'app n'affiche aucune publicité, ne contacte pas Google AdMob et ne demande pas de consentement publicitaire.</p>
+  <h2>5. Statistiques d'utilisation anonymes</h2>
+  <p>Pour comprendre quelles fonctions sont réellement utilisées, l'app envoie quelques statistiques d'utilisation anonymes à <strong>PostHog</strong>, sur des serveurs situés dans l'Union européenne. Ce sont toujours et uniquement ces signaux :</p>
+  <div class="card"><ul><li>l'écran que vous ouvrez : choix du mode, informations, Premium</li><li>le début d'une partie, sa fin ou son abandon, avec le mode choisi (Classique ou Choix multiple)</li><li>l'ouverture de la page Premium, et d'où elle a été ouverte</li><li>un éventuel problème d'achat intégré, réduit à une cause générique (par exemple « produits inaccessibles »)</li></ul></div>
+  <p>Chaque signal indique aussi si vous utilisez un iPhone ou un iPad, un identifiant aléatoire généré par l'app et les données techniques qui accompagnent toute requête Internet (modèle de l'appareil, versions du système et de l'app, langue, adresse IP). Les réponses, les scores et les autres contenus du jeu ne quittent jamais l'appareil. Aucun profil n'est créé et l'écran n'est jamais enregistré. Ces données ne servent pas à vous suivre dans les apps ou sur les sites d'autres entreprises : le suivi de la section 4 ne concerne que la publicité Google, et seulement si vous l'autorisez.</p>
+  <h2>6. Premium</h2>
+  <p>Vous pouvez acheter <strong>Premium</strong> avec un abonnement annuel ou un achat unique. Premium supprime les publicités et débloque le mode Classique, dans lequel vous écrivez le nom du canton. Le paiement est géré par Apple : nous ne voyons jamais vos données de paiement. Pour vérifier l'achat, l'app utilise <strong>RevenueCat</strong>, qui reçoit d'Apple le reçu d'achat avec un identifiant aléatoire généré par l'app : ni nom, ni e-mail, ni compte. Vous gérez et résiliez l'abonnement dans les réglages de votre compte App Store ; les achats peuvent être restaurés dans l'app, sur l'écran Premium.</p>
+  <h2>7. Ce que nous ne faisons pas</h2>
+  <ul><li>Aucun compte, aucun profil</li><li>Aucun suivi sans votre autorisation, et uniquement pour la publicité Google (section 4)</li><li>Aucune statistique qui vous identifie : celles de la section 5 sont anonymes et ne créent aucun profil</li><li>Aucune localisation : l'app ne la demande jamais</li><li>Aucune publicité avec Premium</li><li>Aucune vente de vos données</li><li>Aucune donnée personnelle collectée sciemment auprès d'enfants</li></ul>
+  <h2>8. Vos droits</h2>
+  <p>En vertu de la loi fédérale suisse sur la protection des données (LPD) et du RGPD, vous pouvez demander l'accès, la rectification ou la suppression des données décrites à la section 3. Comme nous ne conservons aucune information qui vous identifie, indiquez-nous la date approximative à laquelle vous avez activé les notifications, afin que nous puissions retrouver l'enregistrement. Pour les données publicitaires de la section 4, Google agit comme responsable indépendant : vous pouvez aussi exercer vos droits directement auprès de Google, via les liens ci-dessus. Les statistiques de la section 5 et les données d'achat de la section 6 ne contiennent rien qui vous identifie ; nous ne pouvons donc pas vous les associer. Écrivez à <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
+  <h2>9. Modifications</h2>
+  <p>Si l'app reçoit de nouvelles fonctions qui modifient le traitement des données, cette politique sera mise à jour avant leur publication, et la date de « dernière mise à jour » ci-dessus changera.</p>
+  </div>
+  <div lang-block="it">
+  <p class="updated">Ultimo aggiornamento: 3 ottobre 2026 — vale dalla versione 3.0</p>
+  <div class="card tldr"><strong>In breve:</strong> le tue risposte e i tuoi punteggi restano sul tuo dispositivo e non ci sono account. L'app invia solo poche statistiche d'uso anonime, per esempio quale modalità di gioco viene scelta: mai risposte o punteggi. L'app è gratuita e mostra pubblicità di Google AdMob adatta a tutte le età. In Europa prima viene chiesto il tuo consenso; poi l'app chiede se permetti il tracciamento pubblicitario, e puoi rifiutare. Premium toglie la pubblicità.</div>
+  <h2>1. Chi siamo</h2>
+  <p>Guess the Swiss Canton (per iPhone e iPad) è un'app di Fabrizio Bacchin (Svizzera) per imparare a riconoscere i 26 cantoni svizzeri. Fino alla versione 2.0 l'app era a pagamento, solo per iPad, senza pubblicità né statistiche d'uso; dalla versione 3.0 è gratuita, con pubblicità che Premium toglie.</p>
+  <h2>2. I tuoi dati restano sul tuo dispositivo</h2>
+  <p>Le risposte che scrivi o scegli, i punteggi e i progressi di gioco restano sul tuo dispositivo e non vengono caricati da nessuna parte. Non c'è nessun account e nessuna sincronizzazione nel cloud.</p>
+  <p>Se usi <strong>Game Center</strong> e completi una partita, l'app invia il punteggio finale alla classifica Game Center della modalità giocata. Game Center è un servizio di Apple regolato dall'informativa sulla privacy di Apple: noi vediamo solo le classifiche, come qualunque altro giocatore.</p>
+  <h2>3. Notifiche push</h2>
+  <p>Se — e solo se — consenti le notifiche, l'app registra il tuo dispositivo presso il nostro servizio di notifiche (Back4App, un fornitore di hosting Parse). La registrazione contiene:</p>
+  <div class="card"><ul><li>il token di notifica anonimo del tuo dispositivo (APNs)</li><li>un identificativo di installazione casuale generato dall'app</li><li>il tipo di dispositivo («ios»), nome e versione dell'app, il fuso orario e la lingua impostata</li></ul></div>
+  <p>Niente di tutto questo ti identifica personalmente e niente è collegato a un account. Serve solo a inviare notifiche occasionali sull'app, e non viene mai venduto né condiviso per la pubblicità. Se rifiuti le notifiche, o le disattivi più tardi, nessuna registrazione viene usata. Puoi chiederci di cancellarla in qualsiasi momento scrivendoci.</p>
+  <h2>4. Pubblicità</h2>
+  <p>L'app si sostiene con la pubblicità di <strong>Google AdMob</strong> (banner e annunci a tutto schermo fra un cantone e l'altro). Per scegliere e misurare gli annunci, Google può trattare dati come gli identificativi del dispositivo e pubblicitari, il tuo indirizzo IP (che indica una posizione approssimativa) e informazioni su come interagisci con gli annunci.</p>
+  <p>Poiché l'app è usata anche da bambini e ragazzi, chiede a Google <strong>solo annunci adatti a tutte le età</strong> (classificazione «G»).</p>
+  <p><strong>Il tuo consenso (SEE, Regno Unito e Svizzera).</strong> Prima che l'app richieda un annuncio compare il messaggio di consenso di Google. Se accetti, gli annunci possono essere personalizzati. Se rifiuti, l'app continua a mostrare annunci, ma <em>limitati</em> e non personalizzati. Puoi cambiare idea in qualsiasi momento: nell'app tocca <strong>&#9432;</strong> e poi <strong>«Impostazioni privacy»</strong>.</p>
+  <p><strong>Tracciamento (App Tracking Transparency).</strong> Dopo il messaggio di consenso di Google, l'app usa la richiesta di sistema di Apple per chiedere se le permetti di tracciare la tua attività nelle app e nei siti di altre aziende.</p>
+  <div class="card"><ul><li>Se lo consenti, Google può usare l'identificativo pubblicitario del dispositivo (IDFA) per mostrarti annunci più pertinenti e misurarne i risultati.</li><li>Se rifiuti, l'IDFA non viene usato e vedi comunque la pubblicità, solo meno personalizzata.</li><li>La richiesta non compare se hai rifiutato il consenso di Google o se hai Premium.</li><li>Puoi cambiare la tua scelta in qualsiasi momento in Impostazioni › Privacy e sicurezza › Tracciamento.</li></ul></div>
+  <p>Come Google usa questi dati è spiegato in <a href="https://policies.google.com/technologies/partner-sites">Modalità di utilizzo da parte di Google delle informazioni provenienti da siti o app che utilizzano i nostri servizi</a> e nelle <a href="https://policies.google.com/privacy">Norme sulla privacy di Google</a>.</p>
+  <p>Con Premium (sezione 6) l'app non mostra annunci, non contatta Google AdMob e non chiede il consenso pubblicitario.</p>
+  <h2>5. Statistiche d'uso anonime</h2>
+  <p>Per capire quali funzioni vengono davvero usate, l'app invia poche statistiche d'uso anonime a <strong>PostHog</strong>, su server nell'Unione Europea. Sono sempre e solo questi segnali:</p>
+  <div class="card"><ul><li>quale schermata apri: scelta della modalità, informazioni, Premium</li><li>l'inizio di una partita, la sua conclusione o l'abbandono, con la modalità scelta (Classica o Scelta multipla)</li><li>l'apertura della pagina Premium, e da dove è stata aperta</li><li>un eventuale problema con gli acquisti in-app, ridotto a una causa generica (per esempio «prodotti non raggiungibili»)</li></ul></div>
+  <p>Ogni segnale porta anche se usi un iPhone o un iPad, un identificativo casuale generato dall'app e i dati tecnici che accompagnano qualsiasi richiesta Internet (modello del dispositivo, versioni del sistema e dell'app, lingua, indirizzo IP). Risposte, punteggi e altri contenuti di gioco non lasciano mai il dispositivo. Non viene costruito nessun profilo e lo schermo non viene mai registrato. Questi dati non servono a tracciarti nelle app o nei siti di altre aziende: il tracciamento della sezione 4 riguarda solo la pubblicità di Google, e solo se lo consenti.</p>
+  <h2>6. Premium</h2>
+  <p>Puoi acquistare <strong>Premium</strong> con un abbonamento annuale o con un acquisto una tantum. Premium toglie la pubblicità e sblocca la modalità Classica, in cui scrivi il nome del cantone. Il pagamento è gestito da Apple: noi non vediamo mai i tuoi dati di pagamento. Per verificare l'acquisto l'app usa <strong>RevenueCat</strong>, che riceve da Apple la ricevuta d'acquisto insieme a un identificativo casuale generato dall'app: nessun nome, nessuna e-mail, nessun account. L'abbonamento si gestisce e si disdice nelle impostazioni del tuo account App Store; gli acquisti si ripristinano nell'app, nella schermata Premium.</p>
+  <h2>7. Cosa non facciamo</h2>
+  <ul><li>Nessun account, nessun profilo</li><li>Nessun tracciamento se non lo consenti, e solo per la pubblicità di Google (sezione 4)</li><li>Nessuna statistica che ti identifichi: quelle della sezione 5 sono anonime e non costruiscono profili</li><li>Nessuna posizione: l'app non la chiede mai</li><li>Nessuna pubblicità con Premium</li><li>Nessuna vendita dei tuoi dati</li><li>Nessun dato personale raccolto consapevolmente da bambini</li></ul>
+  <h2>8. I tuoi diritti</h2>
+  <p>In base alla legge federale svizzera sulla protezione dei dati (LPD) e al GDPR puoi chiedere l'accesso, la rettifica o la cancellazione dei dati descritti nella sezione 3. Poiché non conserviamo informazioni che ti identificano, indicaci la data approssimativa in cui hai attivato le notifiche, così possiamo trovare la registrazione. Per i dati pubblicitari della sezione 4 Google agisce come titolare autonomo: puoi esercitare i tuoi diritti anche direttamente con Google, dai link qui sopra. Le statistiche della sezione 5 e i dati d'acquisto della sezione 6 non contengono nulla che ti identifichi, quindi non possiamo collegarli a te. Scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
+  <h2>9. Modifiche</h2>
+  <p>Se l'app avrà nuove funzioni che cambiano il trattamento dei dati, questa informativa sarà aggiornata prima della loro pubblicazione, e la data di «ultimo aggiornamento» qui sopra cambierà.</p>
+  </div>
+  <footer>
+    <span lang-block="en">© 2026 Fabrizio Bacchin · <a href="support-swisscanton.html">Support</a></span>
+    <span lang-block="de">© 2026 Fabrizio Bacchin · <a href="support-swisscanton.html">Support</a></span>
+    <span lang-block="fr">© 2026 Fabrizio Bacchin · <a href="support-swisscanton.html">Assistance</a></span>
+    <span lang-block="it">© 2026 Fabrizio Bacchin · <a href="support-swisscanton.html">Assistenza</a></span>
+  </footer>
+</main>
+
+<script>
+  var LANGS = ["en", "de", "fr", "it"];
+  function setLang(l) {
+    if (LANGS.indexOf(l) < 0) l = "en";
+    document.documentElement.setAttribute("data-lang", l);
+    document.documentElement.lang = l;
+    LANGS.forEach(function (x) { document.getElementById("btn-" + x).setAttribute("aria-pressed", x === l); });
+    try { localStorage.setItem("cantoni-lang", l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("cantoni-lang"); } catch (e) {}
+  var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+  setLang(saved || (LANGS.indexOf(nav) >= 0 ? nav : "en"));
+</script>
+<noscript><style>[lang-block]{display:block !important}</style></noscript>
+
+</body>
+</html>
