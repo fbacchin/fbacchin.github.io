@@ -19,7 +19,7 @@ rimandi: lì le pagine di assistenza e privacy **non si toccano**.
 | I dati letti dalle app (CSV dei tassi, Gottardo, codici di gara, valichi, volcano) | `fbacchin/app` | `https://fbacchin.github.io/app/...` | Solo dagli automatismi |
 | I vecchi indirizzi di assistenza e privacy | `fbacchin/app` | `https://fbacchin.github.io/app/<Cartella>/...` | No: sono rimandi |
 | I giochi | `fbacchin/Giochi` | `https://giochi.bacchin.app` | Sì, nel loro repo |
-| ONON Tracker e Dashboard BCE | `fbacchin/finance` | `https://fbacchin.github.io/finance/...` | Sì, nel loro repo |
+| Stock Tracker (file `stock-tracker.html`) e Dashboard BCE | `fbacchin/finance` | `https://fbacchin.github.io/finance/...` | Sì, nel loro repo |
 | Vecchie pagine delle app geografiche | `fbacchin/privacy-and-support` | GitHub Pages | Non toccare (vedi sotto) |
 
 ### Come viene pubblicato il sito
