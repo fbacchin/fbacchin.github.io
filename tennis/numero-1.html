@@ -119,7 +119,7 @@
     <div class="tornei" id="tornei"></div>
 
     <h2 data-t="h-settimane">La classifica ATP, settimana per settimana</h2>
-    <p data-t="settimane-intro">La classifica ATP conta gli ultimi 12 mesi: a ogni torneo entrano i punti nuovi ed escono quelli dello stesso torneo del 2025. Dopo le Finals restano solo i punti del 2026, e la classifica coincide con la Race.</p>
+    <p data-t="settimane-intro">La classifica ATP conta gli ultimi 12 mesi: a ogni torneo entrano i punti nuovi ed escono quelli dello stesso torneo del 2025. Fanno eccezione le Finals: i punti del 2025 escono lunedì 16 novembre, prima che il torneo finisca. Dopo le Finals restano solo i punti del 2026, e la classifica coincide con la Race.</p>
     <div class="scorri">
       <table class="tabella">
         <thead><tr><th data-t="quando">Quando</th><th class="num">Sinner</th><th class="num">Zverev</th><th data-t="n1">N. 1</th></tr></thead>
@@ -175,7 +175,7 @@
       s: { cade: 1000, fuori: true, nota: { it: 'Infortunato, stagione finita. Escono i 1.000 punti del 2025', en: 'Injured, season over. His 1,000 points from 2025 drop' } },
       z: { cade: 400, nota: { it: '2025: semifinale, 400 punti', en: '2025: semi-final, 400 points' } } },
     { id: 'fin', cat: 'FIN', nome: { it: 'ATP Finals, Torino', en: 'ATP Finals, Turin' }, quando: { it: '15 – 22 novembre', en: '15 – 22 November' },
-      s: { cade: 1500, fuori: true, nota: { it: 'Infortunato, stagione finita. Escono i 1.500 punti del 2025', en: 'Injured, season over. His 1,500 points from 2025 drop' } },
+      s: { cade: 1500, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 16 novembre escono i 1.500 punti del 2025', en: 'Injured, season over. His 1,500 points from 2025 drop on 16 November' } },
       z: { cade: 200, nota: { it: '2025: girone, una vittoria, 200 punti', en: '2025: group stage, one win, 200 points' } } }
   ];
 
@@ -185,6 +185,8 @@
     { dopo: ['sha'], it: 'Dopo Shanghai, 19 ottobre', en: 'After Shanghai, 19 October' },
     { dopo: ['sha', 'a500'], it: 'Dopo Vienna e Basilea, 2 novembre', en: 'After Vienna and Basel, 2 November' },
     { dopo: ['sha', 'a500', 'par'], it: 'Dopo Parigi, 9 novembre', en: 'After Paris, 9 November' },
+    // i punti delle Finals 2025 escono il lunedì dopo l'ultima settimana di tornei, prima che le Finals finiscano
+    { dopo: ['sha', 'a500', 'par'], scarta: ['fin'], it: 'Lunedì 16 novembre, escono le Finals 2025', en: 'Monday 16 November, 2025 Finals points drop' },
     { dopo: ['sha', 'a500', 'par', 'fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
   ];
 
@@ -206,7 +208,7 @@
       istruzioni: 'Per ogni torneo scegli fin dove arriva Zverev. Sinner non gioca: i suoi punti del 2025 escono comunque dalla classifica ATP la settimana del torneo.',
       'p-2025': 'Zverev come nel 2025', 'p-zverev': 'Zverev vince tutto', 'p-zero': 'Azzera', condividi: 'Condividi lo scenario',
       'h-settimane': 'La classifica ATP, settimana per settimana',
-      'settimane-intro': 'La classifica ATP conta gli ultimi 12 mesi: a ogni torneo entrano i punti nuovi ed escono quelli dello stesso torneo del 2025. Dopo le Finals restano solo i punti del 2026, e la classifica coincide con la Race.',
+      'settimane-intro': 'La classifica ATP conta gli ultimi 12 mesi: a ogni torneo entrano i punti nuovi ed escono quelli dello stesso torneo del 2025. Fanno eccezione le Finals: i punti del 2025 escono lunedì 16 novembre, prima che il torneo finisca. Dopo le Finals restano solo i punti del 2026, e la classifica coincide con la Race.',
       quando: 'Quando', n1: 'N. 1', privacy: 'Privacy e assistenza',
       race: 'Race oggi', guadagna: 'punti in più', copiato: 'Link copiato',
       vS: 'Sinner chiude il 2026 da numero 1, con {d} punti di vantaggio.',
@@ -225,7 +227,7 @@
       istruzioni: 'For each event, choose how far Zverev goes. Sinner is not playing: his 2025 points still drop out of the ATP ranking in the week of the event.',
       'p-2025': 'Zverev as in 2025', 'p-zverev': 'Zverev wins everything', 'p-zero': 'Reset', condividi: 'Share this scenario',
       'h-settimane': 'The ATP ranking, week by week',
-      'settimane-intro': 'The ATP ranking covers the last 12 months: at every event the new points come in and the points from the same event in 2025 drop out. After the Finals only 2026 points are left, and the ranking equals the Race.',
+      'settimane-intro': 'The ATP ranking covers the last 12 months: at every event the new points come in and the points from the same event in 2025 drop out. The Finals are the exception: the 2025 points drop on Monday 16 November, before the event ends. After the Finals only 2026 points are left, and the ranking equals the Race.',
       quando: 'When', n1: 'No. 1', privacy: 'Privacy and support',
       race: 'Race today', guadagna: 'points added', copiato: 'Link copied',
       vS: 'Sinner finishes 2026 as No. 1, {d} points ahead.',
@@ -284,8 +286,9 @@
     }, 0);
   }
 
-  function classificaDopo(g, ids) {
+  function classificaDopo(g, ids, scarta) {
     return TORNEI.reduce(function (acc, tr) {
+      if (scarta && scarta.indexOf(tr.id) >= 0) return acc - tr[g].cade;
       if (ids.indexOf(tr.id) < 0) return acc;
       return acc + punti(tr, stato[g][tr.id]) - tr[g].cade;
     }, BASE[g].classifica);
@@ -325,7 +328,7 @@
     document.getElementById('settimane').innerHTML = TAPPE.map(function (tp, i) {
       var fine = i === TAPPE.length - 1;
       // a fine anno la classifica coincide con la Race: l'ultima riga parte da lì
-      var s = fine ? BASE.s.race + totale('s') : classificaDopo('s', tp.dopo), z = fine ? BASE.z.race + totale('z') : classificaDopo('z', tp.dopo);
+      var s = fine ? BASE.s.race + totale('s') : classificaDopo('s', tp.dopo, tp.scarta), z = fine ? BASE.z.race + totale('z') : classificaDopo('z', tp.dopo, tp.scarta);
       var chi = s > z ? '<span class="n1 n1-s">Sinner</span>' : (z > s ? '<span class="n1 n1-z">Zverev</span>' : '=');
       var riga = '<tr><td>' + tp[lingua] + '</td><td class="num">' + fmt(s) + '</td><td class="num">' + fmt(z) + '</td><td>' + chi + '</td></tr>';
       return i === TAPPE.length - 1 ? riga.replace('<tr>', '<tr style="font-weight:700">') : riga;
