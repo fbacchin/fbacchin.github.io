@@ -48,6 +48,8 @@ gotthard.html
 Burraco.html
 codici.html
 perspecta.html
+Regione.html
+USState.html
 EuriborMac.html         solo un rimando a /EuriborX (app dismessa)
 euribor-oggi.html       GENERATA: non modificare a mano (vedi sotto)
 strumenti/euribor_oggi.py   lo script che genera euribor-oggi.html
@@ -166,6 +168,10 @@ servono a chi ha ancora l'app installata.
   uniformare.
 - **Link ad assistenza e privacy** dalle pagine del sito: forma breve, per
   esempio `/app/Leasing/support`.
+- **Link all'App Store:** ogni pagina di presentazione ha il pulsante
+  «Scarica su App Store» sotto il titolo e la riga «App Store» nella scheda
+  in fondo, con indirizzo `https://apps.apple.com/app/id<numero>`. Perspecta
+  non ce l'ha finché non è sull'App Store.
 - **Dati in diretta:** le pagine del sito leggono i dati con l'indirizzo
   completo `https://fbacchin.github.io/app/...`. Non renderli relativi.
 - **Modello di vendita attuale** di Euribor X, Libor X, Mortgage e Leasing:

@@ -1,4 +1,4 @@
-/* Versione del foglio di stile: le pagine lo richiamano come stile.css?v=2026-09-21c.
+/* Versione del foglio di stile: le pagine lo richiamano come stile.css?v=2026-10-06a.
    Dopo ogni modifica a questo file, cambiare ?v= in TUTTE le pagine .html,
    altrimenti i browser che hanno già visitato il sito continuano a usare la copia vecchia. */
 
@@ -382,6 +382,22 @@
 .app-hero { padding: 52px 0 8px; }
 .app-hero h1 { margin-bottom: 18px; }
 .app-hero .tesi { margin-top: 0; }
+
+.scarica {
+  margin-top: 26px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px;
+}
+.scarica__link {
+  display: inline-flex; align-items: center; height: 48px; padding: 0 24px;
+  border-radius: 999px;
+  background: var(--ambra); color: var(--ardesia);
+  font-variation-settings: 'wdth' 106; font-weight: 700; font-size: 16px;
+  text-decoration: none; white-space: nowrap;
+  transition: background .2s, transform .2s;
+}
+.scarica__link:hover { background: var(--gesso); }
+.scarica__link:active { transform: scale(.98); }
+.scarica__nota { color: var(--nebbia); font-size: 14.5px; }
 
 .dato-grande {
   margin-top: 36px;
