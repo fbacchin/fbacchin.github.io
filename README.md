@@ -168,10 +168,12 @@ servono a chi ha ancora l'app installata.
   uniformare.
 - **Link ad assistenza e privacy** dalle pagine del sito: forma breve, per
   esempio `/app/Leasing/support`.
-- **Link all'App Store:** ogni pagina di presentazione ha il pulsante
-  «Scarica su App Store» sotto il titolo e la riga «App Store» nella scheda
-  in fondo, con indirizzo `https://apps.apple.com/app/id<numero>`. Perspecta
-  non ce l'ha finché non è sull'App Store.
+- **Link all'App Store:** ogni pagina di presentazione ha sotto il titolo il
+  badge ufficiale Apple (`app-store-badge-it.svg`, scaricato da Apple: non va
+  ridisegnato, ricolorato né deformato; altezza minima 40px) e la riga
+  «App Store» nella scheda in fondo. L'indirizzo è quello completo della
+  scheda, `https://apps.apple.com/it/app/<nome>/id<numero>`. Perspecta non ce
+  l'ha finché non è sull'App Store.
 - **Dati in diretta:** le pagine del sito leggono i dati con l'indirizzo
   completo `https://fbacchin.github.io/app/...`. Non renderli relativi.
 - **Modello di vendita attuale** di Euribor X, Libor X, Mortgage e Leasing:

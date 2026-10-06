@@ -1,4 +1,4 @@
-/* Versione del foglio di stile: le pagine lo richiamano come stile.css?v=2026-10-06a.
+/* Versione del foglio di stile: le pagine lo richiamano come stile.css?v=2026-10-06b.
    Dopo ogni modifica a questo file, cambiare ?v= in TUTTE le pagine .html,
    altrimenti i browser che hanno già visitato il sito continuano a usare la copia vecchia. */
 
@@ -385,18 +385,11 @@
 
 .scarica {
   margin-top: 26px;
-  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px;
 }
-.scarica__link {
-  display: inline-flex; align-items: center; height: 48px; padding: 0 24px;
-  border-radius: 999px;
-  background: var(--ambra); color: var(--ardesia);
-  font-variation-settings: 'wdth' 106; font-weight: 700; font-size: 16px;
-  text-decoration: none; white-space: nowrap;
-  transition: background .2s, transform .2s;
-}
-.scarica__link:hover { background: var(--gesso); }
-.scarica__link:active { transform: scale(.98); }
+/* Badge ufficiale Apple: non va modificato. Altezza minima 40px, spazio libero intorno almeno 1/4 dell'altezza. */
+.scarica__badge { display: inline-block; line-height: 0; padding: 12px 12px 12px 0; }
+.scarica__badge img { display: block; height: 48px; width: auto; }
 .scarica__nota { color: var(--nebbia); font-size: 14.5px; }
 
 .dato-grande {
