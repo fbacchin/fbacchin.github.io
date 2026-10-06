@@ -65,6 +65,8 @@
   .tabella .n1-s { color: var(--sinner); }
   .tabella .n1-z { color: var(--zverev); }
   .scorri { overflow-x: auto; }
+  .avviso-lingua { margin: 0 0 18px; }
+  .avviso-lingua a { display: inline-block; padding: 10px 14px; border: 1px solid var(--ambra); border-radius: 10px; color: var(--ambra); text-decoration: none; font-size: 15px; }
   .fonte { font-family: var(--dato); font-size: 12px; line-height: 1.6; color: var(--nebbia); margin-top: 10px; }
   .lingua { margin-top: 10px; }
   .copiato { color: var(--verde); font-size: 14px; margin-left: 6px; }
@@ -84,6 +86,7 @@
   </header>
 
   <div class="app-hero">
+    <p class="avviso-lingua" id="avviso-lingua" hidden><a id="avviso-lingua-link" href="/tennis/number-1" hreflang="en" lang="en">This page is available in English →</a></p>
     <p class="etichetta" data-t="occhiello">Simulatore · classifica ATP 2026</p>
     <h1 data-t="titolo">Sinner out, Zverev heading for No. 1: when does the ranking flip?</h1>
     <p class="tesi" data-t="tesi">Sinner has ended his season with a knee injury: he will add no more points and will finish the year on 7,950. Zverev already has 8,750 in the Race, so he will finish 2026 ahead of him. The open question is when he passes him in the ranking: pick Zverev’s results and see in which week he becomes No. 1.</p>
@@ -390,6 +393,18 @@
     al.textContent = 'Italiano'; al.href = '/tennis/numero-1'; al.hreflang = 'it';
   }
   document.getElementById('fonte').textContent = t('fonte');
+
+  // avviso, senza reindirizzare: chi ha il dispositivo in un'altra lingua vede il link all'altra versione
+  (function () {
+    var nav = (navigator.language || '').slice(0, 2).toLowerCase();
+    var box = document.getElementById('avviso-lingua'), a = document.getElementById('avviso-lingua-link');
+    if (!nav || (lingua === 'it') === (nav === 'it')) return;
+    if (lingua === 'en') { a.textContent = 'Questa pagina è disponibile in italiano →'; a.href = '/tennis/numero-1'; a.hreflang = 'it'; a.lang = 'it'; }
+    var base = a.getAttribute('href');
+    // porta con sé lo scenario scelto
+    a.addEventListener('click', function () { a.href = base + location.hash; });
+    box.hidden = false;
+  })();
 
   disegnaTornei();
   if (location.hash) decodifica(location.hash);
