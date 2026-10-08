@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera euribor-oggi.html dai CSV pubblici dei tassi e aggiorna sitemap.xml.
+"""Genera finanza/euribor-oggi.html dai CSV pubblici dei tassi e aggiorna sitemap.xml.
 
 Legge https://fbacchin.github.io/app/Euribor/EURIBOR.csv ed ESTER.csv (le stesse
 serie usate dall'app Euribor X), calcola variazioni e lettura della curva e
@@ -14,9 +14,9 @@ from datetime import date, timedelta
 
 BASE = "https://fbacchin.github.io/app/Euribor/"
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGINA = os.path.join(QUI, "euribor-oggi.html")
+PAGINA = os.path.join(QUI, "finanza", "euribor-oggi.html")
 SITEMAP = os.path.join(QUI, "sitemap.xml")
-URL = "https://bacchin.app/euribor-oggi"
+URL = "https://bacchin.app/finanza/euribor-oggi"
 CSS_V = "2026-10-06c"
 APP_STORE = "https://apps.apple.com/it/app/euribor-x-tassi-e-mutuo/id951735963"
 DASHBOARD = "/finanza/dashboard-bce"
@@ -378,7 +378,7 @@ def main():
     with open(PAGINA, "w", encoding="utf-8") as f:
         f.write(testo)
     aggiorna_sitemap(d0)
-    print(f"euribor-oggi.html: fixing del {d0.isoformat()}")
+    print(f"finanza/euribor-oggi.html: fixing del {d0.isoformat()}")
 
 
 if __name__ == "__main__":
