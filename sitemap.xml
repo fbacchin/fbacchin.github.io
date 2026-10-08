@@ -61,4 +61,12 @@
   <url><loc>https://bacchin.app/stampa/gothard</loc></url>
   <url><loc>https://bacchin.app/tennis/numero-1</loc></url>
   <url><loc>https://bacchin.app/tennis/number-1</loc></url>
+  <url>
+    <loc>https://bacchin.app/finanza/stock-tracker</loc>
+    <lastmod>2026-10-08</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/finanza/dashboard-bce</loc>
+    <lastmod>2026-10-08</lastmod>
+  </url>
 </urlset>
