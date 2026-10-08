@@ -8,7 +8,7 @@ document.querySelectorAll('form[data-nl]').forEach(function (f) {
       var r = await fetch(f.action, { method: 'POST', body: new URLSearchParams(new FormData(f)) });
       if (!(await r.json()).success) throw new Error('rifiutata');
       f.querySelectorAll('label, button, .nl__nota').forEach(function (x) { x.hidden = true; });
-      esito.textContent = 'Quasi fatto: controlla la posta e apri il link di conferma.';
+      esito.textContent = 'Quasi fatto: ti è arrivata una email in inglese da Euribor Weekly, con oggetto «Confirmation email». Aprila e premi «Confirm your email».';
     } catch (err) {
       esito.textContent = 'Iscrizione non riuscita. Riprova fra poco, oppure scrivi a info@bacchin.app.';
       bottone.disabled = false;
