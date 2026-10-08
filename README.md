@@ -50,11 +50,12 @@ perspecta.html
 Regione.html
 USState.html
 EuriborMac.html         solo un rimando a /EuriborX (app dismessa)
-euribor-oggi.html       GENERATA: non modificare a mano (vedi sotto)
-strumenti/euribor_oggi.py   lo script che genera euribor-oggi.html
+strumenti/euribor_oggi.py   lo script che genera finanza/euribor-oggi.html
 .github/workflows/euribor-oggi.yml   lo fa girare 4 volte al giorno
 tennis/                 simulatore ranking ATP
-finanza/                Stock Tracker e Dashboard BCE (con chart.umd.min.js, Chart.js ospitato qui)
+finanza/                Euribor oggi (GENERATA: non modificare a mano), Stock Tracker e
+                        Dashboard BCE (con chart.umd.min.js, Chart.js ospitato qui)
+_redirects              rimandi di Cloudflare (per esempio /euribor-oggi -> /finanza/euribor-oggi)
 stampa/                 materiali stampa di Gottardo Live
 sitemap.xml  robots.txt  404.html  og.png
 app-ads.txt             serve a Google AdMob: NON cancellare
@@ -110,7 +111,7 @@ non lo vedrà nessuno.
 
 1. **Parti dall'ultima versione.** Clona di nuovo
    `fbacchin/fbacchin.github.io`, oppure fai `git pull`. Più sessioni lavorano
-   sullo stesso repo e `euribor-oggi.html` cambia da sola più volte al giorno:
+   sullo stesso repo e `finanza/euribor-oggi.html` cambia da sola più volte al giorno:
    una copia vecchia sovrascrive il lavoro degli altri.
 2. **Modifica solo i file dell'app** in `app/<Cartella>/`. Modifiche mirate:
    non riscrivere la pagina se cambia un paragrafo.
@@ -186,7 +187,7 @@ servono a chi ha ancora l'app installata.
 
 - Non modificare assistenza e privacy in `fbacchin/app`.
 - Non spostare né rinominare i file di dati in `fbacchin/app`.
-- Non modificare `euribor-oggi.html` a mano: la modifica dura poche ore. Si
+- Non modificare `finanza/euribor-oggi.html` a mano: la modifica dura poche ore. Si
   cambia `strumenti/euribor_oggi.py`, e poi anche la pagina.
 - Non cancellare `app-ads.txt`.
 - Non cancellare `Help.html` né il repo `privacy-and-support`: alcune app
