@@ -19,7 +19,7 @@ SITEMAP = os.path.join(QUI, "sitemap.xml")
 URL = "https://bacchin.app/euribor-oggi"
 CSS_V = "2026-10-06c"
 APP_STORE = "https://apps.apple.com/it/app/euribor-x-tassi-e-mutuo/id951735963"
-DASHBOARD = "https://fbacchin.github.io/finance/ecb_euribor_dashboard.html"
+DASHBOARD = "/finanza/dashboard-bce"
 TENOR = [("1W", "1 settimana"), ("1M", "1 mese"), ("3M", "3 mesi"), ("6M", "6 mesi"), ("12M", "12 mesi")]
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto",
         "settembre", "ottobre", "novembre", "dicembre"]
