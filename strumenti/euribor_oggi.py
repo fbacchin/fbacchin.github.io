@@ -26,6 +26,24 @@ APP_ID = "951735963"
 DASHBOARD = "/finanza/dashboard-bce"
 NBSP, NNBSP = " ", " "
 
+# Modulo di iscrizione alla newsletter: solo nella pagina italiana.
+NEWSLETTER_IT = '''    <section class="nl" id="newsletter">
+      <link rel="stylesheet" href="/newsletter.css">
+      <h2>Euribor Weekly</h2>
+      <p>Ogni lunedì mattina, una email: i tassi Euribor della settimana, di quanto si sono mossi e cosa cambia per la rata di un mutuo variabile. Gratis. Il primo numero esce lunedì 19 ottobre 2026.</p>
+      <form class="nl__form" data-nl method="post" action="https://assets.mailerlite.com/jsonp/2696788/forms/200787943386776821/subscribe">
+      <label>Nome <input name="fields[name]" autocomplete="given-name" required></label>
+      <label>Cognome <input name="fields[last_name]" autocomplete="family-name" required></label>
+      <label class="larga">Email <input type="email" name="fields[email]" autocomplete="email" required></label>
+      <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+      <button type="submit">Iscriviti</button>
+      <p class="nl__nota">Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare, e ti cancelli con un clic da ogni numero. <a href="/privacy#newsletter">Privacy</a>.</p>
+      <p class="nl__esito" role="status" hidden></p>
+    </form>
+      <script src="/newsletter.js" defer></script>
+    </section>
+'''
+
 # ---------------------------------------------------------------- lingue ---
 # Tutto il testo della pagina sta qui. Le frasi con dati sono funzioni.
 
@@ -58,6 +76,7 @@ L = {
   titolo=lambda b, v3, v12: f"Euribor oggi, {b}: 3 mesi {v3}, 12 mesi {v12}",
   descr=lambda D, v1, v3, v6, v12: f"Euribor di {D}: 1 mese {v1}, 3 mesi {v3}, 6 mesi {v6}, 12 mesi {v12}. Variazioni, grafico di un anno e cosa significa per la rata del mutuo.",
   h1="Euribor oggi", tutte_app="Tutte le app", privacy="Privacy e assistenza", lingua="Lingua",
+  newsletter=NEWSLETTER_IT,
   tesi=lambda D: f"I tassi Euribor del <strong>fixing di {D}</strong>, con la variazione rispetto al giorno prima, il grafico dell'ultimo anno e <strong>cosa significa per la rata di un mutuo variabile</strong>. La pagina si aggiorna da sola ogni giorno lavorativo.",
   quando=lambda d, de, u: f"Euribor: fixing del {d} · €STR: {de} · variazioni in punti base ({u}) rispetto al fixing precedente",
   h2_lettura="La lettura di oggi", h2_var="Le variazioni", h2_grafico="Gli ultimi dodici mesi", h2_faq="Domande frequenti",
@@ -555,7 +574,7 @@ def pagina(lg, eur, est):
       <p>{t['invito_app'](app_store)}</p>
       <p>{t['invito_dash'](DASHBOARD)}</p>
     </div>
-
+{t.get('newsletter', '')}
     <h2>{t['h2_faq']}</h2>
 {faq_html}
 

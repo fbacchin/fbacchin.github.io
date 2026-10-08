@@ -1,0 +1,14 @@
+/* Modulo di iscrizione a Euribor Weekly: usato in home e in «Euribor oggi». */
+.nl { margin-top: 36px; padding: 22px; background: var(--pannello); border: 1px solid var(--linea); border-radius: 14px; }
+.nl h2 { margin-top: 0; }
+.nl__form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.nl__form label { display: block; font-size: 13px; color: var(--nebbia); }
+.nl__form label.larga, .nl__form button, .nl__nota, .nl__esito { grid-column: 1 / -1; }
+.nl__form input { display: block; width: 100%; margin-top: 4px; padding: 11px 12px; font: inherit; color: var(--gesso); background: var(--ardesia); border: 1px solid var(--linea); border-radius: 8px; }
+.nl__form input:focus-visible, .nl__form button:focus-visible { outline: 2px solid var(--ambra); outline-offset: 2px; }
+.nl__form button { padding: 12px; font: inherit; font-weight: 600; color: var(--ardesia); background: var(--ambra); border: 0; border-radius: 8px; cursor: pointer; }
+.nl__form button:disabled { opacity: .6; cursor: default; }
+.nl__nota { font-size: 13px; color: var(--nebbia); }
+.nl__nota a { color: var(--nebbia); border-bottom: 1px solid var(--linea); text-decoration: none; }
+.nl__esito { font-weight: 600; }
+@media (max-width: 560px) { .nl__form { grid-template-columns: 1fr; } }
