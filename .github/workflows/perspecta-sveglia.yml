@@ -1,0 +1,19 @@
+# Tiene sveglio il server Back4App di Perspecta: si spegne quando nessuno lo
+# usa, e la prima richiesta dopo una pausa (tipicamente il login di un utente
+# nuovo) paga la ripartenza. Per spegnere il ping: disabilita questo workflow.
+name: Perspecta - sveglia server
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: GET /health
+        run: >
+          curl --fail --silent --show-error --max-time 90 --retry 2
+          -H "X-Parse-Application-Id: ${{ secrets.PERSPECTA_PARSE_APP_ID }}"
+          -H "X-Parse-Client-Key: ${{ secrets.PERSPECTA_PARSE_CLIENT_KEY }}"
+          https://parseapi.back4app.com/health
