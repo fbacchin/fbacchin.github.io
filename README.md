@@ -50,10 +50,11 @@ perspecta.html
 Regione.html
 USState.html
 EuriborMac.html         solo un rimando a /EuriborX (app dismessa)
-strumenti/euribor_oggi.py   lo script che genera finanza/euribor-oggi.html
+strumenti/euribor_oggi.py   lo script che genera Euribor oggi in 5 lingue
 .github/workflows/euribor-oggi.yml   lo fa girare 4 volte al giorno
 tennis/                 simulatore ranking ATP
-finanza/                Euribor oggi (GENERATA: non modificare a mano), Stock Tracker e
+finanza/                Euribor oggi in 5 lingue (euribor-oggi, -today, -aujourdhui,
+                        -heute, -hoy: GENERATE, non modificare a mano), Stock Tracker e
                         Dashboard BCE (con chart.umd.min.js, Chart.js ospitato qui)
 _redirects              rimandi di Cloudflare (per esempio /euribor-oggi -> /finanza/euribor-oggi)
 stampa/                 materiali stampa di Gottardo Live
