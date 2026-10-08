@@ -1,4 +1,7 @@
-/* Modulo di iscrizione a Euribor Weekly: usato in home e in «Euribor oggi». */
+/* Modulo di iscrizione a Euribor Weekly: usato in home e in «Euribor oggi».
+   Le pagine lo richiamano come newsletter.css?v=2026-10-08b (e newsletter.js con lo stesso ?v=).
+   Dopo ogni modifica, cambiare ?v= in index.html e in strumenti/euribor_oggi.py,
+   altrimenti chi ha già visitato il sito continua a usare la copia vecchia per ore. */
 .nl { margin-top: 28px; padding: 18px 20px; background: var(--pannello); border: 1px solid var(--linea); border-radius: 14px; }
 .nl h2 { margin-top: 0; }
 .nl__form { display: grid; grid-template-columns: 1fr 1fr 1.6fr auto; gap: 10px; align-items: end; }
