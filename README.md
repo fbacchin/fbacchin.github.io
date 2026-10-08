@@ -19,7 +19,6 @@ rimandi: lì le pagine di assistenza e privacy **non si toccano**.
 | I dati letti dalle app (CSV dei tassi, Gottardo, codici di gara, valichi, volcano) | `fbacchin/app` | `https://fbacchin.github.io/app/...` | Solo dagli automatismi |
 | I vecchi indirizzi di assistenza e privacy | `fbacchin/app` | `https://fbacchin.github.io/app/<Cartella>/...` | No: sono rimandi |
 | I giochi | `fbacchin/Giochi` | `https://giochi.bacchin.app` | Sì, nel loro repo |
-| Vecchie pagine delle app geografiche | `fbacchin/privacy-and-support` | GitHub Pages | Non toccare (vedi sotto) |
 
 ### Come viene pubblicato il sito
 
@@ -60,7 +59,6 @@ _redirects              rimandi di Cloudflare (per esempio /euribor-oggi -> /fin
 stampa/                 materiali stampa di Gottardo Live
 sitemap.xml  robots.txt  404.html  og.png
 app-ads.txt             serve a Google AdMob: NON cancellare
-Help.html               vecchia pagina, NON cancellare per ora (vedi sotto)
 app/                    assistenza e privacy di ogni app  <-- il lavoro si fa qui
 ```
 
@@ -183,6 +181,9 @@ servono a chi ha ancora l'app installata.
   o acquisto una tantum. La vecchia versione a pagamento si chiama «Legacy» e
   non riceve aggiornamenti. Non esistono più versioni «Light» di queste app.
 - **Euribor per Mac** è dismessa.
+- **Guess the China Province** è stata ritirata dalla vendita (ottobre 2026):
+  era l'ultima app che usava `Help.html` e il repo `privacy-and-support`,
+  entrambi cancellati.
 
 ## Cose da non fare
 
@@ -191,8 +192,6 @@ servono a chi ha ancora l'app installata.
 - Non modificare `finanza/euribor-oggi.html` a mano: la modifica dura poche ore. Si
   cambia `strumenti/euribor_oggi.py`, e poi anche la pagina.
 - Non cancellare `app-ads.txt`.
-- Non cancellare `Help.html` né il repo `privacy-and-support`: alcune app
-  geografiche puntano ancora lì. Si tolgono solo quando tutte sono aggiornate.
 - Non aggiungere a `privacy.html` le app non pubblicate (Health Companion,
   Valichi, Volcano).
 - Non ricostruire un file partendo da una copia vecchia.
@@ -201,9 +200,6 @@ servono a chi ha ancora l'app installata.
 
 - Inserire nelle pagine delle app delle immagini con le funzionalità
   descritte nel testo.
-- Cancellare `Help.html` quando tutte le app geografiche sono aggiornate.
-- Cancellare il repo `privacy-and-support` quando la privacy di tutte le app
-  è stata scritta qui.
 
 ## Controllo finale
 
