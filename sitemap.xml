@@ -2,55 +2,243 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bacchin.app/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/EuriborX</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/EuriborX</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/EuriborX</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/EuriborX</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/EuriborX</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/LiborX</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/LiborX</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/LiborX</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/LiborX</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/LiborX</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/Mortgage</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/Mortgage</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/Mortgage</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/Mortgage</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/Mortgage</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/Leasing</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/Leasing</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/Leasing</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/Leasing</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/Leasing</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/gotthard</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/gotthard</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/gotthard</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/gotthard</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/gotthard</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/Burraco</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/Burraco</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/Burraco</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/Burraco</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/Burraco</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/codici</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/codici</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/codici</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/codici</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/codici</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/perspecta</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/perspecta</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/perspecta</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/perspecta</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/perspecta</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/Regione</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/Regione</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/Regione</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/Regione</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/Regione</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/USState</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
-    <loc>https://bacchin.app/Help</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://bacchin.app/en/USState</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/USState</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/USState</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/USState</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/privacy</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/privacy</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/privacy</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/privacy</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/privacy</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url><loc>https://bacchin.app/stampa/gottardo</loc></url>
   <url><loc>https://bacchin.app/stampa/gotthard</loc></url>
@@ -59,11 +247,43 @@
   <url><loc>https://bacchin.app/tennis/number-1</loc></url>
   <url>
     <loc>https://bacchin.app/finanza/stock-tracker</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/finanza/stock-tracker</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/finanza/stock-tracker</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/finanza/stock-tracker</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/finanza/stock-tracker</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/finanza/dashboard-bce</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/en/finanza/dashboard-bce</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/fr/finanza/dashboard-bce</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/de/finanza/dashboard-bce</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://bacchin.app/es/finanza/dashboard-bce</loc>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://bacchin.app/finanza/euribor-oggi</loc>

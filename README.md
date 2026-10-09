@@ -60,7 +60,37 @@ stampa/                 materiali stampa di Gottardo Live
 sitemap.xml  robots.txt  404.html  og.png
 app-ads.txt             serve a Google AdMob: NON cancellare
 app/                    assistenza e privacy di ogni app  <-- il lavoro si fa qui
+en/ fr/ de/ es/         il sito tradotto (vedi «Il sito in 5 lingue»)
+app-store-badge-*.svg   badge ufficiali Apple, uno per lingua (it, en, fr, de, es)
 ```
+
+### Il sito in 5 lingue
+
+L'italiano sta nella radice; inglese, francese, tedesco e spagnolo stanno in
+`en/`, `fr/`, `de/`, `es/`, con gli **stessi nomi di file**: `EuriborX.html` →
+`/en/EuriborX`, `finanza/stock-tracker.html` → `/fr/finanza/stock-tracker`.
+Sono tradotte 15 pagine: home, le 10 pagine delle app, `privacy.html`,
+`404.html`, Stock Tracker e Dashboard BCE. Restano a parte Euribor oggi (generata
+in 5 lingue dallo script), il simulatore ATP (`tennis/`, italiano e inglese), i
+materiali stampa e le pagine `app/` (già multilingua, scelgono la lingua del
+browser).
+
+- **Ogni pagina ha** i `<link rel="alternate" hreflang>` verso le 5 versioni (più
+  `x-default` = italiano) e il selettore `<nav class="lingue-sito">` subito sotto
+  la testata. Chi sceglie una lingua dal selettore la salva nel browser
+  (`localStorage` `bacchin-lang`).
+- **Solo la home italiana** porta alla lingua del browser alla prima visita (se è
+  en, fr, de o es); una scelta fatta dal selettore vince sempre. I motori di
+  ricerca non vengono reindirizzati.
+- **Nelle pagine tradotte** i link interni puntano alla stessa lingua (`/en/...`),
+  il foglio di stile è `/stile.css` (assoluto), il badge è
+  `/app-store-badge-<lingua>.svg` e i link all'App Store usano lo storefront della
+  lingua (`gb`, `fr`, `de`, `es`). Il badge francese è più largo: 152 px.
+- **Se cambi una pagina italiana, cambia anche le 4 traduzioni.** Stessa struttura,
+  stessi link (adattati alla lingua), solo il testo tradotto. Le pagine nuove vanno
+  aggiunte in tutte e 5 le lingue, con hreflang e selettore, e in `sitemap.xml`.
+- Tedesco con la grafia svizzera (`ss`, mai `ß`), «du»; francese con «vous»;
+  spagnolo con «tú». I nomi delle app non si traducono.
 
 ### La cartella `app/`: assistenza e privacy
 
@@ -161,6 +191,8 @@ servono a chi ha ancora l'app installata.
 ## Convenzioni da rispettare
 
 - **Caratteri:** si usa `/fonts/fonts.css`. Nessun link a Google Fonts.
+- **Lingue:** ogni pagina del sito esiste in 5 lingue (vedi «Il sito in 5
+  lingue»): una modifica fatta solo in italiano lascia le traduzioni indietro.
 - **Piede delle pagine del sito:** indirizzo email e link «Privacy e
   assistenza» verso `/privacy`.
 - **Email:** le pagine del sito usano `info@bacchin.app`. Le pagine di

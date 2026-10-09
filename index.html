@@ -19,6 +19,14 @@
 <link rel="stylesheet" href="stile.css?v=2026-10-06c">
 <noscript><link rel="stylesheet" href="stile.css?v=2026-10-06c"></noscript>
 <link rel="canonical" href="https://bacchin.app/">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/">
+<script>(function(){var L=['en','fr','de','es'],s=null,t=null;if(/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent))return;try{s=localStorage.getItem('bacchin-lang')}catch(e){}if(s){if(L.indexOf(s)>=0)t=s}else{var p=navigator.languages||[navigator.language||''];for(var i=0;i<p.length;i++){var c=String(p[i]).slice(0,2).toLowerCase();if(c==='it')break;if(L.indexOf(c)>=0){t=c;break}}}if(t)location.replace('/'+t+'/'+location.hash)})();</script>
 </head>
 <body>
 <div class="foglio">
@@ -27,6 +35,7 @@
     <span class="etichetta">Fabrizio Bacchin</span>
     <span class="testata__ora" id="ora">—</span>
   </header>
+  <nav class="lingue-sito etichetta" aria-label="Lingua"><strong lang="it">Italiano</strong> <a href="/en/" hreflang="en" lang="en">English</a> <a href="/fr/" hreflang="fr" lang="fr">Français</a> <a href="/de/" hreflang="de" lang="de">Deutsch</a> <a href="/es/" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
 
   <div class="apertura">
     <h1>Cose che<br><span class="h1__seconda">cambiano</span></h1>
@@ -225,7 +234,7 @@
       <p class="nl__esito" role="status" hidden></p>
     </form>
     </div>
-    <script src="/newsletter.js?v=2026-10-08b" defer></script>
+    <script src="/newsletter.js?v=2026-10-09" defer></script>
   </section>
 
   <section class="sezione" aria-labelledby="t-sport">

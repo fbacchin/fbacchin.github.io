@@ -19,6 +19,13 @@
   /* il titolo è più lungo dei nomi delle app: scala un gradino sotto */
   .app-hero h1.lungo { font-size: clamp(34px, 8.4vw, 72px); }
 </style>
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/privacy">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/privacy">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/privacy">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/privacy">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/privacy">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/privacy">
 </head>
 <body>
 <div class="foglio">
@@ -27,6 +34,7 @@
     <a class="etichetta" href="./">Fabrizio Bacchin</a>
     <a class="etichetta" href="./#t-app">Tutte le app</a>
   </header>
+  <nav class="lingue-sito etichetta" aria-label="Lingua"><strong lang="it">Italiano</strong> <a href="/en/privacy" hreflang="en" lang="en">English</a> <a href="/fr/privacy" hreflang="fr" lang="fr">Français</a> <a href="/de/privacy" hreflang="de" lang="de">Deutsch</a> <a href="/es/privacy" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
 
   <div class="app-hero">
     <h1 class="lungo">Privacy e assistenza</h1>
