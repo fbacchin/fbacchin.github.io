@@ -26,24 +26,46 @@ APP_ID = "951735963"
 DASHBOARD = "/finanza/dashboard-bce"
 NBSP, NNBSP = " ", " "
 
-# Modulo di iscrizione alla newsletter: solo nella pagina italiana.
-# Dopo ogni modifica a newsletter.css o newsletter.js, cambiare ?v= qui e in index.html.
-NEWSLETTER_IT = '''    <section class="nl" id="newsletter">
+# Modulo di iscrizione alla newsletter Euribor Weekly, nella lingua della pagina.
+# Il campo nascosto fields[language] dice a MailerLite in che lingua spedire.
+# Dopo ogni modifica a newsletter.css o newsletter.js, cambiare ?v= qui e nelle home.
+NL = {
+ "it": dict(privacy="/privacy#newsletter", privacy_nome="Privacy", nome="Nome", cognome="Cognome", email="Email", bottone="Iscriviti",
+  intro="Ogni lunedì mattina, una email: i tassi Euribor della settimana, di quanto si sono mossi e cosa cambia per la rata di un mutuo variabile. Gratis. Il primo numero esce lunedì 19 ottobre 2026.",
+  nota="Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare, e ti cancelli con un clic da ogni numero."),
+ "en": dict(privacy="/en/privacy#newsletter", privacy_nome="Privacy", nome="First name", cognome="Last name", email="Email", bottone="Subscribe",
+  intro="Every Monday morning, one email: the week’s Euribor rates, how much they moved and what changes for the payment on a variable-rate mortgage. Free. The first issue comes out on Monday 19 October 2026.",
+  nota="Your first name, last name and email are used only to send you the newsletter. You’ll get an email to confirm, and you can unsubscribe with one click from any issue."),
+ "fr": dict(privacy="/fr/privacy#newsletter", privacy_nome="Confidentialité", nome="Prénom", cognome="Nom", email="E-mail", bottone="S’abonner",
+  intro="Chaque lundi matin, un e-mail : les taux Euribor de la semaine, de combien ils ont bougé et ce qui change pour la mensualité d’un prêt immobilier à taux variable. Gratuit. Le premier numéro paraît le lundi 19 octobre 2026.",
+  nota="Vos prénom, nom et e-mail servent uniquement à vous envoyer la newsletter. Vous recevez un e-mail de confirmation, et vous vous désabonnez en un clic depuis chaque numéro."),
+ "de": dict(privacy="/de/privacy#newsletter", privacy_nome="Datenschutz", nome="Vorname", cognome="Nachname", email="E-Mail", bottone="Abonnieren",
+  intro="Jeden Montagmorgen eine E-Mail: die Euribor-Sätze der Woche, wie stark sie sich bewegt haben und was sich für die Rate einer Hypothek mit variablem Zins ändert. Kostenlos. Die erste Ausgabe erscheint am Montag, 19. Oktober 2026.",
+  nota="Vorname, Nachname und E-Mail dienen nur dazu, dir den Newsletter zu schicken. Du erhältst eine E-Mail zur Bestätigung und kannst dich in jeder Ausgabe mit einem Klick abmelden."),
+ "es": dict(privacy="/es/privacy#newsletter", privacy_nome="Privacidad", nome="Nombre", cognome="Apellidos", email="Email", bottone="Suscríbete",
+  intro="Cada lunes por la mañana, un email: los tipos Euribor de la semana, cuánto se han movido y qué cambia para la cuota de una hipoteca a tipo variable. Gratis. El primer número sale el lunes 19 de octubre de 2026.",
+  nota="Tu nombre, apellidos y email solo sirven para enviarte la newsletter. Recibirás un email de confirmación, y puedes darte de baja con un clic desde cualquier número."),
+}
+
+
+def modulo_newsletter(lg):
+    n = NL[lg]
+    return f"""    <section class="nl" id="newsletter">
       <link rel="stylesheet" href="/newsletter.css?v=2026-10-08b">
       <h2>Euribor Weekly</h2>
-      <p>Ogni lunedì mattina, una email: i tassi Euribor della settimana, di quanto si sono mossi e cosa cambia per la rata di un mutuo variabile. Gratis. Il primo numero esce lunedì 19 ottobre 2026.</p>
+      <p>{n['intro']}</p>
       <form class="nl__form" data-nl method="post" action="https://assets.mailerlite.com/jsonp/2696788/forms/200787943386776821/subscribe">
-      <label>Nome <input name="fields[name]" autocomplete="given-name" required></label>
-      <label>Cognome <input name="fields[last_name]" autocomplete="family-name" required></label>
-      <label class="larga">Email <input type="email" name="fields[email]" autocomplete="email" required></label>
-      <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
-      <button type="submit">Iscriviti</button>
-      <p class="nl__nota">Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare, e ti cancelli con un clic da ogni numero. <a href="/privacy#newsletter">Privacy</a>.</p>
+      <label>{n['nome']} <input name="fields[name]" autocomplete="given-name" required></label>
+      <label>{n['cognome']} <input name="fields[last_name]" autocomplete="family-name" required></label>
+      <label class="larga">{n['email']} <input type="email" name="fields[email]" autocomplete="email" required></label>
+      <input type="hidden" name="fields[language]" value="{lg}"><input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+      <button type="submit">{n['bottone']}</button>
+      <p class="nl__nota">{n['nota']} <a href="{n['privacy']}">{n['privacy_nome']}</a>.</p>
       <p class="nl__esito" role="status" hidden></p>
     </form>
       <script src="/newsletter.js?v=2026-10-09" defer></script>
     </section>
-'''
+"""
 
 # ---------------------------------------------------------------- lingue ---
 # Tutto il testo della pagina sta qui. Le frasi con dati sono funzioni.
@@ -77,7 +99,6 @@ L = {
   titolo=lambda b, v3, v12: f"Euribor oggi, {b}: 3 mesi {v3}, 12 mesi {v12}",
   descr=lambda D, v1, v3, v6, v12: f"Euribor di {D}: 1 mese {v1}, 3 mesi {v3}, 6 mesi {v6}, 12 mesi {v12}. Variazioni, grafico di un anno e cosa significa per la rata del mutuo.",
   h1="Euribor oggi", tutte_app="Tutte le app", privacy="Privacy e assistenza", lingua="Lingua",
-  newsletter=NEWSLETTER_IT,
   tesi=lambda D: f"I tassi Euribor del <strong>fixing di {D}</strong>, con la variazione rispetto al giorno prima, il grafico dell'ultimo anno e <strong>cosa significa per la rata di un mutuo variabile</strong>. La pagina si aggiorna da sola ogni giorno lavorativo.",
   quando=lambda d, de, u: f"Euribor: fixing del {d} · €STR: {de} · variazioni in punti base ({u}) rispetto al fixing precedente",
   h2_lettura="La lettura di oggi", h2_var="Le variazioni", h2_grafico="Gli ultimi dodici mesi", h2_faq="Domande frequenti",
@@ -576,7 +597,7 @@ def pagina(lg, eur, est):
       <p>{t['invito_app'](app_store)}</p>
       <p>{t['invito_dash'](casa.rstrip('/') + DASHBOARD)}</p>
     </div>
-{t.get('newsletter', '')}
+{modulo_newsletter(lg)}
     <h2>{t['h2_faq']}</h2>
 {faq_html}
 
