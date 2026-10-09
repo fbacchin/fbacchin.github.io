@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECB & Euribor Dashboard — bacchin.app</title>
+    <meta name="description" content="The official series side by side: daily Euribor from EMMI and ECB rates from the SDMX API, with history and changes over a period of your choice.">
+    <link rel="canonical" href="https://bacchin.app/en/finanza/dashboard-bce">
+    <!-- Chart.js 4.5.1 (MIT), ospitato qui: nessuna richiesta a CDN esterni -->
+    <script src="/finanza/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .controls {
+            background: var(--card-bg);
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        select, button {
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        select {
+            background-color: #fff;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-card .subtext {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .chart-container {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            position: relative;
+            min-height: 350px;
+        }
+
+        .table-container {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge-up {
+            color: var(--danger-color);
+            font-weight: 600;
+        }
+
+        .badge-down {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            z-index: 10;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .error-msg {
+            background-color: #fef2f2;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #fecaca;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<style>.lingue-sito{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}.lingue-sito a{color:inherit;opacity:.6}.lingue-sito a:hover{opacity:1}.lingue-sito strong{color:inherit}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/finanza/dashboard-bce">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/finanza/dashboard-bce">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/finanza/dashboard-bce">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/finanza/dashboard-bce">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/finanza/dashboard-bce">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/finanza/dashboard-bce">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ECB & Euribor Rates Dashboard</h1>
+        <p>Daily EMMI Euribor via Deutsche Bundesbank &middot; official ECB series (SDMX API)</p>
+    </header>
+  <nav class="lingue-sito etichetta" aria-label="Language"><a href="/finanza/dashboard-bce" hreflang="it" lang="it">Italiano</a> <strong lang="en">English</strong> <a href="/fr/finanza/dashboard-bce" hreflang="fr" lang="fr">Français</a> <a href="/de/finanza/dashboard-bce" hreflang="de" lang="de">Deutsch</a> <a href="/es/finanza/dashboard-bce" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="seriesSelect">Select rate:</label>
+            <select id="seriesSelect">
+                <option data-source="bbk" value="W01">Euribor 1 Week</option>
+                <option data-source="bbk" value="M01">Euribor 1 Month</option>
+                <option data-source="bbk" value="M03" selected>Euribor 3 Months</option>
+                <option data-source="bbk" value="M06">Euribor 6 Months</option>
+                <option data-source="bbk" value="M12">Euribor 1 Year (12M)</option>
+                <option data-source="ecb" value="FM.M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA">Euribor 3 Months — monthly averages (ECB)</option>
+                <option data-source="ecb" value="FM.D.U2.EUR.4F.KR.MRR_FR.LEV">ECB main refinancing rate</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="obsSelect">Period:</label>
+            <select id="obsSelect"></select>
+            <button id="fetchBtn">Refresh data</button>
+        </div>
+    </div>
+
+    <div id="errorBox" class="error-msg hidden"></div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="label">Latest rate</div>
+            <div class="value" id="latestRate">--%</div>
+            <div class="subtext" id="latestDate">Date: --</div>
+        </div>
+        <div class="stat-card">
+            <div class="label" id="changeLabel">Change from previous observation</div>
+            <div class="value" id="rateChange">--</div>
+            <div class="subtext" id="changePercent">--</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Period high</div>
+            <div class="value" id="maxRate">--%</div>
+            <div class="subtext">Highest value observed</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Period low</div>
+            <div class="value" id="minRate">--%</div>
+            <div class="subtext">Lowest value observed</div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <div id="loadingOverlay" class="loading-overlay">Loading data…</div>
+        <canvas id="rateChart"></canvas>
+    </div>
+
+    <div class="table-container">
+        <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: #0f172a;">Recent data history</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Rate (%)</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody id="dataTableBody">
+                <tr><td colspan="3" style="text-align: center;">Waiting for data…</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="margin-top: 25px; font-size: 0.78em; color: #888; line-height: 1.5;">
+        Euribor&reg; is calculated by <a href="https://www.emmi-benchmarks.eu/benchmarks/euribor/" style="color:#888;">EMMI</a>
+        and redistributed by the <a href="https://www.bundesbank.de/en/statistics" style="color:#888;">Deutsche Bundesbank</a>
+        with a one-business-day delay. Commercial use is subject to an EMMI licence
+        (<a href="https://www.emmi-benchmarks.eu/terms-of-use" style="color:#888;">terms of use</a>).
+        Refinancing rate and monthly averages: <a href="https://data.ecb.europa.eu" style="color:#888;">ECB Data Portal</a>.
+    </p>
+</div>
+
+<script>
+    let chartInstance = null;
+
+    // Euribor giornaliero: la BCE ha dismesso le serie daily ed EMMI (owner del benchmark) non
+    // espone un'API pubblica. La Deutsche Bundesbank ridistribuisce i tassi EMMI sotto licenza,
+    // con API SDMX pubblica, senza chiave e con Access-Control-Allow-Origin: * (fetchabile dal
+    // browser). Pubblicazione ritardata di un giorno lavorativo, come da licenza EMMI.
+    const BBK_BASE = 'https://api.statistiken.bundesbank.de/rest/data/BBIG1';
+    const BBK_KEY = maturity => `D.D0.EUR.MMKT.EURIBOR.${maturity}.BID._Z`;
+
+    const PERIODS = {
+        M: [[12, 'Last 12 months'], [24, 'Last 2 years'], [60, 'Last 5 years'], [120, 'Last 10 years']],
+        D: [[30, 'Last 30 observations'], [90, 'Last 3 months (~90 days)'], [180, 'Last 6 months (~180 days)'], [365, 'Last year (~365 days)']],
+        // Bundesbank conta i giorni di calendario, ma quota solo nei giorni TARGET: un anno di
+        // richiesta (365 righe) rende ~252 quotazioni effettive, i weekend vengono scartati.
+        B: [[30, 'Last month (~30 days)'], [90, 'Last 3 months (~90 days)'], [180, 'Last 6 months (~180 days)'], [365, 'Last year (~365 days)']]
+    };
+
+    function currentSeries() {
+        const opt = document.getElementById('seriesSelect').selectedOptions[0];
+        return { source: opt.dataset.source, ref: opt.value, label: opt.textContent };
+    }
+
+    function frequencyOf(series) {
+        // L'Euribor quota solo nei giorni TARGET; per le serie BCE la frequenza è il 2° campo della chiave
+        return series.source === 'bbk' ? 'B' : series.ref.split('.')[1];
+    }
+
+    function refreshPeriodOptions() {
+        const sel = document.getElementById('obsSelect');
+        const freq = frequencyOf(currentSeries());
+        const previous = sel.value;
+        sel.innerHTML = '';
+        (PERIODS[freq] || PERIODS.D).forEach(([value, label]) => {
+            const opt = document.createElement('option');
+            opt.value = value;
+            opt.textContent = label;
+            sel.appendChild(opt);
+        });
+        // Mantiene la scelta precedente se ancora valida
+        if ([...sel.options].some(o => o.value === previous)) sel.value = previous;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        refreshPeriodOptions();
+        fetchData();
+        document.getElementById('fetchBtn').addEventListener('click', fetchData);
+        document.getElementById('seriesSelect').addEventListener('change', () => {
+            refreshPeriodOptions();
+            fetchData();
+        });
+        document.getElementById('obsSelect').addEventListener('change', fetchData);
+    });
+
+    async function fetchData() {
+        const series = currentSeries();
+        const lastObs = parseInt(document.getElementById('obsSelect').value);
+        const loading = document.getElementById('loadingOverlay');
+        const errorBox = document.getElementById('errorBox');
+
+        loading.classList.remove('hidden');
+        errorBox.classList.add('hidden');
+
+        try {
+            const parsedData = series.source === 'bbk'
+                ? await fetchBundesbankSeries(series.ref, lastObs)
+                : await fetchEcbSeries(series.ref, lastObs);
+
+            if (parsedData.length === 0) {
+                throw new Error("No data returned for the selected series.");
+            }
+
+            updateDashboard(parsedData);
+        } catch (err) {
+            console.error(err);
+            errorBox.textContent = `Couldn’t fetch the data. Details: ${err.message}. Check your internet connection or any CORS blocking in your browser.`;
+            errorBox.classList.remove('hidden');
+        } finally {
+            loading.classList.add('hidden');
+        }
+    }
+
+    async function fetchEcbSeries(seriesKey, lastObs) {
+        // URL SDMX: solo il dataflow va separato da "/", il resto della chiave resta puntato
+        const firstDot = seriesKey.indexOf('.');
+        const path = `${seriesKey.slice(0, firstDot)}/${seriesKey.slice(firstDot + 1)}`;
+        const url = `https://data-api.ecb.europa.eu/service/data/${path}?lastNObservations=${lastObs}&format=jsondata`;
+
+        const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+        if (!response.ok) throw new Error(`ECB API response error: Status ${response.status}`);
+        return parseECBJson(await response.json());
+    }
+
+    // SDMX-CSV Bundesbank: righe di metadati in testa, poi le osservazioni "YYYY-MM-DD,valore,flag"
+    async function fetchBundesbankSeries(maturity, lastObs) {
+        const url = `${BBK_BASE}/${BBK_KEY(maturity)}?lastNObservations=${lastObs}&format=csv&lang=en`;
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Bundesbank API response error: Status ${response.status}`);
+
+        // Le righe coprono tutti i giorni di calendario: nei weekend e nei festivi TARGET il
+        // valore è "." con flag "No value available", e va scartato (il pattern esige una cifra).
+        const results = [];
+        for (const line of (await response.text()).split('\n')) {
+            const m = line.match(/^(\d{4}-\d{2}-\d{2}),(\d+(?:\.\d+)?),/);
+            if (m) results.push({ date: m[1], rate: parseFloat(m[2]) });
+        }
+
+        // Già in ordine cronologico crescente, come si aspetta il resto della dashboard
+        return results;
+    }
+
+    function parseECBJson(json) {
+        try {
+            const timeDimensions = json.structure.dimensions.observation.find(d => d.id === 'TIME_PERIOD').values;
+            const seriesData = json.dataSets[0].series['0:0:0:0:0:0:0'] || json.dataSets[0].series[Object.keys(json.dataSets[0].series)[0]];
+            const observations = seriesData.observations;
+
+            const results = [];
+            Object.keys(observations).forEach(key => {
+                const index = parseInt(key);
+                const dateStr = timeDimensions[index].id;
+                const value = observations[key][0];
+                if (value !== null && value !== undefined) {
+                    results.push({
+                        date: dateStr,
+                        rate: parseFloat(value)
+                    });
+                }
+            });
+
+            // Ordina per data crescente
+            results.sort((a, b) => new Date(a.date) - new Date(b.date));
+            return results;
+        } catch (e) {
+            console.error("Error parsing SDMX JSON:", e);
+            return [];
+        }
+    }
+
+    function updateDashboard(data) {
+        // Stats
+        const latest = data[data.length - 1];
+        const previous = data.length > 1 ? data[data.length - 2] : latest;
+        const diff = latest.rate - previous.rate;
+
+        const ratesArr = data.map(d => d.rate);
+        const maxVal = Math.max(...ratesArr);
+        const minVal = Math.min(...ratesArr);
+
+        document.getElementById('latestRate').textContent = `${latest.rate.toFixed(3)}%`;
+        document.getElementById('latestDate').textContent = `Date: ${latest.date}`;
+
+        const freq = frequencyOf(currentSeries());
+        document.getElementById('changeLabel').textContent = {
+            M: 'Change from previous month',
+            B: 'Change from previous fixing'  // il lunedì il riferimento è venerdì
+        }[freq] || 'Change from yesterday';
+
+        const changeEl = document.getElementById('rateChange');
+        const sign = diff > 0 ? '+' : '';
+        changeEl.textContent = `${sign}${diff.toFixed(3)}%`;
+        changeEl.className = `value ${diff > 0 ? 'badge-up' : (diff < 0 ? 'badge-down' : '')}`;
+
+        document.getElementById('changePercent').textContent = diff === 0 ? 'Unchanged' : `from ${previous.rate.toFixed(3)}% (${previous.date})`;
+        document.getElementById('maxRate').textContent = `${maxVal.toFixed(3)}%`;
+        document.getElementById('minRate').textContent = `${minVal.toFixed(3)}%`;
+
+        // Chart
+        renderChart(data);
+
+        // Table (mostra dati in ordine decrescente di data)
+        renderTable([...data].reverse());
+    }
+
+    function renderChart(data) {
+        const ctx = document.getElementById('rateChart').getContext('2d');
+        const labels = data.map(d => d.date);
+        const values = data.map(d => d.rate);
+
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
+
+        chartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: currentSeries().label,
+                    data: values,
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.08)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.2,
+                    pointRadius: data.length > 60 ? 1 : 3,
+                    pointHoverRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                return `Rate: ${context.parsed.y.toFixed(3)}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { maxTicksLimit: 10 }
+                    },
+                    y: {
+                        grid: { color: '#f1f5f9' },
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function renderTable(data) {
+        const tbody = document.getElementById('dataTableBody');
+        tbody.innerHTML = '';
+
+        data.forEach((row, idx) => {
+            const tr = document.createElement('tr');
+            let varText = '--';
+            let varClass = '';
+
+            if (idx < data.length - 1) {
+                const prevRate = data[idx + 1].rate;
+                const diff = row.rate - prevRate;
+                const sign = diff > 0 ? '+' : '';
+                varText = `${sign}${diff.toFixed(3)}`;
+                if (diff > 0) varClass = 'badge-up';
+                else if (diff < 0) varClass = 'badge-down';
+            }
+
+            tr.innerHTML = `
+                <td><strong>${row.date}</strong></td>
+                <td>${row.rate.toFixed(3)}%</td>
+                <td class="${varClass}">${varText}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+</script>
+
+</body>
+</html>
