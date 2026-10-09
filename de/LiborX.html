@@ -124,9 +124,9 @@
         var pa = a.split('.').reverse().join(''), pb = b.split('.').reverse().join('');
         return pb.localeCompare(pa);
       })[0];
-      q.textContent = 'Overnight-Sätze, letztes Fixing vom ' + recente + ' — dieselben CSV-Dateien, die die App lädt.';
+      q.textContent = 'Overnight-Sätze, letztes Fixing vom ' + recente + ' — dieselben Daten wie in der App.';
     } else {
-      q.textContent = 'Fixings sind gerade nicht abrufbar — die Daten bleiben in den CSV-Dateien.';
+      q.textContent = 'Fixings sind gerade nicht abrufbar: Versuch es später noch einmal.';
     }
   });
 })();

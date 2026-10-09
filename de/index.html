@@ -164,8 +164,7 @@
     </ul>
 
     <p class="tabellone__nota">
-      Jede Zeile öffnet die Seite ihrer App. Die ersten drei lesen live dieselben
-      Dateien wie die Apps: die CSV-Dateien der Fixings und die Messung des Gotthard-Collectors.
+      Jede Zeile öffnet die Seite ihrer App. Die Zeilen mit Live-Werten zeigen dieselben Daten wie die Apps.
     </p>
   </section>
 
@@ -315,9 +314,7 @@
     <h2 class="sezione__titolo" id="t-officina">Die Werkstatt</h2>
     <div class="officina">
       <p>
-        Die Daten aktualisieren sich nicht von selbst. Der Gotthard-Collector läuft auf GitHub
-        Actions und misst den Zustand des Tunnels alle fünf Minuten neu; die Fixings werden zu
-        öffentlichen CSV-Dateien, sobald sie erscheinen, noch am selben Tag, an dem sie festgestellt werden.
+        Die Daten aktualisieren sich nicht von selbst: Der Zustand des Gotthardtunnels wird alle fünf Minuten erfasst, und die Fixings kommen noch am Tag ihrer Veröffentlichung. Es sind dieselben Daten, die auch die Apps verwenden.
       </p>
       <p>
         Alles, was hinter diesen Apps steckt, liegt in einem einzigen Repository:
@@ -387,7 +384,7 @@
     .catch(function () {
       var el = document.getElementById('dato-euribor');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing nicht abrufbar<span class="quando">die Daten bleiben in der CSV-Datei</span>';
+      el.innerHTML = 'Fixing nicht abrufbar<span class="quando">versuch es später noch einmal</span>';
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
@@ -406,7 +403,7 @@
     .catch(function () {
       var el = document.getElementById('dato-sofr');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing nicht abrufbar<span class="quando">die Daten bleiben in der CSV-Datei</span>';
+      el.innerHTML = 'Fixing nicht abrufbar<span class="quando">versuch es später noch einmal</span>';
     });
 
   /* Codici di gara — le edizioni dal manifesto */
