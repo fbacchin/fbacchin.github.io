@@ -124,9 +124,9 @@
         var pa = a.split('.').reverse().join(''), pb = b.split('.').reverse().join('');
         return pb.localeCompare(pa);
       })[0];
-      q.textContent = 'Tipos overnight, último fixing del ' + recente + ' — los mismos CSV que descarga la app.';
+      q.textContent = 'Tipos overnight, último fixing del ' + recente + ' — los mismos datos que la app.';
     } else {
-      q.textContent = 'Fixing no disponibles en este momento — los datos siguen en los CSV.';
+      q.textContent = 'Fixing no disponibles en este momento: inténtalo más tarde.';
     }
   });
 })();

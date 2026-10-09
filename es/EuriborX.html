@@ -114,9 +114,9 @@
     var s = campi(t[1].trim().split(/\r?\n/)[1]);
     metti('t-estr', s[2]);
     document.getElementById('t-quando').textContent =
-      'Euribor: fixing del ' + e[0] + ' · €STR: fixing del ' + s[0] + ' — los mismos CSV que descarga la app';
+      'Euribor: fixing del ' + e[0] + ' · €STR: fixing del ' + s[0] + ' — los mismos datos que la app';
   }).catch(function () {
-    document.getElementById('t-quando').textContent = 'Fixing no disponibles en este momento — los datos siguen en los CSV.';
+    document.getElementById('t-quando').textContent = 'Fixing no disponibles en este momento: inténtalo más tarde.';
   });
 })();
 </script>
