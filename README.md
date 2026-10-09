@@ -79,7 +79,6 @@ Una cartella per app. Attenzione: i nomi dei file non sono uniformi.
 | Indovina la Regione | `app/Regione/` | `support-regione.html` | `privacy-regione.html` |
 | Guess the Swiss Canton | `app/SwissCanton/` | `support-swisscanton.html` | `privacy-swisscanton.html` |
 | Guess the US State | `app/USState/` | `support-usstate.html` | `privacy-usstate.html` |
-| Euribor per Mac (dismessa) | `app/EuriborMac/` | `support.html` | `privacy.html` |
 | Health Companion (non pubblicata) | `app/healthcompanion/` | `support-healthcompanion.html` | `privacy-healthcompanion.html` |
 | Valichi (non pubblicata) | `app/valichi/` | `support-valichi.html` | `privacy-valichi.html` |
 | Volcano (non pubblicata) | `app/volcano/` | `support-volcano.html` | `privacy-volcano.html` |
@@ -181,7 +180,9 @@ servono a chi ha ancora l'app installata.
   una sola app gratuita con pubblicità, che si toglie con abbonamento annuale
   o acquisto una tantum. La vecchia versione a pagamento si chiama «Legacy» e
   non riceve aggiornamenti. Non esistono più versioni «Light» di queste app.
-- **Euribor per Mac** è dismessa.
+- **Euribor per Mac** è dismessa e tolta dall'App Store: le sue pagine di
+  assistenza e privacy sono state cancellate. Resta solo `EuriborMac.html`, che
+  rimanda a /EuriborX.
 - **Guess the China Province** è stata ritirata dalla vendita (ottobre 2026):
   era l'ultima app che usava `Help.html` e il repo `privacy-and-support`,
   entrambi cancellati.
