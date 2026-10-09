@@ -164,8 +164,7 @@
     </ul>
 
     <p class="tabellone__nota">
-      Each row opens its app’s page. The first three read the same files
-      as the apps, live: the fixing CSVs and the Gotthard collector’s sample.
+      Each row opens its app’s page. The rows with live figures show the same data as the apps.
     </p>
   </section>
 
@@ -315,9 +314,7 @@
     <h2 class="sezione__titolo" id="t-officina">The workshop</h2>
     <div class="officina">
       <p>
-        The data doesn’t update itself. The Gotthard collector runs on GitHub
-        Actions and samples the state of the tunnel every five minutes; the fixings become
-        public CSVs as soon as they come out, on the same day they are set.
+        The data doesn’t update itself: the state of the Gotthard tunnel is checked every five minutes, and the fixings arrive on the same day they are published. It’s the same data the apps use.
       </p>
       <p>
         Everything underneath these apps lives in a single repo:
@@ -387,7 +384,7 @@
     .catch(function () {
       var el = document.getElementById('dato-euribor');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing unavailable<span class="quando">the data is still in the CSV</span>';
+      el.innerHTML = 'Fixing unavailable<span class="quando">try again later</span>';
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
@@ -406,7 +403,7 @@
     .catch(function () {
       var el = document.getElementById('dato-sofr');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing unavailable<span class="quando">the data is still in the CSV</span>';
+      el.innerHTML = 'Fixing unavailable<span class="quando">try again later</span>';
     });
 
   /* Codici di gara — le edizioni dal manifesto */

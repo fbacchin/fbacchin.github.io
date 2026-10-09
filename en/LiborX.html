@@ -124,9 +124,9 @@
         var pa = a.split('.').reverse().join(''), pb = b.split('.').reverse().join('');
         return pb.localeCompare(pa);
       })[0];
-      q.textContent = 'Overnight rates, latest fixing on ' + recente + ' — the same CSVs the app downloads.';
+      q.textContent = 'Overnight rates, latest fixing on ' + recente + ' — the same data as the app.';
     } else {
-      q.textContent = 'Fixings unavailable right now — the data is still in the CSVs.';
+      q.textContent = 'Fixings unavailable right now: try again later.';
     }
   });
 })();
