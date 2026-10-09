@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>bacchin.app — Apps iOS et outils de Fabrizio Bacchin</title>
+<meta name="description" content="Apps et outils web de Fabrizio Bacchin : Euribor X, Libor X, Mortgage et Leasing Calculator, Gottardo Live, Burraco Score, Perspecta, Indovina la Regione, Guess the US State, Stock Tracker, simulateur du classement ATP.">
+<meta property="og:title" content="bacchin.app — Apps iOS et outils de Fabrizio Bacchin">
+<meta property="og:description" content="Sept outils qui observent un chiffre qui bouge et le rendent lisible.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bacchin.app/fr/">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<noscript><link rel="stylesheet" href="/stile.css?v=2026-10-06c"></noscript>
+<link rel="canonical" href="https://bacchin.app/fr/">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <span class="etichetta">Fabrizio Bacchin</span>
+    <span class="testata__ora" id="ora">—</span>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Langue"><a href="/" hreflang="it" lang="it">Italiano</a> <a href="/en/" hreflang="en" lang="en">English</a> <strong lang="fr">Français</strong> <a href="/de/" hreflang="de" lang="de">Deutsch</a> <a href="/es/" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="apertura">
+    <h1>Des choses<br><span class="h1__seconda">qui changent</span></h1>
+    <p class="tesi">
+      Douze apps, une seule méthode : <strong>prendre un chiffre qui bouge</strong> — un
+      score, un fixing, une file d’attente au tunnel, une action, un classement — et le rendre
+      lisible en deux secondes.
+    </p>
+  </div>
+
+  <section class="tabellone" aria-labelledby="t-app">
+    <div class="tabellone__testa">
+      <span class="spia" aria-hidden="true"></span>
+      <h2 class="etichetta" id="t-app">Les apps · données en direct</h2>
+    </div>
+
+    <ul class="pannello">
+
+      <li class="riga entra" style="animation-delay:.05s">
+        <div>
+          <div class="riga__nome"><a href="/fr/EuriborX">Euribor X</a></div>
+          <div class="riga__che">Les taux de référence européens, mis à jour chaque jour ouvré. Gratuite, avec un simulateur de prêt immobilier.</div>
+        </div>
+        <div class="riga__dato" id="dato-euribor" data-stato="attesa">chargement…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.13s">
+        <div>
+          <div class="riga__nome"><a href="/fr/LiborX">Libor X</a></div>
+          <div class="riga__che">Les successeurs du LIBOR sur un seul écran : SOFR et Term SOFR, SONIA, SARON, TONAR. Historiques et comparaison entre marchés, sur iPhone et iPad.</div>
+        </div>
+        <div class="riga__dato" id="dato-sofr" data-stato="attesa">chargement…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.17s">
+        <div>
+          <div class="riga__nome"><a href="/fr/Mortgage">Mortgage Calculator</a></div>
+          <div class="riga__che">La mensualité du prêt immobilier et ce qu’il y a derrière : tableau d’amortissement échéance par échéance, export CSV et PDF, huit durées comparées.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">8</span> durées comparées
+          <span class="quando">de 5 à 40 ans</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.21s">
+        <div>
+          <div class="riga__nome"><a href="/fr/Leasing">Leasing Calculator</a></div>
+          <div class="riga__che">Le loyer de leasing avec premier loyer majoré et valeur de rachat, le tableau ligne par ligne, et la comparaison de cinq scénarios pour chaque levier.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">5</span> scénarios par levier
+          <span class="quando">premier loyer majoré et valeur de rachat</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.25s">
+        <div>
+          <div class="riga__nome"><a href="/fr/gotthard">Gottardo Live</a></div>
+          <div class="riga__che">Files d’attente, temps d’attente et webcams au tunnel routier du Gothard, depuis le flux officiel VMZ-CH. Une notification quand le bouchon se forme.</div>
+        </div>
+        <div class="riga__dato" id="dato-gottardo" data-stato="attesa">chargement…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.33s">
+        <div>
+          <div class="riga__nome"><a href="/fr/Burraco">Burraco Score</a></div>
+          <div class="riga__che">La feuille de score du burraco : en tête-à-tête ou par équipes de deux, objectif au choix, donnes modifiables, historique et classement des parties.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">4</span> objectifs au choix
+          <span class="quando">de 2000 à 5000 points</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.37s">
+        <div>
+          <div class="riga__nome"><a href="/fr/codici">Codice di Gara Burraco</a></div>
+          <div class="riga__che">Les règlements officiels FIBur et FITaB, avec un index qui ouvre le document à la bonne page. Même hors ligne.</div>
+        </div>
+        <div class="riga__dato" id="dato-codici" data-stato="attesa">chargement…</div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.41s">
+        <div>
+          <div class="riga__nome"><a href="/fr/perspecta">Perspecta</a></div>
+          <div class="riga__che">Un journal réflexif : écrivez ce que vous avez en tête et explorez-le grâce à des questions rédigées sur mesure. Il aide à penser, il ne prédit rien.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">4</span> exercices guidés
+          <span class="quando">3 réflexions pour commencer</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.45s">
+        <div>
+          <div class="riga__nome"><a href="/fr/Regione">Indovina la Regione</a></div>
+          <div class="riga__che">Les 20 régions d’Italie, apprises en jouant : la région s’allume sur la carte et vous la reconnaissez le plus vite possible.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">20</span> régions à reconnaître
+          <span class="quando">deux modes de jeu et des classements</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+      <li class="riga entra" style="animation-delay:.49s">
+        <div>
+          <div class="riga__nome"><a href="/fr/USState">Guess the US State</a></div>
+          <div class="riga__che">Les 50 États américains, avec le même jeu : sur iPhone, iPad et Apple TV, en anglais.</div>
+        </div>
+        <div class="riga__dato" data-stato="fermo">
+          <span class="misura">50</span> États à reconnaître
+          <span class="quando">aussi sur Apple TV</span>
+        </div>
+        <span class="riga__freccia" aria-hidden="true">→</span>
+      </li>
+
+    </ul>
+
+    <p class="tabellone__nota">
+      Chaque ligne ouvre la page de son app. Les trois premières lisent en direct les mêmes
+      fichiers que les apps : les CSV des fixings et l’échantillon du collecteur du Gothard.
+    </p>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-web">
+    <h2 class="sezione__titolo" id="t-web">Il suffit de les ouvrir</h2>
+    <p class="sezione__intro">
+      Trois pages autonomes, hébergées ici : rien à installer, aucun compte. Ouvrez le lien
+      et le calcul est déjà fait.
+    </p>
+
+    <div class="coppia">
+      <article class="scheda">
+        <div class="scheda__nome"><a href="/finanza/euribor-aujourdhui">Euribor aujourd'hui</a></div>
+        <p class="scheda__che">
+          Les fixings du jour pour toutes les échéances, le graphique de l’année et ce qu’ils
+          signifient pour la mensualité d’un prêt immobilier à taux variable. La page se met à jour toute seule.
+        </p>
+        <div class="scheda__piede">
+          <a href="/finanza/euribor-oggi" hreflang="it" lang="it">Aussi en italien, anglais, allemand et espagnol</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="/fr/finanza/stock-tracker">Stock Tracker</a></div>
+        <p class="scheda__che">
+          Saisissez le ticker et les données de l’achat : vous voyez combien rapporte l’investissement,
+          et quelle part vient de la <strong>variation du cours</strong> et quelle part de la
+          <strong>variation du taux de change</strong>.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://github.com/fbacchin/fbacchin.github.io/tree/main/finanza">Code sur GitHub</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="/fr/finanza/dashboard-bce">Tableau de bord BCE &amp; Euribor</a></div>
+        <p class="scheda__che">
+          Les séries officielles côte à côte : l’Euribor quotidien d’EMMI et les taux de la BCE
+          via l’API SDMX, avec historique et variations sur une période au choix.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://github.com/fbacchin/fbacchin.github.io/tree/main/finanza">Code sur GitHub</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-nl" id="newsletter">
+    <link rel="stylesheet" href="/newsletter.css?v=2026-10-08b">
+    <h2 class="sezione__titolo" id="t-nl">Euribor Weekly</h2>
+    <p class="sezione__intro">
+      Chaque lundi matin, un e-mail : les taux Euribor de la semaine, de combien ils ont bougé et ce qui change pour la mensualité d’un prêt immobilier à taux variable. Gratuit. Le premier numéro paraît le lundi 19 octobre 2026. La newsletter est rédigée en italien.
+    </p>
+    <div class="nl">
+    <form class="nl__form" data-nl method="post" action="https://assets.mailerlite.com/jsonp/2696788/forms/200787943386776821/subscribe">
+      <label>Prénom <input name="fields[name]" autocomplete="given-name" required></label>
+      <label>Nom <input name="fields[last_name]" autocomplete="family-name" required></label>
+      <label class="larga">E-mail <input type="email" name="fields[email]" autocomplete="email" required></label>
+      <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+      <button type="submit">S’abonner</button>
+      <p class="nl__nota">Vos prénom, nom et e-mail servent uniquement à vous envoyer la newsletter. Vous recevez un e-mail de confirmation, et vous vous désabonnez en un clic depuis chaque numéro. <a href="/fr/privacy#newsletter">Confidentialité</a>.</p>
+      <p class="nl__esito" role="status" hidden></p>
+    </form>
+    </div>
+    <script src="/newsletter.js?v=2026-10-09" defer></script>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-sport">
+    <h2 class="sezione__titolo" id="t-sport">Sport</h2>
+    <p class="sezione__intro">
+      Les calculs qu’on fait devant un classement : vous déplacez les résultats et vous voyez ce qui change.
+    </p>
+
+    <div class="coppia">
+      <article class="scheda">
+        <div class="scheda__nome"><a href="/tennis/number-1" hreflang="en">Simulateur du classement ATP</a></div>
+        <p class="scheda__che">
+          Sinner est à l’arrêt sur blessure et Zverev se rapproche de la première place : choisissez ses
+          résultats dans les tournois restants et voyez la semaine où il passe devant.
+        </p>
+        <div class="scheda__piede">
+          <a href="/tennis/numero-1" hreflang="it" lang="it">Aussi en italien</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-giochi">
+    <h2 class="sezione__titolo" id="t-giochi">Jeux</h2>
+    <p class="sezione__intro">
+      Quatre classiques de l’arcade, un par page : ils s’ajoutent à l’écran d’accueil du téléphone
+      et fonctionnent même sans réseau.
+    </p>
+
+    <div class="coppia">
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/guerre-stellari/">Assaut sur l’Étoile de la Mort</a></div>
+        <p class="scheda__che">
+          Fan game d’arcade : bataille spatiale en X-wing, duel avec Dark Vador et course dans la tranchée jusqu’au conduit d’évacuation.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tous les jeux</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/laser-invaders/">Laser Invaders</a></div>
+        <p class="scheda__che">
+          Shoot’em up des années 80 : des escadrilles en piqué et un laser qui monte en puissance, de simple à double puis triple.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tous les jeux</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/pong/">Pong</a></div>
+        <p class="scheda__che">
+          Le classique des cafés. Contre l’ordinateur, sur trois niveaux qui changent la façon de jouer, ou à deux sur le même écran.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tous les jeux</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+
+      <article class="scheda">
+        <div class="scheda__nome"><a href="https://giochi.bacchin.app/tetris/">Tetris</a></div>
+        <p class="scheda__che">
+          Le puits, les sept pièces, les lignes à compléter. Pièce fantôme, aperçu et pièce de réserve, comme sur les bornes d’arcade.
+        </p>
+        <div class="scheda__piede">
+          <a href="https://giochi.bacchin.app/">Tous les jeux</a>
+          <span class="scheda__freccia" aria-hidden="true">→</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-officina">
+    <h2 class="sezione__titolo" id="t-officina">L’atelier</h2>
+    <div class="officina">
+      <p>
+        Les données ne se mettent pas à jour toutes seules. Le collecteur du Gothard tourne sur GitHub
+        Actions et relève l’état du tunnel toutes les cinq minutes ; les fixings deviennent
+        des CSV publics dès leur publication, le jour même où ils sont fixés.
+      </p>
+      <p>
+        Tout ce qui fait tourner ces apps vit dans un seul dépôt :
+        <a href="https://github.com/fbacchin/app">github.com/fbacchin/app</a>.
+      </p>
+    </div>
+  </section>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="https://github.com/fbacchin">GitHub</a>
+      <a href="/fr/privacy">Confidentialité et assistance</a>
+    </nav>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var lento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* orologio della testata */
+  function ora() {
+    var d = new Date();
+    var el = document.getElementById('ora');
+    if (el) el.textContent = d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + ' · heure locale';
+  }
+  ora();
+  setInterval(ora, 30000);
+
+  /* il numero si assesta come una paletta a lamelle */
+  var CIFRE = '0123456789';
+  function scrivi(el, corpo, nota) {
+    el.innerHTML = corpo + '<span class="quando">' + nota + '</span>';
+  }
+  function assesta(el, corpo, nota) {
+    if (lento) { scrivi(el, corpo, nota); return; }
+    var finale = corpo.replace(/<[^>]+>/g, '');
+    var giri = 0;
+    var t = setInterval(function () {
+      giri++;
+      var mosso = finale.replace(/\d/g, function () {
+        return CIFRE[Math.floor(Math.random() * 10)];
+      });
+      el.innerHTML = mosso.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+                     '<span class="quando">' + nota + '</span>';
+      if (giri > 7) { clearInterval(t); scrivi(el, corpo, nota); }
+    }, 45);
+  }
+
+  /* Euribor — stesso CSV che legge l'app */
+  fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    .then(function (testo) {
+      var righe = testo.trim().split(/\r?\n/);
+      var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
+      function tre_dec(v) { return (Math.round(parseFloat(v) * 1000) / 1000).toFixed(3).replace('.', ','); }
+      var data = campi[0], tre = tre_dec(campi[6]), dodici = tre_dec(campi[8]);
+      var el = document.getElementById('dato-euribor');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        '3M <span class="misura">' + tre + '\u00a0%</span> · 12M <span class="misura">' + dodici + '\u00a0%</span>',
+        'fixing du ' + data);
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-euribor');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Fixing indisponible<span class="quando">les données restent dans le CSV</span>';
+    });
+
+  /* SOFR overnight — la colonna ON del CSV SOFR */
+  fetch('https://fbacchin.github.io/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    .then(function (testo) {
+      var righe = testo.trim().split(/\r?\n/);
+      var campi = righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
+      var v = Math.round(parseFloat(campi[2]) * 1000) / 1000;
+      var el = document.getElementById('dato-sofr');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        'SOFR <span class="misura">' + v.toFixed(3).replace('.', ',') + '\u00a0%</span>',
+        'overnight · ' + campi[0]);
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-sofr');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Fixing indisponible<span class="quando">les données restent dans le CSV</span>';
+    });
+
+  /* Codici di gara — le edizioni dal manifesto */
+  fetch('https://fbacchin.github.io/app/codici/manifest.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      var c = d.codici || [];
+      var el = document.getElementById('dato-codici');
+      el.dataset.stato = 'vivo';
+      var voci = c.reduce(function (n, x) { return n + ((x.indice && x.indice.voci) || 0); }, 0);
+      assesta(el,
+        '<span class="misura">' + voci + '</span> articles indexés',
+        c.map(function (x) { return x.nome + ' ' + x.edizione; }).join(' · '));
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-codici');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'FIBur et FITaB<span class="quando">éditions officielles complètes</span>';
+    });
+
+  /* Gottardo — stesso campione che legge l'app */
+  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      function verso(v) {
+        var m = v && typeof v.wait === 'number' ? v.wait : 0;
+        var classe = m >= 60 ? 'rosso' : (m >= 20 ? 'ambra' : 'verde');
+        return '<span class="' + classe + '">' + m + '\u2032</span>';
+      }
+      var q = new Date(d.time);
+      var el = document.getElementById('dato-gottardo');
+      el.dataset.stato = 'vivo';
+      assesta(el,
+        'nord ' + verso(d.north) + ' · sud ' + verso(d.south),
+        'relevé à ' + q.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }));
+    })
+    .catch(function () {
+      var el = document.getElementById('dato-gottardo');
+      el.dataset.stato = 'assente';
+      el.innerHTML = 'Collecteur indisponible<span class="quando">l\u2019app lit le flux en direct</span>';
+    });
+})();
+</script>
+</body>
+</html>

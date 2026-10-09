@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Leasing Calculator — le loyer du leasing, premier loyer majoré et valeur de rachat</title>
+<meta name="description" content="Calcule le loyer d’un leasing à partir de la valeur du bien, du premier loyer majoré, de la valeur de rachat, de la durée et du taux. Échéancier complet, export CSV et PDF, et comparaison de cinq scénarios.">
+<meta property="og:title" content="Leasing Calculator — le loyer du leasing, premier loyer majoré et valeur de rachat">
+<meta property="og:description" content="Loyer, échéancier ligne par ligne et comparaison entre premier loyer majoré et valeur de rachat. Tous les calculs sur l’appareil.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<link rel="canonical" href="https://bacchin.app/fr/Leasing">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/Leasing">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/Leasing">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/Leasing">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/Leasing">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/Leasing">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/Leasing">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/fr/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/fr/#t-app">Toutes les apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Langue"><a href="/Leasing" hreflang="it" lang="it">Italiano</a> <a href="/en/Leasing" hreflang="en" lang="en">English</a> <strong lang="fr">Français</strong> <a href="/de/Leasing" hreflang="de" lang="de">Deutsch</a> <a href="/es/Leasing" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Leasing Calculator</h1>
+    <p class="tesi">Le loyer d’un leasing à partir de <strong>la valeur du bien, du premier loyer majoré, de la valeur de rachat, de la durée et du taux</strong>, avec l’échéancier ligne par ligne et la comparaison des scénarios qui comptent vraiment. Tous les calculs sur l’appareil.</p>
+    <p class="scarica">
+      <a class="scarica__badge" style="width:152px" href="https://apps.apple.com/fr/app/calcolatore-leasing/id971202335"><img src="/app-store-badge-fr.svg" alt="Télécharger dans l'App Store" width="152" height="48" style="width:152px"></a>
+      <span class="scarica__nota">Gratuite, pour iPhone</span>
+    </p>
+  </div>
+
+  <div class="racconto">
+    <h2>L’onglet Calcul</h2>
+    <p>La valeur du bien est la seule donnée obligatoire&nbsp;: <strong>le premier loyer majoré et la valeur de rachat sont facultatifs</strong>, et si vous les laissez vides, vous obtenez le calcul d’un simple financement. La durée et le taux se règlent avec les curseurs, et le résultat se met à jour pendant la saisie.</p>
+    <p>Le sélecteur <strong>terme à échoir ou terme échu</strong> change le moment où vous payez&nbsp;: à terme à échoir, le premier loyer est dû tout de suite, le capital commence à baisser plus tôt, les intérêts courus sont moindres et le loyer baisse légèrement. En dessous s’affichent le loyer mensuel, le coût total et les intérêts, avec une barre qui montre comment le coût se répartit entre premier loyer majoré, loyers et valeur de rachat.</p>
+
+    <h2>L’échéancier, ligne par ligne</h2>
+    <p>L’onglet <strong>Loyers</strong> donne l’échéancier complet&nbsp;: le premier loyer majoré en tête, tous les loyers avec leur échéance, la valeur de rachat à la fin. Pour chaque ligne&nbsp;: part de capital, part d’intérêts et capital restant dû. Les échéances partent de la date que vous avez choisie pour le premier loyer.</p>
+    <p>Il s’exporte en <strong>CSV</strong> (dates au format ISO et point décimal, prêt pour un tableur) et en <strong>PDF</strong> déjà mis en page pour l’impression. Le fichier est créé sur le téléphone et passe par la feuille de partage d’iOS.</p>
+
+    <h2>L’onglet Comparaison</h2>
+    <p>Il répond à deux questions que le seul calcul du loyer ne règle pas&nbsp;: <strong>quel intérêt il y a à verser un premier loyer majoré plus élevé</strong>, et <strong>combien coûte vraiment une valeur de rachat plus élevée</strong>. Pour chaque levier, vous voyez cinq scénarios (0, 10, 20, 30 et 40&nbsp;% de la valeur du bien) avec le loyer correspondant et le coût total en dessous, et un point marque le scénario le plus proche du vôtre.</p>
+    <p>C’est là qu’apparaît le compromis&nbsp;: <strong>augmenter la valeur de rachat baisse le loyer mais augmente le coût total</strong>, parce que vous continuez à payer des intérêts sur cette somme jusqu’à la fin. La carte «&nbsp;En bref&nbsp;» le chiffre avec les montants de votre contrat.</p>
+
+    <h2>Ce qu’elle ne calcule pas</h2>
+    <p>Le loyer est une estimation correcte de la <strong>seule composante financière</strong>. Un vrai contrat peut inclure des frais de dossier, des assurances, des taxes et des services que l’app ne connaît pas&nbsp;: pour une offre ferme, il faut s’adresser à la société de leasing. Les intérêts affichés incluent la valeur de rachat&nbsp;: c’est la différence entre ce que vous payez au total et la valeur du bien.</p>
+    <p>Si vous étudiez plutôt un prêt immobilier, <a href="/fr/Mortgage">Mortgage Calculator</a> fait le même travail avec l’amortissement à échéances constantes.</p>
+
+    <h2>Gratuite, et sans publicité si vous le souhaitez</h2>
+    <p>Leasing Calculators est <strong>gratuite et complète</strong>, financée par la publicité. Vous pouvez refuser à la fois le consentement de Google et le suivi d’Apple&nbsp;: les annonces restent mais ne sont pas personnalisées, et l’app fonctionne exactement de la même façon. Et <strong>la publicité peut être supprimée</strong>&nbsp;: abonnement annuel, ou achat unique valable pour toujours.</p>
+    <p>L’ancienne version payante s’appelle désormais <strong>Leasing Legacy</strong>&nbsp;: elle fonctionne toujours mais ne reçoit plus de mises à jour. Si vous l’aviez achetée, vous passez à Leasing Calculators <strong>sans publicité et sans payer à nouveau</strong>&nbsp;: la <a href="/app/Leasing/support">page d’assistance</a> explique comment.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Plateforme</dt><dd>iPhone · Leasing Calculators</dd></div>
+      <div><dt>Prix</dt><dd>Gratuite avec publicité · supprimable par abonnement annuel ou achat unique</dd></div>
+      <div><dt>Langues</dt><dd>Italien, anglais, français, allemand et espagnol</dd></div>
+      <div><dt>Calculs</dt><dd>Sur l’appareil · aucune donnée envoyée ailleurs</dd></div>
+      <div><dt>Export</dt><dd>Échéancier complet en CSV et PDF</dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/fr/app/calcolatore-leasing/id971202335">Ouvrir la fiche de l’app</a></dd></div>
+      <div><dt>Assistance</dt><dd><a href="/app/Leasing/support">Mode d’emploi et questions fréquentes</a></dd></div>
+      <div><dt>Confidentialité</dt><dd><a href="/app/Leasing/privacy">Politique de confidentialité</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Autres apps">
+      <a href="/fr/Mortgage">← Mortgage Calculator</a>
+      <a href="/fr/gotthard">Gottardo Live →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/fr/privacy">Confidentialité et assistance</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
