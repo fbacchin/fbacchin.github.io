@@ -8,8 +8,8 @@ Stato verificato sui repository il 3 ottobre 2026.
 ## La regola in una riga
 
 Le pagine si modificano **solo** nel repo `fbacchin/fbacchin.github.io`.
-Il repo `fbacchin/app` contiene i dati che le app scaricano e dei semplici
-rimandi: lì le pagine di assistenza e privacy **non si toccano**.
+Il repo `fbacchin/app` contiene solo i dati che le app scaricano (più un ultimo
+rimando per Burraco): lì le pagine di assistenza e privacy **non si creano**.
 
 ## Dove sta cosa
 
@@ -17,7 +17,7 @@ rimandi: lì le pagine di assistenza e privacy **non si toccano**.
 |---|---|---|---|
 | Il sito: home, pagine delle app, assistenza, privacy | `fbacchin/fbacchin.github.io` | `https://bacchin.app` | **Sì, qui** |
 | I dati letti dalle app (CSV dei tassi, Gottardo, codici di gara, valichi, volcano) | `fbacchin/app` | `https://fbacchin.github.io/app/...` | Solo dagli automatismi |
-| I vecchi indirizzi di assistenza e privacy | `fbacchin/app` | `https://fbacchin.github.io/app/<Cartella>/...` | No: sono rimandi |
+| L'ultimo rimando (privacy di Burraco Score 5.0.1) | `fbacchin/app` | `https://fbacchin.github.io/app/Burraco/...` | No: si cancella con ADEV-754 |
 | I giochi | `fbacchin/Giochi` | `https://giochi.bacchin.app` | Sì, nel loro repo |
 
 ### Come viene pubblicato il sito
@@ -100,11 +100,12 @@ già distribuite: non vanno mai spostati né rinominati.
 - `codici/manifest.json` e le cartelle `fibur/`, `fitab/`: i regolamenti.
 - `valichi/` e i dati di volcano: aggiornati da GitHub Action.
 
-**2. I rimandi.** I file `support*.html` e `privacy*.html` in questo repo sono
-pagine vuote che portano subito alla pagina vera su `bacchin.app`. Esistono
-perché le versioni vecchie delle app e l'App Store puntano ancora lì.
-**Non vanno modificati**: se una sessione ci scrive del contenuto, quel testo
-non lo vedrà nessuno.
+**2. Un solo rimando rimasto.** `Burraco/privacy-burraco.html` e
+`support-burraco.html` portano a `bacchin.app`, perché Burraco Score 5.0.1 apre
+ancora quell'indirizzo. Si cancellano quando esce la versione corretta (issue
+Linear ADEV-754). Gli altri rimandi sono stati tolti il 9 ottobre 2026: i
+vecchi indirizzi `https://fbacchin.github.io/app/<Cartella>/support...` ora
+danno 404. Le app usano solo indirizzi `https://bacchin.app/app/...`.
 
 ## Procedura: aggiornare assistenza o privacy di un'app
 
@@ -187,7 +188,7 @@ servono a chi ha ancora l'app installata.
 
 ## Cose da non fare
 
-- Non modificare assistenza e privacy in `fbacchin/app`.
+- Non creare pagine di assistenza o privacy in `fbacchin/app`.
 - Non spostare né rinominare i file di dati in `fbacchin/app`.
 - Non modificare `finanza/euribor-oggi.html` a mano: la modifica dura poche ore. Si
   cambia `strumenti/euribor_oggi.py`, e poi anche la pagina.
