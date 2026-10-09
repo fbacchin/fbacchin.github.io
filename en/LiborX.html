@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Libor X — LIBOR’s successors on iPhone and iPad</title>
+<meta name="description" content="The rates that replaced LIBOR on a single screen: SOFR and Term SOFR, SONIA, SARON, TONAR. History, the USD curve and a comparison across markets. For iPhone and iPad.">
+<meta property="og:title" content="Libor X — LIBOR’s successors on iPhone and iPad">
+<meta property="og:description" content="SOFR, SONIA, SARON and TONAR on a single screen, with the Term SOFR curve and a comparison across markets.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="en_GB">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<noscript><style>.dato-grande[data-vivo] { display: none; }</style></noscript>
+<link rel="canonical" href="https://bacchin.app/en/LiborX">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/LiborX">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/LiborX">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/LiborX">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/LiborX">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/LiborX">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/LiborX">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/en/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/en/#t-app">All apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Language"><a href="/LiborX" hreflang="it" lang="it">Italiano</a> <strong lang="en">English</strong> <a href="/fr/LiborX" hreflang="fr" lang="fr">Français</a> <a href="/de/LiborX" hreflang="de" lang="de">Deutsch</a> <a href="/es/LiborX" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Libor X</h1>
+    <p class="tesi">LIBOR no longer exists. <strong>Libor X brings together its successors</strong> on a single screen: SOFR and the Term SOFR curve, SONIA, SARON, TONAR — with history, a comparison across markets and a reading of the curve. On iPhone and iPad.</p>
+    <p class="scarica">
+      <a class="scarica__badge" href="https://apps.apple.com/gb/app/libor-x-sofr-sonia-saron/id962161899"><img src="/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>
+      <span class="scarica__nota">Free, for iPhone and iPad</span>
+    </p>
+    <div class="dato-grande" data-vivo aria-live="polite">
+      <div class="dato-grande__griglia">
+        <div class="cifra"><div class="cifra__nome">🇺🇸 USD · SOFR</div><div class="cifra__valore" id="g-sofr">—</div></div>
+        <div class="cifra"><div class="cifra__nome">🇬🇧 GBP · SONIA</div><div class="cifra__valore" id="g-sonia">—</div></div>
+        <div class="cifra"><div class="cifra__nome">🇨🇭 CHF · SARON</div><div class="cifra__valore" id="g-saron">—</div></div>
+        <div class="cifra"><div class="cifra__nome">🇯🇵 JPY · TONAR</div><div class="cifra__valore" id="g-tonar">—</div></div>
+      </div>
+      <div class="dato-grande__quando" id="g-quando">loading the overnight rates…</div>
+    </div>
+  </div>
+
+  <div class="racconto">
+    <h2>Why it exists</h2>
+    <p>The last LIBOR panels ended in 2023, and every major currency has moved to its new benchmark rate. Libor X lines them up: <strong>SOFR</strong> for the dollar — with the CME Term SOFR curve at 1, 3, 6 and 12 months — <strong>SONIA</strong> for sterling, <strong>SARON</strong> for the franc, <strong>TONAR</strong> for the yen. Looking for the euro? That lives in the Euribor X app.</p>
+    <h2>The Markets screen</h2>
+    <p>At the top are the four Term SOFR rates, one per card: value, change from the previous fixing, a three-month mini chart and the date. Below, the four overnight rates in compact rows — they barely move from one day to the next, which is why they have no chart in the list: tap the row and the full one opens. Each rate carries <strong>its own date</strong>: it’s normal for Term SOFR to be a day ahead of the overnight rates, as the administrators don’t all publish at the same time. And <strong>SARON can be negative</strong>: that’s not a mistake, Switzerland has long lived with rates below zero.</p>
+    <h2>The Global screen</h2>
+    <p>This is the comparison across markets. The <strong>USD term curve</strong> shows the Term SOFR curve from 1 to 12 months, overlaid on how it looked three months and a year ago, with a reading in plain words: if it rises, the market expects higher rates; if it is inverted, it is pricing in Fed cuts. The <strong>Rate ranking</strong> shows at a glance which currency pays the most today; <strong>One year, four currencies</strong> overlays the four overnight rates over the last twelve months.</p>
+    <h2>The historical chart</h2>
+    <p>Tap a card or a row and the historical series opens: ranges from one month to the full history available, and sliding your finger reads the exact value for each day. Below you’ll find the minimum, maximum, average and change over the period in basis points.</p>
+    <h2>Free, and the ads can go</h2>
+    <p>Since version 5.1 there is <strong>a single app, Libor X</strong>: free and complete, supported by Google AdMob ads — a banner and, now and then, a full-screen ad. And <strong>you can remove the ads</strong>: with an annual subscription, or a one-time purchase that lasts forever.</p>
+    <p>The old paid version is now called <strong>Libor Legacy</strong>: it keeps working but no longer gets updates. If you bought it, you can use Libor X <strong>without ads and without paying again</strong> — the <a href="/app/LiborX/support">support page</a> explains how.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Platform</dt><dd>iPhone and iPad</dd></div>
+      <div><dt>Price</dt><dd>Free with ads · removable with an annual subscription or a one-time purchase</dd></div>
+      <div><dt>Rates</dt><dd>SOFR and CME Term SOFR (USD), SONIA (GBP), SARON (CHF), TONAR (JPY)</dd></div>
+      <div><dt>Data</dt><dd><a href="https://fbacchin.github.io/app/Euribor/LIBOR-USD-SOFR.csv">SOFR</a> · <a href="https://fbacchin.github.io/app/Euribor/LIBOR-GBP.csv">SONIA</a> · <a href="https://fbacchin.github.io/app/Euribor/SARON-CHF.csv">SARON</a> · <a href="https://fbacchin.github.io/app/Euribor/TONAR-JPY.csv">TONAR</a></dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/gb/app/libor-x-sofr-sonia-saron/id962161899">Open the app’s page</a></dd></div>
+      <div><dt>Support</dt><dd><a href="/app/LiborX/support">User guide and FAQ</a></dd></div>
+      <div><dt>Privacy</dt><dd><a href="/app/LiborX/privacy">Privacy policy</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Other apps">
+      <a href="/en/EuriborX">← Euribor X</a>
+      <a href="/en/Mortgage">Mortgage Calculator →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/en/privacy">Privacy and support</a>
+    </nav>
+  </footer>
+
+</div>
+<script>
+(function () {
+  function ultima(txt) {
+    var righe = txt.trim().split(/\r?\n/);
+    return righe[1].split('","').map(function (c) { return c.replace(/"/g, ''); });
+  }
+  function fmt(v) { return v ? (Math.round(parseFloat(v) * 1000) / 1000) : null; }
+  var fonti = [
+    ['g-sofr',  'LIBOR-USD-SOFR'],
+    ['g-sonia', 'LIBOR-GBP'],
+    ['g-saron', 'SARON-CHF'],
+    ['g-tonar', 'TONAR-JPY']
+  ];
+  var date = [];
+  Promise.all(fonti.map(function (f) {
+    return fetch('https://fbacchin.github.io/app/Euribor/' + f[1] + '.csv', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+      .then(function (t) {
+        var c = ultima(t);
+        var v = fmt(c[2]);
+        var el = document.getElementById(f[0]);
+        if (v !== null) {
+          var cls = v < 0 ? 'rosso' : 'gesso-num';
+          el.innerHTML = '<span class="' + cls + '">' + v.toFixed(3) + '%</span>';
+        }
+        date.push(c[0]);
+      })
+      .catch(function () {});
+  })).then(function () {
+    var q = document.getElementById('g-quando');
+    if (date.length) {
+      var recente = date.sort(function (a, b) {
+        var pa = a.split('.').reverse().join(''), pb = b.split('.').reverse().join('');
+        return pb.localeCompare(pa);
+      })[0];
+      q.textContent = 'Overnight rates, latest fixing on ' + recente + ' — the same CSVs the app downloads.';
+    } else {
+      q.textContent = 'Fixings unavailable right now — the data is still in the CSVs.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

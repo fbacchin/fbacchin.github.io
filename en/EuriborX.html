@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Euribor X — euro rates on iPhone and iPad</title>
+<meta name="description" content="€STR and the five Euribor tenors on iPhone and iPad: historical charts, a reading of the curve and a mortgage simulator. Data that works offline too.">
+<meta property="og:title" content="Euribor X — euro rates on iPhone and iPad">
+<meta property="og:description" content="€STR and the five Euribor tenors on iPhone and iPad: historical charts, a reading of the curve and a mortgage simulator. Data that works offline too.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="en_GB">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<noscript><style>.dato-grande[data-vivo] { display: none; }</style></noscript>
+<link rel="canonical" href="https://bacchin.app/en/EuriborX">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/EuriborX">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/EuriborX">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/EuriborX">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/EuriborX">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/EuriborX">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/EuriborX">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/en/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/en/#t-app">All apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Language"><a href="/EuriborX" hreflang="it" lang="it">Italiano</a> <strong lang="en">English</strong> <a href="/fr/EuriborX" hreflang="fr" lang="fr">Français</a> <a href="/de/EuriborX" hreflang="de" lang="de">Deutsch</a> <a href="/es/EuriborX" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Euribor X</h1>
+    <p class="tesi">The European money market in your pocket: <strong>€STR and five Euribor tenors</strong> — 1 week, 1, 3, 6 and 12 months — with historical charts, a reasoned reading of the curve and a mortgage simulator. On iPhone and iPad.</p>
+    <p class="scarica">
+      <a class="scarica__badge" href="https://apps.apple.com/gb/app/euribor-x-tassi-e-mutuo/id951735963"><img src="/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>
+      <span class="scarica__nota">Free, for iPhone and iPad</span>
+    </p>
+    <div class="dato-grande" data-vivo aria-live="polite">
+      <div class="dato-grande__griglia" id="griglia-tassi">
+        <div class="cifra"><div class="cifra__nome">€STR</div><div class="cifra__valore" id="t-estr">—</div></div>
+        <div class="cifra"><div class="cifra__nome">1 week</div><div class="cifra__valore" id="t-1w">—</div></div>
+        <div class="cifra"><div class="cifra__nome">1 month</div><div class="cifra__valore" id="t-1m">—</div></div>
+        <div class="cifra"><div class="cifra__nome">3 months</div><div class="cifra__valore" id="t-3m">—</div></div>
+        <div class="cifra"><div class="cifra__nome">6 months</div><div class="cifra__valore" id="t-6m">—</div></div>
+        <div class="cifra"><div class="cifra__nome">12 months</div><div class="cifra__valore" id="t-12m">—</div></div>
+      </div>
+      <div class="dato-grande__quando" id="t-quando">loading the fixings…</div>
+    </div>
+  </div>
+
+  <div class="racconto">
+    <h2>One card per rate</h2>
+    <p>Each rate is a card: the latest fixing in large type, the change in basis points from the previous one — green if it rises, red if it falls — and a mini chart of the last thirty days. When a rate is stuck at a different date from the others, a badge tells you: that’s normal, the ECB publishes €STR one business day later than Euribor.</p>
+    <p>Below the cards is the <strong>Curve reading</strong>: it compares the short end with the longer tenors and tells you, in plain words, whether the market expects hikes, cuts or stability.</p>
+    <h2>The historical chart</h2>
+    <p>Tap a card and the historical series opens: ranges from one month to the full history available, and sliding your finger along the chart reads the exact value for each day.</p>
+    <h2>The mortgage simulator</h2>
+    <p>In the <strong>My mortgage</strong> tab you set the amount, the term, the reference index — prefilled with the latest fixing — and the bank’s spread: the payment is recalculated instantly. The “What if rates…” slider shows the payment if the index rose or fell by up to two points: how exposed you really are to the ECB’s moves, on one screen.</p>
+    <h2>Offline too</h2>
+    <p>The data updates by itself at launch and stays available offline. Fixings are only published on business days — if today’s is missing, nothing is broken: it arrives tomorrow.</p>
+    <h2>Free, and the ads can go</h2>
+    <p>Since version 7.2 there is <strong>a single app, Euribor X</strong>: free and complete, supported by ads. And <strong>you can remove the ads</strong>: with an annual subscription, or a one-time purchase that lasts forever.</p>
+    <p>The old paid version is now called <strong>Euribor Legacy</strong>: it keeps working but no longer gets updates. If you bought it, you can use Euribor X <strong>without ads and without paying again</strong> — the <a href="/app/EuriborX/support">support page</a> explains how.</p>
+    <dl class="scheda-tecnica">
+      <div><dt>Platform</dt><dd>iPhone and iPad</dd></div>
+      <div><dt>Price</dt><dd>Free with ads · removable with an annual subscription or a one-time purchase</dd></div>
+      <div><dt>Languages</dt><dd>Italian, English, French, Spanish and German</dd></div>
+      <div><dt>Data</dt><dd>EMMI (Euribor) and the European Central Bank (€STR) — <a href="https://fbacchin.github.io/app/Euribor/EURIBOR.csv">EURIBOR.csv</a> · <a href="https://fbacchin.github.io/app/Euribor/ESTER.csv">ESTER.csv</a></dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/gb/app/euribor-x-tassi-e-mutuo/id951735963">Open the app’s page</a></dd></div>
+      <div><dt>Support</dt><dd><a href="/app/EuriborX/support">User guide and FAQ</a></dd></div>
+      <div><dt>Privacy</dt><dd><a href="/app/EuriborX/privacy">Privacy policy</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Other apps">
+      <span></span>
+      <a href="/en/LiborX">Libor X →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/en/privacy">Privacy and support</a>
+    </nav>
+  </footer>
+
+</div>
+<script>
+(function () {
+  function campi(riga) { return riga.split('","').map(function (c) { return c.replace(/"/g, ''); }); }
+  function metti(id, v) {
+    var e = document.getElementById(id);
+    if (e && v) e.textContent = (Math.round(parseFloat(v) * 1000) / 1000).toFixed(3) + '%';
+  }
+  Promise.all([
+    fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
+    fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
+  ]).then(function (t) {
+    var e = campi(t[0].trim().split(/\r?\n/)[1]);   // Date,Wd,1W,?,1M,?,3M,?,12M — vedi intestazione reale
+    var testa = campi(t[0].trim().split(/\r?\n/)[0]);
+    var idx = {};
+    testa.forEach(function (nome, i) { idx[nome] = i; });
+    metti('t-1w',  e[idx['1W']]);
+    metti('t-1m',  e[idx['1M']]);
+    metti('t-3m',  e[idx['3M']]);
+    metti('t-6m',  e[idx['6M']]);
+    metti('t-12m', e[idx['12M']]);
+    var s = campi(t[1].trim().split(/\r?\n/)[1]);
+    metti('t-estr', s[2]);
+    document.getElementById('t-quando').textContent =
+      'Euribor: fixing on ' + e[0] + ' · €STR: fixing on ' + s[0] + ' — the same CSVs the app downloads';
+  }).catch(function () {
+    document.getElementById('t-quando').textContent = 'Fixings unavailable right now — the data is still in the CSVs.';
+  });
+})();
+</script>
+</body>
+</html>
