@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mortgage Calculator — die Hypothekenrate und was dahintersteckt</title>
+<meta name="description" content="Berechnet die Rate deiner Hypothek und zeigt, was hinter dieser Zahl steckt: Tilgungsplan Rate für Rate, Export als CSV und PDF und der Vergleich von acht Laufzeiten. Alles auf dem Gerät, auch offline.">
+<meta property="og:title" content="Mortgage Calculator — die Hypothekenrate und was dahintersteckt">
+<meta property="og:description" content="Rate, Tilgungsplan und Szenarien im Vergleich. Alle Berechnungen auf dem Gerät, auch ohne Netz.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="de_DE">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<link rel="canonical" href="https://bacchin.app/de/Mortgage">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/Mortgage">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/Mortgage">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/Mortgage">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/Mortgage">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/Mortgage">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/Mortgage">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/de/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/de/#t-app">Alle Apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Sprache"><a href="/Mortgage" hreflang="it" lang="it">Italiano</a> <a href="/en/Mortgage" hreflang="en" lang="en">English</a> <a href="/fr/Mortgage" hreflang="fr" lang="fr">Français</a> <strong lang="de">Deutsch</strong> <a href="/es/Mortgage" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Mortgage Calculator</h1>
+    <p class="tesi">Berechnet die Rate deiner Hypothek und <strong>zeigt, was hinter dieser Zahl steckt</strong>: wie viel du an Kapital zahlst, wie viel an Zinsen, wie sich das von Rate zu Rate verschiebt und was mit einem anderen Zinssatz oder einer anderen Laufzeit passieren würde. Alles auf dem Gerät, auch ohne Netz.</p>
+    <p class="scarica">
+      <a class="scarica__badge" href="https://apps.apple.com/de/app/mortgage-calculators/id982773255"><img src="/app-store-badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <span class="scarica__nota">Kostenlos, für iPhone</span>
+    </p>
+  </div>
+
+  <div class="racconto">
+    <h2>Der Tab „Berechnung“</h2>
+    <p>Vier Angaben, mehr nicht: Betrag, Startdatum, Jahreszins und Laufzeit, die letzten beiden per Schieberegler. <strong>Die Rate wird bei jeder Änderung sofort neu berechnet</strong>, zusammen mit der gesamten Rückzahlung und den gesamten Zinsen. Der Balken unten zeigt auf einen Blick das Verhältnis von Kapital und Zinsen über die ganze Laufzeit.</p>
+    <p>Gerechnet wird mit der <strong>Annuitätenmethode mit gleichbleibender Rate</strong>, die fast alle Hypotheken verwenden: Die Rate bleibt über die ganze Laufzeit gleich, nur ihre Zusammensetzung ändert sich.</p>
+
+    <h2>Der Plan, Rate für Rate</h2>
+    <p>Der Tab <strong>Tilgungsplan</strong> zeigt alles im Detail: Nummer und Fälligkeit jeder Rate, Tilgungs- und Zinsanteil mit einem Balken für das Verhältnis, Restschuld nach der Zahlung. Beim Scrollen nach unten färbt sich der Balken nach und nach grün — der typische Effekt der Annuitätentilgung: Am Anfang zahlt man vor allem Zinsen, gegen Ende vor allem Kapital.</p>
+    <p>Der Plan lässt sich in zwei Formaten exportieren: als <strong>CSV</strong> zum Weiterbearbeiten in Numbers, Excel oder Google Tabellen — Datum im ISO-Format und Zahlen mit Dezimalpunkt, damit der Import in jeder Sprache funktioniert — und als fertig gesetztes <strong>PDF</strong> zum Drucken oder Versenden.</p>
+
+    <h2>Der Tab „Szenarien“</h2>
+    <p>Er beantwortet die Frage „Was wäre, wenn …“. Zwei Schieberegler ändern Zinssatz und Laufzeit, und die neue Rate erscheint sofort. Die Grafik vergleicht <strong>acht Laufzeiten von 5 bis 40 Jahren</strong>: für jede eine Säule, geteilt in Kapital — das sich nie ändert, es ist die Summe, die du dir geliehen hast — und Zinsen, die mit der Laufzeit wachsen. So siehst du am direktesten den Grundkompromiss jeder Hypothek: <strong>Eine längere Laufzeit senkt die Rate, erhöht aber die Zinsen insgesamt</strong>.</p>
+
+    <h2>Welcher Zinssatz gehört hinein</h2>
+    <p>Der <strong>nominale Jahreszins</strong>, nicht der effektive Jahreszins, der auch Nebenkosten enthält. Und wenn die Bank dir eine andere Rate nennt, liegt das meist daran, dass ihre Versicherungen, Inkassogebühren oder Steuern enthält: Die App berechnet die reine Rate aus Kapital und Zinsen. Die letzte Rate kann um ein paar Cent abweichen — das ist korrekt, sie wird so angepasst, dass die Restschuld genau auf null geht.</p>
+    <p>Für eine Hypothek mit variablem Zins kannst du jeden beliebigen Zinssatz simulieren, der Plan hält ihn aber über die ganze Laufzeit fest: Um die Wirkung eines Zinsanstiegs zu sehen, ist der Tab „Szenarien“ das richtige Werkzeug. Und wo der Zins heute startet, zeigt dir <a href="/de/EuriborX">Euribor X</a> mit stets aktuellen Fixings.</p>
+
+    <h2>Kostenlos, und die Werbung lässt sich entfernen</h2>
+    <p>Mortgage Calculators ist <strong>kostenlos und vollständig</strong>, finanziert durch Anzeigen von Google AdMob. Du kannst sowohl die Einwilligung bei Google als auch das Tracking bei Apple ablehnen: Die Anzeigen bleiben, sind aber nicht personalisiert, und die App funktioniert genau gleich. Und <strong>die Werbung lässt sich entfernen</strong>, per In-App-Kauf: mit einem Jahresabo oder einem einmaligen Kauf, der für immer gilt.</p>
+    <p>Die alte kostenpflichtige Version heisst jetzt <strong>Mortgage Calculator Legacy</strong>: Sie funktioniert weiter, erhält aber keine Updates mehr. Wer sie gekauft hat, wechselt zu Mortgage Calculators <strong>ohne Werbung und ohne erneut zu bezahlen</strong> — wie das geht, erklärt die <a href="/app/Mortgage/support">Support-Seite</a>.</p>
+
+    <h2>Ein Hinweis</h2>
+    <p>Die App ist ein Werkzeug zum Rechnen und Simulieren, <strong>keine Finanzberatung</strong>. Die Ergebnisse sind Richtwerte: Für eine echte Verpflichtung gelten immer die Unterlagen deiner Bank.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Plattform</dt><dd>iPhone · Mortgage Calculators</dd></div>
+      <div><dt>Preis</dt><dd>Kostenlos mit Werbung · entfernbar per Jahresabo oder einmaligem Kauf</dd></div>
+      <div><dt>Methode</dt><dd>Annuitätentilgung mit gleichbleibender Rate · Berechnungen auf dem Gerät, auch offline</dd></div>
+      <div><dt>Export</dt><dd>Vollständiger Plan als CSV und PDF</dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/de/app/mortgage-calculators/id982773255">Zur App-Seite</a></dd></div>
+      <div><dt>Support</dt><dd><a href="/app/Mortgage/support">Anleitung und häufige Fragen</a></dd></div>
+      <div><dt>Datenschutz</dt><dd><a href="/app/Mortgage/privacy">Datenschutzerklärung</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Weitere Apps">
+      <a href="/de/LiborX">← Libor X</a>
+      <a href="/de/Leasing">Leasing Calculator →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/de/privacy">Datenschutz und Support</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>

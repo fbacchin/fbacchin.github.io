@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Leasing Calculator — Leasingrate, Sonderzahlung und Restwert</title>
+<meta name="description" content="Berechnet die Leasingrate aus Objektwert, Sonderzahlung, Restwert, Laufzeit und Zinssatz. Vollständiger Plan, Export als CSV und PDF und der Vergleich von fünf Szenarien.">
+<meta property="og:title" content="Leasing Calculator — Leasingrate, Sonderzahlung und Restwert">
+<meta property="og:description" content="Rate, Plan Zeile für Zeile und der Vergleich zwischen Sonderzahlung und Restwert. Alle Berechnungen auf dem Gerät.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="de_DE">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<link rel="canonical" href="https://bacchin.app/de/Leasing">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/Leasing">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/Leasing">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/Leasing">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/Leasing">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/Leasing">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/Leasing">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/de/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/de/#t-app">Alle Apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Sprache"><a href="/Leasing" hreflang="it" lang="it">Italiano</a> <a href="/en/Leasing" hreflang="en" lang="en">English</a> <a href="/fr/Leasing" hreflang="fr" lang="fr">Français</a> <strong lang="de">Deutsch</strong> <a href="/es/Leasing" hreflang="es" lang="es">Español</a></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Leasing Calculator</h1>
+    <p class="tesi">Die Leasingrate aus <strong>Objektwert, Sonderzahlung, Restwert (Kaufoption), Laufzeit und Zinssatz</strong> — mit dem Plan Zeile für Zeile und dem Vergleich der Szenarien, auf die es wirklich ankommt. Alle Berechnungen auf dem Gerät.</p>
+    <p class="scarica">
+      <a class="scarica__badge" href="https://apps.apple.com/de/app/calcolatore-leasing/id971202335"><img src="/app-store-badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <span class="scarica__nota">Kostenlos, für iPhone</span>
+    </p>
+  </div>
+
+  <div class="racconto">
+    <h2>Der Tab „Berechnung“</h2>
+    <p>Der Objektwert ist die einzige Pflichtangabe: <strong>Sonderzahlung und Restwert sind optional</strong>, und wenn du sie leer lässt, bekommst du die Berechnung eines einfachen Kredits. Laufzeit und Zinssatz stellst du mit Schiebereglern ein, und das Ergebnis aktualisiert sich während der Eingabe.</p>
+    <p>Der Schalter <strong>vorschüssig oder nachschüssig</strong> ändert den Zahlungszeitpunkt: Bei vorschüssiger Zahlung ist die erste Rate sofort fällig, das Kapital sinkt früher, es fallen weniger Zinsen an und die Rate wird etwas kleiner. Darunter erscheinen Monatsrate, Gesamtkosten und Zinsen, mit einem Balken, der zeigt, wie sich die Kosten auf Sonderzahlung, Raten und Restwert verteilen.</p>
+
+    <h2>Der Plan, Zeile für Zeile</h2>
+    <p>Der Tab <strong>Raten</strong> ist der vollständige Plan: die Sonderzahlung am Anfang, alle Raten mit Fälligkeit, der Restwert am Ende. Für jede Zeile Tilgungsanteil, Zinsanteil und Restschuld. Die Fälligkeiten beginnen mit dem Datum, das du für die erste Rate eingestellt hast.</p>
+    <p>Exportiert wird als <strong>CSV</strong> — Datum im ISO-Format und Dezimalpunkt, bereit für jede Tabellenkalkulation — und als <strong>PDF</strong>, fertig gesetzt zum Drucken. Die Datei entsteht auf dem Telefon und geht an das Teilen-Menü von iOS.</p>
+
+    <h2>Der Tab „Vergleich“</h2>
+    <p>Er beantwortet zwei Fragen, die die reine Ratenberechnung offen lässt: <strong>Wie viel bringt eine höhere Sonderzahlung</strong>, und <strong>was kostet ein höherer Restwert wirklich</strong>. Für jeden der beiden Hebel siehst du fünf Szenarien — 0, 10, 20, 30 und 40 % des Objektwerts — mit der jeweiligen Rate und darunter den Gesamtkosten; ein Punkt markiert das Szenario, das deinem am nächsten kommt.</p>
+    <p>Hier wird der Kompromiss sichtbar: <strong>Ein höherer Restwert senkt die Rate, erhöht aber die Gesamtkosten</strong>, weil du auf diese Summe bis zum Schluss Zinsen zahlst. Die Karte „Zusammenfassung“ beziffert das mit den Zahlen deines Vertrags.</p>
+
+    <h2>Was die App nicht berechnet</h2>
+    <p>Die Rate ist eine korrekte Schätzung <strong>nur des finanziellen Anteils</strong>. Ein echter Vertrag kann Bearbeitungsgebühren, Versicherungen, Steuern und Dienstleistungen enthalten, die die App nicht kennt — für ein verbindliches Angebot brauchst du die Leasinggesellschaft. Die angezeigten Zinsen schliessen den Restwert ein: Sie sind die Differenz zwischen dem, was du insgesamt zahlst, und dem Objektwert.</p>
+    <p>Wenn du dagegen eine Hypothek prüfst, erledigt <a href="/de/Mortgage">Mortgage Calculator</a> dieselbe Arbeit mit der Annuitätentilgung.</p>
+
+    <h2>Kostenlos, und die Werbung lässt sich entfernen</h2>
+    <p>Leasing Calculators ist <strong>kostenlos und vollständig</strong>, finanziert durch Anzeigen. Du kannst sowohl die Einwilligung bei Google als auch das Tracking bei Apple ablehnen: Die Anzeigen bleiben, sind aber nicht personalisiert, und die App funktioniert genau gleich. Und <strong>die Werbung lässt sich entfernen</strong>: mit einem Jahresabo oder einem einmaligen Kauf, der für immer gilt.</p>
+    <p>Die alte kostenpflichtige Version heisst jetzt <strong>Leasing Legacy</strong>: Sie funktioniert weiter, erhält aber keine Updates mehr. Wer sie gekauft hat, wechselt zu Leasing Calculators <strong>ohne Werbung und ohne erneut zu bezahlen</strong> — wie das geht, erklärt die <a href="/app/Leasing/support">Support-Seite</a>.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Plattform</dt><dd>iPhone · Leasing Calculators</dd></div>
+      <div><dt>Preis</dt><dd>Kostenlos mit Werbung · entfernbar per Jahresabo oder einmaligem Kauf</dd></div>
+      <div><dt>Sprachen</dt><dd>Italienisch, Englisch, Französisch, Deutsch und Spanisch</dd></div>
+      <div><dt>Berechnungen</dt><dd>Auf dem Gerät · keine Daten verlassen das Gerät</dd></div>
+      <div><dt>Export</dt><dd>Vollständiger Plan als CSV und PDF</dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/de/app/calcolatore-leasing/id971202335">Zur App-Seite</a></dd></div>
+      <div><dt>Support</dt><dd><a href="/app/Leasing/support">Anleitung und häufige Fragen</a></dd></div>
+      <div><dt>Datenschutz</dt><dd><a href="/app/Leasing/privacy">Datenschutzerklärung</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Weitere Apps">
+      <a href="/de/Mortgage">← Mortgage Calculator</a>
+      <a href="/de/gotthard">Gottardo Live →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/de/privacy">Datenschutz und Support</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
