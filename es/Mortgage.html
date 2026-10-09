@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mortgage Calculator — la cuota de la hipoteca y lo que hay detrás</title>
+<meta name="description" content="Calcula la cuota de la hipoteca y muestra lo que hay detrás de esa cifra: cuadro de amortización cuota a cuota, exportación a CSV y PDF y la comparación entre ocho plazos. Todo en el dispositivo, también sin conexión.">
+<meta property="og:title" content="Mortgage Calculator — la cuota de la hipoteca y lo que hay detrás">
+<meta property="og:description" content="Cuota, cuadro de amortización y escenarios comparados. Todos los cálculos en el dispositivo, también sin conexión.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<link rel="canonical" href="https://bacchin.app/es/Mortgage">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/Mortgage">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/Mortgage">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/Mortgage">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/Mortgage">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/Mortgage">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/Mortgage">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/es/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/es/#t-app">Todas las apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Idioma"><a href="/Mortgage" hreflang="it" lang="it">Italiano</a> <a href="/en/Mortgage" hreflang="en" lang="en">English</a> <a href="/fr/Mortgage" hreflang="fr" lang="fr">Français</a> <a href="/de/Mortgage" hreflang="de" lang="de">Deutsch</a> <strong lang="es">Español</strong></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Mortgage Calculator</h1>
+    <p class="tesi">Calcula la cuota de la hipoteca y <strong>muestra lo que hay detrás de esa cifra</strong>: cuánto pagas de capital, cuánto de intereses, cómo cambia cuota tras cuota y qué pasaría con otro tipo de interés u otro plazo. Todo en el dispositivo, también sin conexión.</p>
+    <p class="scarica">
+      <a class="scarica__badge" href="https://apps.apple.com/es/app/mortgage-calculators/id982773255"><img src="/app-store-badge-es.svg" alt="Descargar en el App Store" width="144" height="48"></a>
+      <span class="scarica__nota">Gratis, para iPhone</span>
+    </p>
+  </div>
+
+  <div class="racconto">
+    <h2>La pestaña Cálculo</h2>
+    <p>Cuatro datos y nada más: importe, fecha de inicio, tipo de interés anual y plazo, estos dos últimos con un control deslizante. <strong>La cuota se recalcula al instante</strong> con cada cambio, junto con el total reembolsado y el total de intereses. La barra inferior muestra de un vistazo la proporción entre capital e intereses a lo largo de todo el plazo.</p>
+    <p>El cálculo usa el <strong>sistema francés de cuota constante</strong>, el de casi todas las hipotecas: la cuota es la misma durante todo el plazo y lo que cambia es su composición interna.</p>
+
+    <h2>El cuadro, cuota a cuota</h2>
+    <p>La pestaña <strong>Cuadro amort.</strong> es el detalle completo: número y vencimiento de cada cuota, parte de capital y parte de intereses con la barra que muestra su proporción, capital pendiente tras el pago. Al bajar, la barra se va volviendo verde poco a poco: es el efecto típico de la amortización francesa, en la que al principio se pagan sobre todo intereses y hacia el final sobre todo capital.</p>
+    <p>El cuadro se exporta en dos formatos: <strong>CSV</strong> para trabajarlo en Numbers, Excel o Hojas de cálculo de Google —fechas en formato ISO y números con punto decimal, así la importación funciona en cualquier idioma— y <strong>PDF</strong> maquetado, listo para imprimir o enviar.</p>
+
+    <h2>La pestaña Escenarios</h2>
+    <p>Sirve para responder a la pregunta «¿y si…?». Dos controles deslizantes cambian el tipo de interés y el plazo, y la nueva cuota aparece al momento. El gráfico compara <strong>ocho plazos, de 5 a 40 años</strong>: para cada uno, una columna dividida entre capital —que nunca cambia, es la suma que pediste prestada— e intereses, que crecen a medida que se alarga el plazo. Es la forma más directa de ver el dilema de fondo de toda hipoteca: <strong>alargar el plazo baja la cuota, pero sube el total de intereses</strong>.</p>
+
+    <h2>El tipo que hay que introducir</h2>
+    <p>Es el <strong>tipo de interés nominal anual</strong> (TIN), no la TAE, que incluye también los gastos accesorios. Y si el banco te da otra cuota, normalmente es porque la suya incluye seguros, comisiones de cobro o impuestos: la app calcula la cuota pura de capital e intereses. La última cuota puede diferir en unos céntimos: es correcto, se ajusta para dejar el capital pendiente exactamente a cero.</p>
+    <p>Para una hipoteca a tipo variable puedes simular cualquier tipo, pero el cuadro lo mantiene fijo durante todo el plazo: para entender el efecto de una subida, la herramienta adecuada es la pestaña Escenarios. Y para saber de qué tipo se parte hoy, <a href="/es/EuriborX">Euribor X</a> tiene los fixing actualizados.</p>
+
+    <h2>Gratis, y la publicidad se puede quitar</h2>
+    <p>Mortgage Calculators es <strong>gratis y completa</strong>, financiada con los anuncios de Google AdMob. Puedes rechazar tanto el consentimiento de Google como el seguimiento de Apple: los anuncios siguen, pero no son personalizados, y la app funciona exactamente igual. Y <strong>la publicidad se puede quitar</strong> con una compra dentro de la app: una suscripción anual o un pago único que vale para siempre.</p>
+    <p>La antigua versión de pago se llama ahora <strong>Mortgage Calculator Legacy</strong>: sigue funcionando, pero ya no recibe actualizaciones. Quien la compró pasa a Mortgage Calculators <strong>sin publicidad y sin volver a pagar</strong>; cómo hacerlo lo explica la <a href="/app/Mortgage/support">página de soporte</a>.</p>
+
+    <h2>Una advertencia</h2>
+    <p>Es una herramienta de cálculo y simulación, <strong>no asesoramiento financiero</strong>. Los resultados son orientativos: para un compromiso real, consulta siempre los documentos de tu entidad de crédito.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Plataforma</dt><dd>iPhone · Mortgage Calculators</dd></div>
+      <div><dt>Precio</dt><dd>Gratis con publicidad · eliminable con suscripción anual o pago único</dd></div>
+      <div><dt>Método</dt><dd>Amortización francesa de cuota constante · cálculos en el dispositivo, también sin conexión</dd></div>
+      <div><dt>Exportación</dt><dd>Cuadro completo en CSV y PDF</dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/es/app/mortgage-calculators/id982773255">Abrir la ficha de la app</a></dd></div>
+      <div><dt>Soporte</dt><dd><a href="/app/Mortgage/support">Guía de uso y preguntas frecuentes</a></dd></div>
+      <div><dt>Privacidad</dt><dd><a href="/app/Mortgage/privacy">Política de privacidad</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Otras apps">
+      <a href="/es/LiborX">← Libor X</a>
+      <a href="/es/Leasing">Leasing Calculator →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/es/privacy">Privacidad y soporte</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>

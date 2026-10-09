@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Leasing Calculator — la cuota del leasing, cuota inicial y valor residual</title>
+<meta name="description" content="Calcula la cuota de un leasing a partir del valor del bien, la cuota inicial, el valor residual, el plazo y el tipo de interés. Cuadro completo, exportación a CSV y PDF y la comparación entre cinco escenarios.">
+<meta property="og:title" content="Leasing Calculator — la cuota del leasing, cuota inicial y valor residual">
+<meta property="og:description" content="Cuota, cuadro línea a línea y la comparación entre cuota inicial y valor residual. Todos los cálculos en el dispositivo.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bacchin.app/og.png">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#171A1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171A1F'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23F2A93B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/stile.css?v=2026-10-06c">
+<link rel="canonical" href="https://bacchin.app/es/Leasing">
+<style>.lingue-sito{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;padding-top:10px}.lingue-sito a{color:var(--nebbia);text-decoration:none}.lingue-sito a:hover{color:var(--ambra)}.lingue-sito strong{color:var(--gesso);font-weight:600}</style>
+<link rel="alternate" hreflang="it" href="https://bacchin.app/Leasing">
+<link rel="alternate" hreflang="en" href="https://bacchin.app/en/Leasing">
+<link rel="alternate" hreflang="fr" href="https://bacchin.app/fr/Leasing">
+<link rel="alternate" hreflang="de" href="https://bacchin.app/de/Leasing">
+<link rel="alternate" hreflang="es" href="https://bacchin.app/es/Leasing">
+<link rel="alternate" hreflang="x-default" href="https://bacchin.app/Leasing">
+</head>
+<body>
+<div class="foglio">
+
+  <header class="testata">
+    <a class="etichetta" href="/es/">Fabrizio Bacchin</a>
+    <a class="etichetta" href="/es/#t-app">Todas las apps</a>
+  </header>
+  <nav class="lingue-sito etichetta" aria-label="Idioma"><a href="/Leasing" hreflang="it" lang="it">Italiano</a> <a href="/en/Leasing" hreflang="en" lang="en">English</a> <a href="/fr/Leasing" hreflang="fr" lang="fr">Français</a> <a href="/de/Leasing" hreflang="de" lang="de">Deutsch</a> <strong lang="es">Español</strong></nav><script>document.querySelectorAll('.lingue-sito a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
+
+  <div class="app-hero">
+    <h1>Leasing Calculator</h1>
+    <p class="tesi">La cuota de un leasing a partir del <strong>valor del bien, la cuota inicial, el valor residual final, el plazo y el tipo de interés</strong>, con el cuadro línea a línea y la comparación entre los escenarios que de verdad importan. Todos los cálculos en el dispositivo.</p>
+    <p class="scarica">
+      <a class="scarica__badge" href="https://apps.apple.com/es/app/calcolatore-leasing/id971202335"><img src="/app-store-badge-es.svg" alt="Descargar en el App Store" width="144" height="48"></a>
+      <span class="scarica__nota">Gratis, para iPhone</span>
+    </p>
+  </div>
+
+  <div class="racconto">
+    <h2>La pestaña Cálculo</h2>
+    <p>El valor del bien es el único dato obligatorio: <strong>la cuota inicial y el valor residual son opcionales</strong>, y si los dejas vacíos obtienes el cálculo de un préstamo simple. El plazo y el tipo de interés se fijan con los controles deslizantes, y el resultado se actualiza mientras escribes.</p>
+    <p>El selector <strong>anticipadas o vencidas</strong> cambia el momento en que pagas: con las anticipadas la primera cuota vence enseguida, el capital empieza a reducirse antes, se generan menos intereses y la cuota baja ligeramente. Debajo aparecen la cuota mensual, el coste total y los intereses, con una barra que muestra cómo se reparte el coste entre cuota inicial, cuotas y valor residual.</p>
+
+    <h2>El cuadro, línea a línea</h2>
+    <p>La pestaña <strong>Cuotas</strong> es el cuadro completo: la cuota inicial al principio, todas las cuotas con su vencimiento y el valor residual al final. En cada línea, parte de capital, parte de intereses y capital pendiente. Los vencimientos empiezan en la fecha que hayas fijado para la primera cuota.</p>
+    <p>Se exporta en <strong>CSV</strong> —fechas en formato ISO y punto decimal, listo para una hoja de cálculo— y en <strong>PDF</strong> ya maquetado para imprimir. El archivo se genera en el teléfono y pasa al menú de compartir de iOS.</p>
+
+    <h2>La pestaña Comparación</h2>
+    <p>Responde a dos preguntas que el simple cálculo de la cuota no resuelve: <strong>cuánto compensa pagar una cuota inicial más alta</strong> y <strong>cuánto cuesta de verdad un valor residual más alto</strong>. Para cada variable ves cinco escenarios —0, 10, 20, 30 y 40 % del valor del bien— con la cuota correspondiente y el coste total debajo, y un punto marca el escenario más cercano al tuyo.</p>
+    <p>Aquí es donde se ve el dilema: <strong>subir el valor residual baja la cuota, pero sube el coste total</strong>, porque sobre esa suma sigues pagando intereses hasta el final. La tarjeta «En resumen» lo cuantifica con las cifras de tu contrato.</p>
+
+    <h2>Lo que no calcula</h2>
+    <p>La cuota es una estimación correcta <strong>solo del componente financiero</strong>. Un contrato real puede incluir gastos de apertura, seguros, impuestos y servicios que la app no conoce: para una oferta vinculante tienes que dirigirte a la sociedad de leasing. Los intereses que ves incluyen el valor residual: son la diferencia entre lo que pagas en total y el valor del bien.</p>
+    <p>Si lo que estás valorando es una hipoteca, <a href="/es/Mortgage">Mortgage Calculator</a> hace el mismo trabajo con la amortización francesa.</p>
+
+    <h2>Gratis, y la publicidad se puede quitar</h2>
+    <p>Leasing Calculators es <strong>gratis y completa</strong>, financiada con anuncios. Puedes rechazar tanto el consentimiento de Google como el seguimiento de Apple: los anuncios siguen, pero no son personalizados, y la app funciona exactamente igual. Y <strong>la publicidad se puede quitar</strong>: con una suscripción anual o con un pago único que vale para siempre.</p>
+    <p>La antigua versión de pago se llama ahora <strong>Leasing Legacy</strong>: sigue funcionando, pero ya no recibe actualizaciones. Quien la compró pasa a Leasing Calculators <strong>sin publicidad y sin volver a pagar</strong>; cómo hacerlo lo explica la <a href="/app/Leasing/support">página de soporte</a>.</p>
+
+    <dl class="scheda-tecnica">
+      <div><dt>Plataforma</dt><dd>iPhone · Leasing Calculators</dd></div>
+      <div><dt>Precio</dt><dd>Gratis con publicidad · eliminable con suscripción anual o pago único</dd></div>
+      <div><dt>Idiomas</dt><dd>Italiano, inglés, francés, alemán y español</dd></div>
+      <div><dt>Cálculos</dt><dd>En el dispositivo · ningún dato se envía a otro lugar</dd></div>
+      <div><dt>Exportación</dt><dd>Cuadro completo en CSV y PDF</dd></div>
+      <div><dt>App Store</dt><dd><a href="https://apps.apple.com/es/app/calcolatore-leasing/id971202335">Abrir la ficha de la app</a></dd></div>
+      <div><dt>Soporte</dt><dd><a href="/app/Leasing/support">Guía de uso y preguntas frecuentes</a></dd></div>
+      <div><dt>Privacidad</dt><dd><a href="/app/Leasing/privacy">Política de privacidad</a></dd></div>
+    </dl>
+
+    <nav class="vicini" aria-label="Otras apps">
+      <a href="/es/Mortgage">← Mortgage Calculator</a>
+      <a href="/es/gotthard">Gottardo Live →</a>
+    </nav>
+  </div>
+
+  <footer class="piede">
+    <span class="etichetta">© 2026 Fabrizio Bacchin</span>
+    <nav class="piede__link etichetta">
+      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
+      <a href="/es/privacy">Privacidad y soporte</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
