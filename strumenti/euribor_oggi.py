@@ -41,7 +41,7 @@ NEWSLETTER_IT = '''    <section class="nl" id="newsletter">
       <p class="nl__nota">Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare, e ti cancelli con un clic da ogni numero. <a href="/privacy#newsletter">Privacy</a>.</p>
       <p class="nl__esito" role="status" hidden></p>
     </form>
-      <script src="/newsletter.js?v=2026-10-08b" defer></script>
+      <script src="/newsletter.js?v=2026-10-09" defer></script>
     </section>
 '''
 
@@ -125,7 +125,7 @@ L = {
   colonne=["Rate","Value","Day","Week","Month","Year"],
   grafico_aria="3-month and 12-month Euribor, past twelve months", leg3="3-month Euribor", leg12="12-month Euribor",
   invito_app=lambda u: f'<strong>The same, on your phone.</strong> <a href="{u}">Euribor X</a> shows every day\'s fixings with historical charts and a mortgage simulator, even offline. Free on iPhone and iPad.',
-  invito_dash=lambda u: f'To explore the full history and compare it with the ECB rate, there is the <a href="{u}">ECB &amp; Euribor dashboard</a> (in Italian).',
+  invito_dash=lambda u: f'To explore the full history and compare it with the ECB rate, there is the <a href="{u}">ECB &amp; Euribor dashboard</a>.',
   scheda=[("Data", "Euribor (EMMI) and €STR (ECB), the same series used by the Euribor X app"),
           ("Payment example", "€100,000 mortgage over 20 years, monthly annuity repayment, 3-month Euribor + 1%. It is an example: the real payment depends on the contract, the margin and the reset schedule."),
           ("Updates", "Every working day, automatically")],
@@ -166,7 +166,7 @@ L = {
   colonne=["Taux","Valeur","Jour","Semaine","Mois","Année"],
   grafico_aria="Euribor 3 et 12 mois, douze derniers mois", leg3="Euribor 3 mois", leg12="Euribor 12 mois",
   invito_app=lambda u: f'<strong>La même chose, sur votre téléphone.</strong> <a href="{u}">Euribor X</a> affiche les fixings de chaque jour avec les graphiques historiques et un simulateur de prêt, même hors ligne. Gratuit sur iPhone et iPad.',
-  invito_dash=lambda u: f'Pour explorer tout l\'historique et le comparer au taux de la BCE, il y a le <a href="{u}">tableau de bord BCE &amp; Euribor</a> (en italien).',
+  invito_dash=lambda u: f'Pour explorer tout l\'historique et le comparer au taux de la BCE, il y a le <a href="{u}">tableau de bord BCE &amp; Euribor</a>.',
   scheda=[("Données", "Euribor (EMMI) et €STR (BCE), les mêmes séries que celles de l'app Euribor X"),
           ("Exemple de mensualité", f"Prêt de 100{NNBSP}000{NBSP}€ sur 20 ans, mensualités constantes, Euribor 3 mois + 1{NBSP}%. C'est un exemple : la mensualité réelle dépend du contrat, de la marge et du calendrier de révision."),
           ("Mise à jour", "Chaque jour ouvré, automatiquement")],
@@ -207,7 +207,7 @@ L = {
   colonne=["Satz","Wert","Tag","Woche","Monat","Jahr"],
   grafico_aria="Euribor 3 und 12 Monate, letzte zwölf Monate", leg3="Euribor 3 Monate", leg12="Euribor 12 Monate",
   invito_app=lambda u: f'<strong>Dasselbe auf dem Telefon.</strong> <a href="{u}">Euribor X</a> zeigt die Fixings jedes Tages mit historischen Charts und einem Kreditrechner, auch offline. Kostenlos für iPhone und iPad.',
-  invito_dash=lambda u: f'Die ganze Historie im Vergleich mit dem EZB-Zins zeigt das <a href="{u}">EZB- &amp; Euribor-Dashboard</a> (auf Italienisch).',
+  invito_dash=lambda u: f'Die ganze Historie im Vergleich mit dem EZB-Zins zeigt das <a href="{u}">EZB- &amp; Euribor-Dashboard</a>.',
   scheda=[("Daten", "Euribor (EMMI) und €STR (EZB), dieselben Reihen wie in der App Euribor X"),
           ("Ratenbeispiel", f"Darlehen über 100.000{NBSP}€ mit 20 Jahren Laufzeit, Annuitätenrate monatlich, 3-Monats-Euribor + 1{NBSP}%. Das ist ein Beispiel: Die tatsächliche Rate hängt von Vertrag, Aufschlag und Anpassungsterminen ab."),
           ("Aktualisierung", "An jedem Arbeitstag, automatisch")],
@@ -248,7 +248,7 @@ L = {
   colonne=["Tipo","Valor","Día","Semana","Mes","Año"],
   grafico_aria="Euríbor a 3 y 12 meses, últimos doce meses", leg3="Euríbor 3 meses", leg12="Euríbor 12 meses",
   invito_app=lambda u: f'<strong>Lo mismo, en el móvil.</strong> <a href="{u}">Euribor X</a> muestra los fixings de cada día con gráficos históricos y un simulador de hipoteca, incluso sin conexión. Gratis en iPhone y iPad.',
-  invito_dash=lambda u: f'Para explorar todo el histórico y compararlo con el tipo del BCE está el <a href="{u}">panel BCE &amp; Euríbor</a> (en italiano).',
+  invito_dash=lambda u: f'Para explorar todo el histórico y compararlo con el tipo del BCE está el <a href="{u}">panel BCE &amp; Euríbor</a>.',
   scheda=[("Datos", "Euríbor (EMMI) y €STR (BCE), las mismas series que usa la app Euribor X"),
           ("Ejemplo de cuota", f"Hipoteca de 100.000{NBSP}€ a 20 años, cuota mensual con sistema francés, Euríbor 3 meses + 1{NBSP}%. Es un ejemplo: la cuota real depende del contrato, el diferencial y el calendario de revisión."),
           ("Actualización", "Cada día hábil, automáticamente")],
@@ -478,6 +478,7 @@ def pagina(lg, eur, est):
         f'<strong lang="{x}">{L[x]["nome"]}</strong>' if x == lg else
         f'<a href="/finanza/{L[x]["slug"]}" hreflang="{x}" lang="{x}">{L[x]["nome"]}</a>' for x in LINGUE)
     app_store = f"https://apps.apple.com/{t['store']}/app/euribor-x-tassi-e-mutuo/id{APP_ID}"
+    casa = "/" if lg == "it" else f"/{lg}/"   # home del sito nella lingua della pagina
     scheda = "\n".join(f"      <div><dt>{E(a)}</dt><dd>{E(b)}</dd></div>" for a, b in t["scheda"])
     return f"""<!DOCTYPE html>
 <html lang="{lg}">
@@ -535,8 +536,8 @@ def pagina(lg, eur, est):
 <div class="foglio">
 
   <header class="testata">
-    <a class="etichetta" href="/">Fabrizio Bacchin</a>
-    <a class="etichetta" href="/#t-app">{t['tutte_app']}</a>
+    <a class="etichetta" href="{casa}">Fabrizio Bacchin</a>
+    <a class="etichetta" href="{casa}#t-app">{t['tutte_app']}</a>
   </header>
 
   <div class="app-hero">
@@ -573,7 +574,7 @@ def pagina(lg, eur, est):
 
     <div class="invito">
       <p>{t['invito_app'](app_store)}</p>
-      <p>{t['invito_dash'](DASHBOARD)}</p>
+      <p>{t['invito_dash'](casa.rstrip('/') + DASHBOARD)}</p>
     </div>
 {t.get('newsletter', '')}
     <h2>{t['h2_faq']}</h2>
@@ -588,7 +589,7 @@ def pagina(lg, eur, est):
     <span class="etichetta">© {d0.year} Fabrizio Bacchin</span>
     <nav class="piede__link etichetta">
       <a href="mailto:info@bacchin.app">info@bacchin.app</a>
-      <a href="/privacy">{t['privacy']}</a>
+      <a href="{casa}privacy">{t['privacy']}</a>
     </nav>
   </footer>
 
