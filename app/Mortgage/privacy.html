@@ -96,7 +96,7 @@
 
   <!-- ============================ ITALIANO ============================ -->
   <div lang-block="it">
-    <p class="date">In vigore dal 27 settembre 2026</p>
+    <p class="date">In vigore dal 9 ottobre 2026</p>
 
     <section class="card">
       <h2>In breve</h2>
@@ -114,7 +114,7 @@
 
     <section class="card">
       <h2>Dati salvati sul tuo dispositivo</h2>
-      <p>Le app conservano localmente, nel proprio contenitore sandbox, soltanto i <b>parametri del mutuo</b> che inserisci — importo, data di inizio, tasso di interesse e durata — così da ritrovarli al riavvio e da poterli condividere fra le schede Calcolo, Piano di ammortamento e Scenari. Mortgage Calculators vi salva anche le <b>scelte di consenso</b> alla pubblicità e se la pubblicità è stata tolta. Mortgage Calculator Legacy, inoltre, lascia sul dispositivo un contrassegno per Mortgage Calculators (vedi «Chi aveva la versione a pagamento»).</p>
+      <p>Le app conservano localmente, nel proprio contenitore sandbox, soltanto i <b>parametri del mutuo</b> che inserisci — importo, data di inizio, tasso di interesse e durata — così da ritrovarli al riavvio e da poterli condividere fra le schede Calcolo, Piano di ammortamento e Scenari. In Mortgage Calculators la modalità mutuo svizzero conserva allo stesso modo i suoi dati: valore dell'immobile, fondi propri, reddito, tasso e costi. Mortgage Calculators vi salva anche le <b>scelte di consenso</b> alla pubblicità e se la pubblicità è stata tolta. Mortgage Calculator Legacy, inoltre, lascia sul dispositivo un contrassegno per Mortgage Calculators (vedi «Chi aveva la versione a pagamento»).</p>
       <p>Tutti i calcoli — rata, piano di ammortamento, scenari — avvengono <b>interamente sul dispositivo</b>: nessun dato viene inviato ad alcun server, e non esiste alcuna sincronizzazione sul cloud.</p>
     </section>
 
@@ -126,22 +126,25 @@
     <section class="card">
       <h2>Statistiche d'uso</h2>
       <p>Entrambe le app misurano <b>come vengono usate</b>, per capire quali funzioni servono davvero e quali no. Il servizio è <b>PostHog</b>, sui server <b>europei</b> (<code>eu.i.posthog.com</code>). La raccolta è anonima: non c'è account, non c'è profilo, e nessun dato permette di risalire a te.</p>
-      <p>Escono dall'app <b>soltanto</b> questi undici segnali, e nient'altro:</p>
+      <p>Escono dall'app <b>soltanto</b> questi quattordici segnali, e nient'altro:</p>
       <table>
         <tr><th>Segnale</th><th>Che cosa dice</th></tr>
         <tr><td>Apertura di una scheda</td><td>Quale delle quattro schede è stata aperta: Calcolo, Piano di ammortamento, Scenari, App info.</td></tr>
-        <tr><td>Calcolo completato</td><td>Che un calcolo è stato portato a termine. <b>Non</b> l'importo, <b>non</b> la rata, <b>non</b> il tasso, <b>non</b> la durata.</td></tr>
+        <tr><td>Calcolo completato</td><td>Che un calcolo è stato portato a termine. <b>Non</b> l'importo, <b>non</b> la rata, <b>non</b> il tasso, <b>non</b> la durata. In Mortgage Calculators porta anche la modalità di calcolo: mutuo standard o mutuo svizzero.</td></tr>
         <tr><td>Piano esportato</td><td>Che è stato esportato un piano, e se in PDF o in CSV. Mai il contenuto del file.</td></tr>
         <tr><td>Data di inizio modificata</td><td>Che la data di inizio è stata cambiata. <b>Non</b> quale data.</td></tr>
-        <tr><td>Scenario modificato</td><td>Che nella scheda Scenari è stato mosso il cursore del tasso o quello della durata. <b>Non</b> i valori.</td></tr>
+        <tr><td>Scenario modificato</td><td>Che nella scheda Scenari è stato mosso un cursore, e quale: tasso, durata o, nel mutuo svizzero, reddito. <b>Non</b> i valori. In Mortgage Calculators porta anche la modalità di calcolo.</td></tr>
         <tr><td>Esito del consenso</td><td>Solo in Mortgage Calculators: se il consenso alla pubblicità è stato dato, negato o non era necessario.</td></tr>
         <tr><td>Esito del tracciamento</td><td>Solo in Mortgage Calculators: se hai autorizzato o rifiutato il prompt di Apple. Non l'IDFA, solo la risposta.</td></tr>
         <tr><td>Passaggio dalla versione a pagamento</td><td>Solo in Mortgage Calculators, una volta sola: che la pubblicità è stata tolta gratis perché su questo dispositivo c'era la versione a pagamento. Nessun dettaglio in più.</td></tr>
         <tr><td>Negozio non disponibile</td><td>Solo in Mortgage Calculators: che il negozio non ha risposto come doveva (offerte non caricate, acquisto non riuscito, ripristino senza acquisti). Porta soltanto il motivo, scelto fra poche voci fisse. Se rinunci a un acquisto, non viene registrato nulla.</td></tr>
         <tr><td>Acquisto avviato</td><td>Solo in Mortgage Calculators: che hai toccato uno dei due pulsanti per togliere la pubblicità. Porta soltanto quale delle due opzioni (annuale o per sempre). Dice quante persone si fermano davanti al foglio di pagamento di Apple.</td></tr>
         <tr><td>Pubblicità tolta</td><td>Solo in Mortgage Calculators: che un acquisto è andato a buon fine e la pubblicità è stata tolta. Porta soltanto quale delle due opzioni. Il ripristino su un altro dispositivo non viene contato.</td></tr>
+        <tr><td>Modalità cambiata</td><td>Solo in Mortgage Calculators: che nella scheda Calcolo sei passato dal mutuo standard al mutuo svizzero, o viceversa. Porta soltanto la modalità scelta.</td></tr>
+        <tr><td>Annuncio a schermo intero mostrato</td><td>Solo in Mortgage Calculators: che è comparso un annuncio a schermo intero, e che cosa lo ha fatto partire: un calcolo, uno scenario o il cambio di scheda. Nulla sull'annuncio.</td></tr>
+        <tr><td>Annuncio a schermo intero non mostrato</td><td>Solo in Mortgage Calculators: che un annuncio a schermo intero era previsto e non è comparso. Porta soltanto il motivo, scelto fra poche voci fisse: non ancora pronto, scaduto, troppo vicino al precedente, presentazione non riuscita, app chiusa prima.</td></tr>
       </table>
-      <p>A ogni segnale è allegata un'informazione in più: <b>quale delle due app</b> lo ha mandato; «Negozio non disponibile» porta anche il motivo descritto sopra, «Acquisto avviato» e «Pubblicità tolta» l'opzione scelta. Non viene raccolta la posizione, non vengono creati identificatori nostri per queste statistiche, non viene mandato alcun testo scritto da te, e <b>nessun numero fra quelli che inserisci</b>. Non c'è registrazione dello schermo. Queste statistiche non sono tracciamento e non usano l'IDFA: il tracciamento riguarda solo la pubblicità di Mortgage Calculators, ed è descritto più sotto.</p>
+      <p>A ogni segnale è allegata un'informazione in più: <b>quale delle due app</b> lo ha mandato; «Negozio non disponibile» porta anche il motivo descritto sopra, «Acquisto avviato» e «Pubblicità tolta» l'opzione scelta. In Mortgage Calculators, «Calcolo completato», «Scenario modificato» e «Modalità cambiata» portano la modalità di calcolo, e i due segnali sugli annunci a schermo intero ciò che è descritto sopra. Non viene raccolta la posizione, non vengono creati identificatori nostri per queste statistiche, non viene mandato alcun testo scritto da te, e <b>nessun numero fra quelli che inserisci</b>. Non c'è registrazione dello schermo. Queste statistiche non sono tracciamento e non usano l'IDFA: il tracciamento riguarda solo la pubblicità di Mortgage Calculators, ed è descritto più sotto.</p>
       <p>Informativa di PostHog: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -221,13 +224,13 @@
     <section class="card">
       <h2>Modifiche</h2>
       <p>Eventuali modifiche a questa informativa saranno pubblicate su questa pagina, con aggiornamento della data di entrata in vigore.</p>
-      <p>Ultima modifica, 27 settembre 2026 (versione 3.1): le app hanno nomi nuovi, Mortgage Calculators e Mortgage Calculator Legacy; in Mortgage Calculators la pubblicità si può togliere con un acquisto in app verificato tramite RevenueCat; chi aveva la versione a pagamento la toglie gratis; le statistiche d'uso hanno due segnali nuovi.</p>
+      <p>Ultima modifica, 9 ottobre 2026 (versione 4.0): Mortgage Calculators ha una seconda modalità di calcolo, il mutuo svizzero, i cui dati restano sul dispositivo; le statistiche d'uso hanno tre segnali nuovi (cambio di modalità, annuncio a schermo intero mostrato e non mostrato) e i segnali di calcolo e scenario dicono quale modalità è in uso.</p>
     </section>
   </div>
 
   <!-- ============================ ENGLISH ============================ -->
   <div lang-block="en">
-    <p class="date">Effective from 27 September 2026</p>
+    <p class="date">Effective from 9 October 2026</p>
 
     <section class="card">
       <h2>In short</h2>
@@ -245,7 +248,7 @@
 
     <section class="card">
       <h2>Data stored on your device</h2>
-      <p>The apps store locally, inside their own sandbox container, only the <b>mortgage parameters</b> you enter — amount, start date, interest rate and duration — so they can be restored on relaunch and shared between the Calculation, Amortization plan and Scenarios tabs. Mortgage Calculators also stores your <b>advertising consent choices</b> there, and whether the ads have been removed. Mortgage Calculator Legacy also leaves a marker on the device for Mortgage Calculators (see "If you had the paid version").</p>
+      <p>The apps store locally, inside their own sandbox container, only the <b>mortgage parameters</b> you enter — amount, start date, interest rate and duration — so they can be restored on relaunch and shared between the Calculation, Amortization plan and Scenarios tabs. In Mortgage Calculators, the Swiss mortgage mode keeps its own data in the same way: property value, own funds, income, rate and costs. Mortgage Calculators also stores your <b>advertising consent choices</b> there, and whether the ads have been removed. Mortgage Calculator Legacy also leaves a marker on the device for Mortgage Calculators (see "If you had the paid version").</p>
       <p>All calculations — payment, amortization plan, scenarios — happen <b>entirely on the device</b>: no data is sent to any server, and there is no cloud synchronisation.</p>
     </section>
 
@@ -257,22 +260,25 @@
     <section class="card">
       <h2>Usage statistics</h2>
       <p>Both apps measure <b>how they are used</b>, to understand which features genuinely help and which do not. The service is <b>PostHog</b>, hosted on its <b>European</b> servers (<code>eu.i.posthog.com</code>). Collection is anonymous: there is no account, no profile, and nothing that can be traced back to you.</p>
-      <p>The apps send <b>only</b> these eleven signals, and nothing else:</p>
+      <p>The apps send <b>only</b> these fourteen signals, and nothing else:</p>
       <table>
         <tr><th>Signal</th><th>What it says</th></tr>
         <tr><td>Tab opened</td><td>Which of the four tabs was opened: Calculator, Amortization plan, Scenarios, App info.</td></tr>
-        <tr><td>Calculation completed</td><td>That a calculation was carried through. <b>Not</b> the amount, <b>not</b> the payment, <b>not</b> the rate, <b>not</b> the term.</td></tr>
+        <tr><td>Calculation completed</td><td>That a calculation was carried through. <b>Not</b> the amount, <b>not</b> the payment, <b>not</b> the rate, <b>not</b> the term. In Mortgage Calculators it also carries the calculation mode: standard mortgage or Swiss mortgage.</td></tr>
         <tr><td>Plan exported</td><td>That a plan was exported, and whether as PDF or CSV. Never the contents of the file.</td></tr>
         <tr><td>Start date changed</td><td>That the start date was changed. <b>Not</b> which date.</td></tr>
-        <tr><td>Scenario changed</td><td>That the rate or term slider was moved in the Scenarios tab. <b>Not</b> the values.</td></tr>
+        <tr><td>Scenario changed</td><td>That a slider was moved in the Scenarios tab, and which one: rate, term or, in the Swiss mortgage, income. <b>Not</b> the values. In Mortgage Calculators it also carries the calculation mode.</td></tr>
         <tr><td>Consent outcome</td><td>Mortgage Calculators only: whether advertising consent was granted, refused, or not required.</td></tr>
         <tr><td>Tracking outcome</td><td>Mortgage Calculators only: whether you allowed or refused Apple's prompt. Not the IDFA, just the answer.</td></tr>
         <tr><td>Move from the paid version</td><td>Mortgage Calculators only, once: that the ads were removed free of charge because the paid version was on this device. No further detail.</td></tr>
         <tr><td>Store unavailable</td><td>Mortgage Calculators only: that the store did not respond as it should (offers not loaded, purchase failed, restore found nothing). It carries only the reason, picked from a few fixed values. If you cancel a purchase, nothing is recorded.</td></tr>
         <tr><td>Purchase started</td><td>Mortgage Calculators only: that you tapped one of the two buttons to remove the ads. It carries only which of the two options (yearly or forever). It shows how many people stop at Apple's payment sheet.</td></tr>
         <tr><td>Ads removed</td><td>Mortgage Calculators only: that a purchase went through and the ads were removed. It carries only which of the two options. Restoring on another device is not counted.</td></tr>
+        <tr><td>Mode changed</td><td>Mortgage Calculators only: that you switched from the standard mortgage to the Swiss mortgage in the Calculation tab, or back. It carries only the mode chosen.</td></tr>
+        <tr><td>Full-screen ad shown</td><td>Mortgage Calculators only: that a full-screen ad appeared, and what triggered it: a calculation, a scenario or a change of tab. Nothing about the ad.</td></tr>
+        <tr><td>Full-screen ad not shown</td><td>Mortgage Calculators only: that a full-screen ad was due and did not appear. It carries only the reason, picked from a few fixed values: not ready yet, expired, too close to the previous one, presentation failed, app closed first.</td></tr>
       </table>
-      <p>One further item travels with each signal: <b>which of the two apps</b> sent it; "Store unavailable" also carries the reason described above, "Purchase started" and "Ads removed" the option chosen. No location is collected, no identifiers of ours are created for these statistics, no text you write is sent, and <b>none of the figures you enter</b>. There is no screen recording. These statistics are not tracking and do not use the IDFA: tracking concerns only advertising in Mortgage Calculators, described below.</p>
+      <p>One further item travels with each signal: <b>which of the two apps</b> sent it; "Store unavailable" also carries the reason described above, "Purchase started" and "Ads removed" the option chosen. In Mortgage Calculators, "Calculation completed", "Scenario changed" and "Mode changed" carry the calculation mode, and the two full-screen ad signals what is described above. No location is collected, no identifiers of ours are created for these statistics, no text you write is sent, and <b>none of the figures you enter</b>. There is no screen recording. These statistics are not tracking and do not use the IDFA: tracking concerns only advertising in Mortgage Calculators, described below.</p>
       <p>PostHog's policy: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -352,13 +358,13 @@
     <section class="card">
       <h2>Changes</h2>
       <p>Any change to this policy will be published on this page, with an updated effective date.</p>
-      <p>Last change, 27 September 2026 (version 3.1): the apps have new names, Mortgage Calculators and Mortgage Calculator Legacy; in Mortgage Calculators the ads can be removed with an in-app purchase verified through RevenueCat; owners of the paid version get this free; usage statistics have two new signals.</p>
+      <p>Last change, 9 October 2026 (version 4.0): Mortgage Calculators has a second calculation mode, the Swiss mortgage, whose data stays on the device; usage statistics have three new signals (mode change, full-screen ad shown and not shown), and the calculation and scenario signals say which mode is in use.</p>
     </section>
   </div>
 
   <!-- ============================ DE ============================ -->
   <div lang-block="de">
-    <p class="date">Gültig ab 27. September 2026</p>
+    <p class="date">Gültig ab 9. Oktober 2026</p>
 
     <section class="card">
       <h2>Kurz gefasst</h2>
@@ -376,7 +382,7 @@
 
     <section class="card">
       <h2>Auf deinem Gerät gespeicherte Daten</h2>
-      <p>Die Apps speichern lokal, im eigenen Sandbox-Container, ausschliesslich die <b>Hypothekenparameter</b>, die du eingibst — Betrag, Startdatum, Zinssatz und Laufzeit — damit sie nach einem Neustart wieder da sind und zwischen den Tabs Berechnung, Tilgungsplan und Szenarien geteilt werden können. Mortgage Calculators speichert dort auch deine <b>Einwilligungsentscheidungen</b> zur Werbung und ob die Werbung entfernt wurde. Mortgage Calculator Legacy hinterlässt ausserdem auf dem Gerät ein Kennzeichen für Mortgage Calculators (siehe «Wenn du die kostenpflichtige Version hattest»).</p>
+      <p>Die Apps speichern lokal, im eigenen Sandbox-Container, ausschliesslich die <b>Hypothekenparameter</b>, die du eingibst — Betrag, Startdatum, Zinssatz und Laufzeit — damit sie nach einem Neustart wieder da sind und zwischen den Tabs Berechnung, Tilgungsplan und Szenarien geteilt werden können. In Mortgage Calculators speichert der Modus Schweizer Hypothek seine Angaben auf dieselbe Weise: Liegenschaftswert, Eigenmittel, Einkommen, Zinssatz und Kosten. Mortgage Calculators speichert dort auch deine <b>Einwilligungsentscheidungen</b> zur Werbung und ob die Werbung entfernt wurde. Mortgage Calculator Legacy hinterlässt ausserdem auf dem Gerät ein Kennzeichen für Mortgage Calculators (siehe «Wenn du die kostenpflichtige Version hattest»).</p>
       <p>Alle Berechnungen — Rate, Tilgungsplan, Szenarien — laufen <b>vollständig auf dem Gerät</b>: Es werden keine Daten an irgendeinen Server gesendet, und es gibt keine Cloud-Synchronisierung.</p>
     </section>
 
@@ -388,22 +394,25 @@
     <section class="card">
       <h2>Nutzungsstatistiken</h2>
       <p>Beide Apps messen, <b>wie sie genutzt werden</b>, um zu verstehen, welche Funktionen wirklich helfen und welche nicht. Der Dienst ist <b>PostHog</b>, auf dessen <b>europäischen</b> Servern (<code>eu.i.posthog.com</code>). Die Erhebung ist anonym: kein Konto, kein Profil, nichts, was sich auf dich zurückführen lässt.</p>
-      <p>Die Apps senden <b>nur</b> diese elf Signale und nichts sonst:</p>
+      <p>Die Apps senden <b>nur</b> diese vierzehn Signale und nichts sonst:</p>
       <table>
         <tr><th>Signal</th><th>Was es aussagt</th></tr>
         <tr><td>Tab geöffnet</td><td>Welcher der vier Tabs geöffnet wurde: Berechnung, Tilgungsplan, Szenarien, App-Info.</td></tr>
-        <tr><td>Berechnung abgeschlossen</td><td>Dass eine Berechnung zu Ende geführt wurde. <b>Nicht</b> der Betrag, <b>nicht</b> die Rate, <b>nicht</b> der Zinssatz, <b>nicht</b> die Laufzeit.</td></tr>
+        <tr><td>Berechnung abgeschlossen</td><td>Dass eine Berechnung zu Ende geführt wurde. <b>Nicht</b> der Betrag, <b>nicht</b> die Rate, <b>nicht</b> der Zinssatz, <b>nicht</b> die Laufzeit. In Mortgage Calculators enthält es auch den Berechnungsmodus: Standard oder Schweizer Hypothek.</td></tr>
         <tr><td>Plan exportiert</td><td>Dass ein Plan exportiert wurde, und ob als PDF oder CSV. Niemals der Inhalt der Datei.</td></tr>
         <tr><td>Startdatum geändert</td><td>Dass das Startdatum geändert wurde. <b>Nicht</b> welches Datum.</td></tr>
-        <tr><td>Szenario geändert</td><td>Dass im Tab Szenarien der Regler für Zins oder Laufzeit bewegt wurde. <b>Nicht</b> die Werte.</td></tr>
+        <tr><td>Szenario geändert</td><td>Dass im Tab Szenarien ein Regler bewegt wurde, und welcher: Zins, Laufzeit oder, bei der Schweizer Hypothek, Einkommen. <b>Nicht</b> die Werte. In Mortgage Calculators enthält es auch den Berechnungsmodus.</td></tr>
         <tr><td>Ergebnis der Einwilligung</td><td>Nur in Mortgage Calculators: ob die Werbeeinwilligung erteilt, verweigert oder nicht erforderlich war.</td></tr>
         <tr><td>Ergebnis des Trackings</td><td>Nur in Mortgage Calculators: ob du Apples Dialog erlaubt oder abgelehnt hast. Nicht die IDFA, nur die Antwort.</td></tr>
         <tr><td>Umzug von der kostenpflichtigen Version</td><td>Nur in Mortgage Calculators, ein einziges Mal: dass die Werbung kostenlos entfernt wurde, weil auf diesem Gerät die kostenpflichtige Version war. Ohne weitere Angaben.</td></tr>
         <tr><td>Store nicht verfügbar</td><td>Nur in Mortgage Calculators: dass der Store nicht wie vorgesehen geantwortet hat (Angebote nicht geladen, Kauf fehlgeschlagen, Wiederherstellung ohne Käufe). Enthält nur den Grund, ausgewählt aus wenigen festen Werten. Brichst du einen Kauf ab, wird nichts erfasst.</td></tr>
         <tr><td>Kauf begonnen</td><td>Nur in Mortgage Calculators: dass du einen der beiden Knöpfe zum Entfernen der Werbung angetippt hast. Enthält nur, welche der beiden Optionen (jährlich oder für immer). Zeigt, wie viele beim Zahlungsfenster von Apple aufhören.</td></tr>
         <tr><td>Werbung entfernt</td><td>Nur in Mortgage Calculators: dass ein Kauf erfolgreich war und die Werbung entfernt wurde. Enthält nur, welche der beiden Optionen. Die Wiederherstellung auf einem anderen Gerät wird nicht gezählt.</td></tr>
+        <tr><td>Modus gewechselt</td><td>Nur in Mortgage Calculators: dass du im Tab Berechnung von Standard zur Schweizer Hypothek gewechselt hast oder zurück. Enthält nur den gewählten Modus.</td></tr>
+        <tr><td>Vollbildanzeige gezeigt</td><td>Nur in Mortgage Calculators: dass eine Vollbildanzeige erschienen ist und was sie ausgelöst hat: eine Berechnung, ein Szenario oder ein Tab-Wechsel. Nichts über die Anzeige.</td></tr>
+        <tr><td>Vollbildanzeige nicht gezeigt</td><td>Nur in Mortgage Calculators: dass eine Vollbildanzeige fällig war und nicht erschienen ist. Enthält nur den Grund, aus wenigen festen Werten: noch nicht bereit, abgelaufen, zu kurz nach der vorherigen, Anzeige fehlgeschlagen, App vorher geschlossen.</td></tr>
       </table>
-      <p>Jedem Signal ist eine weitere Information beigefügt: <b>welche der beiden Apps</b> es gesendet hat; «Store nicht verfügbar» enthält zusätzlich den oben beschriebenen Grund, «Kauf begonnen» und «Werbung entfernt» die gewählte Option. Es wird kein Standort erhoben, es werden für diese Statistiken keine eigenen Kennungen erzeugt, es wird kein von dir geschriebener Text gesendet und <b>keine der Zahlen, die du eingibst</b>. Es gibt keine Bildschirmaufzeichnung. Diese Statistiken sind kein Tracking und verwenden die IDFA nicht: Tracking betrifft ausschliesslich die Werbung in Mortgage Calculators und wird unten beschrieben.</p>
+      <p>Jedem Signal ist eine weitere Information beigefügt: <b>welche der beiden Apps</b> es gesendet hat; «Store nicht verfügbar» enthält zusätzlich den oben beschriebenen Grund, «Kauf begonnen» und «Werbung entfernt» die gewählte Option. In Mortgage Calculators enthalten «Berechnung abgeschlossen», «Szenario geändert» und «Modus gewechselt» den Berechnungsmodus, die beiden Signale zu Vollbildanzeigen das oben Beschriebene. Es wird kein Standort erhoben, es werden für diese Statistiken keine eigenen Kennungen erzeugt, es wird kein von dir geschriebener Text gesendet und <b>keine der Zahlen, die du eingibst</b>. Es gibt keine Bildschirmaufzeichnung. Diese Statistiken sind kein Tracking und verwenden die IDFA nicht: Tracking betrifft ausschliesslich die Werbung in Mortgage Calculators und wird unten beschrieben.</p>
       <p>Datenschutzerklärung von PostHog: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -483,13 +492,13 @@
     <section class="card">
       <h2>Änderungen</h2>
       <p>Änderungen an dieser Erklärung werden auf dieser Seite veröffentlicht, mit Aktualisierung des Gültigkeitsdatums.</p>
-      <p>Letzte Änderung, 27. September 2026 (Version 3.1): Die Apps heissen neu Mortgage Calculators und Mortgage Calculator Legacy; in Mortgage Calculators lässt sich die Werbung mit einem über RevenueCat geprüften In-App-Kauf entfernen; wer die kostenpflichtige Version hatte, bekommt das kostenlos; die Nutzungsstatistiken haben zwei neue Signale.</p>
+      <p>Letzte Änderung, 9. Oktober 2026 (Version 4.0): Mortgage Calculators hat einen zweiten Berechnungsmodus, die Schweizer Hypothek, deren Angaben auf dem Gerät bleiben; die Nutzungsstatistiken haben drei neue Signale (Moduswechsel, Vollbildanzeige gezeigt und nicht gezeigt), und die Signale zu Berechnung und Szenario sagen, welcher Modus aktiv ist.</p>
     </section>
   </div>
 
   <!-- ============================ ES ============================ -->
   <div lang-block="es">
-    <p class="date">En vigor desde el 27 de septiembre de 2026</p>
+    <p class="date">En vigor desde el 9 de octubre de 2026</p>
 
     <section class="card">
       <h2>En resumen</h2>
@@ -507,7 +516,7 @@
 
     <section class="card">
       <h2>Datos guardados en tu dispositivo</h2>
-      <p>Las apps guardan localmente, en su propio contenedor aislado, únicamente los <b>parámetros de la hipoteca</b> que introduces — importe, fecha de inicio, tipo de interés y plazo — para recuperarlos al reiniciar y poder compartirlos entre las pestañas Cálculo, Cuadro de amortización y Escenarios. Mortgage Calculators guarda ahí también tus <b>decisiones de consentimiento</b> sobre la publicidad y si la publicidad se ha quitado. Mortgage Calculator Legacy deja además en el dispositivo una marca para Mortgage Calculators (ver «Si tenías la versión de pago»).</p>
+      <p>Las apps guardan localmente, en su propio contenedor aislado, únicamente los <b>parámetros de la hipoteca</b> que introduces — importe, fecha de inicio, tipo de interés y plazo — para recuperarlos al reiniciar y poder compartirlos entre las pestañas Cálculo, Cuadro de amortización y Escenarios. En Mortgage Calculators, el modo hipoteca suiza conserva del mismo modo sus datos: valor del inmueble, fondos propios, ingresos, tipo y gastos. Mortgage Calculators guarda ahí también tus <b>decisiones de consentimiento</b> sobre la publicidad y si la publicidad se ha quitado. Mortgage Calculator Legacy deja además en el dispositivo una marca para Mortgage Calculators (ver «Si tenías la versión de pago»).</p>
       <p>Todos los cálculos — cuota, cuadro de amortización, escenarios — se hacen <b>enteramente en el dispositivo</b>: no se envía ningún dato a ningún servidor y no existe sincronización en la nube.</p>
     </section>
 
@@ -519,22 +528,25 @@
     <section class="card">
       <h2>Estadísticas de uso</h2>
       <p>Ambas apps miden <b>cómo se usan</b>, para entender qué funciones sirven de verdad y cuáles no. El servicio es <b>PostHog</b>, en sus servidores <b>europeos</b> (<code>eu.i.posthog.com</code>). La recogida es anónima: no hay cuenta, no hay perfil y ningún dato permite identificarte.</p>
-      <p>De la app salen <b>solo</b> estas once señales, y nada más:</p>
+      <p>De la app salen <b>solo</b> estas catorce señales, y nada más:</p>
       <table>
         <tr><th>Señal</th><th>Qué indica</th></tr>
         <tr><td>Pestaña abierta</td><td>Cuál de las cuatro pestañas se ha abierto: Cálculo, Cuadro de amortización, Escenarios, Info app.</td></tr>
-        <tr><td>Cálculo completado</td><td>Que un cálculo se ha llevado a término. <b>No</b> el importe, <b>no</b> la cuota, <b>no</b> el tipo, <b>no</b> el plazo.</td></tr>
+        <tr><td>Cálculo completado</td><td>Que un cálculo se ha llevado a término. <b>No</b> el importe, <b>no</b> la cuota, <b>no</b> el tipo, <b>no</b> el plazo. En Mortgage Calculators lleva también el modo de cálculo: hipoteca estándar o hipoteca suiza.</td></tr>
         <tr><td>Cuadro exportado</td><td>Que se ha exportado un cuadro, y si en PDF o en CSV. Nunca el contenido del archivo.</td></tr>
         <tr><td>Fecha de inicio modificada</td><td>Que se ha cambiado la fecha de inicio. <b>No</b> qué fecha.</td></tr>
-        <tr><td>Escenario modificado</td><td>Que en la pestaña Escenarios se ha movido el deslizador del tipo o el del plazo. <b>No</b> los valores.</td></tr>
+        <tr><td>Escenario modificado</td><td>Que en la pestaña Escenarios se ha movido un deslizador, y cuál: tipo, plazo o, en la hipoteca suiza, ingresos. <b>No</b> los valores. En Mortgage Calculators lleva también el modo de cálculo.</td></tr>
         <tr><td>Resultado del consentimiento</td><td>Solo en Mortgage Calculators: si el consentimiento a la publicidad se concedió, se denegó o no era necesario.</td></tr>
         <tr><td>Resultado del seguimiento</td><td>Solo en Mortgage Calculators: si autorizaste o rechazaste el aviso de Apple. No el IDFA, solo la respuesta.</td></tr>
         <tr><td>Paso desde la versión de pago</td><td>Solo en Mortgage Calculators, una única vez: que la publicidad se quitó gratis porque en este dispositivo estaba la versión de pago. Sin ningún otro detalle.</td></tr>
         <tr><td>Tienda no disponible</td><td>Solo en Mortgage Calculators: que la tienda no respondió como debía (ofertas no cargadas, compra fallida, restauración sin compras). Lleva solo el motivo, elegido entre unos pocos valores fijos. Si renuncias a una compra, no se registra nada.</td></tr>
         <tr><td>Compra iniciada</td><td>Solo en Mortgage Calculators: que has tocado uno de los dos botones para quitar la publicidad. Lleva solo cuál de las dos opciones (anual o para siempre). Indica cuántas personas se detienen ante la hoja de pago de Apple.</td></tr>
         <tr><td>Publicidad quitada</td><td>Solo en Mortgage Calculators: que una compra se ha completado y la publicidad se ha quitado. Lleva solo cuál de las dos opciones. La restauración en otro dispositivo no se cuenta.</td></tr>
+        <tr><td>Modo cambiado</td><td>Solo en Mortgage Calculators: que en la pestaña Cálculo has pasado de la hipoteca estándar a la hipoteca suiza, o al revés. Lleva solo el modo elegido.</td></tr>
+        <tr><td>Anuncio a pantalla completa mostrado</td><td>Solo en Mortgage Calculators: que ha aparecido un anuncio a pantalla completa, y qué lo ha provocado: un cálculo, un escenario o el cambio de pestaña. Nada sobre el anuncio.</td></tr>
+        <tr><td>Anuncio a pantalla completa no mostrado</td><td>Solo en Mortgage Calculators: que un anuncio a pantalla completa estaba previsto y no ha aparecido. Lleva solo el motivo, elegido entre unas pocas opciones fijas: aún no listo, caducado, demasiado cerca del anterior, presentación fallida, app cerrada antes.</td></tr>
       </table>
-      <p>A cada señal se adjunta una información más: <b>cuál de las dos apps</b> la ha enviado; «Tienda no disponible» lleva además el motivo descrito arriba, «Compra iniciada» y «Publicidad quitada» la opción elegida. No se recoge la ubicación, no se crean identificadores propios para estas estadísticas, no se envía ningún texto escrito por ti y <b>ninguna de las cifras que introduces</b>. No hay grabación de pantalla. Estas estadísticas no son seguimiento y no usan el IDFA: el seguimiento afecta solo a la publicidad de Mortgage Calculators y se describe más abajo.</p>
+      <p>A cada señal se adjunta una información más: <b>cuál de las dos apps</b> la ha enviado; «Tienda no disponible» lleva además el motivo descrito arriba, «Compra iniciada» y «Publicidad quitada» la opción elegida. En Mortgage Calculators, «Cálculo completado», «Escenario modificado» y «Modo cambiado» llevan el modo de cálculo, y las dos señales sobre anuncios a pantalla completa lo descrito arriba. No se recoge la ubicación, no se crean identificadores propios para estas estadísticas, no se envía ningún texto escrito por ti y <b>ninguna de las cifras que introduces</b>. No hay grabación de pantalla. Estas estadísticas no son seguimiento y no usan el IDFA: el seguimiento afecta solo a la publicidad de Mortgage Calculators y se describe más abajo.</p>
       <p>Política de PostHog: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -614,13 +626,13 @@
     <section class="card">
       <h2>Modificaciones</h2>
       <p>Cualquier modificación de esta política se publicará en esta página, actualizando la fecha de entrada en vigor.</p>
-      <p>Última modificación, 27 de septiembre de 2026 (versión 3.1): las apps tienen nombres nuevos, Mortgage Calculators y Mortgage Calculator Legacy; en Mortgage Calculators la publicidad se puede quitar con una compra dentro de la app verificada a través de RevenueCat; quien tenía la versión de pago la quita gratis; las estadísticas de uso tienen dos señales nuevas.</p>
+      <p>Última modificación, 9 de octubre de 2026 (versión 4.0): Mortgage Calculators tiene un segundo modo de cálculo, la hipoteca suiza, cuyos datos se quedan en el dispositivo; las estadísticas de uso tienen tres señales nuevas (cambio de modo, anuncio a pantalla completa mostrado y no mostrado), y las señales de cálculo y de escenario dicen qué modo está en uso.</p>
     </section>
   </div>
 
   <!-- ============================ FR ============================ -->
   <div lang-block="fr">
-    <p class="date">En vigueur depuis le 27 septembre 2026</p>
+    <p class="date">En vigueur depuis le 9 octobre 2026</p>
 
     <section class="card">
       <h2>En bref</h2>
@@ -638,7 +650,7 @@
 
     <section class="card">
       <h2>Données conservées sur votre appareil</h2>
-      <p>Les apps conservent localement, dans leur propre conteneur isolé, uniquement les <b>paramètres du prêt</b> que vous saisissez — montant, date de début, taux d'intérêt et durée — afin de les retrouver au redémarrage et de les partager entre les onglets Calcul, Tableau d'amortissement et Scénarios. Mortgage Calculators y enregistre aussi vos <b>choix de consentement</b> à la publicité et si la publicité a été supprimée. Mortgage Calculator Legacy laisse en outre sur l'appareil un marqueur destiné à Mortgage Calculators (voir « Si vous aviez la version payante »).</p>
+      <p>Les apps conservent localement, dans leur propre conteneur isolé, uniquement les <b>paramètres du prêt</b> que vous saisissez — montant, date de début, taux d'intérêt et durée — afin de les retrouver au redémarrage et de les partager entre les onglets Calcul, Tableau d'amortissement et Scénarios. Dans Mortgage Calculators, le mode hypothèque suisse conserve de la même façon ses données : valeur du bien, fonds propres, revenu, taux et charges. Mortgage Calculators y enregistre aussi vos <b>choix de consentement</b> à la publicité et si la publicité a été supprimée. Mortgage Calculator Legacy laisse en outre sur l'appareil un marqueur destiné à Mortgage Calculators (voir « Si vous aviez la version payante »).</p>
       <p>Tous les calculs — mensualité, tableau d'amortissement, scénarios — se font <b>entièrement sur l'appareil</b> : aucune donnée n'est envoyée à un serveur et il n'existe aucune synchronisation dans le cloud.</p>
     </section>
 
@@ -650,22 +662,25 @@
     <section class="card">
       <h2>Statistiques d'usage</h2>
       <p>Les deux apps mesurent <b>comment elles sont utilisées</b>, afin de comprendre quelles fonctions servent vraiment et lesquelles non. Le service est <b>PostHog</b>, sur ses serveurs <b>européens</b> (<code>eu.i.posthog.com</code>). La collecte est anonyme : pas de compte, pas de profil, et aucune donnée ne permet de remonter jusqu'à vous.</p>
-      <p>Les apps n'envoient <b>que</b> ces onze signaux, et rien d'autre :</p>
+      <p>Les apps n'envoient <b>que</b> ces quatorze signaux, et rien d'autre :</p>
       <table>
         <tr><th>Signal</th><th>Ce qu'il indique</th></tr>
         <tr><td>Onglet ouvert</td><td>Lequel des quatre onglets a été ouvert : Calcul, Tableau d'amortissement, Scénarios, Infos app.</td></tr>
-        <tr><td>Calcul terminé</td><td>Qu'un calcul a été mené à son terme. <b>Pas</b> le montant, <b>pas</b> la mensualité, <b>pas</b> le taux, <b>pas</b> la durée.</td></tr>
+        <tr><td>Calcul terminé</td><td>Qu'un calcul a été mené à son terme. <b>Pas</b> le montant, <b>pas</b> la mensualité, <b>pas</b> le taux, <b>pas</b> la durée. Dans Mortgage Calculators, il porte aussi le mode de calcul : prêt standard ou hypothèque suisse.</td></tr>
         <tr><td>Tableau exporté</td><td>Qu'un tableau a été exporté, et si c'était en PDF ou en CSV. Jamais le contenu du fichier.</td></tr>
         <tr><td>Date de début modifiée</td><td>Que la date de début a été changée. <b>Pas</b> quelle date.</td></tr>
-        <tr><td>Scénario modifié</td><td>Que dans l'onglet Scénarios le curseur du taux ou celui de la durée a été déplacé. <b>Pas</b> les valeurs.</td></tr>
+        <tr><td>Scénario modifié</td><td>Que dans l'onglet Scénarios un curseur a été déplacé, et lequel : taux, durée ou, pour l'hypothèque suisse, revenu. <b>Pas</b> les valeurs. Dans Mortgage Calculators, il porte aussi le mode de calcul.</td></tr>
         <tr><td>Résultat du consentement</td><td>Mortgage Calculators uniquement : si le consentement publicitaire a été accordé, refusé ou n'était pas nécessaire.</td></tr>
         <tr><td>Résultat du suivi</td><td>Mortgage Calculators uniquement : si vous avez autorisé ou refusé l'invite d'Apple. Pas l'IDFA, seulement la réponse.</td></tr>
         <tr><td>Passage depuis la version payante</td><td>Mortgage Calculators uniquement, une seule fois : que la publicité a été supprimée gratuitement parce que la version payante se trouvait sur cet appareil. Sans autre détail.</td></tr>
         <tr><td>Boutique indisponible</td><td>Mortgage Calculators uniquement : que la boutique n'a pas répondu comme prévu (offres non chargées, achat échoué, restauration sans achat). Il ne porte que le motif, choisi parmi quelques valeurs fixes. Si vous renoncez à un achat, rien n'est enregistré.</td></tr>
         <tr><td>Achat commencé</td><td>Mortgage Calculators uniquement : que vous avez touché l'un des deux boutons pour supprimer la publicité. Il ne porte que l'option choisie (annuelle ou à vie). Il indique combien de personnes s'arrêtent devant la feuille de paiement d'Apple.</td></tr>
         <tr><td>Publicité supprimée</td><td>Mortgage Calculators uniquement : qu'un achat a abouti et que la publicité a été supprimée. Il ne porte que l'option choisie. La restauration sur un autre appareil n'est pas comptée.</td></tr>
+        <tr><td>Mode changé</td><td>Mortgage Calculators uniquement : que dans l'onglet Calcul vous êtes passé du prêt standard à l'hypothèque suisse, ou l'inverse. Il ne porte que le mode choisi.</td></tr>
+        <tr><td>Annonce plein écran affichée</td><td>Mortgage Calculators uniquement : qu'une annonce plein écran est apparue, et ce qui l'a déclenchée : un calcul, un scénario ou un changement d'onglet. Rien sur l'annonce.</td></tr>
+        <tr><td>Annonce plein écran non affichée</td><td>Mortgage Calculators uniquement : qu'une annonce plein écran était prévue et n'est pas apparue. Il ne porte que le motif, choisi parmi quelques valeurs fixes : pas encore prête, expirée, trop proche de la précédente, affichage échoué, app fermée avant.</td></tr>
       </table>
-      <p>Une information supplémentaire accompagne chaque signal : <b>laquelle des deux apps</b> l'a envoyé ; « Boutique indisponible » porte en outre le motif décrit plus haut, « Achat commencé » et « Publicité supprimée » l'option choisie. Aucune localisation n'est collectée, aucun identifiant de notre part n'est créé pour ces statistiques, aucun texte écrit par vous n'est envoyé, et <b>aucun des chiffres que vous saisissez</b>. Il n'y a pas d'enregistrement de l'écran. Ces statistiques ne sont pas du suivi et n'utilisent pas l'IDFA : le suivi ne concerne que la publicité de Mortgage Calculators, décrite plus bas.</p>
+      <p>Une information supplémentaire accompagne chaque signal : <b>laquelle des deux apps</b> l'a envoyé ; « Boutique indisponible » porte en outre le motif décrit plus haut, « Achat commencé » et « Publicité supprimée » l'option choisie. Dans Mortgage Calculators, « Calcul terminé », « Scénario modifié » et « Mode changé » portent le mode de calcul, et les deux signaux sur les annonces plein écran ce qui est décrit plus haut. Aucune localisation n'est collectée, aucun identifiant de notre part n'est créé pour ces statistiques, aucun texte écrit par vous n'est envoyé, et <b>aucun des chiffres que vous saisissez</b>. Il n'y a pas d'enregistrement de l'écran. Ces statistiques ne sont pas du suivi et n'utilisent pas l'IDFA : le suivi ne concerne que la publicité de Mortgage Calculators, décrite plus bas.</p>
       <p>Politique de PostHog : <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a>.</p>
     </section>
 
@@ -745,7 +760,7 @@
     <section class="card">
       <h2>Modifications</h2>
       <p>Toute modification de cette politique sera publiée sur cette page, avec mise à jour de la date d'entrée en vigueur.</p>
-      <p>Dernière modification, 27 septembre 2026 (version 3.1) : les apps changent de nom, Mortgage Calculators et Mortgage Calculator Legacy ; dans Mortgage Calculators, la publicité peut être supprimée par un achat intégré vérifié par RevenueCat ; ceux qui avaient la version payante l'obtiennent gratuitement ; les statistiques d'usage comptent deux nouveaux signaux.</p>
+      <p>Dernière modification, 9 octobre 2026 (version 4.0) : Mortgage Calculators a un second mode de calcul, l'hypothèque suisse, dont les données restent sur l'appareil ; les statistiques d'usage comptent trois nouveaux signaux (changement de mode, annonce plein écran affichée et non affichée), et les signaux de calcul et de scénario indiquent le mode utilisé.</p>
     </section>
   </div>
 
