@@ -164,8 +164,7 @@
     </ul>
 
     <p class="tabellone__nota">
-      Chaque ligne ouvre la page de son app. Les trois premières lisent en direct les mêmes
-      fichiers que les apps : les CSV des fixings et l’échantillon du collecteur du Gothard.
+      Chaque ligne ouvre la page de son app. Les lignes avec une donnée en direct affichent les mêmes données que les apps.
     </p>
   </section>
 
@@ -315,9 +314,7 @@
     <h2 class="sezione__titolo" id="t-officina">L’atelier</h2>
     <div class="officina">
       <p>
-        Les données ne se mettent pas à jour toutes seules. Le collecteur du Gothard tourne sur GitHub
-        Actions et relève l’état du tunnel toutes les cinq minutes ; les fixings deviennent
-        des CSV publics dès leur publication, le jour même où ils sont fixés.
+        Les données ne se mettent pas à jour toutes seules&nbsp;: l’état du tunnel du Gothard est relevé toutes les cinq minutes, et les fixings arrivent le jour même de leur publication. Ce sont les mêmes données que celles des apps.
       </p>
       <p>
         Tout ce qui fait tourner ces apps vit dans un seul dépôt :
@@ -387,7 +384,7 @@
     .catch(function () {
       var el = document.getElementById('dato-euribor');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing indisponible<span class="quando">les données restent dans le CSV</span>';
+      el.innerHTML = 'Fixing indisponible<span class="quando">réessayez plus tard</span>';
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
@@ -406,7 +403,7 @@
     .catch(function () {
       var el = document.getElementById('dato-sofr');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing indisponible<span class="quando">les données restent dans le CSV</span>';
+      el.innerHTML = 'Fixing indisponible<span class="quando">réessayez plus tard</span>';
     });
 
   /* Codici di gara — le edizioni dal manifesto */

@@ -124,9 +124,9 @@
         var pa = a.split('.').reverse().join(''), pb = b.split('.').reverse().join('');
         return pb.localeCompare(pa);
       })[0];
-      q.textContent = 'Taux overnight, dernier fixing du ' + recente + ' — les mêmes CSV que télécharge l\u2019app.';
+      q.textContent = 'Taux overnight, dernier fixing du ' + recente + ' — les mêmes données que l\u2019app.';
     } else {
-      q.textContent = 'Fixings indisponibles pour le moment — les données restent dans les CSV.';
+      q.textContent = 'Fixings indisponibles pour le moment\u00a0: réessayez plus tard.';
     }
   });
 })();

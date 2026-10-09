@@ -114,9 +114,9 @@
     var s = campi(t[1].trim().split(/\r?\n/)[1]);
     metti('t-estr', s[2]);
     document.getElementById('t-quando').textContent =
-      'Euribor\u00a0: fixing du ' + e[0] + ' · €STR\u00a0: fixing du ' + s[0] + ' — les mêmes CSV que télécharge l\u2019app';
+      'Euribor\u00a0: fixing du ' + e[0] + ' · €STR\u00a0: fixing du ' + s[0] + ' — les mêmes données que l\u2019app';
   }).catch(function () {
-    document.getElementById('t-quando').textContent = 'Fixings indisponibles pour le moment — les données restent dans les CSV.';
+    document.getElementById('t-quando').textContent = 'Fixings indisponibles pour le moment\u00a0: réessayez plus tard.';
   });
 })();
 </script>
