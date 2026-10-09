@@ -165,8 +165,7 @@
     </ul>
 
     <p class="tabellone__nota">
-      Ogni riga apre la pagina della sua app. Le prime tre leggono in diretta gli stessi
-      file che leggono le app: i CSV dei fixing e il campione del collector del Gottardo.
+      Ogni riga apre la pagina della sua app. Le righe con un dato in diretta mostrano gli stessi dati delle app.
     </p>
   </section>
 
@@ -316,9 +315,7 @@
     <h2 class="sezione__titolo" id="t-officina">L'officina</h2>
     <div class="officina">
       <p>
-        I dati non si aggiornano da soli. Il collector del Gottardo gira su GitHub
-        Actions e ricampiona lo stato del tunnel ogni cinque minuti; i fixing diventano
-        CSV pubblici appena escono, nel giorno stesso in cui vengono battuti.
+        I dati non si aggiornano da soli: lo stato del tunnel del Gottardo viene rilevato ogni cinque minuti, e i fixing arrivano il giorno stesso in cui vengono pubblicati. Sono gli stessi dati che usano le app.
       </p>
       <p>
         Tutto quello che sta sotto queste app vive in una repo sola:
@@ -388,7 +385,7 @@
     .catch(function () {
       var el = document.getElementById('dato-euribor');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
+      el.innerHTML = 'Fixing non raggiungibile<span class="quando">riprova più tardi</span>';
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
@@ -407,7 +404,7 @@
     .catch(function () {
       var el = document.getElementById('dato-sofr');
       el.dataset.stato = 'assente';
-      el.innerHTML = 'Fixing non raggiungibile<span class="quando">i dati restano nel CSV</span>';
+      el.innerHTML = 'Fixing non raggiungibile<span class="quando">riprova più tardi</span>';
     });
 
   /* Codici di gara — le edizioni dal manifesto */
