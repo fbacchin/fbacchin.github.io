@@ -114,7 +114,7 @@
 
     <section class="card">
       <h2>Dati salvati sul tuo dispositivo</h2>
-      <p>Le app conservano localmente, nel proprio contenitore sandbox, soltanto i <b>parametri del mutuo</b> che inserisci — importo, data di inizio, tasso di interesse e durata — così da ritrovarli al riavvio e da poterli condividere fra le schede Calcolo, Piano di ammortamento e Scenari. In Mortgage Calculators la modalità mutuo svizzero conserva allo stesso modo i suoi dati: valore dell'immobile, data di inizio, fondi propri, reddito, tasso e costi. Mortgage Calculators vi salva anche le <b>scelte di consenso</b> alla pubblicità e se la pubblicità è stata tolta. Mortgage Calculator Legacy, inoltre, lascia sul dispositivo un contrassegno per Mortgage Calculators (vedi «Chi aveva la versione a pagamento»).</p>
+      <p>Le app conservano localmente, nel proprio contenitore sandbox, soltanto i <b>parametri del mutuo</b> che inserisci — importo, data di inizio, tasso di interesse e durata — così da ritrovarli al riavvio e da poterli condividere fra le schede Calcolo, Piano di ammortamento e Scenari. In Mortgage Calculators la modalità ipoteca svizzera conserva allo stesso modo i suoi dati: valore dell'immobile, data di inizio, fondi propri, reddito, tasso e costi. Mortgage Calculators vi salva anche le <b>scelte di consenso</b> alla pubblicità e se la pubblicità è stata tolta. Mortgage Calculator Legacy, inoltre, lascia sul dispositivo un contrassegno per Mortgage Calculators (vedi «Chi aveva la versione a pagamento»).</p>
       <p>Tutti i calcoli — rata, piano di ammortamento, scenari — avvengono <b>interamente sul dispositivo</b>: nessun dato viene inviato ad alcun server, e non esiste alcuna sincronizzazione sul cloud.</p>
     </section>
 
@@ -130,17 +130,17 @@
       <table>
         <tr><th>Segnale</th><th>Che cosa dice</th></tr>
         <tr><td>Apertura di una scheda</td><td>Quale delle quattro schede è stata aperta: Calcolo, Piano di ammortamento, Scenari, App info.</td></tr>
-        <tr><td>Calcolo completato</td><td>Che un calcolo è stato portato a termine. <b>Non</b> l'importo, <b>non</b> la rata, <b>non</b> il tasso, <b>non</b> la durata. In Mortgage Calculators porta anche la modalità di calcolo: mutuo standard o mutuo svizzero.</td></tr>
+        <tr><td>Calcolo completato</td><td>Che un calcolo è stato portato a termine. <b>Non</b> l'importo, <b>non</b> la rata, <b>non</b> il tasso, <b>non</b> la durata. In Mortgage Calculators porta anche la modalità di calcolo: mutuo standard o ipoteca svizzera.</td></tr>
         <tr><td>Piano esportato</td><td>Che è stato esportato un piano, e se in PDF o in CSV. Mai il contenuto del file.</td></tr>
         <tr><td>Data di inizio modificata</td><td>Che la data di inizio è stata cambiata. <b>Non</b> quale data.</td></tr>
-        <tr><td>Scenario modificato</td><td>Che nella scheda Scenari è stato mosso un cursore, e quale: tasso, durata o, nel mutuo svizzero, reddito e valore dell'immobile. <b>Non</b> i valori. In Mortgage Calculators porta anche la modalità di calcolo.</td></tr>
+        <tr><td>Scenario modificato</td><td>Che nella scheda Scenari è stato mosso un cursore, e quale: tasso, durata o, nell'ipoteca svizzera, reddito e valore dell'immobile. <b>Non</b> i valori. In Mortgage Calculators porta anche la modalità di calcolo.</td></tr>
         <tr><td>Esito del consenso</td><td>Solo in Mortgage Calculators: se il consenso alla pubblicità è stato dato, negato o non era necessario.</td></tr>
         <tr><td>Esito del tracciamento</td><td>Solo in Mortgage Calculators: se hai autorizzato o rifiutato il prompt di Apple. Non l'IDFA, solo la risposta.</td></tr>
         <tr><td>Passaggio dalla versione a pagamento</td><td>Solo in Mortgage Calculators, una volta sola: che la pubblicità è stata tolta gratis perché su questo dispositivo c'era la versione a pagamento. Nessun dettaglio in più.</td></tr>
         <tr><td>Negozio non disponibile</td><td>Solo in Mortgage Calculators: che il negozio non ha risposto come doveva (offerte non caricate, acquisto non riuscito, ripristino senza acquisti). Porta soltanto il motivo, scelto fra poche voci fisse. Se rinunci a un acquisto, non viene registrato nulla.</td></tr>
         <tr><td>Acquisto avviato</td><td>Solo in Mortgage Calculators: che hai toccato uno dei due pulsanti per togliere la pubblicità. Porta soltanto quale delle due opzioni (annuale o per sempre). Dice quante persone si fermano davanti al foglio di pagamento di Apple.</td></tr>
         <tr><td>Pubblicità tolta</td><td>Solo in Mortgage Calculators: che un acquisto è andato a buon fine e la pubblicità è stata tolta. Porta soltanto quale delle due opzioni. Il ripristino su un altro dispositivo non viene contato.</td></tr>
-        <tr><td>Modalità cambiata</td><td>Solo in Mortgage Calculators: che nella scheda Calcolo sei passato dal mutuo standard al mutuo svizzero, o viceversa. Porta soltanto la modalità scelta.</td></tr>
+        <tr><td>Modalità cambiata</td><td>Solo in Mortgage Calculators: che nella scheda Calcolo sei passato dal mutuo standard all'ipoteca svizzera, o viceversa. Porta soltanto la modalità scelta.</td></tr>
         <tr><td>Annuncio a schermo intero mostrato</td><td>Solo in Mortgage Calculators: che è comparso un annuncio a schermo intero, e che cosa lo ha fatto partire: un calcolo, uno scenario o il cambio di scheda. Nulla sull'annuncio.</td></tr>
         <tr><td>Annuncio a schermo intero non mostrato</td><td>Solo in Mortgage Calculators: che un annuncio a schermo intero era previsto e non è comparso. Porta soltanto il motivo, scelto fra poche voci fisse: non ancora pronto, scaduto, troppo vicino al precedente, presentazione non riuscita, app chiusa prima.</td></tr>
       </table>
@@ -224,7 +224,7 @@
     <section class="card">
       <h2>Modifiche</h2>
       <p>Eventuali modifiche a questa informativa saranno pubblicate su questa pagina, con aggiornamento della data di entrata in vigore.</p>
-      <p>Ultima modifica, 9 ottobre 2026 (versione 4.0): Mortgage Calculators ha una seconda modalità di calcolo, il mutuo svizzero, i cui dati restano sul dispositivo; le statistiche d'uso hanno tre segnali nuovi (cambio di modalità, annuncio a schermo intero mostrato e non mostrato) e i segnali di calcolo e scenario dicono quale modalità è in uso.</p>
+      <p>Ultima modifica, 9 ottobre 2026 (versione 4.0): Mortgage Calculators ha una seconda modalità di calcolo, l'ipoteca svizzera, i cui dati restano sul dispositivo; le statistiche d'uso hanno tre segnali nuovi (cambio di modalità, annuncio a schermo intero mostrato e non mostrato) e i segnali di calcolo e scenario dicono quale modalità è in uso.</p>
     </section>
   </div>
 
