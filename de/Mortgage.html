@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Mortgage Calculator — die Hypothekenrate und was dahintersteckt</title>
-<meta name="description" content="Berechnet die Rate deiner Hypothek und zeigt, was hinter dieser Zahl steckt: Tilgungsplan Rate für Rate, Export als CSV und PDF und der Vergleich von acht Laufzeiten. Alles auf dem Gerät, auch offline.">
+<meta name="description" content="Berechnet die Rate deiner Hypothek und zeigt, was hinter dieser Zahl steckt: Tilgungsplan Rate für Rate, Export als CSV und PDF, der Vergleich von acht Laufzeiten und neu die Schweizer Hypothek mit Tragbarkeit. Alles auf dem Gerät, auch offline.">
 <meta property="og:title" content="Mortgage Calculator — die Hypothekenrate und was dahintersteckt">
-<meta property="og:description" content="Rate, Tilgungsplan und Szenarien im Vergleich. Alle Berechnungen auf dem Gerät, auch ohne Netz.">
+<meta property="og:description" content="Rate, Tilgungsplan, Szenarien im Vergleich und die Schweizer Hypothek. Alle Berechnungen auf dem Gerät, auch ohne Netz.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://bacchin.app/og.png">
 <meta property="og:locale" content="de_DE">
@@ -34,7 +34,7 @@
 
   <div class="app-hero">
     <h1>Mortgage Calculator</h1>
-    <p class="tesi">Berechnet die Rate deiner Hypothek und <strong>zeigt, was hinter dieser Zahl steckt</strong>: wie viel du an Kapital zahlst, wie viel an Zinsen, wie sich das von Rate zu Rate verschiebt und was mit einem anderen Zinssatz oder einer anderen Laufzeit passieren würde. Alles auf dem Gerät, auch ohne Netz.</p>
+    <p class="tesi">Berechnet die Rate deiner Hypothek und <strong>zeigt, was hinter dieser Zahl steckt</strong>: wie viel du an Kapital zahlst, wie viel an Zinsen, wie sich das von Rate zu Rate verschiebt und was mit einem anderen Zinssatz oder einer anderen Laufzeit passieren würde. Alles auf dem Gerät, auch ohne Netz. Ab Version 4.0 berechnet sie auch die <strong>Schweizer Hypothek</strong>.</p>
     <p class="scarica">
       <a class="scarica__badge" href="https://apps.apple.com/de/app/mortgage-calculators/id982773255"><img src="/app-store-badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
       <span class="scarica__nota">Kostenlos, für iPhone</span>
@@ -53,6 +53,10 @@
     <h2>Der Tab „Szenarien“</h2>
     <p>Er beantwortet die Frage „Was wäre, wenn …“. Zwei Schieberegler ändern Zinssatz und Laufzeit, und die neue Rate erscheint sofort. Die Grafik vergleicht <strong>acht Laufzeiten von 5 bis 40 Jahren</strong>: für jede eine Säule, geteilt in Kapital — das sich nie ändert, es ist die Summe, die du dir geliehen hast — und Zinsen, die mit der Laufzeit wachsen. So siehst du am direktesten den Grundkompromiss jeder Hypothek: <strong>Eine längere Laufzeit senkt die Rate, erhöht aber die Zinsen insgesamt</strong>.</p>
 
+    <h2>Die Schweizer Hypothek</h2>
+    <p>Ab Version 4.0 wechselt ein Schalter oben im Tab „Berechnung“ von <strong>Standard</strong> zu <strong>Schweizer Hypothek</strong>, für alle, die in der Schweiz Wohneigentum kaufen. Du gibst den Liegenschaftswert, die Eigenmittel (Erspartes, 2. Säule, Säule 3a), das Bruttojahreseinkommen und den Zinssatz ein: Die App teilt die Finanzierung in <strong>1. und 2. Hypothek</strong> auf (die 1. bis 65&nbsp;% des Werts, die 2. von 65 bis 80&nbsp;%, innert 15 Jahren amortisiert), berechnet die effektiven jährlichen Kosten und die <strong>Tragbarkeit</strong> zum kalkulatorischen Zinssatz von 5&nbsp;% und zeigt dir das nötige Mindesteinkommen.</p>
+    <p>Die Kaufnebenkosten, Notar und Grundbuch, finanziert die Bank nicht: Sie werden mit den Eigenmitteln bezahlt, und die App zieht sie ab, bevor sie die Hypothek berechnet. Der Plan zeigt die Amortisation der 2. Hypothek, <strong>direkt oder indirekt</strong>, Jahr für Jahr oder Quartal für Quartal, und lässt sich wie beim Standard als CSV und PDF exportieren. In den Szenarien änderst du Liegenschaftswert, Zinssatz und Einkommen und siehst, wie sich Hypothek, Kosten und Tragbarkeit bewegen. Die Berechnung ist ein Richtwert: Jede Bank wendet eigene Kriterien an.</p>
+
     <h2>Welcher Zinssatz gehört hinein</h2>
     <p>Der <strong>nominale Jahreszins</strong>, nicht der effektive Jahreszins, der auch Nebenkosten enthält. Und wenn die Bank dir eine andere Rate nennt, liegt das meist daran, dass ihre Versicherungen, Inkassogebühren oder Steuern enthält: Die App berechnet die reine Rate aus Kapital und Zinsen. Die letzte Rate kann um ein paar Cent abweichen — das ist korrekt, sie wird so angepasst, dass die Restschuld genau auf null geht.</p>
     <p>Für eine Hypothek mit variablem Zins kannst du jeden beliebigen Zinssatz simulieren, der Plan hält ihn aber über die ganze Laufzeit fest: Um die Wirkung eines Zinsanstiegs zu sehen, ist der Tab „Szenarien“ das richtige Werkzeug. Und wo der Zins heute startet, zeigt dir <a href="/de/EuriborX">Euribor X</a> mit stets aktuellen Fixings.</p>
@@ -68,6 +72,7 @@
       <div><dt>Plattform</dt><dd>iPhone · Mortgage Calculators</dd></div>
       <div><dt>Preis</dt><dd>Kostenlos mit Werbung · entfernbar per Jahresabo oder einmaligem Kauf</dd></div>
       <div><dt>Methode</dt><dd>Annuitätentilgung mit gleichbleibender Rate · Berechnungen auf dem Gerät, auch offline</dd></div>
+      <div><dt>Schweizer Hypothek</dt><dd>1. und 2. Hypothek · Tragbarkeit zum kalkulatorischen Zinssatz von 5&nbsp;% · direkte oder indirekte Amortisation</dd></div>
       <div><dt>Export</dt><dd>Vollständiger Plan als CSV und PDF</dd></div>
       <div><dt>App Store</dt><dd><a href="https://apps.apple.com/de/app/mortgage-calculators/id982773255">Zur App-Seite</a></dd></div>
       <div><dt>Support</dt><dd><a href="/app/Mortgage/support">Anleitung und häufige Fragen</a></dd></div>
