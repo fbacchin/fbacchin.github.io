@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Mortgage Calculator — la mensualité du prêt et ce qu’il y a derrière</title>
-<meta name="description" content="Calcule la mensualité du prêt immobilier et montre ce qu’il y a derrière ce chiffre&nbsp;: tableau d’amortissement échéance par échéance, export CSV et PDF, et comparaison de huit durées. Tout sur l’appareil, même hors ligne.">
+<meta name="description" content="Calcule la mensualité du prêt immobilier et montre ce qu’il y a derrière ce chiffre&nbsp;: tableau d’amortissement échéance par échéance, export CSV et PDF, comparaison de huit durées et désormais l’hypothèque suisse avec la capacité financière. Tout sur l’appareil, même hors ligne.">
 <meta property="og:title" content="Mortgage Calculator — la mensualité du prêt et ce qu’il y a derrière">
-<meta property="og:description" content="Mensualité, tableau d’amortissement et scénarios comparés. Tous les calculs sur l’appareil, même sans réseau.">
+<meta property="og:description" content="Mensualité, tableau d’amortissement, scénarios comparés et hypothèque suisse. Tous les calculs sur l’appareil, même sans réseau.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://bacchin.app/og.png">
 <meta property="og:locale" content="fr_FR">
@@ -34,7 +34,7 @@
 
   <div class="app-hero">
     <h1>Mortgage Calculator</h1>
-    <p class="tesi">Calcule la mensualité de votre prêt immobilier et <strong>montre ce qu’il y a derrière ce chiffre</strong>&nbsp;: combien vous payez en capital, combien en intérêts, comment cela évolue d’une échéance à l’autre et ce qui se passerait avec un autre taux ou une autre durée. Tout sur l’appareil, même sans réseau.</p>
+    <p class="tesi">Calcule la mensualité de votre prêt immobilier et <strong>montre ce qu’il y a derrière ce chiffre</strong>&nbsp;: combien vous payez en capital, combien en intérêts, comment cela évolue d’une échéance à l’autre et ce qui se passerait avec un autre taux ou une autre durée. Tout sur l’appareil, même sans réseau. Depuis la version 4.0, elle calcule aussi l’<strong>hypothèque suisse</strong>.</p>
     <p class="scarica">
       <a class="scarica__badge" style="width:152px" href="https://apps.apple.com/fr/app/mortgage-calculators/id982773255"><img src="/app-store-badge-fr.svg" alt="Télécharger dans l'App Store" width="152" height="48" style="width:152px"></a>
       <span class="scarica__nota">Gratuite, pour iPhone</span>
@@ -53,6 +53,10 @@
     <h2>L’onglet Scénarios</h2>
     <p>Il sert à répondre à la question «&nbsp;et si…&nbsp;?&nbsp;». Deux curseurs modifient le taux et la durée, et la nouvelle mensualité s’affiche aussitôt. Le graphique compare <strong>huit durées, de 5 à 40 ans</strong>&nbsp;: pour chacune, une colonne partagée entre le capital (qui ne change jamais, c’est la somme que vous avez empruntée) et les intérêts, qui augmentent quand la durée s’allonge. C’est la façon la plus directe de voir le compromis de base de tout prêt immobilier&nbsp;: <strong>allonger la durée baisse la mensualité, mais augmente le total des intérêts</strong>.</p>
 
+    <h2>L’hypothèque suisse</h2>
+    <p>Depuis la version 4.0, un sélecteur en haut de l’onglet Calcul passe de <strong>Prêt standard</strong> à <strong>Hypothèque suisse</strong>, pour qui achète un logement en Suisse. Saisissez la valeur du bien, vos fonds propres (épargne, 2e pilier, pilier 3a), votre revenu brut annuel et le taux&nbsp;: l’app répartit le financement entre <strong>1re et 2e hypothèque</strong> (la 1re jusqu’à 65&nbsp;% de la valeur, la 2e de 65 à 80&nbsp;%, amortie en 15 ans), calcule le coût annuel réel et la <strong>capacité financière (Tragbarkeit)</strong> au taux théorique de 5&nbsp;%, et vous indique le revenu minimum nécessaire.</p>
+    <p>Les frais d’achat, notaire et registre foncier, ne sont pas financés par la banque&nbsp;: ils se paient avec les fonds propres, et l’app les déduit avant de calculer l’hypothèque. Le tableau montre l’amortissement de la 2e hypothèque, <strong>direct ou indirect</strong>, année par année ou trimestre par trimestre, et s’exporte en CSV et PDF comme celui du prêt standard. Dans Scénarios, vous changez la valeur du bien, le taux et le revenu, et vous voyez évoluer l’hypothèque, le coût et la capacité financière. Le calcul est indicatif&nbsp;: chaque banque applique ses propres critères.</p>
+
     <h2>Le taux à saisir</h2>
     <p>C’est le <strong>taux annuel nominal</strong>, pas le TAEG, qui inclut aussi les frais annexes. Et si la banque vous annonce une autre mensualité, c’est en général parce que la sienne comprend l’assurance, des frais de gestion ou des taxes&nbsp;: l’app calcule la mensualité pure, capital et intérêts. La dernière échéance peut différer de quelques centimes&nbsp;: c’est normal, elle est ajustée pour solder exactement le capital restant dû.</p>
     <p>Pour un prêt immobilier à taux variable, vous pouvez simuler n’importe quel taux, mais le tableau le garde fixe sur toute la durée&nbsp;: pour mesurer l’effet d’une hausse, l’onglet Scénarios est le bon outil. Et pour savoir d’où part le taux aujourd’hui, <a href="/fr/EuriborX">Euribor X</a> tient les fixings à jour.</p>
@@ -68,6 +72,7 @@
       <div><dt>Plateforme</dt><dd>iPhone · Mortgage Calculators</dd></div>
       <div><dt>Prix</dt><dd>Gratuite avec publicité · supprimable par abonnement annuel ou achat unique</dd></div>
       <div><dt>Méthode</dt><dd>Amortissement à échéances constantes · calculs sur l’appareil, même hors ligne</dd></div>
+      <div><dt>Hypothèque suisse</dt><dd>1re et 2e hypothèque · capacité financière au taux théorique de 5&nbsp;% · amortissement direct ou indirect</dd></div>
       <div><dt>Export</dt><dd>Tableau complet en CSV et PDF</dd></div>
       <div><dt>App Store</dt><dd><a href="https://apps.apple.com/fr/app/mortgage-calculators/id982773255">Ouvrir la fiche de l’app</a></dd></div>
       <div><dt>Assistance</dt><dd><a href="/app/Mortgage/support">Mode d’emploi et questions fréquentes</a></dd></div>
