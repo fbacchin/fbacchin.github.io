@@ -32,7 +32,7 @@ NBSP, NNBSP = " ", " "
 NL = {
  "it": dict(privacy="/privacy#newsletter", privacy_nome="Privacy", nome="Nome", cognome="Cognome", email="Email", bottone="Iscriviti",
   intro="Ogni lunedì mattina, una email: i tassi Euribor della settimana, di quanto si sono mossi e cosa cambia per la rata di un mutuo variabile. Gratis. Il primo numero esce lunedì 19 ottobre 2026.",
-  nota="Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare, e ti cancelli con un clic da ogni numero."),
+  nota="Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare e ti cancelli con un clic da ogni numero."),
  "en": dict(privacy="/en/privacy#newsletter", privacy_nome="Privacy", nome="First name", cognome="Last name", email="Email", bottone="Subscribe",
   intro="Every Monday morning, one email: the week’s Euribor rates, how much they moved and what changes for the payment on a variable-rate mortgage. Free. The first issue comes out on Monday 19 October 2026.",
   nota="Your first name, last name and email are used only to send you the newsletter. You’ll get an email to confirm, and you can unsubscribe with one click from any issue."),
