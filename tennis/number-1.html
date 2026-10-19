@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Zverev heading for ATP No. 1: when does he pass Sinner? 2026 simulator</title>
-<meta name="description" content="Sinner has ended his season with a knee injury and stays on 7,950 points; Zverev already has 8,750. Pick Zverev's results from Shanghai to the ATP Finals and see in which week he becomes world No. 1.">
+<meta name="description" content="Sinner has ended his season with a knee injury and stays on 7,950 points; Zverev already has 9,150. Pick Zverev's results from Vienna and Basel to the ATP Finals and see in which week he becomes world No. 1.">
 <meta property="og:title" content="Sinner out, Zverev heading for No. 1: when does the ranking flip?">
-<meta property="og:description" content="Zverev leads the Race by 800 points and Sinner is not playing again in 2026. Pick the results from Shanghai to Turin and see in which week the No. 1 changes.">
+<meta property="og:description" content="Zverev leads the Race by 1,200 points and Sinner is not playing again in 2026. Pick the results from Vienna to Turin and see in which week the No. 1 changes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bacchin.app/tennis/number-1">
 <meta property="og:image" content="https://bacchin.app/tennis/number-1.png">
@@ -89,7 +89,7 @@
     <p class="avviso-lingua" id="avviso-lingua" hidden><a id="avviso-lingua-link" href="/tennis/number-1" hreflang="en" lang="en">This page is available in English →</a></p>
     <p class="etichetta" data-t="occhiello">Simulatore · classifica ATP 2026</p>
     <h1 data-t="titolo">Sinner out, Zverev heading for No. 1: when does the ranking flip?</h1>
-    <p class="tesi" data-t="tesi">Sinner has ended his season with a knee injury: he will add no more points and will finish the year on 7,950. Zverev already has 8,750 in the Race, so he will finish 2026 ahead of him. The open question is when he passes him in the ranking: pick Zverev’s results and see in which week he becomes No. 1.</p>
+    <p class="tesi" data-t="tesi">Sinner has ended his season with a knee injury: he will add no more points and will finish the year on 7,950. Zverev already has 9,150 in the Race, so he will finish 2026 ahead of him. The open question is when he passes him in the ranking: pick Zverev’s results and see in which week he becomes No. 1.</p>
     <p class="lingua etichetta"><a id="altra-lingua" href="/tennis/number-1" hreflang="en">English</a></p>
   </div>
 
@@ -103,18 +103,18 @@
       </div>
       <div class="scarto">
         <span class="etichetta" data-t="distacco">Distacco</span>
-        <span class="scarto__valore" id="scarto">800</span>
+        <span class="scarto__valore" id="scarto">1.200</span>
       </div>
       <div class="giocatore giocatore--z">
         <div class="giocatore__nome">Alexander Zverev</div>
-        <div class="giocatore__punti" id="punti-z">8.750</div>
+        <div class="giocatore__punti" id="punti-z">9.150</div>
         <div class="giocatore__sotto" id="sotto-z"></div>
       </div>
     </div>
     <div class="verdetto" id="verdetto"></div>
 
     <h2 data-t="h-tornei">I tornei che restano</h2>
-    <p data-t="istruzioni">Per ogni torneo scegli fin dove arriva Zverev. Sinner non gioca: i suoi punti del 2025 escono comunque dalla classifica ATP la settimana del torneo.</p>
+    <p data-t="istruzioni">Per ogni torneo scegli fin dove arriva Zverev. Sinner non gioca: i suoi punti del 2025 escono comunque dalla classifica ATP.</p>
     <div class="comandi">
       <button type="button" data-preset="2025" data-t="p-2025">Zverev come nel 2025</button>
       <button type="button" data-preset="zverev" data-t="p-zverev">Zverev vince tutto</button>
@@ -124,7 +124,7 @@
     <div class="tornei" id="tornei"></div>
 
     <h2 data-t="h-settimane">La classifica ATP, settimana per settimana</h2>
-    <p data-t="settimane-intro">La classifica ATP conta gli ultimi 12 mesi: a ogni torneo entrano i punti nuovi ed escono quelli dello stesso torneo del 2025. Fanno eccezione le Finals: i punti del 2025 escono lunedì 16 novembre, prima che il torneo finisca. Dopo le Finals restano solo i punti del 2026, e la classifica coincide con la Race.</p>
+    <p data-t="settimane-intro">La classifica ATP conta le ultime 52 settimane: i punti del 2025 escono 52 settimane dopo, non quando si gioca lo stesso torneo nel 2026. Nel 2026 Shanghai è finito più tardi, quindi i punti di Vienna e Basilea 2025 escono il 26 ottobre e quelli di Parigi 2025 il 2 novembre, una settimana prima dei tornei 2026. Quelli delle Finals 2025 escono lunedì 16 novembre, prima che il torneo finisca. Dopo le Finals restano solo i punti del 2026: la classifica coincide con la Race.</p>
     <div class="scorri">
       <table class="tabella">
         <thead><tr><th data-t="quando">Quando</th><th class="num">Sinner</th><th class="num">Zverev</th><th data-t="n1">N. 1</th></tr></thead>
@@ -148,15 +148,18 @@
 (function () {
   'use strict';
 
-  // ── Dati al 6 ottobre 2026, dopo Pechino ───────────────────────────────
-  // Classifica live e Race: live-tennis.eu, senza i 10 punti provvisori di Shanghai (Zverev).
-  // Sinner ha annunciato il 6 ottobre la fine della stagione (ginocchio): non gioca più nel 2026.
-  //   Sinner 11.000 − (50 + 500 + 1000 + 1500) = 7.950 = Race
-  //   Zverev  9.710 − (50 + 330 +  400 +  200) = 8.730, ma la Race dice 8.750: 20 punti di differenza
-  //   non spiegati (prima di Pechino i conti tornavano). Per questo la riga di fine anno usa la Race.
+  // ── Dati al 19 ottobre 2026, dopo Shanghai ─────────────────────────────
+  // Classifica ATP ufficiale del 19 ottobre (OA Sport, ANSA) = live-tennis.eu + i punti difesi questa settimana.
+  // Race: live-tennis.eu. Zverev a Shanghai: semifinale, 400 punti. Sinner non gioca più nel 2026 (ginocchio).
+  // Le scadenze 2025 contano per settimana: Shanghai 2026 è finito il 18 ottobre, quindi
+  //   Vienna e Basilea 2025 escono il 26 ottobre, Parigi 2025 il 2 novembre, le Finals 2025 il 16 novembre.
+  //   Sinner 10.950 − (500 + 1000 + 1500) = 7.950 = Race
+  //   Zverev 10.070 − (330 +  400 +  200) = 9.140, la Race dice 9.150: 10 punti di differenza
+  //   (il 6 ottobre erano 20; live-tennis.eu dà 320 punti in scadenza per Vienna, probabile regola dei 19 tornei).
+  //   Per questo la riga di fine anno usa la Race.
   var BASE = {
-    s: { classifica: 11000, race: 7950 },
-    z: { classifica: 9710, race: 8750 }
+    s: { classifica: 10950, race: 7950 },
+    z: { classifica: 10070, race: 9150 }
   };
 
   var CAT = {
@@ -170,15 +173,12 @@
 
   // cade: i punti 2025 che escono dalla classifica ATP con questo torneo
   var TORNEI = [
-    { id: 'sha', cat: 'M1000', nome: { it: 'Shanghai', en: 'Shanghai' }, quando: { it: '7 – 18 ottobre', en: '7 – 18 October' },
-      s: { cade: 50, fuori: true, nota: { it: 'Infortunato, stagione finita. Escono i 50 punti del 2025', en: 'Injured, season over. His 50 points from 2025 drop' } },
-      z: { cade: 50, nota: { it: '2025: terzo turno, 50 punti', en: '2025: third round, 50 points' } } },
     { id: 'a500', cat: 'A500', nome: { it: 'Vienna o Basilea', en: 'Vienna or Basel' }, quando: { it: '26 ott – 1 nov', en: '26 Oct – 1 Nov' },
-      s: { cade: 500, fuori: true, nota: { it: 'Infortunato, stagione finita. Escono i 500 punti di Vienna 2025', en: 'Injured, season over. His 500 points from Vienna 2025 drop' } },
-      z: { cade: 330, nota: { it: '2025: finale a Vienna, 330 punti', en: '2025: Vienna final, 330 points' } } },
+      s: { cade: 500, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 26 ottobre escono i 500 punti di Vienna 2025', en: 'Injured, season over. His 500 points from Vienna 2025 drop on 26 October' } },
+      z: { cade: 330, nota: { it: '2025: finale a Vienna, 330 punti, escono il 26 ottobre', en: '2025: Vienna final, 330 points, dropping on 26 October' } } },
     { id: 'par', cat: 'M1000', nome: { it: 'Parigi', en: 'Paris' }, quando: { it: '2 – 8 novembre', en: '2 – 8 November' },
-      s: { cade: 1000, fuori: true, nota: { it: 'Infortunato, stagione finita. Escono i 1.000 punti del 2025', en: 'Injured, season over. His 1,000 points from 2025 drop' } },
-      z: { cade: 400, nota: { it: '2025: semifinale, 400 punti', en: '2025: semi-final, 400 points' } } },
+      s: { cade: 1000, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 2 novembre escono i 1.000 punti del 2025', en: 'Injured, season over. His 1,000 points from 2025 drop on 2 November' } },
+      z: { cade: 400, nota: { it: '2025: semifinale, 400 punti, escono il 2 novembre', en: '2025: semi-final, 400 points, dropping on 2 November' } } },
     { id: 'fin', cat: 'FIN', nome: { it: 'ATP Finals, Torino', en: 'ATP Finals, Turin' }, quando: { it: '15 – 22 novembre', en: '15 – 22 November' },
       s: { cade: 1500, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 16 novembre escono i 1.500 punti del 2025', en: 'Injured, season over. His 1,500 points from 2025 drop on 16 November' } },
       z: { cade: 200, nota: { it: '2025: girone, una vittoria, 200 punti', en: '2025: group stage, one win, 200 points' } } }
@@ -186,13 +186,14 @@
 
   // righe della tabella settimanale: tornei già conclusi a quel punto
   var TAPPE = [
-    { dopo: [], it: 'Oggi, 6 ottobre', en: 'Today, 6 October' },
-    { dopo: ['sha'], it: 'Dopo Shanghai, 19 ottobre', en: 'After Shanghai, 19 October' },
-    { dopo: ['sha', 'a500'], it: 'Dopo Vienna e Basilea, 2 novembre', en: 'After Vienna and Basel, 2 November' },
-    { dopo: ['sha', 'a500', 'par'], it: 'Dopo Parigi, 9 novembre', en: 'After Paris, 9 November' },
+    { dopo: [], it: 'Oggi, 19 ottobre', en: 'Today, 19 October' },
+    // le scadenze 2025 contano per settimana: Vienna e Basilea 2025 escono una settimana prima dei tornei 2026
+    { dopo: [], scarta: ['a500'], it: 'Lunedì 26 ottobre, escono Vienna e Basilea 2025', en: 'Monday 26 October, 2025 Vienna and Basel points drop' },
+    { dopo: ['a500'], scarta: ['par'], it: 'Dopo Vienna e Basilea, 2 novembre (escono anche i punti di Parigi 2025)', en: 'After Vienna and Basel, 2 November (2025 Paris points drop too)' },
+    { dopo: ['a500', 'par'], it: 'Dopo Parigi, 9 novembre', en: 'After Paris, 9 November' },
     // i punti delle Finals 2025 escono il lunedì dopo l'ultima settimana di tornei, prima che le Finals finiscano
-    { dopo: ['sha', 'a500', 'par'], scarta: ['fin'], it: 'Lunedì 16 novembre, escono le Finals 2025', en: 'Monday 16 November, 2025 Finals points drop' },
-    { dopo: ['sha', 'a500', 'par', 'fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
+    { dopo: ['a500', 'par'], scarta: ['fin'], it: 'Lunedì 16 novembre, escono le Finals 2025', en: 'Monday 16 November, 2025 Finals points drop' },
+    { dopo: ['a500', 'par', 'fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
   ];
 
   var ETICHETTE = {
@@ -208,12 +209,12 @@
     it: {
       tutti: 'Tutti gli strumenti', occhiello: 'Simulatore · classifica ATP 2026',
       titolo: 'Sinner fermo, Zverev verso il numero 1: quando arriva il sorpasso?',
-      tesi: 'Sinner ha chiuso la stagione per l\'infortunio al ginocchio: non farà altri punti e a fine anno resterà a 7.950. Zverev ne ha già 8.750 nella Race, quindi finirà il 2026 davanti a lui. Resta da capire quando lo supera in classifica: scegli i risultati di Zverev e guarda in quale settimana diventa numero 1.',
+      tesi: 'Sinner ha chiuso la stagione per l\'infortunio al ginocchio: non farà altri punti e a fine anno resterà a 7.950. Zverev ne ha già 9.150 nella Race, quindi finirà il 2026 davanti a lui. Resta da capire quando lo supera in classifica: scegli i risultati di Zverev e guarda in quale settimana diventa numero 1.',
       'h-fine': 'Classifica di fine anno', distacco: 'Distacco', 'h-tornei': 'I tornei che restano',
-      istruzioni: 'Per ogni torneo scegli fin dove arriva Zverev. Sinner non gioca: i suoi punti del 2025 escono comunque dalla classifica ATP la settimana del torneo.',
+      istruzioni: 'Per ogni torneo scegli fin dove arriva Zverev. Sinner non gioca: i suoi punti del 2025 escono comunque dalla classifica ATP.',
       'p-2025': 'Zverev come nel 2025', 'p-zverev': 'Zverev vince tutto', 'p-zero': 'Azzera', condividi: 'Condividi lo scenario',
       'h-settimane': 'La classifica ATP, settimana per settimana',
-      'settimane-intro': 'La classifica ATP conta gli ultimi 12 mesi: a ogni torneo entrano i punti nuovi ed escono quelli dello stesso torneo del 2025. Fanno eccezione le Finals: i punti del 2025 escono lunedì 16 novembre, prima che il torneo finisca. Dopo le Finals restano solo i punti del 2026, e la classifica coincide con la Race.',
+      'settimane-intro': 'La classifica ATP conta le ultime 52 settimane: i punti del 2025 escono 52 settimane dopo, non quando si gioca lo stesso torneo nel 2026. Nel 2026 Shanghai è finito più tardi, quindi i punti di Vienna e Basilea 2025 escono il 26 ottobre e quelli di Parigi 2025 il 2 novembre, una settimana prima dei tornei 2026. Quelli delle Finals 2025 escono lunedì 16 novembre, prima che il torneo finisca. Dopo le Finals restano solo i punti del 2026: la classifica coincide con la Race.',
       quando: 'Quando', n1: 'N. 1', privacy: 'Privacy e assistenza',
       race: 'Race oggi', guadagna: 'punti in più', copiato: 'Link copiato',
       vS: 'Sinner chiude il 2026 da numero 1, con {d} punti di vantaggio.',
@@ -222,17 +223,17 @@
       serve: 'Sinner non gioca più nel 2026 e non può più raggiungerlo.',
       nessuno: 'Nessun risultato scelto: sono i punti della Race di oggi.',
       doppio: 'Due vincitori nello stesso torneo: uno dei due risultati non è possibile.',
-      fonte: 'Punti al 6 ottobre 2026, dopo Pechino: classifica ATP live e Race to Turin da live-tennis.eu, senza i punti provvisori di Shanghai. Sinner ha annunciato il 6 ottobre la fine della stagione per l\'infortunio al ginocchio. Per Zverev la classifica live vale 20 punti in meno di quanto risulta dalla Race: le righe settimanali partono dalla classifica live, quella di fine anno dalla Race, e una soglia può spostarsi di 20 punti. Punti per turno secondo il regolamento ATP 2026. Semplificazione: il calcolo somma tutti i risultati e non applica il limite dei 19 tornei che contano. Il confronto riguarda solo Sinner e Zverev. Non è un prodotto ufficiale ATP.'
+      fonte: 'Punti al 19 ottobre 2026, dopo Shanghai: classifica ATP ufficiale del 19 ottobre e Race to Turin da live-tennis.eu; la classifica coincide con quella pubblicata da OA Sport. Sinner ha annunciato il 6 ottobre la fine della stagione per l\'infortunio al ginocchio. Per Zverev la classifica vale 10 punti in meno di quanto risulta dalla Race: le righe settimanali partono dalla classifica, quella di fine anno dalla Race, quindi una soglia può spostarsi di 10 punti. Punti per turno secondo il regolamento ATP 2026. Semplificazione: il calcolo somma tutti i risultati e non applica il limite dei 19 tornei che contano. Il confronto riguarda solo Sinner e Zverev. Non è un prodotto ufficiale ATP.'
     },
     en: {
       tutti: 'All tools', occhiello: 'Simulator · ATP rankings 2026',
       titolo: 'Sinner out, Zverev heading for No. 1: when does the ranking flip?',
-      tesi: 'Sinner has ended his season with a knee injury: he will add no more points and will finish the year on 7,950. Zverev already has 8,750 in the Race, so he will finish 2026 ahead of him. The open question is when he passes him in the ranking: pick Zverev’s results and see in which week he becomes No. 1.',
+      tesi: 'Sinner has ended his season with a knee injury: he will add no more points and will finish the year on 7,950. Zverev already has 9,150 in the Race, so he will finish 2026 ahead of him. The open question is when he passes him in the ranking: pick Zverev’s results and see in which week he becomes No. 1.',
       'h-fine': 'Year-end ranking', distacco: 'Gap', 'h-tornei': 'Remaining events',
-      istruzioni: 'For each event, choose how far Zverev goes. Sinner is not playing: his 2025 points still drop out of the ATP ranking in the week of the event.',
+      istruzioni: 'For each event, choose how far Zverev goes. Sinner is not playing: his 2025 points still drop out of the ATP ranking.',
       'p-2025': 'Zverev as in 2025', 'p-zverev': 'Zverev wins everything', 'p-zero': 'Reset', condividi: 'Share this scenario',
       'h-settimane': 'The ATP ranking, week by week',
-      'settimane-intro': 'The ATP ranking covers the last 12 months: at every event the new points come in and the points from the same event in 2025 drop out. The Finals are the exception: the 2025 points drop on Monday 16 November, before the event ends. After the Finals only 2026 points are left, and the ranking equals the Race.',
+      'settimane-intro': 'The ATP ranking covers the last 52 weeks: 2025 points drop 52 weeks later, not when the same event is played in 2026. Shanghai finished later this year, so the 2025 Vienna and Basel points drop on 26 October and the 2025 Paris points on 2 November, a week before the 2026 events. The 2025 Finals points drop on Monday 16 November, before the event ends. After the Finals only 2026 points are left, and the ranking equals the Race.',
       quando: 'When', n1: 'No. 1', privacy: 'Privacy and support',
       race: 'Race today', guadagna: 'points added', copiato: 'Link copied',
       vS: 'Sinner finishes 2026 as No. 1, {d} points ahead.',
@@ -241,7 +242,7 @@
       serve: 'Sinner is not playing again in 2026 and can no longer catch him.',
       nessuno: 'No results picked yet: these are today’s Race points.',
       doppio: 'Two winners of the same event: one of the two results is not possible.',
-      fonte: 'Points as of 6 October 2026, after Beijing: live ATP ranking and Race to Turin from live-tennis.eu, without the provisional Shanghai points. Sinner announced on 6 October that his season is over because of a knee injury. Zverev’s live ranking is 20 points lower than his Race total implies: the weekly rows start from the live ranking, the year-end row from the Race, and a threshold can move by 20 points. Points per round per the 2026 ATP rules. Simplification: all results are added up; the best-19 rule is not applied. The comparison covers Sinner and Zverev only. Not an official ATP product.'
+      fonte: 'Points as of 19 October 2026, after Shanghai: official ATP ranking of 19 October and Race to Turin from live-tennis.eu; the ranking matches the one published by OA Sport. Sinner announced on 6 October that his season is over because of a knee injury. Zverev’s ranking is 10 points lower than his Race total implies: the weekly rows start from the ranking, the year-end row from the Race, and a threshold can move by 10 points. Points per round per the 2026 ATP rules. Simplification: all results are added up; the best-19 rule is not applied. The comparison covers Sinner and Zverev only. Not an official ATP product.'
     }
   };
 
@@ -344,7 +345,7 @@
     history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : ''));
   }
 
-  // scenario nel link: #z=sha:W,par:F
+  // scenario nel link: #z=a500:W,par:F
   function codifica() {
     return ['s', 'z'].map(function (g) {
       var k = Object.keys(stato[g]);
@@ -363,8 +364,8 @@
   }
 
   var PRESET = {
-    '2025': { s: {}, z: { sha: 'R32', a500: 'F', par: 'SF', fin: 'RR1' } },
-    zverev: { s: {}, z: { sha: 'W', a500: 'W', par: 'W', fin: 'W3' } },
+    '2025': { s: {}, z: { a500: 'F', par: 'SF', fin: 'RR1' } },
+    zverev: { s: {}, z: { a500: 'W', par: 'W', fin: 'W3' } },
     zero: { s: {}, z: {} }
   };
 
