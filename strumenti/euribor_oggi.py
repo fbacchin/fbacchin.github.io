@@ -31,19 +31,19 @@ NBSP, NNBSP = " ", " "
 # Dopo ogni modifica a newsletter.css o newsletter.js, cambiare ?v= qui e nelle home.
 NL = {
  "it": dict(privacy="/privacy#newsletter", privacy_nome="Privacy", nome="Nome", cognome="Cognome", email="Email", bottone="Iscriviti",
-  intro="Ogni lunedì mattina, una email: i tassi Euribor della settimana, di quanto si sono mossi e cosa cambia per la rata di un mutuo variabile. Gratis. Il primo numero esce lunedì 19 ottobre 2026.",
+  intro="Ogni lunedì mattina, una email: i tassi Euribor della settimana, di quanto si sono mossi e cosa cambia per la rata di un mutuo variabile. Gratis.",
   nota="Nome, cognome ed email servono solo per spedirti la newsletter. Ricevi una email per confermare e ti cancelli con un clic da ogni numero."),
  "en": dict(privacy="/en/privacy#newsletter", privacy_nome="Privacy", nome="First name", cognome="Last name", email="Email", bottone="Subscribe",
-  intro="Every Monday morning, one email: the week’s Euribor rates, how much they moved and what changes for the payment on a variable-rate mortgage. Free. The first issue comes out on Monday 19 October 2026.",
+  intro="Every Monday morning, one email: the week’s Euribor rates, how much they moved and what changes for the payment on a variable-rate mortgage. Free.",
   nota="Your first name, last name and email are used only to send you the newsletter. You’ll get an email to confirm, and you can unsubscribe with one click from any issue."),
  "fr": dict(privacy="/fr/privacy#newsletter", privacy_nome="Confidentialité", nome="Prénom", cognome="Nom", email="E-mail", bottone="S’abonner",
-  intro="Chaque lundi matin, un e-mail : les taux Euribor de la semaine, de combien ils ont bougé et ce qui change pour la mensualité d’un prêt immobilier à taux variable. Gratuit. Le premier numéro paraît le lundi 19 octobre 2026.",
+  intro="Chaque lundi matin, un e-mail : les taux Euribor de la semaine, de combien ils ont bougé et ce qui change pour la mensualité d’un prêt immobilier à taux variable. Gratuit.",
   nota="Vos prénom, nom et e-mail servent uniquement à vous envoyer la newsletter. Vous recevez un e-mail de confirmation, et vous vous désabonnez en un clic depuis chaque numéro."),
  "de": dict(privacy="/de/privacy#newsletter", privacy_nome="Datenschutz", nome="Vorname", cognome="Nachname", email="E-Mail", bottone="Abonnieren",
-  intro="Jeden Montagmorgen eine E-Mail: die Euribor-Sätze der Woche, wie stark sie sich bewegt haben und was sich für die Rate einer Hypothek mit variablem Zins ändert. Kostenlos. Die erste Ausgabe erscheint am Montag, 19. Oktober 2026.",
+  intro="Jeden Montagmorgen eine E-Mail: die Euribor-Sätze der Woche, wie stark sie sich bewegt haben und was sich für die Rate einer Hypothek mit variablem Zins ändert. Kostenlos.",
   nota="Vorname, Nachname und E-Mail dienen nur dazu, dir den Newsletter zu schicken. Du erhältst eine E-Mail zur Bestätigung und kannst dich in jeder Ausgabe mit einem Klick abmelden."),
  "es": dict(privacy="/es/privacy#newsletter", privacy_nome="Privacidad", nome="Nombre", cognome="Apellidos", email="Email", bottone="Suscríbete",
-  intro="Cada lunes por la mañana, un email: los tipos Euribor de la semana, cuánto se han movido y qué cambia para la cuota de una hipoteca a tipo variable. Gratis. El primer número sale el lunes 19 de octubre de 2026.",
+  intro="Cada lunes por la mañana, un email: los tipos Euribor de la semana, cuánto se han movido y qué cambia para la cuota de una hipoteca a tipo variable. Gratis.",
   nota="Tu nombre, apellidos y email solo sirven para enviarte la newsletter. Recibirás un email de confirmación, y puedes darte de baja con un clic desde cualquier número."),
 }
 
