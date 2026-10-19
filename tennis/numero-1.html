@@ -154,9 +154,10 @@
   // Le scadenze 2025 contano per settimana: Shanghai 2026 è finito il 18 ottobre, quindi
   //   Vienna e Basilea 2025 escono il 26 ottobre, Parigi 2025 il 2 novembre, le Finals 2025 il 16 novembre.
   //   Sinner 10.950 − (500 + 1000 + 1500) = 7.950 = Race
-  //   Zverev 10.070 − (330 +  400 +  200) = 9.140, la Race dice 9.150: 10 punti di differenza
-  //   (il 6 ottobre erano 20; live-tennis.eu dà 320 punti in scadenza per Vienna, probabile regola dei 19 tornei).
-  //   Per questo la riga di fine anno usa la Race.
+  //   Zverev 10.070 − (320 +  400 +  200) = 9.150 = Race
+  //   Vienna 2025 vale 330, ma la classifica scende di 320: oggi i 10 punti di Montreal 2026 non contano
+  //   (pagina ATP «Rank Breakdown», Non-Countable Tournaments) e tornano a contare quando esce Vienna.
+  //   La riga di fine anno usa comunque la Race.
   var BASE = {
     s: { classifica: 10950, race: 7950 },
     z: { classifica: 10070, race: 9150 }
@@ -175,7 +176,7 @@
   var TORNEI = [
     { id: 'a500', cat: 'A500', nome: { it: 'Vienna o Basilea', en: 'Vienna or Basel' }, quando: { it: '26 ott – 1 nov', en: '26 Oct – 1 Nov' },
       s: { cade: 500, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 26 ottobre escono i 500 punti di Vienna 2025', en: 'Injured, season over. His 500 points from Vienna 2025 drop on 26 October' } },
-      z: { cade: 330, nota: { it: '2025: finale a Vienna, 330 punti, escono il 26 ottobre', en: '2025: Vienna final, 330 points, dropping on 26 October' } } },
+      z: { cade: 320, nota: { it: '2025: finale a Vienna, 330 punti. Il 26 ottobre la classifica scende di 320, perché tornano a contare i 10 punti di Montreal', en: '2025: Vienna final, 330 points. On 26 October his ranking drops by 320, because his 10 Montreal points count again' } } },
     { id: 'par', cat: 'M1000', nome: { it: 'Parigi', en: 'Paris' }, quando: { it: '2 – 8 novembre', en: '2 – 8 November' },
       s: { cade: 1000, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 2 novembre escono i 1.000 punti del 2025', en: 'Injured, season over. His 1,000 points from 2025 drop on 2 November' } },
       z: { cade: 400, nota: { it: '2025: semifinale, 400 punti, escono il 2 novembre', en: '2025: semi-final, 400 points, dropping on 2 November' } } },
@@ -223,7 +224,7 @@
       serve: 'Sinner non gioca più nel 2026 e non può più raggiungerlo.',
       nessuno: 'Nessun risultato scelto: sono i punti della Race di oggi.',
       doppio: 'Due vincitori nello stesso torneo: uno dei due risultati non è possibile.',
-      fonte: 'Punti al 19 ottobre 2026, dopo Shanghai: classifica ATP ufficiale del 19 ottobre e Race to Turin da live-tennis.eu; la classifica coincide con quella pubblicata da OA Sport. Sinner ha annunciato il 6 ottobre la fine della stagione per l\'infortunio al ginocchio. Per Zverev la classifica vale 10 punti in meno di quanto risulta dalla Race: le righe settimanali partono dalla classifica, quella di fine anno dalla Race, quindi una soglia può spostarsi di 10 punti. Punti per turno secondo il regolamento ATP 2026. Semplificazione: il calcolo somma tutti i risultati e non applica il limite dei 19 tornei che contano. Il confronto riguarda solo Sinner e Zverev. Non è un prodotto ufficiale ATP.'
+      fonte: 'Punti al 19 ottobre 2026, dopo Shanghai: classifica ATP ufficiale del 19 ottobre e Race to Turin da live-tennis.eu; la classifica coincide con quella pubblicata da OA Sport. Sinner ha annunciato il 6 ottobre la fine della stagione per l\'infortunio al ginocchio. Per Zverev i 10 punti di Montreal oggi non contano in classifica (dettaglio punti ATP) e tornano a contare il 26 ottobre, quando escono quelli di Vienna 2025: per questo la classifica scende di 320 punti e non di 330. Punti per turno secondo il regolamento ATP 2026. Semplificazione: il calcolo somma tutti i risultati e non applica il limite dei 19 tornei che contano. Il confronto riguarda solo Sinner e Zverev. Non è un prodotto ufficiale ATP.'
     },
     en: {
       tutti: 'All tools', occhiello: 'Simulator · ATP rankings 2026',
@@ -242,7 +243,7 @@
       serve: 'Sinner is not playing again in 2026 and can no longer catch him.',
       nessuno: 'No results picked yet: these are today’s Race points.',
       doppio: 'Two winners of the same event: one of the two results is not possible.',
-      fonte: 'Points as of 19 October 2026, after Shanghai: official ATP ranking of 19 October and Race to Turin from live-tennis.eu; the ranking matches the one published by OA Sport. Sinner announced on 6 October that his season is over because of a knee injury. Zverev’s ranking is 10 points lower than his Race total implies: the weekly rows start from the ranking, the year-end row from the Race, and a threshold can move by 10 points. Points per round per the 2026 ATP rules. Simplification: all results are added up; the best-19 rule is not applied. The comparison covers Sinner and Zverev only. Not an official ATP product.'
+      fonte: 'Points as of 19 October 2026, after Shanghai: official ATP ranking of 19 October and Race to Turin from live-tennis.eu; the ranking matches the one published by OA Sport. Sinner announced on 6 October that his season is over because of a knee injury. Zverev’s 10 Montreal points do not count in his ranking today (ATP rankings breakdown) and count again on 26 October, when his 2025 Vienna points drop: that is why his ranking falls by 320 points, not 330. Points per round per the 2026 ATP rules. Simplification: all results are added up; the best-19 rule is not applied. The comparison covers Sinner and Zverev only. Not an official ATP product.'
     }
   };
 
