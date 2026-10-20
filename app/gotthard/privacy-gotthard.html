@@ -62,7 +62,8 @@
   footer a { white-space: nowrap; }
   [lang-block] { display: none; }
   html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"],
-  html[data-lang="de"] [lang-block="de"], html[data-lang="fr"] [lang-block="fr"] { display: block; }
+  html[data-lang="de"] [lang-block="de"], html[data-lang="fr"] [lang-block="fr"],
+  html[data-lang="nl"] [lang-block="nl"] { display: block; }
 </style>
 </head>
 <body>
@@ -75,11 +76,13 @@
   <p class="sub" lang-block="it">Informativa sulla privacy</p>
   <p class="sub" lang-block="de">Datenschutzrichtlinie</p>
   <p class="sub" lang-block="fr">Politique de confidentialité</p>
+  <p class="sub" lang-block="nl">Privacybeleid</p>
   <div class="langbar">
     <button id="btn-en" aria-pressed="true" onclick="setLang('en')">English</button>
     <button id="btn-it" aria-pressed="false" onclick="setLang('it')">Italiano</button>
     <button id="btn-de" aria-pressed="false" onclick="setLang('de')">Deutsch</button>
     <button id="btn-fr" aria-pressed="false" onclick="setLang('fr')">Français</button>
+    <button id="btn-nl" aria-pressed="false" onclick="setLang('nl')">Nederlands</button>
   </div>
   <div lang-block="en">
     <p class="updated">Gottardo Live — last updated 3 October 2026</p>
@@ -245,16 +248,58 @@
   <h2>9. Modifications</h2>
   <p>Cette politique sera mise à jour chaque fois que les pratiques de données de l'app changent, et la date de « dernière mise à jour » ci-dessus changera en conséquence.</p>
   </div>
+  <div lang-block="nl">
+    <p class="updated">Gottardo Live, laatst bijgewerkt op 3 oktober 2026</p>
+
+  <h2>1. Wie we zijn</h2>
+  <p>Gottardo Live is een iOS-app van Fabrizio Bacchin (Zwitserland) die realtime verkeersinformatie toont voor de Gotthard-wegtunnel. Voor alles wat met dit beleid te maken heeft, neem je contact op via <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
+  <h2>2. Advertenties</h2>
+  <p>De gratis app toont één advertentiebanner die wordt geleverd door <strong>Google AdMob</strong>. Om die advertenties te selecteren, weer te geven, te meten en te beveiligen, kan de advertentie-SDK van Google technische gegevens van je apparaat verwerken, zoals een apparaat-/advertentie-ID, het IP-adres, een globale (niet-precieze) locatie en gegevens over interactie met advertenties. Voor deze verwerking treedt <a href="https://policies.google.com/technologies/partner-sites">Google</a> op als zelfstandige verwerkingsverantwoordelijke volgens zijn eigen beleid.</p>
+  <p>In de Europese Economische Ruimte, het Verenigd Koninkrijk en Zwitserland vragen we je toestemming via het toestemmingsformulier van Google <em>voordat</em> er een advertentie wordt opgevraagd. Je kunt die keuze op elk moment wijzigen of intrekken via <strong>Instellingen → Privacyopties</strong> in de app. Als je weigert, worden alleen niet-gepersonaliseerde (“limited”) advertenties getoond.</p>
+  <p>De app vraagt je toestemming via de <strong>App Tracking Transparency</strong>-melding van Apple voordat er enige tracking plaatsvindt. Als je dit toestaat, kunnen advertenties worden gepersonaliseerd met de advertentie-ID van je apparaat (IDFA); als je weigert, zie je alleen niet-gepersonaliseerde advertenties. Je kunt dit op elk moment wijzigen in Instellingen van iOS → Privacy en beveiliging → Tracking. Voor het privacyvriendelijk meten van installaties wordt SKAdNetwork van Apple gebruikt.</p>
+  <h2>3. Gegevens die de app verstuurt (pushmeldingen)</h2>
+  <p>Als, en alleen als, je meldingen toestaat, registreert de app je apparaat bij onze meldingsdienst (Back4App, een hostingprovider voor Parse). De registratie bevat:</p>  <div class="card">
+    <ul><li>het anonieme Apple-pushtoken van je apparaat (APNs)</li><li>een willekeurige installatie-ID die door de app wordt gegenereerd</li><li>apparaattype ("ios"), appversie, tijdzone en taalinstelling</li></ul>
+  </div>
+
+  <p>Niets hiervan identificeert jou persoonlijk, het is niet gekoppeld aan een account en het wordt uitsluitend gebruikt om verkeersmeldingen te bezorgen. Het wordt nooit verkocht of gedeeld voor advertentiedoeleinden. Als je meldingen weigert of later uitschakelt, wordt er geen registratie aangemaakt of gebruikt. Je kunt op elk moment per e-mail om verwijdering van je registratie vragen.</p>
+  <h2>4. Diensten waarmee de app communiceert</h2>
+  <p>Om live gegevens en advertenties te tonen, maakt de app verbinding met de onderstaande diensten. Zoals bij elk internetverzoek verwerken zij technisch gezien je IP-adres zolang het verzoek duurt.</p>  <div class="card">
+    <table><tr><th>Dienst</th><th>Doel</th></tr><tr><td>opentransportdata.swiss (Zwitserse Bondsstaat / FEDRO)</td><td>officiële filelengtes, wachttijden en verkeersmeldingen</td></tr><tr><td>Apple Weather (WeatherKit) &amp; Apple Kaarten</td><td>weer bij de tunnelingangen en geschatte reistijden; zie het <a href="https://www.apple.com/legal/privacy/">privacybeleid van Apple</a></td></tr><tr><td>Open-Meteo</td><td>reservebron voor het weer</td></tr><tr><td>webcam.afbn.ch (FEDRO/AFBN)</td><td>openbare beelden van verkeerscamera's</td></tr><tr><td>GitHub Pages (github.com)</td><td>gegevens over de verkeersgeschiedenis van 24 uur</td></tr><tr><td>Back4App</td><td>bezorging van pushmeldingen (zie paragraaf 3)</td></tr><tr><td>Google AdMob</td><td>advertenties in de gratis app; zie het <a href="https://policies.google.com/privacy">privacybeleid van Google</a></td></tr><tr><td>PostHog (EU, Frankfurt)</td><td>anonieme gebruiksstatistieken; zie paragraaf 5</td></tr><tr><td>RevenueCat</td><td>onthoudt of je het verwijderen van advertenties hebt gekocht, zodat dat ook op een nieuw apparaat werkt; zie paragraaf 4a. <a href="https://www.revenuecat.com/privacy/">Privacybeleid van RevenueCat</a></td></tr></table>
+  </div>
+  <h2>4a. Aankopen (de advertenties verwijderen)</h2>
+  <p>De app verkoopt één ding: het verbergen van de banner. <strong>Je betaalgegevens zien wij nooit.</strong> De aankoop wordt door Apple uitgevoerd en in rekening gebracht, en geen kaartnummer, naam of factuuradres komt ooit bij ons terecht.</p>
+  <p>Omdat de app geen gebruikersaccount heeft, moet er toch iets onthouden dat je de aankoop hebt gedaan, anders zou een nieuwe telefoon weer advertenties tonen. Dat doet <strong>RevenueCat</strong> (RevenueCat, Inc.), dat het volgende ontvangt:</p>  <div class="card">
+    <ul><li>een willekeurige anonieme ID die door de app wordt gegenereerd, niet je naam, je e-mailadres of je Apple-account</li><li>het aankoopbewijs dat Apple voor de aankoop uitgeeft, waarin staat wat er is gekocht en, bij het maandabonnement, wanneer het afloopt</li><li>de appversie, het platform en het land van je App Store</li></ul>
+  </div>
+  <p>Het wordt alleen daarvoor gebruikt: om die ene vraag te beantwoorden, <em>mag dit apparaat de advertentie verbergen?</em> Het wordt niet voor advertenties gebruikt en niet verkocht. Als je nooit iets koopt, wordt er ook nooit iets over een aankoop verstuurd.</p>
+  <h2>5. Gebruiksstatistieken (anoniem)</h2>
+  <p>Om te weten welke delen van de app echt worden gebruikt, en hoe vaak de app zonder gegevens van zijn bron zit, stuurt de app een klein aantal anonieme gebeurtenissen naar <strong>PostHog</strong> (PostHog Inc.), gehost in de Europese Unie (Frankfurt). Elke gebeurtenis is een vaste naam: <em>scherm bekeken</em>, <em>richtingsdetail geopend</em>, <em>webcam geopend</em>, <em>grafiekbereik gewijzigd</em>, <em>gegevens niet beschikbaar</em>, <em>rondleiding voltooid</em>, <em>toestemming voor meldingen gecontroleerd</em>, <em>store niet beschikbaar</em>, <em>aanbod om advertenties te verwijderen getoond</em>, <em>aanbod om advertenties te verwijderen gesloten</em>, <em>aankoopscherm geopend</em>. Elke gebeurtenis heeft hoogstens één vaste waarde, zoals welk scherm, welke webcam, of van waaruit het aankoopscherm is geopend (het aanbod, de regel onder de banner of Instellingen).</p>
+  <div class="card">
+    <ul><li>Geen gps-locatie: de app vraagt nooit om toegang tot je locatie. Geen ID's van onszelf, geen tekst van meldingen, geen cijfers over files of wachttijden, geen vrije tekst</li><li>Geen schermopname: de app legt niet vast wat er op je scherm staat</li><li>Geen aankoopgegevens: de gebeurtenissen melden dat het aankoopscherm is geopend, niet of je iets hebt gekocht, wat of voor hoeveel</li><li>PostHog groepeert de gebeurtenissen van één installatie onder een willekeurige ID die niet gekoppeld is aan je naam, je e-mailadres of een account, en die niet wordt gebruikt om je te volgen in andere apps of op andere websites</li><li>Zoals bij elk internetverzoek verwerkt PostHog technisch gezien je IP-adres. Het gebruikt dat om bij benadering het land en de stad af te leiden waar de gebeurtenis vandaan komt; die worden samen met de gebeurtenis opgeslagen. Het IP-adres zelf wordt niet opgeslagen</li></ul>
+  </div>
+  <p>We gebruiken deze statistieken alleen om de app te verbeteren. De volledige lijst met gebeurtenissen staat in de broncode van de app; als er ooit een nieuwe bijkomt, wordt deze pagina ook aangepast.</p>
+  <h2>6. Gegevens die alleen op je apparaat worden opgeslagen</h2>
+  <p>Je instellingen, je keuze over toestemming voor advertenties en de lokale meetpunten van de verkeersgeschiedenis voor de 24-uursgrafiek worden op je apparaat opgeslagen en niet naar ons geüpload. Als je de app verwijdert, worden ze ook verwijderd.</p>
+  <h2>7. Wat we niet doen</h2>  <div class="card">
+    <ul><li>Geen gebruikersaccounts, geen profielen</li><li>Geen gebruiksmeting buiten de anonieme gebeurtenissen uit paragraaf 5: geen schermopname, geen profielen</li><li>Geen tracking zonder je toestemming: we vragen het via App Tracking Transparency van Apple en respecteren je keuze</li><li>Geen verkoop van je gegevens</li><li>Geen gegevens die bewust van kinderen worden verzameld: de app is een verkeershulpmiddel met leeftijdsclassificatie 4+</li></ul>
+  </div>
+  <h2>8. Je rechten</h2>
+  <p>Op grond van de Zwitserse wet inzake gegevensbescherming (nFADP) en de AVG kun je om inzage in, correctie of verwijdering van de in paragraaf 3 beschreven gegevens vragen. Omdat we geen identificerende informatie bewaren, vermeld je dan bij benadering de datum waarop je meldingen hebt ingeschakeld, zodat we de registratie kunnen vinden. Schrijf naar <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>. Voor de advertentiegegevens die door Google worden verwerkt, verwijzen we je naar <a href="https://policies.google.com/technologies/partner-sites">Google</a> en de eigen privacy-instellingen van Google.</p>
+  <h2>9. Wijzigingen</h2>
+  <p>Dit beleid wordt bijgewerkt telkens wanneer de gegevenspraktijken van de app veranderen, en de datum "laatst bijgewerkt" hierboven verandert dan mee.</p>
+  </div>
   <footer>
     <span lang-block="en">© 2026 Fabrizio Bacchin · <a href="support-gotthard.html">Support</a></span>
     <span lang-block="it">© 2026 Fabrizio Bacchin · <a href="support-gotthard.html">Supporto</a></span>
     <span lang-block="de">© 2026 Fabrizio Bacchin · <a href="support-gotthard.html">Support</a></span>
     <span lang-block="fr">© 2026 Fabrizio Bacchin · <a href="support-gotthard.html">Assistance</a></span>
+    <span lang-block="nl">© 2026 Fabrizio Bacchin · <a href="support-gotthard.html">Ondersteuning</a></span>
   </footer>
 </main>
 
 <script>
-  var LANGS = ["en", "it", "de", "fr"];
+  var LANGS = ["en", "it", "de", "fr", "nl"];
   function setLang(l) {
     if (LANGS.indexOf(l) < 0) l = "en";
     document.documentElement.setAttribute("data-lang", l);

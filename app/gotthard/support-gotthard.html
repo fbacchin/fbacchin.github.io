@@ -62,7 +62,8 @@
   footer a { white-space: nowrap; }
   [lang-block] { display: none; }
   html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"],
-  html[data-lang="de"] [lang-block="de"], html[data-lang="fr"] [lang-block="fr"] { display: block; }
+  html[data-lang="de"] [lang-block="de"], html[data-lang="fr"] [lang-block="fr"],
+  html[data-lang="nl"] [lang-block="nl"] { display: block; }
 </style>
 </head>
 <body>
@@ -75,11 +76,13 @@
   <p class="sub" lang-block="it">Supporto · Traffico in tempo reale, code, avvisi ufficiali e webcam per il tunnel del San Gottardo.</p>
   <p class="sub" lang-block="de">Support · Echtzeit-Verkehr, Staus, offizielle Meldungen und Webcams für den Gotthard-Strassentunnel.</p>
   <p class="sub" lang-block="fr">Assistance · Trafic en temps réel, files, alertes officielles et webcams pour le tunnel routier du Gothard.</p>
+  <p class="sub" lang-block="nl">Support · Realtime verkeer, files, officiële meldingen en webcams voor de Gotthard-wegtunnel.</p>
   <div class="langbar">
     <button id="btn-en" aria-pressed="true" onclick="setLang('en')">English</button>
     <button id="btn-it" aria-pressed="false" onclick="setLang('it')">Italiano</button>
     <button id="btn-de" aria-pressed="false" onclick="setLang('de')">Deutsch</button>
     <button id="btn-fr" aria-pressed="false" onclick="setLang('fr')">Français</button>
+    <button id="btn-nl" aria-pressed="false" onclick="setLang('nl')">Nederlands</button>
   </div>
   <div lang-block="en">
   <h2>Contact</h2>
@@ -94,7 +97,7 @@
     </details>
     <details>
       <summary>Why are the official alerts in Italian, German or French?</summary>
-      <p>The alerts are published by the Swiss traffic management centre (VMZ-CH) in the three national languages only — an English version does not exist at the source. The app picks the language that best matches your device; the interface itself is fully localised in English, Italian, German and French.</p>
+      <p>The alerts are published by the Swiss traffic management centre (VMZ-CH) in the three national languages only — an English version does not exist at the source. The app picks the language that best matches your device; the interface itself is fully localised in English, Italian, German, French and Dutch.</p>
     </details>
     <details>
       <summary>A webcam shows “out of service”</summary>
@@ -154,7 +157,7 @@
     </details>
     <details>
       <summary>Perché gli avvisi ufficiali sono in italiano, tedesco o francese?</summary>
-      <p>Gli avvisi sono pubblicati dalla centrale svizzera del traffico (VMZ-CH) solo nelle tre lingue nazionali — una versione inglese non esiste alla fonte. L'app sceglie la lingua più vicina alle impostazioni del dispositivo; l'interfaccia è comunque completamente localizzata in inglese, italiano, tedesco e francese.</p>
+      <p>Gli avvisi sono pubblicati dalla centrale svizzera del traffico (VMZ-CH) solo nelle tre lingue nazionali — una versione inglese non esiste alla fonte. L'app sceglie la lingua più vicina alle impostazioni del dispositivo; l'interfaccia è comunque completamente localizzata in inglese, italiano, tedesco, francese e olandese.</p>
     </details>
     <details>
       <summary>Una webcam mostra “fuori servizio”</summary>
@@ -214,7 +217,7 @@
     </details>
     <details>
       <summary>Warum sind die offiziellen Meldungen auf Italienisch, Deutsch oder Französisch?</summary>
-      <p>Die Meldungen werden von der Schweizer Verkehrsmanagementzentrale (VMZ-CH) nur in den drei Landessprachen veröffentlicht — eine englische Version gibt es an der Quelle nicht. Die App wählt die Sprache, die am besten zu deinen Geräteeinstellungen passt; die Oberfläche selbst ist vollständig auf Englisch, Italienisch, Deutsch und Französisch lokalisiert.</p>
+      <p>Die Meldungen werden von der Schweizer Verkehrsmanagementzentrale (VMZ-CH) nur in den drei Landessprachen veröffentlicht — eine englische Version gibt es an der Quelle nicht. Die App wählt die Sprache, die am besten zu deinen Geräteeinstellungen passt; die Oberfläche selbst ist vollständig auf Englisch, Italienisch, Deutsch, Französisch und Niederländisch lokalisiert.</p>
     </details>
     <details>
       <summary>Eine Webcam zeigt „ausser Betrieb“</summary>
@@ -274,7 +277,7 @@
     </details>
     <details>
       <summary>Pourquoi les alertes officielles sont-elles en italien, allemand ou français ?</summary>
-      <p>Les alertes sont publiées par la centrale suisse de gestion du trafic (VMZ-CH) uniquement dans les trois langues nationales — il n'existe pas de version anglaise à la source. L'app choisit la langue la plus proche des réglages de votre appareil ; l'interface est entièrement localisée en anglais, italien, allemand et français.</p>
+      <p>Les alertes sont publiées par la centrale suisse de gestion du trafic (VMZ-CH) uniquement dans les trois langues nationales — il n'existe pas de version anglaise à la source. L'app choisit la langue la plus proche des réglages de votre appareil ; l'interface est entièrement localisée en anglais, italien, allemand, français et néerlandais.</p>
     </details>
     <details>
       <summary>Une webcam affiche « hors service »</summary>
@@ -321,16 +324,77 @@
   </ul>
   <p>Les informations sur les files sont fournies par les autorités et peuvent parfois différer des conditions réelles. N'utilisez jamais l'app en conduisant.</p>
   </div>
+  <div lang-block="nl">
+  <h2>Contact</h2>
+  <p>Vragen, problemen of suggesties? Schrijf ons, we antwoorden meestal binnen een paar dagen.</p>
+  <a class="cta" href="mailto:bacchin@tiscali.it?subject=Gottardo%20Live%20support">Stuur een e-mail</a>
+
+  <h2>Veelgestelde vragen</h2>
+  <div class="card">
+    <details>
+      <summary>De app toont “Vrij” en 0 minuten. Is hij kapot?</summary>
+      <p>Nee: het betekent dat er op dit moment geen file bij de tunnel staat. Files bij de Gotthard ontstaan meestal in het weekend, op feestdagen en op drukke reisdagen in de zomer. De 24-uursgrafiek laat zien hoe de dag is verlopen.</p>
+    </details>
+    <details>
+      <summary>Waarom zijn de officiële meldingen in het Italiaans, Duits of Frans?</summary>
+      <p>De meldingen worden door het Zwitserse verkeersmanagementcentrum (VMZ-CH) alleen in de drie landstalen gepubliceerd: een Engelse of Nederlandse versie bestaat bij de bron niet. De app kiest de taal die het best bij je apparaat past; wie de app in het Nederlands gebruikt, ziet de officiële meldingen in het Duits. De interface zelf is volledig vertaald in het Engels, Italiaans, Duits, Frans en Nederlands.</p>
+    </details>
+    <details>
+      <summary>Een webcam toont “buiten dienst”</summary>
+      <p>Die vervangende afbeelding komt van de wegbeheerder (FEDRO/AFBN) wanneer een camera tijdelijk niet werkt. Meestal is hij binnen een paar dagen weer terug; je hoeft zelf niets te doen.</p>
+    </details>
+    <details>
+      <summary>Hoe wordt de wachttijd berekend?</summary>
+      <p>Als de autoriteiten een officiële wachttijd publiceren, tonen we die. Publiceren ze alleen de lengte van de file, dan schatten we ongeveer 10 minuten per kilometer (het gebruikelijke doseerritme bij de Gotthard). Is er geen officiële file, dan kan Apple Kaarten een discrete hint “drukker dan normaal” tonen. Dat is alleen een indicatie, geen file, en er horen geen kilometers bij.</p>
+    </details>
+    <details>
+      <summary>Kan ik bepalen welke advertenties ik zie?</summary>
+      <p>Ja. In de EER, het Verenigd Koninkrijk en Zwitserland vraagt de app om je toestemming voordat er een advertentie wordt opgevraagd, en iOS vraagt apart of de app je mag volgen. Weiger je een van beide, dan werkt de app precies hetzelfde: de advertenties zijn dan alleen niet gepersonaliseerd. Je toestemming wijzig je in Instellingen → “Privacyopties”, het volgen in de iOS-instellingen → Privacy en beveiliging → Tracking.</p>
+    </details>
+    <details>
+      <summary>Ik ontvang geen meldingen</summary>
+      <p>Controleer in de iOS-instellingen → Berichtgeving → Gottardo Live of meldingen zijn toegestaan. Meldingen zijn optioneel en worden alleen gebruikt voor belangrijke verkeersupdates.</p>
+    </details>
+    <details>
+      <summary>Kan ik de introductierondleiding opnieuw bekijken?</summary>
+      <p>Ja: open in de app Instellingen (tandwielicoon) → Info → “Rondleiding opnieuw bekijken”.</p>
+    </details>
+    <details>
+      <summary>Ik heb een nieuwe telefoon en de advertenties zijn terug</summary>
+      <p>De app heeft geen gebruikersaccount, dus een aankoop hoort bij je Apple Account, niet bij het apparaat. Open Instellingen → Aankopen → “Aankopen herstellen” terwijl je bent ingelogd met hetzelfde Apple Account waarmee je hebt gekocht, en de advertenties verdwijnen weer. Het kost niets.</p>
+    </details>
+    <details>
+      <summary>Hoe zeg ik het maandabonnement op?</summary>
+      <p>In de app: Instellingen → Aankopen → “Abonnement beheren”. Of in de iOS-instellingen → tik op je naam → Abonnementen. Zeg minstens 24 uur voor het einde van de periode op, anders wordt het nog een keer verlengd. De eenmalige aankoop “voor altijd” hoef je niet op te zeggen: die wordt nooit verlengd.</p>
+    </details>
+  </div>
+
+  <h2>Advertenties</h2>
+  <p>De app is gratis en wordt ondersteund door één banneradvertentie van Google AdMob, tussen de twee richtingskaarten. <strong>Elke functie is voor iedereen beschikbaar</strong>: niets in de app zit achter een aankoop.</p>
+  <p>Wil je de banner liever niet zien, dan kun je hem verwijderen: met een maandabonnement (automatisch verlengd, CHF 1.00 / € 0,99 / £ 0,99) of met een eenmalige betaling die voor altijd geldt (CHF 10.00 / € 9,99 / £ 9,99). Beide doen precies hetzelfde: ze verbergen de advertentie. In de app: Instellingen → Aankopen.</p>
+  <p>Voordat er een advertentie wordt opgevraagd, vraagt de app om je toestemming (EER, VK en Zwitserland) en om toestemming voor tracking via de App Tracking Transparency-melding van Apple. Weigeren verandert niets, behalve dat de advertenties die je ziet niet gepersonaliseerd zijn.</p>
+  <p>Lees ons <a href="privacy-gotthard.html">privacybeleid</a>.</p>
+
+  <h2>Gegevensbronnen</h2>
+  <ul>
+      <li>Verkeersgegevens en meldingen: Zwitsers federaal bureau voor wegen (FEDRO / VMZ-CH) via <a href="https://opentransportdata.swiss/en/road-traffic/">opentransportdata.swiss</a></li>
+      <li>Reistijden: Apple Kaarten · Weer: <a href="https://weatherkit.apple.com/legal-attribution.html">Apple Weather</a> / <a href="https://open-meteo.com">Open-Meteo</a></li>
+      <li>Webcams: <a href="https://www.afbn.ch/verkehr-und-baustellen/webcams">FEDRO / AFBN</a></li>
+      <li>Advertenties: Google AdMob (gratis versie)</li>
+  </ul>
+  <p>De file-informatie komt van de autoriteiten en kan soms afwijken van de werkelijke situatie. Gebruik de app nooit tijdens het rijden.</p>
+  </div>
   <footer>
     <span lang-block="en">© 2026 Fabrizio Bacchin · <a href="privacy-gotthard.html">Privacy Policy</a></span>
     <span lang-block="it">© 2026 Fabrizio Bacchin · <a href="privacy-gotthard.html">Informativa sulla privacy</a></span>
     <span lang-block="de">© 2026 Fabrizio Bacchin · <a href="privacy-gotthard.html">Datenschutzrichtlinie</a></span>
     <span lang-block="fr">© 2026 Fabrizio Bacchin · <a href="privacy-gotthard.html">Politique de confidentialité</a></span>
+    <span lang-block="nl">© 2026 Fabrizio Bacchin · <a href="privacy-gotthard.html">Privacybeleid</a></span>
   </footer>
 </main>
 
 <script>
-  var LANGS = ["en", "it", "de", "fr"];
+  var LANGS = ["en", "it", "de", "fr", "nl"];
   function setLang(l) {
     if (LANGS.indexOf(l) < 0) l = "en";
     document.documentElement.setAttribute("data-lang", l);
