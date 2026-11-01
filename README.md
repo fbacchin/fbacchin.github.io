@@ -89,7 +89,7 @@ browser).
   lingua (`gb`, `fr`, `de`, `es`). Il badge francese è più largo: 152 px.
 - **Se cambi una pagina italiana, cambia anche le 4 traduzioni.** Stessa struttura,
   stessi link (adattati alla lingua), solo il testo tradotto. Le pagine nuove vanno
-  aggiunte in tutte e 5 le lingue, con hreflang e selettore, e in `sitemap.xml`.
+  aggiunte in tutte e 5 le lingue, con hreflang e selettore, oltre che in `sitemap.xml`.
 - Tedesco con la grafia svizzera (`ss`, mai `ß`), «du»; francese con «vous»;
   spagnolo con «tú». I nomi delle app non si traducono.
 
@@ -148,7 +148,7 @@ danno 404. Le app usano solo indirizzi `https://bacchin.app/app/...`.
 3. **Aggiorna la data** in cima alla pagina («Aggiornato al …»).
 4. **Tutte le lingue.** Le pagine sono multilingua nello stesso file: la
    modifica va fatta in ogni lingua presente.
-5. **Controlla le pagine collegate**, e aggiornale solo se cambia qualcosa che
+5. **Controlla le pagine collegate**: aggiornale solo se cambia qualcosa che
    dicono:
    - la pagina di presentazione dell'app nella radice (per esempio
      `Leasing.html`): sezione sul prezzo e sulla pubblicità, riga
@@ -184,7 +184,7 @@ danno 404. Le app usano solo indirizzi `https://bacchin.app/app/...`.
 
 ## Ritirare un'app
 
-Togli la riga da `index.html`, da `privacy.html` e da `sitemap.xml`, e sistema
+Togli la riga da `index.html`, da `privacy.html` e da `sitemap.xml`, poi sistema
 i link delle app vicine. La pagina di presentazione diventa un rimando (come
 `EuriborMac.html`). Assistenza e privacy in `app/<Cartella>/` **restano**:
 servono a chi ha ancora l'app installata.
@@ -225,7 +225,7 @@ servono a chi ha ancora l'app installata.
 - Non creare pagine di assistenza o privacy in `fbacchin/app`.
 - Non spostare né rinominare i file di dati in `fbacchin/app`.
 - Non modificare `finanza/euribor-oggi.html` a mano: la modifica dura poche ore. Si
-  cambia `strumenti/euribor_oggi.py`, e poi anche la pagina.
+  cambia `strumenti/euribor_oggi.py`, poi anche la pagina.
 - Non cancellare `app-ads.txt`.
 - Non aggiungere a `privacy.html` le app non pubblicate (Health Companion,
   Valichi, Volcano).
