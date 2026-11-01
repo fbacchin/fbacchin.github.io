@@ -47,6 +47,7 @@ Burraco.html
 codici.html
 perspecta.html
 Regione.html
+SwissCanton.html
 USState.html
 EuriborMac.html         solo un rimando a /EuriborX (app dismessa)
 strumenti/euribor_oggi.py   lo script che genera Euribor oggi in 5 lingue
@@ -69,7 +70,7 @@ app-store-badge-*.svg   badge ufficiali Apple, uno per lingua (it, en, fr, de, e
 L'italiano sta nella radice; inglese, francese, tedesco e spagnolo stanno in
 `en/`, `fr/`, `de/`, `es/`, con gli **stessi nomi di file**: `EuriborX.html` →
 `/en/EuriborX`, `finanza/stock-tracker.html` → `/fr/finanza/stock-tracker`.
-Sono tradotte 15 pagine: home, le 10 pagine delle app, `privacy.html`,
+Sono tradotte 16 pagine: home, le 11 pagine delle app, `privacy.html`,
 `404.html`, Stock Tracker e Dashboard BCE. Restano a parte Euribor oggi (generata
 in 5 lingue dallo script), il simulatore ATP (`tennis/`, italiano e inglese), i
 materiali stampa e le pagine `app/` (già multilingua, scelgono la lingua del
