@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Zverev numero 1 ATP: con quanti punti chiude il 2026? Simulatore</title>
-<meta name="description" content="Dal 2 novembre Zverev è numero 1 ATP con 9.550 punti, 100 più di Sinner, che ha chiuso la stagione per l'infortunio al ginocchio. Scegli i risultati di Zverev a Parigi e alle ATP Finals e vedi con quanti punti chiude l'anno.">
+<meta name="description" content="Dal 2 novembre Zverev è numero 1 ATP con 9.550 punti, 100 più di Sinner, che ha chiuso la stagione per l'infortunio al ginocchio. A Parigi è uscito al secondo turno: resta solo Torino. Scegli il suo risultato alle ATP Finals e vedi con quanti punti chiude l'anno.">
 <meta property="og:title" content="Zverev è il nuovo numero 1 ATP: con quanti punti chiude il 2026">
-<meta property="og:description" content="Zverev è davanti di 1.400 punti nella Race e Sinner non gioca più nel 2026. Scegli i risultati a Parigi e a Torino e guarda come si allarga il distacco settimana per settimana.">
+<meta property="og:description" content="Zverev è davanti di 1.400 punti nella Race e Sinner non gioca più nel 2026. Resta solo Torino: scegli il risultato di Zverev alle ATP Finals e guarda come si allarga il distacco settimana per settimana.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bacchin.app/tennis/numero-1">
 <meta property="og:image" content="https://bacchin.app/tennis/numero-1.png">
@@ -90,7 +90,7 @@
     <p class="avviso-lingua" id="avviso-lingua" hidden><a id="avviso-lingua-link" href="/tennis/number-1" hreflang="en" lang="en">This page is available in English →</a></p>
     <p class="etichetta" data-t="occhiello">Simulatore · classifica ATP 2026</p>
     <h1 data-t="titolo">Zverev numero 1 ATP: con quanti punti chiude il 2026?</h1>
-    <p class="tesi" data-t="tesi">Dal 2 novembre Zverev è numero 1 ATP: 9.550 punti contro i 9.450 di Sinner, che ha chiuso la stagione per l'infortunio al ginocchio. Sinner non farà altri punti. Il 16 novembre perde i 1.500 delle Finals 2025 e scende a 7.950. Scegli i risultati di Zverev a Parigi e a Torino e guarda con quanti punti chiude l'anno.</p>
+    <p class="tesi" data-t="tesi">Dal 2 novembre Zverev è numero 1 ATP: 9.550 punti contro i 9.450 di Sinner, che ha chiuso la stagione per l'infortunio al ginocchio. Sinner non farà altri punti. Il 16 novembre perde i 1.500 delle Finals 2025 e scende a 7.950. A Parigi Zverev è uscito al secondo turno. Scegli il suo risultato a Torino e guarda con quanti punti chiude l'anno.</p>
     <p class="lingua etichetta"><a id="altra-lingua" href="/tennis/number-1" hreflang="en">English</a></p>
   </div>
 
@@ -149,10 +149,9 @@
 (function () {
   'use strict';
 
-  // ── Dati al 2 novembre 2026, usciti i punti di Parigi 2025 ──────────────
-  // Classifica del 2 novembre: live-tennis.eu (Pts), a Parigi nessuno dei due ha ancora giocato.
-  //   Confronto con la pagina ATP «Rank Breakdown» del 26 ottobre: Zverev 9.750 + 200 (semifinale a Vienna) − 400 (Parigi 2025) = 9.550,
-  //   Sinner 10.450 − 1.000 (Parigi 2025) = 9.450. Zverev è n. 1 dal 2 novembre.
+  // ── Dati al 9 novembre 2026, dopo Parigi ─────────────────────────────────
+  // Classifica del 9 novembre: pagina ATP «Rank Breakdown» di entrambi (Zverev 9.550, Sinner 9.450), uguale a live-tennis.eu (Pts + Previous).
+  //   Zverev a Parigi: secondo turno (esordio perso con Musetti), 10 punti. I 10 di Montreal tornano tra i «Non-Countable»: classifica invariata.
   // Race: live-tennis.eu. Sinner non gioca più nel 2026 (ginocchio).
   // Scadenze 2025 ancora da togliere («Drop date» della pagina ATP): Finals il 16 novembre.
   //   Sinner 9.450 − 1500 = 7.950 = Race
@@ -174,9 +173,6 @@
 
   // cade: i punti 2025 che escono dalla classifica ATP con questo torneo
   var TORNEI = [
-    { id: 'par', cat: 'M1000', nome: { it: 'Parigi', en: 'Paris' }, quando: { it: '2 – 8 novembre', en: '2 – 8 November' },
-      s: { cade: 0, fuori: true, nota: { it: 'Infortunato, stagione finita. I 1.000 punti del 2025 sono usciti il 2 novembre', en: 'Injured, season over. His 1,000 points from 2025 dropped on 2 November' } },
-      z: { cade: 0, nota: { it: '2025: semifinale, 400 punti, già usciti il 2 novembre', en: '2025: semi-final, 400 points, already dropped on 2 November' } } },
     { id: 'fin', cat: 'FIN', nome: { it: 'ATP Finals, Torino', en: 'ATP Finals, Turin' }, quando: { it: '15 – 22 novembre', en: '15 – 22 November' },
       s: { cade: 1500, fuori: true, nota: { it: 'Infortunato, stagione finita. Il 16 novembre escono i 1.500 punti del 2025', en: 'Injured, season over. His 1,500 points from 2025 drop on 16 November' } },
       z: { cade: 200, nota: { it: '2025: girone, una vittoria, 200 punti', en: '2025: group stage, one win, 200 points' } } }
@@ -184,11 +180,10 @@
 
   // righe della tabella settimanale: tornei già conclusi a quel punto
   var TAPPE = [
-    { dopo: [], it: 'Oggi, 2 novembre', en: 'Today, 2 November' },
-    { dopo: ['par'], it: 'Dopo Parigi, 9 novembre', en: 'After Paris, 9 November' },
+    { dopo: [], it: 'Oggi, 9 novembre', en: 'Today, 9 November' },
     // i punti delle Finals 2025 escono il lunedì dopo l'ultima settimana di tornei, prima che le Finals finiscano
-    { dopo: ['par'], scarta: ['fin'], it: 'Lunedì 16 novembre, escono le Finals 2025', en: 'Monday 16 November, 2025 Finals points drop' },
-    { dopo: ['par', 'fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
+    { dopo: [], scarta: ['fin'], it: 'Lunedì 16 novembre, escono le Finals 2025', en: 'Monday 16 November, 2025 Finals points drop' },
+    { dopo: ['fin'], it: 'Fine anno, dopo le Finals', en: 'Year end, after the Finals' }
   ];
 
   var ETICHETTE = {
@@ -204,7 +199,7 @@
     it: {
       tutti: 'Tutti gli strumenti', occhiello: 'Simulatore · classifica ATP 2026',
       titolo: 'Zverev numero 1 ATP: con quanti punti chiude il 2026?',
-      tesi: 'Dal 2 novembre Zverev è numero 1 ATP: 9.550 punti contro i 9.450 di Sinner, che ha chiuso la stagione per l\'infortunio al ginocchio. Sinner non farà altri punti. Il 16 novembre perde i 1.500 delle Finals 2025 e scende a 7.950. Scegli i risultati di Zverev a Parigi e a Torino e guarda con quanti punti chiude l\'anno.',
+      tesi: 'Dal 2 novembre Zverev è numero 1 ATP: 9.550 punti contro i 9.450 di Sinner, che ha chiuso la stagione per l\'infortunio al ginocchio. Sinner non farà altri punti. Il 16 novembre perde i 1.500 delle Finals 2025 e scende a 7.950. A Parigi Zverev è uscito al secondo turno. Scegli il suo risultato a Torino e guarda con quanti punti chiude l\'anno.',
       'h-fine': 'Classifica di fine anno', distacco: 'Distacco', 'h-tornei': 'I tornei che restano',
       istruzioni: 'Per ogni torneo scegli fin dove arriva Zverev. Sinner non gioca: i suoi punti del 2025 escono comunque dalla classifica ATP.',
       'p-2025': 'Zverev come nel 2025', 'p-zverev': 'Zverev vince tutto', 'p-zero': 'Azzera', condividi: 'Condividi lo scenario',
@@ -218,12 +213,12 @@
       serve: 'Sinner non gioca più nel 2026 e non può più raggiungerlo.',
       nessuno: 'Nessun risultato scelto: sono i punti della Race di oggi.',
       doppio: 'Due vincitori nello stesso torneo: uno dei due risultati non è possibile.',
-      fonte: 'Punti al 2 novembre 2026, usciti i punti di Parigi 2025: classifica ATP del 2 novembre da live-tennis.eu, confrontata con il dettaglio punti ATP di entrambi; Race to Turin da live-tennis.eu. Zverev è numero 1 dal 2 novembre, dopo la semifinale a Vienna. Sinner ha annunciato il 6 ottobre la fine della stagione per l\'infortunio al ginocchio. Punti per turno secondo il regolamento ATP 2026. Semplificazione: il calcolo somma tutti i risultati e non applica il limite dei 19 tornei che contano. Il confronto riguarda solo Sinner e Zverev. Non è un prodotto ufficiale ATP.'
+      fonte: 'Punti al 9 novembre 2026, dopo Parigi: classifica ATP del 9 novembre dal dettaglio punti ATP di entrambi, confrontata con live-tennis.eu; Race to Turin da live-tennis.eu. Zverev è numero 1 dal 2 novembre, dopo la semifinale a Vienna; a Parigi è uscito al secondo turno. Sinner ha annunciato il 6 ottobre la fine della stagione per l\'infortunio al ginocchio. Punti per turno secondo il regolamento ATP 2026. Semplificazione: il calcolo somma tutti i risultati e non applica il limite dei 19 tornei che contano. Il confronto riguarda solo Sinner e Zverev. Non è un prodotto ufficiale ATP.'
     },
     en: {
       tutti: 'All tools', occhiello: 'Simulator · ATP rankings 2026',
       titolo: 'Zverev is world No. 1: how many points does he finish 2026 on?',
-      tesi: 'Since 2 November Zverev has been world No. 1: 9,550 points to Sinner’s 9,450. Sinner has ended his season with a knee injury and will add no more points. On 16 November he drops his 1,500 points from the 2025 Finals and falls to 7,950. Pick Zverev’s results in Paris and Turin and see how many points he finishes the year on.',
+      tesi: 'Since 2 November Zverev has been world No. 1: 9,550 points to Sinner’s 9,450. Sinner has ended his season with a knee injury and will add no more points. On 16 November he drops his 1,500 points from the 2025 Finals and falls to 7,950. Zverev lost his opening match in Paris. Pick his result in Turin and see how many points he finishes the year on.',
       'h-fine': 'Year-end ranking', distacco: 'Gap', 'h-tornei': 'Remaining events',
       istruzioni: 'For each event, choose how far Zverev goes. Sinner is not playing: his 2025 points still drop out of the ATP ranking.',
       'p-2025': 'Zverev as in 2025', 'p-zverev': 'Zverev wins everything', 'p-zero': 'Reset', condividi: 'Share this scenario',
@@ -237,7 +232,7 @@
       serve: 'Sinner is not playing again in 2026 and can no longer catch him.',
       nessuno: 'No results picked yet: these are today’s Race points.',
       doppio: 'Two winners of the same event: one of the two results is not possible.',
-      fonte: 'Points as of 2 November 2026, after the 2025 Paris points dropped: ATP ranking of 2 November from live-tennis.eu, checked against the ATP rankings breakdown for both players, and Race to Turin from live-tennis.eu. Zverev has been world No. 1 since 2 November, after reaching the Vienna semi-finals. Sinner announced on 6 October that his season is over because of a knee injury. Points per round per the 2026 ATP rules. Simplification: all results are added up; the best-19 rule is not applied. The comparison covers Sinner and Zverev only. Not an official ATP product.'
+      fonte: 'Points as of 9 November 2026, after Paris: ATP ranking of 9 November from the ATP rankings breakdown for both players, checked against live-tennis.eu, and Race to Turin from live-tennis.eu. Zverev has been world No. 1 since 2 November, after reaching the Vienna semi-finals; he lost his opening match in Paris. Sinner announced on 6 October that his season is over because of a knee injury. Points per round per the 2026 ATP rules. Simplification: all results are added up; the best-19 rule is not applied. The comparison covers Sinner and Zverev only. Not an official ATP product.'
     }
   };
 
@@ -340,7 +335,7 @@
     history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : ''));
   }
 
-  // scenario nel link: #z=a500:W,par:F
+  // scenario nel link: #z=fin:W3
   function codifica() {
     return ['s', 'z'].map(function (g) {
       var k = Object.keys(stato[g]);
@@ -359,8 +354,8 @@
   }
 
   var PRESET = {
-    '2025': { s: {}, z: { par: 'SF', fin: 'RR1' } },
-    zverev: { s: {}, z: { par: 'W', fin: 'W3' } },
+    '2025': { s: {}, z: { fin: 'RR1' } },
+    zverev: { s: {}, z: { fin: 'W3' } },
     zero: { s: {}, z: {} }
   };
 
