@@ -96,10 +96,10 @@
       scrivi('g-sud', d.south);
       var q = new Date(d.time);
       document.getElementById('g-quando').textContent =
-        'Relevé à ' + q.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + ' — le même échantillon que lit l\u2019app, mis à jour toutes les 5 minutes.';
+        'Relevé à ' + q.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + ', la même donnée que lit l\u2019app.';
     })
     .catch(function () {
-      document.getElementById('g-quando').textContent = 'Collecteur indisponible —l\u2019app lit le flux VMZ-CH en direct.';
+      document.getElementById('g-quando').textContent = 'Données indisponibles pour le moment : réessayez plus tard.';
     });
 })();
 </script>

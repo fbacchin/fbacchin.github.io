@@ -96,10 +96,10 @@
       scrivi('g-sud', d.south);
       var q = new Date(d.time);
       document.getElementById('g-quando').textContent =
-        'Recorded at ' + q.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) + ' — the same sample the app reads, refreshed every 5 minutes.';
+        'Recorded at ' + q.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) + ', the same data the app reads.';
     })
     .catch(function () {
-      document.getElementById('g-quando').textContent = 'Collector unavailable — the app reads the VMZ-CH feed live.';
+      document.getElementById('g-quando').textContent = 'Data unavailable right now: try again later.';
     });
 })();
 </script>

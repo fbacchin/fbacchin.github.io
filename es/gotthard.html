@@ -96,10 +96,10 @@
       scrivi('g-sud', d.south);
       var q = new Date(d.time);
       document.getElementById('g-quando').textContent =
-        'Registrado a las ' + q.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }) + ' — la misma muestra que lee la app, actualizada cada 5 minutos.';
+        'Registrado a las ' + q.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }) + ', el mismo dato que lee la app.';
     })
     .catch(function () {
-      document.getElementById('g-quando').textContent = 'Collector no disponible — la app lee el feed de VMZ-CH en directo.';
+      document.getElementById('g-quando').textContent = 'Datos no disponibles en este momento: inténtalo más tarde.';
     });
 })();
 </script>

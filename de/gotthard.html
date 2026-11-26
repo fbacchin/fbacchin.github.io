@@ -96,10 +96,10 @@
       scrivi('g-sud', d.south);
       var q = new Date(d.time);
       document.getElementById('g-quando').textContent =
-        'Erfasst um ' + q.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' Uhr — derselbe Messwert, den auch die App liest, alle 5 Minuten neu abgefragt.';
+        'Erfasst um ' + q.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' Uhr, derselbe Messwert, den auch die App liest.';
     })
     .catch(function () {
-      document.getElementById('g-quando').textContent = 'Collector nicht erreichbar — die App liest den VMZ-CH-Feed direkt.';
+      document.getElementById('g-quando').textContent = 'Daten im Moment nicht abrufbar: versuch es später noch einmal.';
     });
 })();
 </script>
