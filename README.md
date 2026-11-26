@@ -168,10 +168,12 @@ manifest dei codici di gara con il percorso dello stesso sito.
 Se il dato non arriva, la pagina mostra un messaggio generico («riprova più
 tardi»).
 
-**Burraco.** Gli ultimi due rimandi in `fbacchin/app` (`Burraco/privacy-burraco.html`
-e `support-burraco.html`) non sono più raggiungibili con il repo bloccato:
-Burraco Score 5.0.2, che apre già `bacchin.app`, è in vendita dal 13 ottobre
-2026. Non serve altro (ADEV-776).
+**Burraco.** Le versioni 5.0 e 5.0.1 di Burraco Score aprono ancora
+`https://fbacchin.github.io/app/Burraco/privacy-burraco.html`. Il vecchio rimando
+in `fbacchin/app` non c'è più (ADEV-776 chiusa), ma quell'indirizzo risponde lo
+stesso: `github.io/app/` è ora la cartella `app/` di questo repo, quindi mostra
+la pagina completa. **Non cancellare né rinominare** `app/Burraco/privacy-burraco.html`
+e `support-burraco.html`, finché quelle versioni sono in uso.
 
 **Euribor oggi.** Le pagine `finanza/euribor-oggi` e le versioni nelle altre
 lingue le genera `strumenti/euribor_oggi.py` dai CSV di `bacchin.app/tassi/`. Il
