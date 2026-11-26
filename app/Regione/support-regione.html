@@ -3,202 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Assistenza — Indovina la Regione</title>
+<meta name="theme-color" content="#0F2E6B">
+<title>Assistenza · Indovina la Regione</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
+:root {
+  --accento: #1E4FA8; --accento-tenue: #E6EEFB; --inchiostro: #13203A; --inchiostro-tenue: #5D6B84;
+  --carta: #EEF1F6; --riquadro: #FFFFFF; --linea: #DCE3EE; --fascia-a: #0F2E6B; --fascia-b: #1E4FA8;
+  --ombra: 0 1px 2px rgba(19,32,58,.06), 0 8px 24px rgba(19,32,58,.08);
+}
+@media (prefers-color-scheme: dark) {
   :root {
-    --accent: #1E4FA8;
-    --accent-soft: #E6EEFB;
-    --ink: #13203A;
-    --ink-soft: #5D6B84;
-    --paper: #EEF1F6;
-    --card: #FFFFFF;
-    --line: #DCE3EE;
+    --accento: #FFCC0D; --accento-tenue: #16243F; --inchiostro: #EEF2F8; --inchiostro-tenue: #9BA9C2;
+    --carta: #0A1428; --riquadro: #111E38; --linea: #22314F; --fascia-a: #07122A; --fascia-b: #16305F;
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #FFCC0D;
-      --accent-soft: #16243F;
-      --ink: #EEF2F8;
-      --ink-soft: #9BA9C2;
-      --paper: #0A1428;
-      --card: #111E38;
-      --line: #22314F;
-    }
-    .cta { color: #0A1428 !important; }
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 0 64px; }
-  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  h1 { font-size: 1.9em; line-height: 1.2; }
-  .tag { color: var(--ink-soft); margin: 6px 0 32px; font-size: .95em; text-align: left; }
-  h2 { color: var(--accent); font-size: 1.25em; margin: 36px 0 10px; }
-  p, li { margin-bottom: 10px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  ul { padding-left: 22px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 20px; margin: 14px 0;
-  }
-  .cta {
-    display: inline-block; background: var(--accent); color: #fff !important;
-    padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600;
-    margin: 6px 0 10px;
-  }
-  details { border-bottom: 1px solid var(--line); padding: 12px 0; }
-  details:last-of-type { border-bottom: none; }
-  summary { cursor: pointer; font-weight: 600; }
-  details p { margin-top: 8px; color: var(--ink-soft); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  a { color: var(--accent); }
-  a[href^="mailto:"] { white-space: nowrap; }
-  table { width: 100%; border-collapse: collapse; font-size: .95em; }
-  th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--ink-soft); font-weight: 600; }
-  td:first-child { width: 45%; }
-  td:last-child { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  .appname { display: block; font-weight: 600; }
-  .plat {
-    display: inline-block; margin-top: 6px; padding: 1px 8px; border-radius: 999px;
-    background: var(--accent-soft); color: var(--accent); font-size: .78em; font-weight: 600;
-    white-space: nowrap;
-  }
-  footer { color: var(--ink-soft); font-size: .85em; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--inchiostro);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+h1, h2 { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+a { color: var(--accento); }
+:focus-visible { outline: 3px solid #FFCC0D; outline-offset: 2px; border-radius: 6px; }
+
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='613' viewBox='-4 -4 528 621' fill='none' stroke='white' stroke-opacity='.3' stroke-width='1.1' stroke-linejoin='round'%3E%3Cpath d='M319.0 259.1 322.1 269.2 327.4 278.8 340.4 290.6 344.6 296.7 353.7 301.5 353.9 305.6 356.8 307.7 356.6 310.0 344.0 325.7 342.2 325.4 341.1 320.2 339.0 318.9 337.6 319.8 334.9 317.0 329.0 321.8 331.0 326.4 327.8 326.6 327.2 328.8 325.6 327.1 323.4 330.5 320.0 330.1 317.9 327.3 312.2 326.5 310.7 323.6 307.1 322.8 302.8 325.8 298.1 321.8 295.4 322.4 295.6 317.4 284.9 310.9 281.2 310.8 280.0 308.8 280.1 304.6 282.5 303.4 282.6 301.4 289.6 304.3 292.1 304.2 295.4 301.1 285.5 290.9 287.3 288.9 283.9 285.7 286.6 283.7 285.7 280.0 287.2 277.2 291.7 278.3 296.1 276.9 296.7 274.0 294.0 272.3 294.5 270.8 298.0 270.5 298.5 268.5 300.5 268.1 302.1 263.5 307.7 264.2 310.3 261.2 318.8 258.9Z M389.9 366.7 390.8 364.6 399.8 365.1 404.3 362.0 411.6 367.7 409.1 372.4 415.2 375.7 417.0 374.0 418.7 374.6 421.2 380.1 427.5 386.8 428.8 387.1 431.8 383.7 433.5 385.8 433.4 384.2 435.0 385.1 435.1 383.6 437.4 383.7 441.5 386.4 441.4 399.8 445.1 401.1 447.5 405.4 438.1 420.4 428.3 418.9 427.3 426.2 424.7 430.9 425.3 433.0 421.7 430.8 419.2 431.3 419.2 432.8 416.9 431.7 411.9 432.9 410.1 429.5 411.2 427.6 402.0 427.1 399.2 431.4 394.3 424.7 398.1 415.8 401.0 414.5 401.3 411.6 398.3 409.8 396.8 405.3 389.6 399.0 389.6 394.6 385.9 392.4 388.0 389.1 383.0 385.8 383.1 381.7 380.8 379.5 382.6 379.4 382.2 376.6 386.3 377.5 389.2 375.1 391.1 370.1Z M399.2 431.4 402.0 427.1 405.6 428.0 406.8 427.0 411.2 427.6 410.2 429.5 411.9 432.9 416.9 431.7 419.2 432.8 419.3 431.3 421.8 430.8 425.3 432.9 428.3 418.9 438.1 420.4 436.2 424.7 437.4 429.7 431.3 438.6 432.6 446.0 436.9 448.6 443.8 448.7 447.8 453.2 460.6 461.1 458.6 466.1 458.4 469.3 460.2 472.0 458.6 477.6 460.2 481.0 462.8 482.2 457.9 489.7 452.8 487.1 448.8 487.7 436.5 494.2 433.4 499.7 435.1 515.5 430.2 520.6 424.1 523.2 417.2 531.8 416.4 537.6 412.8 543.5 399.5 543.8 395.9 541.8 394.0 538.3 394.0 526.4 401.3 523.7 406.3 513.1 407.0 509.0 402.4 504.9 402.8 503.4 409.5 499.1 416.0 499.3 418.0 497.7 419.7 492.2 419.5 487.8 416.8 486.5 414.3 481.8 409.9 458.9 404.5 452.4 401.9 445.5 399.2 431.4Z M316.7 383.7 321.0 385.4 320.4 387.2 318.0 387.2 316.0 386.8 316.7 383.7Z M321.5 343.1 324.3 347.1 327.3 347.4 325.9 343.9 327.8 340.5 329.7 342.1 333.0 341.0 348.7 348.7 351.4 346.2 355.5 346.1 357.0 343.7 360.4 345.1 366.5 341.8 370.5 344.9 369.4 350.6 371.9 351.6 372.1 353.4 375.0 353.3 378.3 355.5 375.3 361.1 377.2 363.4 382.3 364.9 383.8 363.8 390.0 366.7 391.1 370.1 389.2 375.1 386.3 377.5 382.2 376.6 382.6 379.4 380.8 379.5 383.1 381.7 383.0 385.8 388.0 389.1 385.9 392.4 389.6 394.6 389.6 399.0 395.0 404.6 396.8 405.3 398.3 409.8 401.4 411.6 401.0 414.5 398.1 415.8 397.1 420.5 394.7 422.6 395.8 423.8 394.4 424.7 391.3 422.7 388.2 423.5 384.6 427.6 381.7 427.1 380.0 425.4 378.1 425.9 378.1 422.9 371.9 417.4 367.9 417.5 362.5 413.7 365.9 404.3 360.8 393.6 356.2 388.8 352.7 391.0 349.9 390.2 347.6 392.2 343.5 391.4 336.6 394.7 337.3 391.2 343.4 387.3 342.5 384.6 334.5 378.9 330.6 381.9 326.6 379.7 326.4 382.6 324.5 382.0 323.5 374.8 312.2 357.0 317.8 352.7 316.5 345.7 321.5 343.1Z M267.9 194.4 267.1 200.6 264.4 203.2 261.9 202.9 260.8 199.6 258.5 200.6 256.6 197.6 257.3 193.1 252.7 195.2 254.0 200.2 250.6 200.2 247.4 206.8 244.2 207.2 243.5 208.9 242.2 206.9 238.3 208.2 231.2 204.0 227.2 203.8 222.5 200.0 222.7 197.4 219.6 193.2 224.0 185.0 217.1 185.6 218.2 182.9 214.1 183.1 210.0 178.2 203.6 183.2 200.2 183.3 202.8 186.5 192.8 186.8 191.7 184.2 187.6 188.8 180.5 183.1 175.8 183.0 173.5 185.6 169.0 179.1 160.8 175.1 158.7 176.1 153.9 171.0 151.8 171.5 148.2 169.0 146.4 164.4 139.7 164.2 133.7 170.5 130.2 166.0 123.0 167.2 125.5 163.2 125.1 158.5 121.7 156.0 119.6 157.6 117.0 155.4 112.6 155.1 112.6 150.8 114.5 150.8 114.3 149.1 115.4 151.3 118.1 150.5 118.2 147.4 116.4 145.7 119.7 142.4 118.8 139.6 115.8 137.9 116.4 135.6 117.8 135.2 121.9 126.3 125.7 125.1 127.0 126.7 128.1 123.4 129.4 125.2 131.1 123.2 131.7 126.4 135.3 127.9 137.2 124.6 139.8 128.4 140.6 125.6 143.1 126.6 142.3 124.2 143.8 123.0 144.1 125.4 147.3 123.6 151.9 130.2 154.7 128.9 163.4 133.6 165.5 132.5 166.7 134.9 170.6 136.9 174.0 136.7 179.6 132.1 180.4 134.8 186.6 136.9 191.2 134.3 194.6 133.9 197.9 135.7 204.7 133.9 210.0 134.7 210.2 135.9 215.0 135.6 217.8 138.4 226.4 132.9 239.4 133.2 241.3 135.8 247.3 134.9 247.7 139.4 250.5 142.5 247.9 140.8 246.4 142.7 245.6 150.3 251.0 176.9 258.2 186.6 267.9 194.4Z M269.8 29.0 272.1 31.1 286.0 32.3 289.2 34.6 292.8 34.6 295.0 32.9 310.0 36.6 308.7 41.8 304.6 41.9 295.1 50.8 296.7 56.1 299.8 55.2 303.7 57.8 307.7 58.0 306.8 60.8 300.5 65.8 299.4 69.1 302.0 71.5 306.8 70.3 303.9 78.5 304.7 81.3 313.5 85.1 318.9 92.2 315.4 95.4 310.2 94.7 314.1 93.5 311.1 91.8 311.6 89.2 306.3 83.6 302.7 82.6 301.4 85.3 302.9 86.5 297.5 89.4 289.2 86.9 285.6 87.9 283.1 91.7 279.9 85.8 279.1 86.4 277.1 79.0 275.7 80.8 272.7 78.7 270.4 80.5 269.2 78.3 263.7 82.6 262.6 80.0 259.2 80.0 257.1 74.0 253.8 72.7 252.4 66.8 256.4 62.7 256.7 59.7 249.1 52.5 250.6 49.2 253.1 48.7 255.3 45.9 258.2 40.0 263.9 40.0 262.6 37.0 267.8 35.1 266.9 29.2 269.8 29.0Z M321.3 341.2 321.5 343.1 316.5 345.7 317.8 352.7 315.1 353.7 315.2 355.4 312.1 357.0 306.3 354.8 303.8 356.2 304.6 358.0 291.6 352.7 280.8 356.8 275.2 347.7 268.6 346.3 264.5 343.5 262.1 344.1 253.3 331.9 244.8 326.8 241.4 316.8 231.5 309.6 227.8 310.2 219.9 295.5 210.9 289.6 212.5 286.1 218.3 286.0 218.2 283.1 215.9 281.5 216.6 278.3 219.4 278.4 226.6 273.5 225.3 269.9 227.2 267.9 224.0 265.4 225.0 263.3 226.6 264.9 228.4 262.2 230.5 262.4 234.3 267.2 231.9 269.8 233.0 271.6 236.5 273.8 243.7 272.7 247.8 283.0 250.5 283.8 253.4 282.6 253.2 284.2 253.3 286.7 255.2 287.4 254.4 288.6 257.5 288.2 258.2 290.5 261.9 287.6 262.1 284.3 264.9 285.8 267.4 284.1 266.3 282.3 274.1 278.6 274.1 275.4 275.8 276.2 285.4 273.5 287.2 268.6 291.4 268.2 296.8 274.0 296.1 277.0 291.8 278.3 287.2 277.2 285.7 280.1 286.7 283.7 283.9 285.8 287.3 289.0 285.6 291.0 295.5 301.2 292.2 304.2 289.7 304.3 282.6 301.4 282.6 303.5 280.1 304.7 280.0 308.9 281.2 310.8 285.0 310.9 294.8 316.2 295.4 322.5 298.1 321.9 302.8 325.8 307.2 322.9 310.8 323.7 312.3 326.5 318.0 327.3 323.0 334.6 323.8 339.5 321.3 341.2Z M255.1 317.4 254.6 317.4 255.1 317.4Z M47.5 188.7 49.5 187.5 47.6 186.3 49.6 184.0 57.3 186.5 60.4 186.3 59.2 184.4 60.7 183.1 63.3 183.6 64.2 180.6 62.9 174.1 64.5 174.2 66.5 169.4 69.2 167.9 68.6 163.5 71.1 160.4 76.2 164.1 77.7 161.6 79.7 162.2 80.7 160.8 84.5 162.0 87.3 157.0 90.3 157.2 94.0 162.5 96.2 158.4 100.2 158.5 98.7 154.0 100.6 151.5 104.5 151.9 109.7 157.6 114.6 154.7 119.6 157.6 121.7 156.1 125.9 160.3 123.0 167.2 130.2 166.0 133.8 170.6 141.4 176.2 141.8 181.3 143.6 179.8 144.8 180.7 143.1 182.4 146.5 182.3 147.0 186.6 148.5 185.3 150.6 186.5 148.4 189.9 146.1 190.4 140.8 186.0 140.3 189.7 114.2 171.6 113.3 174.5 110.2 173.1 110.1 170.7 94.6 166.8 82.1 173.0 79.5 176.1 78.8 180.9 72.0 184.3 67.4 193.1 67.8 195.4 57.9 202.1 45.8 206.3 39.9 206.0 38.1 200.3 40.9 198.9 41.2 196.2 44.9 194.2 47.5 188.7Z M158.5 30.2 158.4 32.9 160.5 34.5 165.9 34.5 168.5 38.1 171.7 38.3 174.8 41.0 175.3 44.0 170.2 47.6 172.4 48.7 173.3 53.7 171.4 57.3 171.5 62.4 167.5 69.9 170.0 74.4 169.6 79.9 172.4 82.7 175.9 81.5 176.3 79.7 184.6 79.8 175.1 93.9 175.7 105.6 179.1 106.0 178.3 112.6 180.0 113.7 182.1 112.0 184.7 115.7 191.0 119.4 194.6 125.4 197.8 123.7 200.3 124.6 199.1 127.7 203.0 128.0 203.0 130.1 210.0 134.6 204.7 133.8 197.9 135.7 194.6 133.8 186.6 136.9 180.4 134.7 179.6 132.1 174.0 136.7 170.6 136.8 166.7 134.9 165.5 132.4 163.4 133.6 154.7 128.9 151.8 130.2 147.3 123.6 144.1 125.4 143.8 123.0 142.3 124.2 143.1 126.6 140.6 125.6 139.8 128.4 137.2 124.6 135.3 127.9 131.7 126.4 131.1 123.2 129.4 125.2 128.1 123.4 127.0 126.7 125.7 125.1 121.9 126.3 117.8 135.2 116.4 135.6 115.9 137.9 118.8 139.6 119.7 142.4 116.4 145.7 118.2 147.4 118.2 150.5 115.4 151.3 114.3 149.1 114.6 150.9 113.1 150.9 112.7 148.5 113.3 146.8 110.9 142.9 107.0 142.7 106.3 138.4 104.0 137.2 102.2 132.5 99.6 131.1 99.4 128.4 93.9 131.0 91.4 129.2 91.0 130.7 88.1 129.0 87.0 123.8 83.8 121.1 85.4 118.9 83.1 119.4 84.4 116.8 81.9 113.6 84.4 109.3 87.8 110.0 89.2 113.6 90.4 113.5 93.5 110.2 91.6 108.2 97.0 107.2 94.5 101.6 91.5 100.0 88.5 87.1 85.9 86.3 84.2 83.1 86.0 79.8 84.9 75.6 91.8 68.1 91.0 64.2 92.5 61.7 97.4 64.7 94.4 69.9 99.3 72.0 101.4 77.6 99.9 79.8 101.9 79.1 105.4 80.7 107.7 75.7 103.4 71.3 105.0 69.8 104.0 67.0 107.1 65.2 106.9 61.7 114.7 54.4 116.8 48.7 114.6 41.4 115.9 37.9 119.7 37.1 121.8 39.7 124.1 37.1 124.1 45.6 127.8 50.2 134.9 50.9 136.1 47.2 137.9 48.1 145.5 45.3 147.5 47.1 147.6 51.4 150.1 52.6 149.6 54.8 153.0 55.1 155.4 53.1 152.2 48.3 154.9 43.5 149.4 41.2 149.6 35.2 152.1 30.7 158.5 30.2Z M306.2 219.8 301.0 214.9 298.5 216.0 292.1 212.4 274.6 197.1 267.9 194.4 267.1 200.6 264.4 203.2 262.0 202.9 260.8 199.6 258.5 200.6 256.6 197.6 256.3 198.8 253.0 198.3 254.0 200.2 250.6 200.2 247.4 206.8 251.3 210.2 249.5 210.2 248.9 212.1 248.4 208.9 248.1 211.5 243.2 214.2 245.0 217.1 251.3 216.0 248.8 220.2 250.0 221.4 256.1 221.1 262.3 227.7 264.1 226.6 266.0 227.3 267.1 225.0 268.9 225.4 267.8 230.0 272.9 240.3 271.4 244.1 273.8 245.8 274.3 254.9 277.7 257.1 277.8 260.5 278.8 257.9 281.1 257.4 285.8 262.7 289.2 260.6 290.2 265.3 287.2 268.6 291.4 268.2 296.0 271.3 300.6 268.2 302.2 263.6 307.7 264.3 310.4 261.3 318.8 259.0 306.2 219.8Z M254.0 217.0 253.5 216.1 254.0 217.0Z M357.2 308.0 366.1 311.3 372.2 316.0 370.4 325.3 373.1 328.8 367.2 333.8 364.4 332.5 363.3 333.8 363.5 339.2 366.5 341.8 360.4 345.1 357.0 343.7 355.5 346.1 351.4 346.2 348.7 348.7 333.0 341.0 329.7 342.1 327.8 340.5 325.9 343.9 327.3 347.4 324.3 347.1 321.5 343.1 323.6 337.6 320.0 330.1 323.4 330.5 325.6 327.1 327.2 328.8 327.8 326.6 331.0 326.4 329.0 321.8 334.9 317.0 337.6 319.8 339.0 318.9 341.1 320.2 342.2 325.4 344.0 325.7 356.6 310.0 356.8 307.7Z M79.3 40.0 80.7 44.3 78.7 50.5 79.5 53.6 83.3 55.6 86.8 61.6 91.5 62.8 91.8 68.0 84.9 75.5 86.0 79.7 84.2 83.0 85.9 86.3 88.5 87.0 91.5 99.9 94.5 101.5 97.0 107.1 91.6 108.1 93.4 110.1 90.4 113.4 89.1 113.5 87.8 109.9 84.4 109.2 81.8 113.5 84.4 116.7 83.0 119.3 85.3 118.8 83.8 121.0 86.9 123.7 88.1 128.9 90.9 130.6 91.3 129.1 93.9 130.9 99.3 128.3 99.6 131.1 102.2 132.4 103.9 137.2 106.2 138.3 106.9 142.7 110.9 142.8 113.2 146.7 112.7 156.3 109.6 157.5 104.5 151.8 101.9 151.2 98.7 153.9 100.1 158.4 96.2 158.3 94.0 162.5 90.3 157.1 87.2 157.0 84.5 162.0 80.7 160.7 79.7 162.2 77.7 161.6 76.2 164.1 71.1 160.4 68.6 163.5 69.2 167.9 66.5 169.4 64.5 174.2 62.9 174.1 63.9 176.1 63.0 179.5 64.3 182.3 59.2 184.4 60.4 186.3 49.7 184.0 47.6 186.3 49.5 187.5 48.2 188.9 45.5 184.6 46.2 181.9 31.9 185.5 31.3 183.7 28.5 184.0 24.5 180.3 16.6 178.2 16.1 175.5 11.4 170.5 11.6 166.9 14.1 166.4 10.0 160.2 14.9 154.9 14.7 151.4 19.7 150.8 16.3 144.5 17.3 142.4 13.5 140.0 10.4 140.7 5.5 137.3 5.2 130.6 2.1 130.3 0.0 125.0 6.2 121.6 9.8 123.6 11.7 123.0 11.7 121.1 14.0 121.0 16.4 117.9 19.4 118.4 21.8 116.3 21.2 111.2 24.6 106.4 21.4 104.7 22.4 99.5 22.7 102.0 26.1 102.3 28.1 99.7 32.9 99.5 37.8 95.4 41.1 94.8 42.9 96.6 48.4 97.4 52.6 94.4 55.7 94.8 57.3 92.0 55.8 88.8 57.2 86.4 54.0 82.2 54.7 70.8 59.5 69.5 61.6 66.5 61.5 63.0 66.7 60.2 66.1 55.2 63.4 53.0 66.1 50.3 69.2 49.9 73.6 45.5 73.4 42.6 76.0 40.9Z M410.7 314.7 418.1 318.5 418.6 323.2 417.1 326.1 405.7 334.2 405.8 339.0 407.9 343.1 435.5 357.8 457.7 366.2 474.7 379.8 490.0 387.5 494.8 388.1 495.3 390.4 498.4 390.5 500.9 397.2 508.0 401.8 516.0 410.4 520.0 419.5 515.3 428.6 514.5 437.6 512.6 439.2 499.5 431.3 497.1 427.3 498.0 425.2 496.2 424.2 497.9 421.1 491.2 411.0 476.0 410.4 462.6 404.0 464.7 401.2 458.7 397.6 452.4 399.7 447.6 405.4 445.1 401.2 441.4 399.8 440.6 386.9 439.0 384.5 435.1 383.7 433.5 385.8 431.8 383.7 428.8 387.2 427.5 386.8 421.3 380.2 418.8 374.7 417.0 374.1 415.2 375.8 409.1 372.5 411.7 367.8 404.4 362.1 399.9 365.2 390.9 364.7 390.0 366.8 383.8 363.8 379.0 364.7 375.3 361.2 378.4 355.6 375.1 353.4 372.1 353.5 372.0 351.6 369.4 350.7 370.6 345.0 363.6 339.3 364.5 332.6 367.3 333.9 373.2 328.8 370.5 325.3 372.3 316.1 385.0 317.6 410.7 314.7Z M76.3 477.2 78.7 477.5 80.5 480.6 79.5 485.3 78.2 486.1 75.8 481.5 76.3 477.2Z M74.2 363.0 75.5 364.7 74.7 367.0 72.4 365.9 70.5 368.5 71.4 370.9 69.4 370.6 69.9 367.5 74.2 363.0Z M114.0 355.0 116.4 359.3 119.8 357.9 120.2 359.5 122.4 359.6 123.3 364.6 124.3 361.7 126.7 360.8 128.7 363.2 126.2 369.4 128.5 367.8 128.0 369.7 129.9 368.6 133.0 370.2 129.3 370.9 129.0 374.0 125.9 374.0 129.7 376.1 132.1 374.6 130.8 376.2 132.7 377.1 132.3 378.3 135.5 379.2 134.0 379.4 133.3 382.3 136.9 388.8 136.9 393.1 140.1 397.0 137.4 404.8 131.3 412.4 132.5 418.8 135.9 423.6 133.9 428.5 135.3 431.3 133.7 432.8 132.2 457.7 130.1 464.1 131.6 466.9 129.3 468.8 128.3 476.4 126.7 478.4 125.9 476.5 123.0 476.9 116.8 471.8 113.1 471.0 110.8 473.5 108.6 471.8 104.7 475.3 105.9 480.6 104.3 484.1 97.7 490.5 91.7 487.0 88.2 491.2 84.8 481.2 80.9 480.3 80.7 477.4 79.2 477.4 79.2 474.9 76.2 471.7 79.1 467.3 76.4 462.6 78.1 459.9 77.0 457.2 80.7 449.8 79.6 441.0 82.3 442.9 84.4 435.1 83.1 432.8 79.4 434.3 77.5 432.5 78.2 426.2 76.6 425.3 81.5 422.7 80.1 417.2 81.2 411.0 76.9 408.0 77.7 403.9 73.3 393.6 69.1 394.9 68.8 392.0 66.8 394.2 66.5 391.7 69.2 388.2 66.0 385.5 70.0 376.5 68.0 373.7 69.2 371.6 73.9 378.9 84.8 379.6 90.6 374.9 94.9 374.3 104.5 362.8 111.3 360.2 110.2 355.7 112.4 356.5 114.0 355.0Z M122.2 354.4 123.1 357.4 120.2 356.7 122.2 354.4Z M233.1 602.9 237.3 605.1 236.2 608.5 231.8 604.9 233.1 602.9Z M248.5 541.8 251.1 543.4 250.5 544.5 247.6 543.9 246.9 542.7 248.5 541.8Z M390.6 522.7 395.0 524.6 391.4 526.3 388.0 535.1 375.5 552.8 374.0 562.6 370.0 567.6 370.5 576.6 375.2 578.1 377.5 580.9 376.0 582.4 374.7 581.1 374.4 583.9 376.9 586.2 376.5 587.8 379.2 588.4 378.3 592.0 380.9 594.0 378.3 593.8 372.9 598.9 370.4 605.1 372.4 611.3 369.8 613.3 367.0 610.4 364.4 610.9 360.9 608.9 356.7 610.3 344.1 605.9 339.1 596.3 334.0 591.1 325.6 588.2 317.1 588.7 307.7 583.6 303.0 578.7 298.5 578.2 290.7 572.9 286.0 567.2 279.6 567.1 275.2 562.7 264.6 563.6 261.6 559.2 255.9 555.9 253.7 550.3 256.3 546.3 255.1 544.4 257.7 539.8 256.5 538.4 263.0 535.2 263.9 533.2 266.1 533.3 267.0 528.8 268.7 529.4 270.6 534.9 274.5 538.0 282.2 534.5 281.1 531.7 283.5 528.6 287.2 529.9 292.7 526.9 295.6 533.3 302.3 533.1 303.7 537.1 312.4 540.9 323.6 537.0 335.1 538.8 343.5 537.4 350.5 535.1 355.3 530.0 357.1 530.8 362.6 528.6 370.6 532.4 375.9 528.4 376.1 524.2 377.0 527.2 378.9 527.8 390.6 522.7Z M364.5 516.1 366.3 518.8 364.0 518.0 364.5 516.1Z M165.9 260.5 166.6 265.7 164.5 266.9 166.6 268.4 166.1 270.0 162.6 266.6 161.6 268.3 160.8 266.9 160.1 268.3 158.2 267.5 158.0 268.9 154.3 268.5 152.0 266.5 153.7 263.9 158.3 265.2 159.1 262.7 163.1 264.5 165.9 260.5Z M245.2 204.3 243.7 206.4 242.5 205.0 245.2 204.3Z M133.7 170.5 139.7 164.2 144.2 163.7 147.7 165.7 148.2 169.0 151.8 171.5 153.9 171.0 158.7 176.1 160.7 175.1 168.9 179.1 173.5 185.6 175.7 183.0 180.5 183.1 187.5 188.8 191.7 184.2 192.8 186.8 202.8 186.5 200.2 183.3 203.6 183.2 209.9 178.3 214.0 183.1 218.2 182.9 217.1 185.6 224.0 185.0 219.6 193.2 222.7 197.4 222.5 200.1 234.4 207.0 238.3 208.3 242.2 206.9 243.5 208.9 244.2 207.2 247.4 206.8 251.3 210.3 249.5 210.3 249.0 212.1 248.5 208.9 248.1 211.6 243.2 214.2 244.4 216.1 241.6 221.0 239.3 221.3 241.3 224.6 236.2 228.0 238.3 228.6 238.4 230.9 240.2 230.9 240.9 235.1 242.8 235.8 243.6 233.9 244.9 235.0 239.2 238.6 236.6 237.9 236.2 241.3 231.8 243.9 231.8 248.2 234.3 249.8 232.3 258.2 233.3 260.4 227.1 263.2 226.6 264.9 225.0 263.4 224.0 265.5 227.2 268.0 225.3 270.0 226.6 273.6 219.4 278.4 216.7 278.4 215.9 281.5 218.3 283.2 218.4 286.1 212.6 286.2 211.0 289.7 202.8 287.2 198.0 290.7 195.1 286.6 198.6 286.1 199.4 284.4 198.2 278.7 196.7 279.0 195.1 274.8 191.6 273.3 188.9 268.1 179.6 264.5 181.2 263.6 181.5 258.1 177.3 255.7 169.3 256.8 168.8 253.4 170.3 252.7 171.2 247.4 170.7 237.9 160.7 220.7 158.2 200.5 153.9 194.0 148.5 190.0 150.6 186.6 148.6 185.4 147.1 186.6 146.5 182.4 143.2 182.5 144.9 180.8 143.6 179.9 141.9 181.4 141.5 176.3 133.7 170.5Z M243.9 0.4 245.4 1.5 243.9 4.1 240.3 5.4 242.4 10.0 241.2 11.6 244.4 14.0 247.1 13.4 248.4 16.1 247.4 19.7 250.5 20.3 251.7 23.9 256.0 26.4 251.7 28.6 251.6 30.1 246.3 29.5 243.4 31.8 243.4 29.9 238.0 26.7 235.0 35.6 227.0 37.8 226.9 39.2 230.0 40.7 227.8 46.2 225.1 46.8 227.6 48.8 227.5 51.7 232.0 53.6 231.3 55.3 233.4 57.2 230.5 61.6 221.5 63.4 222.3 66.4 220.5 66.9 220.7 71.5 217.1 71.2 215.0 68.3 207.8 70.3 206.7 75.0 204.5 73.2 204.6 74.4 202.5 74.2 200.3 82.9 199.0 82.7 199.1 85.8 196.9 88.7 192.1 86.7 188.9 89.5 188.2 87.7 184.5 86.9 186.8 81.2 184.6 79.8 176.3 79.7 175.9 81.5 171.3 82.6 171.5 80.7 169.6 79.9 169.0 71.0 167.5 70.7 168.6 65.9 171.5 62.4 171.4 57.3 173.3 53.7 172.4 48.7 170.2 47.6 175.3 44.0 173.9 39.8 168.5 38.0 167.5 35.7 169.1 30.7 165.2 29.1 165.2 22.9 167.0 21.4 166.0 19.2 168.5 15.0 171.5 16.4 176.7 13.9 180.9 17.3 179.4 19.5 192.2 20.9 194.9 17.4 195.5 11.5 198.5 8.2 205.3 6.5 209.0 8.2 212.3 5.2 214.8 7.0 218.4 5.1 224.0 7.9 243.0 0.0Z M253.8 217.3 253.4 216.1 253.8 217.3Z M244.4 216.0 247.9 217.5 251.3 215.9 248.8 220.1 252.2 222.2 253.5 220.4 256.8 221.4 262.2 227.6 268.9 225.4 267.8 230.0 272.9 240.2 271.4 244.0 274.2 247.2 274.2 254.8 277.7 257.0 277.8 260.5 278.8 257.9 281.1 257.3 285.8 262.7 289.2 260.6 290.4 263.7 289.4 266.9 287.4 266.9 285.4 273.5 275.8 276.2 274.1 275.4 274.1 278.6 266.2 282.3 267.4 284.1 263.8 285.8 262.1 284.3 261.9 287.6 258.2 290.4 257.5 288.2 254.4 288.6 253.4 282.6 250.5 283.9 247.8 283.0 243.7 272.7 236.5 273.8 231.9 269.8 234.3 267.2 230.6 262.4 233.3 260.3 232.3 258.2 234.3 249.8 232.5 249.5 231.4 245.0 236.2 241.3 236.6 237.9 239.2 238.6 244.9 235.0 243.6 234.0 242.8 235.9 240.9 235.1 240.2 231.0 236.3 228.0 241.3 224.6 239.4 221.3 241.7 221.0 244.4 216.0Z M41.6 70.1 45.3 70.6 47.8 74.0 49.2 73.0 54.0 74.5 54.0 82.2 57.2 86.4 55.8 88.8 57.3 92.0 55.7 94.8 52.6 94.4 48.4 97.4 42.9 96.6 41.1 94.8 37.8 95.4 32.9 99.5 28.1 99.7 26.1 102.3 22.7 102.0 22.4 99.5 20.8 102.6 16.4 100.2 16.4 91.8 12.7 91.1 8.0 86.6 8.5 79.5 13.8 78.9 18.2 74.0 20.9 78.1 23.1 76.8 24.7 78.1 29.2 74.2 33.2 75.7 38.1 71.6 40.0 72.0 40.2 70.2Z M257.3 26.4 259.7 28.1 266.2 28.3 267.7 35.1 262.6 37.0 263.9 39.9 258.2 40.0 255.3 45.9 253.1 48.7 250.6 49.2 249.1 52.5 256.7 59.7 256.4 62.7 252.4 66.8 253.8 72.6 257.2 74.0 259.2 79.9 262.6 80.0 263.7 82.6 269.3 78.4 270.4 80.5 272.7 78.7 275.7 80.8 277.1 79.0 279.1 86.4 280.0 85.8 283.2 91.7 277.8 91.7 253.8 105.7 252.4 104.9 249.5 109.5 247.9 116.7 249.0 117.0 249.4 125.8 252.0 129.5 250.9 130.1 252.6 131.1 253.2 129.3 256.8 133.9 255.4 141.0 254.0 140.5 254.3 138.1 252.7 138.0 252.4 142.2 253.7 143.0 252.5 144.1 247.7 139.4 247.2 134.9 243.2 135.9 241.3 135.8 239.3 133.2 233.6 132.3 226.4 132.9 218.8 138.3 215.0 135.6 210.1 135.9 209.8 133.8 203.0 130.1 203.0 128.0 199.1 127.8 200.3 124.7 197.8 123.7 194.6 125.4 191.0 119.5 184.7 115.7 182.1 112.1 180.0 113.8 178.3 112.6 179.2 106.1 175.8 105.7 175.2 93.9 184.6 79.9 186.9 81.3 184.6 87.0 188.2 87.8 188.9 89.6 192.2 86.8 197.0 88.8 202.6 74.3 204.6 74.5 204.6 73.3 206.8 75.1 207.8 70.4 210.9 70.6 213.3 68.7 216.7 69.0 217.2 71.4 220.8 71.6 220.6 67.0 222.3 66.5 221.5 63.5 230.6 61.7 233.5 57.3 231.4 55.5 232.1 53.8 227.6 51.8 227.7 49.0 225.2 46.9 227.9 46.3 230.1 40.9 227.0 39.3 227.1 37.9 235.1 35.7 238.0 26.8 243.4 30.0 243.5 32.0 246.4 29.7 251.7 30.3 251.8 28.7 257.3 26.4Z'/%3E%3C/svg%3E") calc(50% + 330px) 40% / auto 165% no-repeat,
+                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
+  color: #fff;
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+@media (max-width: 860px) { .fascia { background-position: calc(100% + 60px) 40%, 0 0; background-size: auto 140%, auto; } }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
+.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 22px auto 0; }
+/* sfondo bianco fisso anche al buio: testo e lente con colori scuri fissi, mai var(--inchiostro) */
+.cerca input { width: 100%; font: inherit; color: #13203A; background: #fff; border: 0; border-radius: 14px;
+  padding: 15px 18px 15px 50px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.cerca input::placeholder { color: #5D6B84; opacity: 1; }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: #5D6B84; }
+
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border-radius: 18px; box-shadow: var(--ombra); padding: 20px 22px; min-width: 0; }
+
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--accento);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.22em; line-height: 1.25; color: var(--inchiostro); }
+.desc { color: var(--inchiostro-tenue); font-size: .93em; line-height: 1.4; margin-top: 2px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 30px 10px 0; position: relative; line-height: 1.4; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--accento); border-bottom: 2px solid var(--accento); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--inchiostro-tenue); font-size: .95em; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: .93em; }
+th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--linea); vertical-align: top; }
+th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
+td:last-child { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.appname { display: block; font-weight: 600; }
+.plat { display: inline-block; margin-top: 4px; padding: 1px 8px; border-radius: 99px; background: var(--accento-tenue);
+  color: var(--accento); font-size: .8em; font-weight: 600; white-space: nowrap; }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .cta { color: #0A1428; } }
+a[href^="mailto:"] { white-space: nowrap; }
+.nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
+.sintesi { background: var(--accento-tenue); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--inchiostro-tenue); font-size: .85em; text-align: center; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<main>
-  <div class="logo">
-    <img src="icon.png" width="44" height="44" alt="" style="border-radius:10px;display:block">
-    <h1>Indovina la Regione — Assistenza</h1>
-  </div>
-  <p class="tag">Impara le 20 regioni d'Italia su iPhone e iPad: la regione si accende sulla cartina e ne esce
-  ingrandita, tu la riconosci il più in fretta possibile. Due modalità, bonus di velocità e classifiche Game Center.</p>
-
-  <h2>Contatti</h2>
-  <p>Domande, problemi o suggerimenti? Scrivici — di solito rispondiamo entro un paio di giorni.</p>
-  <a class="cta" href="mailto:bacchin@tiscali.it?subject=Assistenza%20Indovina%20la%20Regione">Scrivi all'assistenza</a>
-
-  <h2>Le app</h2>
-  <div class="card">
-    <table>
+<div class="fascia">
+  <div class="barra"><a class="marchio" href="support-regione.html"><img src="icon.png" alt="">Indovina la Regione</a></div>
+  <div class="titolo"><p class="eti">Assistenza</p><h1>Come possiamo aiutarti?</h1><p class="agg">Ultimo aggiornamento 27 novembre 2026 · vale dalla versione 5.0.1</p></div>
+  <div class="cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/></svg><input id="cerca" type="search" autocomplete="off" aria-label="Cerca fra le domande" placeholder="Cerca fra le domande…" oninput="filtra()"></div>
+</div>
+<main><div class="griglia"><section class="riquadro sintesi"><p>Impara le 20 regioni d'Italia su iPhone e iPad: la regione si accende sulla cartina e ne esce ingrandita, tu la riconosci il più in fretta possibile. Due modalità, bonus di velocità e classifiche Game Center.</p></section><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="gioco"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5 3.5 6.5v13l5.5-2 6 2 5.5-2v-13l-5.5 2z"/><path d="M9 4.5v13M15 6.5v13"/></svg></span><div><h2>Come si gioca</h2><p class="desc">Il turno, la cartina e iPad.</p></div></header><div class="domande"><details><summary>Come si gioca?</summary><p>A ogni turno una regione si accende di giallo sulla cartina e ne esce una copia ingrandita, così si vedono bene anche le più piccole come Molise o Valle d'Aosta. Riconoscila il più in fretta possibile: quando le hai indovinate tutte e 20, la partita è finita.</p></details><details><summary>Funziona anche su iPad?</summary><p>Sì: dalla versione 5.0 Indovina la Regione è un'unica app per iPhone e iPad, con la cartina sempre intera, in verticale e in orizzontale.</p></details></div></section><section style="order:2" class="riquadro" id="punti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5V9.5M10 2.5h4M18.5 6.5l1.2-1.2"/></svg></span><div><h2>Punti e timer</h2><p class="desc">Bonus di velocità, errori e quando il tempo si ferma.</p></div></header><div class="domande"><details><summary>Come si calcolano i punti?</summary><p>Ogni risposta giusta vale 100 punti più un bonus di velocità, che parte da 100 e scende a zero in 20 secondi: il colore del timer e la barra mostrano quanto bonus resta. Nella Classica, se sbagli prima di indovinare, i punti di quella regione si dividono per il numero di tentativi. Ogni risposta sbagliata toglie 10 punti, ma il punteggio non scende mai sotto zero.</p></details><details><summary>Il timer continua a correre se mi fermo?</summary><p>No. Si ferma durante i messaggi «Esatto!» e «Sbagliato!», quando tocchi <strong>⏸</strong> (pausa), quando apri la schermata <strong>&#9432;</strong> e quando esci dall'app. Riprende da dove era rimasto.</p></details></div></section><section style="order:4" class="riquadro" id="acquisti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg></span><div><h2>Senza pubblicità</h2><p class="desc">Cosa sblocca, come ripristinarlo e disdirlo.</p></div></header><div class="domande"><details><summary>Perché la Scelta multipla ha il lucchetto?</summary><p>La Scelta multipla si sblocca con «Rimuovi la pubblicità»: con lo stesso acquisto togli gli annunci e apri la modalità. In Scelta multipla non compaiono mai annunci.</p></details><details><summary>Come tolgo la pubblicità?</summary><p>Nella schermata <strong>&#9432;</strong> tocca <strong>«Rimuovi la pubblicità»</strong>, oppure tocca la Scelta multipla con il lucchetto: puoi scegliere un abbonamento annuale oppure un acquisto una tantum, che vale per sempre. Da quel momento l'app non mostra più annunci e la Scelta multipla è sbloccata.</p></details><details><summary>Ho cambiato iPhone o reinstallato l'app: come recupero l'acquisto?</summary><p>Nella schermata «Rimuovi la pubblicità» tocca <strong>«Ripristina acquisti»</strong>, con lo stesso Apple ID usato per comprare. Non serve alcun account.</p></details><details><summary>Come disdico l'abbonamento?</summary><p>Dalle impostazioni del tuo account App Store: Impostazioni → il tuo nome → Abbonamenti. Chi ha un abbonamento attivo trova anche il pulsante <strong>«Gestisci abbonamento»</strong> nella schermata «Rimuovi la pubblicità». Va disdetto almeno 24 ore prima della scadenza, altrimenti si rinnova.</p></details></div></section><section style="order:6" class="riquadro" id="versioni"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2.5"/><path d="M6.5 6h11M9 3h6"/></svg></span><div><h2>Le versioni precedenti</h2><p class="desc">Classic, Kids e le vecchie app per iPad.</p></div></header><div class="domande"><details><summary>Avevo comprato una vecchia versione a pagamento: devo pagare di nuovo?</summary><p>La vecchia app resta tua e continua a funzionare senza pubblicità, anche se non è più in vendita e non riceve più aggiornamenti. Se l'hai cancellata, puoi riscaricarla dagli acquisti del tuo account App Store. La nuova Indovina la Regione è un'app diversa per l'App Store, quindi l'acquisto non si trasferisce. Se avevi pagato una delle vecchie versioni, scrivici a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>: ti regaliamo la nuova app senza pubblicità, per sempre.</p></details></div><div class="testo"><div class="scorre"><table>
       <tr><th>App</th><th>Che cos'è</th></tr>
       <tr><td><span class="appname">Indovina la Regione</span><span class="plat">iPhone e iPad</span></td><td>L'app attuale, gratuita, sostenuta dalla pubblicità, che si può togliere con un acquisto.</td></tr>
       <tr><td><span class="appname">Indovina la Regione Classic</span><span class="plat">iPhone</span></td><td>La vecchia versione a pagamento, senza pubblicità, non più in vendita. Chi l'ha acquistata può continuare a usarla.</td></tr>
       <tr><td><span class="appname">Indovina la Regione Kids</span><span class="plat">iPhone</span></td><td>La vecchia versione per bambini, non più in vendita: oggi è la modalità Scelta multipla di Indovina la Regione.</td></tr>
       <tr><td><span class="appname">Indovina la Regione HD, HD Light e HD Kids</span><span class="plat">iPad</span></td><td>Le vecchie versioni per iPad, non più in vendita: oggi Indovina la Regione funziona anche su iPad.</td></tr>
-    </table>
-  </div>
-
-  <h2>Domande frequenti</h2>
-  <div class="card">
-    <details>
-      <summary>Come si gioca?</summary>
-      <p>A ogni turno una regione si accende di giallo sulla cartina e ne esce una copia ingrandita, così si vedono
-      bene anche le più piccole come Molise o Valle d'Aosta. Riconoscila il più in fretta possibile: quando le hai
-      indovinate tutte e 20, la partita è finita.</p>
-    </details>
-    <details>
-      <summary>Che differenza c'è tra Classica e Scelta multipla?</summary>
-      <p>Nella <strong>Classica</strong> scrivi il nome della regione e hai tre tentativi. Nella <strong>Scelta
-      multipla</strong> scegli fra quattro risposte e hai due tentativi: è la modalità ideale per i più piccoli.
-      Ognuna ha la sua classifica.</p>
-    </details>
-    <details>
-      <summary>Come cambio modalità?</summary>
-      <p>Tocca <strong>↺</strong> (Ricomincia) in alto: torni alla schermata iniziale e scegli l'altra modalità. La
-      partita in corso ricomincia da capo.</p>
-    </details>
-    <details>
-      <summary>Perché la Scelta multipla ha il lucchetto?</summary>
-      <p>La Scelta multipla si sblocca con «Rimuovi la pubblicità»: con lo stesso acquisto togli gli annunci e apri
-      la modalità. In Scelta multipla non compaiono mai annunci.</p>
-    </details>
-    <details>
-      <summary>Come si calcolano i punti?</summary>
-      <p>Ogni risposta giusta vale 100 punti più un bonus di velocità, che parte da 100 e scende a zero in 20 secondi:
-      il colore del timer e la barra mostrano quanto bonus resta. Nella Classica, se sbagli prima di indovinare, i punti
-      di quella regione si dividono per il numero di tentativi. Ogni risposta sbagliata toglie 10 punti, ma il
-      punteggio non scende mai sotto zero.</p>
-    </details>
-    <details>
-      <summary>Devo scrivere il nome esatto, con accenti e trattini?</summary>
-      <p>No: maiuscole, accenti, apostrofi e trattini non contano. «valle d'aosta», «Valle d’Aosta» ed
-      «Emilia Romagna» vanno bene. Sono accettati anche i nomi alternativi più comuni, come «Friuli» o «Trentino».</p>
-    </details>
-    <details>
-      <summary>Non so la risposta: posso passare oltre?</summary>
-      <p>Sì, tocca <strong>«Salta questa regione»</strong>: passi alla successiva e quella saltata ritorna più
-      avanti nella stessa partita.</p>
-    </details>
-    <details>
-      <summary>Il timer continua a correre se mi fermo?</summary>
-      <p>No. Si ferma durante i messaggi «Esatto!» e «Sbagliato!», quando tocchi <strong>⏸</strong> (pausa) e
-      quando esci dall'app. Riprende da dove era rimasto.</p>
-    </details>
-    <details>
-      <summary>Come funzionano le classifiche?</summary>
-      <p>Quando indovini tutte e 20 le regioni, il punteggio va alla classifica di Game Center della modalità
-      giocata. Le classifiche sono due, Classica e Scelta multipla, le stesse su iPhone e iPad. Le apri dalla
-      schermata <strong>&#9432;</strong> o al termine della partita con «Vedi la classifica». Serve essere collegati
-      a Game Center nelle Impostazioni di iOS.</p>
-    </details>
-    <details>
-      <summary>Funziona anche su iPad?</summary>
-      <p>Sì: dalla versione 5.0 Indovina la Regione è un'unica app per iPhone e iPad, con la cartina sempre intera,
-      in verticale e in orizzontale.</p>
-    </details>
-    <details>
-      <summary>Come tolgo la pubblicità?</summary>
-      <p>Nella schermata <strong>&#9432;</strong> tocca <strong>«Rimuovi la pubblicità»</strong>, oppure tocca la
-      Scelta multipla con il lucchetto: puoi scegliere un abbonamento annuale oppure un acquisto una tantum, che vale
-      per sempre. Da quel momento l'app non mostra più annunci e la Scelta multipla è sbloccata.</p>
-    </details>
-    <details>
-      <summary>Ho cambiato iPhone o reinstallato l'app: come recupero l'acquisto?</summary>
-      <p>Nella schermata «Rimuovi la pubblicità» tocca <strong>«Ripristina acquisti»</strong>, con lo stesso Apple ID
-      usato per comprare. Non serve alcun account.</p>
-    </details>
-    <details>
-      <summary>Come disdico l'abbonamento?</summary>
-      <p>Dalle impostazioni del tuo account App Store: Impostazioni → il tuo nome → Abbonamenti. Chi ha un
-      abbonamento attivo trova anche il pulsante <strong>«Gestisci abbonamento»</strong> nella schermata «Rimuovi la
-      pubblicità». Va disdetto almeno 24 ore prima della scadenza, altrimenti si rinnova.</p>
-    </details>
-    <details>
-      <summary>Avevo comprato una vecchia versione a pagamento: devo pagare di nuovo?</summary>
-      <p>La vecchia app resta tua e continua a funzionare senza pubblicità, anche se non è più in vendita e non riceve
-      più aggiornamenti. Se l'hai cancellata, puoi riscaricarla dagli acquisti del tuo account App Store. La nuova
-      Indovina la Regione è un'app diversa per l'App Store, quindi l'acquisto non si trasferisce.</p>
-    </details>
-    <details>
-      <summary>Gli annunci sono adatti ai bambini?</summary>
-      <p>L'app chiede a Google solo annunci adatti a tutte le età. Se preferisci non vederne affatto, puoi toglierli
-      con «Rimuovi la pubblicità» oppure giocare in Scelta multipla, che non ne mostra mai.</p>
-    </details>
-    <details>
-      <summary>Come cambio la mia scelta sulla privacy pubblicitaria?</summary>
-      <p>Per il consenso di Google tocca <strong>&#9432;</strong> e poi «Impostazioni privacy» (l'opzione compare dove
-      le regole europee lo richiedono). Per il tracciamento tra app vai in Impostazioni di iOS → Privacy e sicurezza →
-      Tracciamento. Per i dettagli vedi l'<a href="privacy-regione.html">informativa sulla privacy</a>.</p>
-    </details>
-    <details>
-      <summary>Non ricevo le notifiche</summary>
-      <p>Controlla in Impostazioni di iOS → Notifiche → Indovina Regione che siano autorizzate. Le notifiche sono
-      facoltative e vengono usate solo per qualche occasionale novità sull'app.</p>
-    </details>
-  </div>
-
-  <h2>Segnalare un problema</h2>
-  <p>Per aiutarci a riprodurlo in fretta, indica il modello di iPhone o iPad, la versione di iOS e la versione con la
-  build dell'app (le trovi in fondo alla schermata &#9432;), più cosa stavi facendo appena prima che il problema si
-  presentasse.</p>
-
-  <footer>
-    © 2026 Fabrizio Bacchin · <a href="privacy-regione.html">Informativa sulla privacy</a>
-  </footer>
-</main>
+    </table></div></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="modalita"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M7.5 9h2M12 9h4.5M7.5 13h2M12 13h4.5M7.5 17h2M12 17h4.5"/></svg></span><div><h2>Modalità e risposte</h2><p class="desc">Classica o Scelta multipla, i nomi da scrivere, saltare.</p></div></header><div class="domande"><details><summary>Che differenza c'è tra Classica e Scelta multipla?</summary><p>Nella <strong>Classica</strong> scrivi il nome della regione e hai tre tentativi. Nella <strong>Scelta multipla</strong> scegli fra quattro risposte e hai due tentativi: è la modalità ideale per i più piccoli. Ognuna ha la sua classifica.</p></details><details><summary>Come cambio modalità?</summary><p>Tocca <strong>↺</strong> (Ricomincia) in alto: torni alla schermata iniziale e scegli l'altra modalità. La partita in corso ricomincia da capo.</p></details><details><summary>Devo scrivere il nome esatto, con accenti e trattini?</summary><p>No: maiuscole, accenti, apostrofi e trattini non contano. «valle d'aosta», «Valle d’Aosta» ed «Emilia Romagna» vanno bene. Sono accettati anche i nomi alternativi più comuni, come «Friuli» o «Trentino».</p></details><details><summary>Non so la risposta: posso passare oltre?</summary><p>Sì, tocca <strong>«Salta questa regione»</strong>: passi alla successiva e quella saltata ritorna più avanti nella stessa partita.</p></details></div></section><section style="order:3" class="riquadro" id="classifiche"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 6H4.5a3 3 0 0 0 3 4M16.5 6h3a3 3 0 0 1-3 4M12 13.5V17M8.5 20.5h7M9.5 17h5v3.5h-5z"/></svg></span><div><h2>Classifiche e recensioni</h2><p class="desc">Game Center e come lasciare una valutazione.</p></div></header><div class="domande"><details><summary>Come funzionano le classifiche?</summary><p>Quando indovini tutte e 20 le regioni, il punteggio va alla classifica di Game Center della modalità giocata. Le classifiche sono due, Classica e Scelta multipla, le stesse su iPhone e iPad. Le apri dalla schermata <strong>&#9432;</strong> o al termine della partita con «Vedi la classifica». Serve essere collegati a Game Center nelle Impostazioni di iOS.</p></details><details><summary>Come lascio una recensione?</summary><p>Nella schermata <strong>&#9432;</strong> tocca <strong>«⭐️ Valuta l'app»</strong>: si apre direttamente la pagina dell'App Store per scrivere la recensione. Dopo qualche partita completata può comparire anche la richiesta di valutazione di iOS, al massimo una volta per versione.</p></details></div></section><section style="order:5" class="riquadro" id="privacy"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.1-7.5 9.5-4.3-1.4-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h2>Pubblicità e privacy</h2><p class="desc">Annunci per tutte le età, le tue scelte, le notifiche.</p></div></header><div class="domande"><details><summary>Gli annunci sono adatti ai bambini?</summary><p>L'app chiede a Google solo annunci adatti a tutte le età. Se preferisci non vederne affatto, puoi toglierli con «Rimuovi la pubblicità» oppure giocare in Scelta multipla, che non ne mostra mai.</p></details><details><summary>Come cambio la mia scelta sulla privacy pubblicitaria?</summary><p>Per il consenso di Google tocca <strong>&#9432;</strong> e poi «Impostazioni privacy» (l'opzione compare dove le regole europee lo richiedono). Per il tracciamento tra app vai in Impostazioni di iOS → Privacy e sicurezza → Tracciamento. Per i dettagli vedi l'<a href="privacy-regione.html">informativa sulla privacy</a>.</p></details><details><summary>Non ricevo le notifiche</summary><p>Controlla in Impostazioni di iOS → Notifiche → Indovina Regione che siano autorizzate. Le notifiche sono facoltative e vengono usate solo per qualche occasionale novità sull'app.</p></details></div></section><section style="order:7" class="riquadro" id="problema"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5a5 5 0 0 0-4.7 6.7L3.5 17.5V20.5h3v-2h2v-2h2l1.3-1.3a5 5 0 1 0 2.7-10.7z"/><circle cx="15.5" cy="8.5" r="1.2"/></svg></span><div><h2>Segnalare un problema</h2><p class="desc">Cosa ci aiuta a riprodurlo in fretta.</p></div></header><div class="testo"><p>Per aiutarci a riprodurlo in fretta, indica il modello di iPhone o iPad, la versione di iOS e la versione con la build dell'app (le trovi in fondo alla schermata &#9432;), più cosa stavi facendo appena prima che il problema si presentasse.</p></div></section></div></div><section class="riquadro contatti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><h2>Non hai trovato la risposta?</h2><p class="desc">Scrivici: di solito rispondiamo entro un paio di giorni.</p></div></header><a class="cta" href="mailto:bacchin@tiscali.it?subject=Assistenza%20Indovina%20la%20Regione">Scrivi all'assistenza</a></section><p class="nessuno" hidden>Nessuna domanda corrisponde. Scrivici e ti rispondiamo.</p></div></main>
+<footer>© 2026 Fabrizio Bacchin · <a href="privacy-regione.html">Informativa sulla privacy</a></footer>
+<script>
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var q = norm(document.getElementById("cerca").value.trim()), trovati = 0;
+  document.querySelectorAll(".griglia .riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti") || r.classList.contains("sintesi")) return;
+    var visibili = 0;
+    r.querySelectorAll("details").forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var okR = !q || visibili > 0 || norm(r.textContent).indexOf(q) >= 0;
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  document.querySelector(".nessuno").hidden = trovati > 0;
+}
+</script>
 </body>
 </html>
