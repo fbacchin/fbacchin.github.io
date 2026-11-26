@@ -438,7 +438,7 @@
     });
 
   /* Gottardo — stesso campione che legge l'app */
-  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
+  fetch('https://widget.bacchin.app/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       function verso(v) {

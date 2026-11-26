@@ -62,7 +62,6 @@
       <div><dt>Plattform</dt><dd>iPhone</dd></div>
       <div><dt>Sprachen</dt><dd>Italienisch, Englisch, Deutsch und Französisch</dd></div>
       <div><dt>Quellen</dt><dd>ASTRA / VMZ-CH über opentransportdata.swiss · Apple Maps · Apple Weather / Open-Meteo</dd></div>
-      <div><dt>Der Collector</dt><dd><a href="https://fbacchin.github.io/app/gotthard/">Wie er die Daten sammelt, auf GitHub Actions</a></dd></div>
       <div><dt>App Store</dt><dd><a href="https://apps.apple.com/de/app/gottardo-live-gotthard-tunnel/id6790088814">Zur App-Seite</a></dd></div>
       <div><dt>Support</dt><dd><a href="/app/gotthard/support-gotthard">Häufige Fragen</a></dd></div>
       <div><dt>Datenschutz</dt><dd><a href="/app/gotthard/privacy-gotthard">Datenschutzerklärung</a></dd></div>
@@ -85,7 +84,7 @@
 </div>
 <script>
 (function () {
-  fetch('https://fbacchin.github.io/app/gotthard/data/latest.json', { cache: 'no-store' })
+  fetch('https://widget.bacchin.app/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       function scrivi(id, v) {
