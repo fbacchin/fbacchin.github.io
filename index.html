@@ -401,7 +401,7 @@
     });
 
   /* SOFR overnight — la colonna ON del CSV SOFR */
-  fetch('https://fbacchin.github.io/app/Euribor/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
+  fetch('https://bacchin.app/tassi/LIBOR-USD-SOFR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);
