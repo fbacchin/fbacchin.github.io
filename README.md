@@ -3,21 +3,23 @@
 Guida per le sessioni che lavorano sul sito, in particolare quando si aggiornano
 le pagine di **assistenza** e di **privacy** delle app.
 
-Stato verificato sui repository il 3 ottobre 2026.
+Stato verificato il 26 novembre 2026.
 
 ## La regola in una riga
 
 Le pagine si modificano **solo** nel repo `fbacchin/fbacchin.github.io`.
-Il repo `fbacchin/app` contiene solo i dati che le app scaricano (più un ultimo
-rimando per Burraco): lì le pagine di assistenza e privacy **non si creano**.
+Il repo `fbacchin/app` **non serve più**: GitHub lo ha bloccato il 25 novembre
+2026 e tutti gli indirizzi `https://fbacchin.github.io/app/...` danno 404. I
+dati che le app scaricano escono ora da `bacchin.app` (vedi «Da dove arrivano i
+dati»).
 
 ## Dove sta cosa
 
 | Cosa | Repository | Si vede su | Si modifica? |
 |---|---|---|---|
 | Il sito: home, pagine delle app, assistenza, privacy | `fbacchin/fbacchin.github.io` | `https://bacchin.app` | **Sì, qui** |
-| I dati letti dalle app (CSV dei tassi, Gottardo, codici di gara, valichi, volcano) | `fbacchin/app` | `https://fbacchin.github.io/app/...` | Solo dagli automatismi |
-| L'ultimo rimando (privacy di Burraco Score 5.0.1) | `fbacchin/app` | `https://fbacchin.github.io/app/Burraco/...` | No: si cancella con ADEV-754 |
+| I dati letti dalle app (tassi, Gottardo) | Worker di Cloudflare, fuori dai repo | `https://bacchin.app/tassi/` e `https://widget.bacchin.app/` | No: non sono file del sito |
+| Il vecchio repo dei dati (bloccato da GitHub dal 25 novembre 2026) | `fbacchin/app` | `https://fbacchin.github.io/app/...` (404) | No: non si usa più |
 | I giochi | `fbacchin/Giochi` | `https://giochi.bacchin.app` | Sì, nel loro repo |
 
 ### Come viene pubblicato il sito
@@ -118,24 +120,53 @@ L'indirizzo pubblico di ogni pagina è
 `https://bacchin.app/app/<Cartella>/<file senza .html>`, per esempio
 `https://bacchin.app/app/Leasing/support`.
 
-## Cosa c'è invece in `fbacchin/app`
+## Da dove arrivano i dati
 
-Si vede su `https://fbacchin.github.io/app/`. Contiene due cose diverse.
+Il repo `fbacchin/app` è bloccato: le app e il sito non possono più leggerlo.
+Le versioni delle app già distribuite che puntavano a `fbacchin.github.io/app/...`
+non ricevono più dati finché non escono con gli indirizzi nuovi.
 
-**1. I dati che le app scaricano.** Gli indirizzi sono scritti dentro le app
-già distribuite: non vanno mai spostati né rinominati.
+**Già spostati**
 
-- `Euribor/*.csv`: i tassi. Li aggiorna la skill `aggiorna-tassi`.
-- `gotthard/data/`: lo stato del tunnel. Lo aggiorna una GitHub Action.
-- `codici/manifest.json` e le cartelle `fibur/`, `fitab/`: i regolamenti.
-- `valichi/` e i dati di volcano: aggiornati da GitHub Action.
+- **Tassi** (`https://bacchin.app/tassi/`): `EURIBOR.csv`, `ESTER.csv`,
+  `LIBOR-USD-SOFR.csv`, `LIBOR-GBP.csv`, `SARON-CHF.csv`, `TONAR-JPY.csv`. Li serve un
+  Worker di Cloudflare, con cache di 15 minuti e copia di riserva. Stesso
+  formato di prima: intestazione `"Date","Week day","ON","1W","1M","2M","3M","6M","12M"`,
+  righe dalla più recente, data `gg.mm.aaaa`. Hanno `Access-Control-Allow-Origin: *`,
+  quindi il browser può leggerli dal sito. La sicurezza della zona risponde 403
+  allo user agent «Python-urllib»: gli script ne impostano uno proprio.
+  - L'Euribor è quello di EMMI, ridistribuito dalla Deutsche Bundesbank con un
+    giorno lavorativo di ritardo (la licenza lo richiede): il fixing di un giorno
+    arriva nel corso del giorno lavorativo successivo. L'€STR arriva dalla BCE la
+    mattina del giorno lavorativo successivo.
+- **Gottardo** (`https://widget.bacchin.app/latest.json`, più `history.json` per
+  le ultime 24 ore): un Worker di Cloudflare («gottardo-widget») che legge la
+  funzione `gotthard` del server Back4App, la stessa dell'app, con cache di 3
+  minuti. Il file `latest.json` ha `time`, `south` e `north` (con `km` e `wait`,
+  `null` se non c'è coda) e `tunnel`. Ha il CORS aperto.
 
-**2. Un solo rimando rimasto.** `Burraco/privacy-burraco.html` e
-`support-burraco.html` portano a `bacchin.app`, perché Burraco Score 5.0.1 apre
-ancora quell'indirizzo. Si cancellano quando esce la versione corretta (issue
-Linear ADEV-754). Gli altri rimandi sono stati tolti il 9 ottobre 2026: i
-vecchi indirizzi `https://fbacchin.github.io/app/<Cartella>/support...` ora
-danno 404. Le app usano solo indirizzi `https://bacchin.app/app/...`.
+**Ancora da spostare**
+
+- **Codici di gara:** `codici/manifest.json` e le cartelle `fibur/` e `fitab/`.
+  La home e `codici.html` li leggono ancora dal vecchio indirizzo e non si caricano
+  (issue Linear ADEV-832).
+- **Valichi e Volcano:** i dati non sono letti dal sito, ma le app hanno ancora
+  gli indirizzi vecchi (ADEV-796 e ADEV-797).
+
+**Come si leggono dalle pagine del sito.** Con l'indirizzo completo
+(`https://bacchin.app/tassi/...` o `https://widget.bacchin.app/...`), mai relativo.
+Se il dato non arriva, la pagina mostra un messaggio generico («riprova più
+tardi»).
+
+**Burraco.** Gli ultimi due rimandi in `fbacchin/app` (`Burraco/privacy-burraco.html`
+e `support-burraco.html`) non sono più raggiungibili con il repo bloccato:
+Burraco Score 5.0.2, che apre già `bacchin.app`, è in vendita dal 13 ottobre
+2026. Non serve altro (ADEV-776).
+
+**Euribor oggi.** Le pagine `finanza/euribor-oggi` e le versioni nelle altre
+lingue le genera `strumenti/euribor_oggi.py` dai CSV di `bacchin.app/tassi/`. Il
+workflow `.github/workflows/euribor-oggi.yml` lo lancia alle 6:30, 10:30, 14:30 e
+18:30 UTC.
 
 ## Procedura: aggiornare assistenza o privacy di un'app
 
@@ -180,7 +211,7 @@ danno 404. Le app usano solo indirizzi `https://bacchin.app/app/...`.
 6. Sistema i link «precedente / successiva» in fondo alle pagine delle app
    vicine.
 7. Su App Store Connect usa gli indirizzi `https://bacchin.app/app/...`.
-   Per un'app nuova non serve creare rimandi in `fbacchin/app`.
+   Per un'app nuova non si usa `fbacchin/app`.
 
 ## Ritirare un'app
 
@@ -208,7 +239,8 @@ servono a chi ha ancora l'app installata.
   scheda, `https://apps.apple.com/it/app/<nome>/id<numero>`. Perspecta non ce
   l'ha finché non è sull'App Store.
 - **Dati in diretta:** le pagine del sito leggono i dati con l'indirizzo
-  completo `https://fbacchin.github.io/app/...`. Non renderli relativi.
+  completo `https://bacchin.app/tassi/...` o `https://widget.bacchin.app/...`.
+  Non renderli relativi.
 - **Modello di vendita attuale** di Euribor X, Libor X, Mortgage e Leasing:
   una sola app gratuita con pubblicità, che si toglie con abbonamento annuale
   o acquisto una tantum. La vecchia versione a pagamento si chiama «Legacy» e
@@ -222,8 +254,10 @@ servono a chi ha ancora l'app installata.
 
 ## Cose da non fare
 
-- Non creare pagine di assistenza o privacy in `fbacchin/app`.
-- Non spostare né rinominare i file di dati in `fbacchin/app`.
+- Non usare `fbacchin/app`: è bloccato da GitHub, niente di nuovo va messo lì e
+  nessuna pagina deve puntarci.
+- Non cambiare i nomi dei file CSV in `bacchin.app/tassi/`: le app già
+  distribuite li leggono con quel nome.
 - Non modificare `finanza/euribor-oggi.html` a mano: la modifica dura poche ore. Si
   cambia `strumenti/euribor_oggi.py`, poi anche la pagina.
 - Non cancellare `app-ads.txt`.
@@ -239,7 +273,7 @@ servono a chi ha ancora l'app installata.
 ## Controllo finale
 
 - [ ] Ho lavorato sull'ultima versione di `main`.
-- [ ] Ho modificato solo `fbacchin/fbacchin.github.io`.
+- [ ] Ho modificato solo `fbacchin/fbacchin.github.io` (niente `fbacchin/app`).
 - [ ] La data «Aggiornato al» è quella di oggi.
 - [ ] Tutte le lingue della pagina sono allineate.
 - [ ] Pagina di presentazione, home, indice privacy e sitemap dicono la stessa
