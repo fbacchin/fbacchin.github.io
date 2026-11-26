@@ -9,9 +9,11 @@ Stato verificato il 26 novembre 2026.
 
 Le pagine si modificano **solo** nel repo `fbacchin/fbacchin.github.io`.
 Il repo `fbacchin/app` **non serve più**: GitHub lo ha bloccato il 25 novembre
-2026 e tutti gli indirizzi `https://fbacchin.github.io/app/...` danno 404. I
-dati che le app scaricano escono ora da `bacchin.app` (vedi «Da dove arrivano i
-dati»).
+2026. Da allora `https://fbacchin.github.io/app/...` è servito dalla cartella
+`app/` di questo stesso repo, quindi risponde solo per i file che ci sono (le
+pagine di assistenza e privacy, il manifest dei codici di gara) e dà 404 per
+tutto il resto. I dati che le app scaricano escono da `bacchin.app` (vedi «Da
+dove arrivano i dati»).
 
 ## Dove sta cosa
 
@@ -19,7 +21,7 @@ dati»).
 |---|---|---|---|
 | Il sito: home, pagine delle app, assistenza, privacy | `fbacchin/fbacchin.github.io` | `https://bacchin.app` | **Sì, qui** |
 | I dati letti dalle app (tassi, Gottardo) | Worker di Cloudflare, fuori dai repo | `https://bacchin.app/tassi/` e `https://widget.bacchin.app/` | No: non sono file del sito |
-| Il vecchio repo dei dati (bloccato da GitHub dal 25 novembre 2026) | `fbacchin/app` | `https://fbacchin.github.io/app/...` (404) | No: non si usa più |
+| Il vecchio repo dei dati (bloccato da GitHub dal 25 novembre 2026) | `fbacchin/app` | niente: `fbacchin.github.io/app/` ora mostra la cartella `app/` di questo repo | No: non si usa più |
 | I giochi | `fbacchin/Giochi` | `https://giochi.bacchin.app` | Sì, nel loro repo |
 
 ### Come viene pubblicato il sito
@@ -124,7 +126,8 @@ L'indirizzo pubblico di ogni pagina è
 
 Il repo `fbacchin/app` è bloccato: le app e il sito non possono più leggerlo.
 Le versioni delle app già distribuite che puntavano a `fbacchin.github.io/app/...`
-non ricevono più dati finché non escono con gli indirizzi nuovi.
+non ricevono più i dati che stavano lì (tassi, Gottardo) finché non escono con
+gli indirizzi nuovi.
 
 **Già spostati**
 
@@ -144,17 +147,24 @@ non ricevono più dati finché non escono con gli indirizzi nuovi.
   funzione `gotthard` del server Back4App, la stessa dell'app, con cache di 3
   minuti. Il file `latest.json` ha `time`, `south` e `north` (con `km` e `wait`,
   `null` se non c'è coda) e `tunnel`. Ha il CORS aperto.
+- **Codici di gara** (`/app/codici/manifest.json` e gli indici `fibur/` e
+  `fitab/`): stanno in `app/codici/` di questo repo. Il manifest risponde anche
+  all'indirizzo vecchio `https://fbacchin.github.io/app/codici/manifest.json`, quindi
+  le app già distribuite funzionano. La home e `codici.html` lo leggono dallo
+  stesso sito (`/app/codici/manifest.json`). **I PDF dei regolamenti ufficiali
+  di FIBur e FITaB non vanno ospitati qui né linkati:** sono documenti di terzi
+  e il loro hosting è il probabile motivo del blocco di `fbacchin/app`. Il
+  manifest contiene ancora i campi `pdf.url`, che danno 404: le pagine del sito
+  non li usano.
 
-**Ancora da spostare**
+**Da verificare**
 
-- **Codici di gara:** `codici/manifest.json` e le cartelle `fibur/` e `fitab/`.
-  La home e `codici.html` li leggono ancora dal vecchio indirizzo e non si caricano
-  (issue Linear ADEV-832).
 - **Valichi e Volcano:** i dati non sono letti dal sito, ma le app hanno ancora
   gli indirizzi vecchi (ADEV-796 e ADEV-797).
 
-**Come si leggono dalle pagine del sito.** Con l'indirizzo completo
-(`https://bacchin.app/tassi/...` o `https://widget.bacchin.app/...`), mai relativo.
+**Come si leggono dalle pagine del sito.** Tassi e Gottardo con l'indirizzo
+completo (`https://bacchin.app/tassi/...` o `https://widget.bacchin.app/...`); il
+manifest dei codici di gara con il percorso dello stesso sito.
 Se il dato non arriva, la pagina mostra un messaggio generico («riprova più
 tardi»).
 
@@ -240,7 +250,8 @@ servono a chi ha ancora l'app installata.
   l'ha finché non è sull'App Store.
 - **Dati in diretta:** le pagine del sito leggono i dati con l'indirizzo
   completo `https://bacchin.app/tassi/...` o `https://widget.bacchin.app/...`.
-  Non renderli relativi.
+  Fa eccezione il manifest dei codici di gara, che sta nel sito e si legge con
+  `/app/codici/manifest.json`.
 - **Modello di vendita attuale** di Euribor X, Libor X, Mortgage e Leasing:
   una sola app gratuita con pubblicità, che si toglie con abbonamento annuale
   o acquisto una tantum. La vecchia versione a pagamento si chiama «Legacy» e

@@ -94,7 +94,7 @@
 </div>
 <script>
 (function () {
-  fetch('https://fbacchin.github.io/app/codici/manifest.json', { cache: 'no-store' })
+  fetch('/app/codici/manifest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
       var voci = 0;
