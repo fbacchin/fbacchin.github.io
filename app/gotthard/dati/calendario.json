@@ -1,5 +1,5 @@
 {
- "pubblicato": "2026-11-26T12:57:17Z",
+ "pubblicato": "2026-11-26T12:58:54Z",
  "giorni": [
   {
    "data": "2026-11-01",
@@ -133,16 +133,6 @@
      "fonte": "https://data-bs.ch/stata/ed/schulferien/SchulferienBS.ics"
     }
    ]
-  },
-  {
-   "data": "2026-12-20",
-   "direzione": "south",
-   "motivi": [
-    {
-     "tipo": "manuale"
-    }
-   ],
-   "livello": "critico"
   },
   {
    "data": "2026-12-22",
