@@ -1,205 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Support — Guess the US State</title>
+<meta name="theme-color" content="#13203A">
+<title>Support · Guess the US State</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <style>
+:root {
+  --accento: #1E4FA8; --accento-tenue: #E6EEFB; --inchiostro: #13203A; --inchiostro-tenue: #5D6B84;
+  --carta: #EEF1F6; --riquadro: #FFFFFF; --linea: #DCE3EE; --fascia-a: #13203A; --fascia-b: #1E4FA8;
+  --ombra: 0 1px 2px rgba(19,32,58,.06), 0 8px 24px rgba(19,32,58,.08);
+}
+@media (prefers-color-scheme: dark) {
   :root {
-    --accent: #1E4FA8;
-    --accent-soft: #E6EEFB;
-    --ink: #13203A;
-    --ink-soft: #5D6B84;
-    --paper: #EEF1F6;
-    --card: #FFFFFF;
-    --line: #DCE3EE;
+    --accento: #FFCC0D; --accento-tenue: #16243F; --inchiostro: #EEF2F8; --inchiostro-tenue: #9BA9C2;
+    --carta: #0A1428; --riquadro: #111E38; --linea: #22314F; --fascia-a: #07101F; --fascia-b: #16305F;
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #FFCC0D;
-      --accent-soft: #16243F;
-      --ink: #EEF2F8;
-      --ink-soft: #9BA9C2;
-      --paper: #0A1428;
-      --card: #111E38;
-      --line: #22314F;
-    }
-    .cta { color: #0A1428 !important; }
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 0 64px; }
-  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  h1 { font-size: 1.9em; line-height: 1.2; }
-  .tag { color: var(--ink-soft); margin: 6px 0 32px; font-size: .95em; text-align: left; }
-  h2 { color: var(--accent); font-size: 1.25em; margin: 36px 0 10px; }
-  p, li { margin-bottom: 10px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  ul { padding-left: 22px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 20px; margin: 14px 0;
-  }
-  .cta {
-    display: inline-block; background: var(--accent); color: #fff !important;
-    padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600;
-    margin: 6px 0 10px;
-  }
-  details { border-bottom: 1px solid var(--line); padding: 12px 0; }
-  details:last-of-type { border-bottom: none; }
-  summary { cursor: pointer; font-weight: 600; }
-  details p { margin-top: 8px; color: var(--ink-soft); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  a { color: var(--accent); }
-  a[href^="mailto:"] { white-space: nowrap; }
-  table { width: 100%; border-collapse: collapse; font-size: .95em; }
-  th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--ink-soft); font-weight: 600; }
-  td:first-child { width: 45%; }
-  td:last-child { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  .appname { display: block; font-weight: 600; }
-  .plat {
-    display: inline-block; margin-top: 6px; padding: 1px 8px; border-radius: 999px;
-    background: var(--accent-soft); color: var(--accent); font-size: .78em; font-weight: 600;
-    white-space: nowrap;
-  }
-  footer { color: var(--ink-soft); font-size: .85em; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--inchiostro);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+h1, h2, .ora { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+a { color: var(--accento); }
+:focus-visible { outline: 3px solid #FFCC0D; outline-offset: 2px; border-radius: 6px; }
+
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='220' viewBox='0 0 360 220' fill='none' stroke='white' stroke-opacity='.16' stroke-width='1.3'%3E%3Cg stroke-dasharray='7 5'%3E%3Cpath d='M40 0V70H0M40 70H150V0M95 70V150H0M95 150H210V40H270V0M150 150V220M210 150V220M210 110H290V220'/%3E%3Cpath d='M290 110V60H360M320 60V0M290 170H360M40 220V150'/%3E%3C/g%3E%3Cpath stroke-opacity='.22' stroke-width='1.6' d='M250 0C238 30 262 52 246 80S258 128 240 156S252 196 236 220'/%3E%3Cg fill='white' fill-opacity='.18' stroke='none'%3E%3Ccircle cx='120' cy='40' r='2.2'/%3E%3Ccircle cx='60' cy='112' r='2.2'/%3E%3Ccircle cx='180' cy='190' r='2.2'/%3E%3Ccircle cx='325' cy='140' r='2.2'/%3E%3C/g%3E%3C/svg%3E") center bottom / 360px 220px repeat,
+                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
+  color: #fff;
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: inherit; font-size: .95em; font-weight: 600;
+  color: var(--inchiostro); background: #fff; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid var(--inchiostro); border-bottom: 2px solid var(--inchiostro); transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
+.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 22px auto 0; }
+.cerca input { width: 100%; font: inherit; color: var(--inchiostro); background: #fff; border: 0; border-radius: 14px;
+  padding: 15px 18px 15px 50px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: var(--inchiostro-tenue); }
+
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border-radius: 18px; box-shadow: var(--ombra); padding: 20px 22px; min-width: 0; }
+
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--accento);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.22em; line-height: 1.25; color: var(--inchiostro); }
+.desc { color: var(--inchiostro-tenue); font-size: .93em; line-height: 1.4; margin-top: 2px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 30px 10px 0; position: relative; line-height: 1.4; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--accento); border-bottom: 2px solid var(--accento); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--inchiostro-tenue); font-size: .95em; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: .93em; }
+th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--linea); vertical-align: top; }
+th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
+.scorre { overflow-x: auto; }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .cta { color: #0A1428; } }
+.nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
+.sintesi { background: var(--accento-tenue); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--inchiostro-tenue); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"], html[data-lang="de"] [lang-block="de"],
+html[data-lang="fr"] [lang-block="fr"], html[data-lang="nl"] [lang-block="nl"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="en"] .griglia[lang-block="en"], html[data-lang="it"] .griglia[lang-block="it"], html[data-lang="de"] .griglia[lang-block="de"],
+html[data-lang="fr"] .griglia[lang-block="fr"], html[data-lang="nl"] .griglia[lang-block="nl"] { display: block !important; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<main>
-  <div class="logo">
-    <img src="icon.png" width="44" height="44" alt="" style="border-radius:10px;display:block">
-    <h1>Guess the US State — Support</h1>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="support-usstate.html"><img src="icon.png" alt="">Guess the US State</a>
+    
   </div>
-  <p class="tag">Learn all 50 US states on iPhone, iPad and Apple TV: a state lights up on the map and an enlarged
-  copy pops out, and you name it as fast as you can. Two modes, a speed bonus and Game Center leaderboards.</p>
-
-  <h2>Contact</h2>
-  <p>Questions, problems or suggestions? Write to us — we usually reply within a couple of days.</p>
-  <a class="cta" href="mailto:bacchin@tiscali.it?subject=Guess%20the%20US%20State%20support">Contact support</a>
-
-  <h2>The apps</h2>
-  <div class="card">
-    <table>
+  <div class="titolo"><div lang-block="en"><p class="eti">Support</p><h1>How can we help?</h1></div></div>
+  <div class="cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/></svg><input id="cerca" type="search" autocomplete="off" aria-label="Search" data-en="Search the questions…" oninput="filtra()"></div>
+</div>
+<main><div class="griglia" lang-block="en"><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="gioco"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5l5.5-2 6 2 5.5-2v13l-5.5 2-6-2-5.5 2z"/><path d="M9 4.5v13M15 6.5v13"/></svg></span><div><h2>Playing</h2><p class="desc">How a game works, the two modes and your answers.</p></div></header><div class="domande"><details><summary>How do I play?</summary><p>Each turn a state lights up in yellow on the map and an enlarged copy pops out, so even the smallest ones like Rhode Island or Delaware are easy to see. Name it as fast as you can: when you have guessed all 50, the game is over.</p></details><details><summary>What is the difference between Classic and Multiple choice?</summary><p>In <strong>Classic</strong> you type the name of the state and you have three tries. In <strong>Multiple choice</strong> you pick one of four answers and you have two tries: the perfect mode for kids. Each mode has its own leaderboard.</p></details><details><summary>How do I switch mode?</summary><p>Tap <strong>↺</strong> (Restart) at the top: you go back to the start screen and choose the other mode. The current game starts over.</p></details><details><summary>Do I have to type the exact name?</summary><p>Capitals, accents, apostrophes and hyphens don't matter: "new york", "New York" and "New York State" all work, and so do "Hawai'i" and "Washington State".</p></details><details><summary>I don't know the answer: can I skip it?</summary><p>In Classic, yes: tap <strong>"Skip this state"</strong>: you move on to the next one and the skipped state comes back later in the same game. In Multiple choice there is no skip button: with four answers on screen, just pick one.</p></details><details><summary>Does the timer keep running if I stop?</summary><p>No. It stops during the "Correct!" and "Wrong!" messages, when you tap <strong>⏸</strong> (pause) and when you leave the app. It resumes where it left off.</p></details></div></section><section style="order:3" class="riquadro" id="dispositivi"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12" rx="2.5"/><path d="M8 20.5h8M12 16.5v4"/></svg></span><div><h2>iPad and Apple TV</h2><p class="desc">One app for every screen.</p></div></header><div class="domande"><details><summary>Does it work on iPad and Apple TV?</summary><p>Yes: from version 4.0 Guess the US State is a single app for iPhone, iPad and Apple TV. On Apple TV you play Multiple choice with the remote (the Play/Pause button pauses the game), and you need Premium, bought on Apple TV or on iPhone/iPad with the same Apple Account.</p></details></div></section><section style="order:4" class="riquadro" id="pubblicita"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.1-7.5 9.5-4.3-1.4-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h2>Ads and privacy</h2><p class="desc">Ads for all ages, your consent, your choice.</p></div></header><div class="domande"><details><summary>Are the ads suitable for children?</summary><p>The app asks Google for ads suitable for all ages only. If you prefer not to see any, you can remove them with Premium or play Multiple choice, which never shows ads.</p></details><details><summary>How do I change my advertising privacy choices?</summary><p>For Google's consent tap <strong>&#9432;</strong> and then "Privacy settings" (the option appears where European rules require it). For cross-app tracking go to Settings → Privacy &amp; Security → Tracking. For details see the <a href="privacy-usstate.html">privacy policy</a>.</p></details></div></section><section style="order:6" class="riquadro" id="app"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg></span><div><h2>The apps</h2><p class="desc">The current app and the earlier versions.</p></div></header><div class="testo"><div class="scorre"><table>
       <tr><th>App</th><th>What it is</th></tr>
       <tr><td><span class="appname">Guess the US State</span><span class="plat">iPhone, iPad, Apple TV</span></td><td>The current app. Free on iPhone and iPad, supported by ads that you can remove with Premium. On Apple TV it is playable with Premium.</td></tr>
-      <tr><td><span class="appname">Guess the US State Classic</span><span class="plat">iPhone</span></td><td>The original paid version, without ads. Anyone who bought it can keep using it.</td></tr>
+      <tr><td><span class="appname">Guess the US State Classic</span><span class="plat">iPhone</span></td><td>The original paid version, without ads, no longer on sale. Anyone who bought it can keep using it and download it again from their App Store purchases.</td></tr>
       <tr><td><span class="appname">Guess the US State Kids</span><span class="plat">iPhone</span></td><td>The old version for kids, no longer on sale: today it is the Multiple choice mode of Guess the US State.</td></tr>
       <tr><td><span class="appname">Guess the US State HD, HD Light, HD Kids and TV</span><span class="plat">iPad, Apple TV</span></td><td>The old iPad and Apple TV versions, no longer on sale: today Guess the US State runs on iPad and Apple TV too.</td></tr>
-    </table>
-  </div>
-
-  <h2>Frequently asked questions</h2>
-  <div class="card">
-    <details>
-      <summary>How do I play?</summary>
-      <p>Each turn a state lights up in yellow on the map and an enlarged copy pops out, so even the smallest ones
-      like Rhode Island or Delaware are easy to see. Name it as fast as you can: when you have guessed all 50, the game
-      is over.</p>
-    </details>
-    <details>
-      <summary>What is the difference between Classic and Multiple choice?</summary>
-      <p>In <strong>Classic</strong> you type the name of the state and you have three tries. In <strong>Multiple
-      choice</strong> you pick one of four answers and you have two tries: the perfect mode for kids. Each mode has
-      its own leaderboard.</p>
-    </details>
-    <details>
-      <summary>How do I switch mode?</summary>
-      <p>Tap <strong>↺</strong> (Restart) at the top: you go back to the start screen and choose the other mode. The
-      current game starts over.</p>
-    </details>
-    <details>
-      <summary>Why does Multiple choice have a lock?</summary>
-      <p>Multiple choice is unlocked by Premium: with the same purchase you remove the ads, open the mode and can play
-      on Apple TV. Multiple choice never shows ads.</p>
-    </details>
-    <details>
-      <summary>How are points calculated?</summary>
-      <p>Each right answer is worth 100 points plus a speed bonus, which starts at 100 and drops to zero in 20
-      seconds: the timer color and the bar show how much bonus is left. In Classic, if you make mistakes before
-      guessing, the points for that state are divided by the number of tries. Each wrong answer takes away 10 points,
-      but the score never goes below zero.</p>
-    </details>
-    <details>
-      <summary>Do I have to type the exact name?</summary>
-      <p>Capitals, accents, apostrophes and hyphens don't matter: "new york", "New York" and "New York State" all
-      work, and so do "Hawai'i" and "Washington State".</p>
-    </details>
-    <details>
-      <summary>I don't know the answer: can I skip it?</summary>
-      <p>Yes, tap <strong>"Skip this state"</strong>: you move on to the next one and the skipped state comes back
-      later in the same game.</p>
-    </details>
-    <details>
-      <summary>Does the timer keep running if I stop?</summary>
-      <p>No. It stops during the "Correct!" and "Wrong!" messages, when you tap <strong>⏸</strong> (pause) and when
-      you leave the app. It resumes where it left off.</p>
-    </details>
-    <details>
-      <summary>How do the leaderboards work?</summary>
-      <p>When you guess all 50 states, your score goes to the Game Center leaderboard of the mode you played. There
-      are two leaderboards, Classic and Multiple choice, the same on iPhone, iPad and Apple TV. Open them from the
-      <strong>&#9432;</strong> screen or at the end of the game with "View leaderboard". You need to be signed in to
-      Game Center in Settings.</p>
-    </details>
-    <details>
-      <summary>Does it work on iPad and Apple TV?</summary>
-      <p>Yes: from version 4.0 Guess the US State is a single app for iPhone, iPad and Apple TV. On Apple TV you play
-      Multiple choice with the remote — the Play/Pause button pauses the game — and you need Premium, bought on Apple
-      TV or on iPhone/iPad with the same Apple Account.</p>
-    </details>
-    <details>
-      <summary>What is Premium and how do I get it?</summary>
-      <p>Premium removes all ads, unlocks Multiple choice and unlocks the Apple TV app. In the <strong>&#9432;</strong>
-      screen tap <strong>"Premium"</strong>, or tap the locked Multiple choice: you can choose a yearly subscription
-      or a one-time purchase that lasts forever.</p>
-    </details>
-    <details>
-      <summary>I changed device or reinstalled the app: how do I get Premium back?</summary>
-      <p>On the Premium screen tap <strong>"Restore Purchases"</strong>, with the same Apple Account you used to buy.
-      No account of ours is needed.</p>
-    </details>
-    <details>
-      <summary>How do I cancel the subscription?</summary>
-      <p>In your App Store account settings: Settings → your name → Subscriptions. With an active subscription you
-      also find a <strong>"Manage Subscription"</strong> button on the Premium screen. Cancel at least 24 hours before
-      it expires, otherwise it renews.</p>
-    </details>
-    <details>
-      <summary>I bought an old paid version: do I have to pay again?</summary>
-      <p>The old app is still yours and keeps working without ads, even if it is no longer on sale and no longer
-      updated. If you deleted it, you can download it again from your App Store purchases. The new Guess the US State
-      is a different app on the App Store, so the purchase does not carry over.</p>
-    </details>
-    <details>
-      <summary>Are the ads suitable for children?</summary>
-      <p>The app asks Google for ads suitable for all ages only. If you prefer not to see any, you can remove them with
-      Premium or play Multiple choice, which never shows ads.</p>
-    </details>
-    <details>
-      <summary>How do I change my advertising privacy choices?</summary>
-      <p>For Google's consent tap <strong>&#9432;</strong> and then "Privacy settings" (the option appears where
-      European rules require it). For cross-app tracking go to Settings → Privacy &amp; Security → Tracking. For
-      details see the <a href="privacy-usstate.html">privacy policy</a>.</p>
-    </details>
-    <details>
-      <summary>I don't get notifications</summary>
-      <p>Check in Settings → Notifications → Guess US State that they are allowed. Notifications are optional and
-      used only for occasional news about the app.</p>
-    </details>
-  </div>
-
-  <h2>Reporting a problem</h2>
-  <p>To help us reproduce it quickly, tell us your iPhone, iPad or Apple TV model, the system version and the app
-  version with its build (you find them at the bottom of the &#9432; screen), plus what you were doing just before
-  the problem appeared.</p>
-
-  <footer>
-    © 2026 Fabrizio Bacchin · <a href="privacy-usstate.html">Privacy Policy</a>
-  </footer>
-</main>
+    </table></div></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="punti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 6H4.5a3 3 0 0 0 3 4M16.5 6h3a3 3 0 0 1-3 4M12 13.5V17M8.5 20.5h7M9.5 17h5v3.5h-5z"/></svg></span><div><h2>Points and leaderboards</h2><p class="desc">Speed bonus, penalties and Game Center.</p></div></header><div class="domande"><details><summary>How are points calculated?</summary><p>Each right answer is worth 100 points plus a speed bonus, which starts at 100 and drops to zero in 20 seconds: the timer color and the bar show how much bonus is left. In Classic, if you make mistakes before guessing, the points for that state are divided by the number of tries. Each wrong answer takes away 10 points, but the score never goes below zero.</p></details><details><summary>How do the leaderboards work?</summary><p>When you guess all 50 states, your score goes to the Game Center leaderboard of the mode you played. There are two leaderboards, Classic and Multiple choice, the same on iPhone, iPad and Apple TV. Open them from the <strong>&#9432;</strong> screen or at the end of the game with "View leaderboard". You need to be signed in to Game Center in Settings.</p></details></div></section><section style="order:2" class="riquadro" id="premium"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg></span><div><h2>Premium and purchases</h2><p class="desc">What it unlocks, restoring and cancelling.</p></div></header><div class="domande"><details><summary>Why does Multiple choice have a lock?</summary><p>Multiple choice is unlocked by Premium: with the same purchase you remove the ads, open the mode and can play on Apple TV. Multiple choice never shows ads.</p></details><details><summary>What is Premium and how do I get it?</summary><p>Premium removes all ads, unlocks Multiple choice and unlocks the Apple TV app. In the <strong>&#9432;</strong> screen tap <strong>"Premium"</strong>, or tap the locked Multiple choice: you can choose a yearly subscription or a one-time purchase that lasts forever.</p></details><details><summary>I changed device or reinstalled the app: how do I get Premium back?</summary><p>On the Premium screen tap <strong>"Restore Purchases"</strong>, with the same Apple Account you used to buy. No account of ours is needed.</p></details><details><summary>How do I cancel the subscription?</summary><p>In your App Store account settings: Settings → your name → Subscriptions. With an active subscription you also find a <strong>"Manage Subscription"</strong> button on the Premium screen. Cancel at least 24 hours before it expires, otherwise it renews.</p></details><details><summary>I bought an old paid version: do I have to pay again?</summary><p>The old app is still yours and keeps working without ads, even if it is no longer on sale and no longer updated. If you deleted it, you can download it again from your App Store purchases. The new Guess the US State is a different app on the App Store, so the purchase does not carry over. But if you bought Guess the US State Classic, Kids, HD or HD Kids, write to us: Premium in the new app is free for you.</p></details></div></section><section style="order:5" class="riquadro" id="altro"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><div><h2>Notifications and reviews</h2><p class="desc">Occasional news, and how to leave a review.</p></div></header><div class="domande"><details><summary>I don't get notifications</summary><p>Check in Settings → Notifications → Guess US State that they are allowed. Notifications are optional and used only for occasional news about the app.</p></details><details><summary>How can I rate the app?</summary><p>Tap <strong>&#9432;</strong> and then <strong>"⭐️ Rate the App"</strong>: the App Store opens on the review page. Every review helps other players find the game, thank you! The button is on iPhone and iPad; on Apple TV you can rate the app from the App Store.</p></details></div></section><section style="order:7" class="riquadro" id="problema"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7.5" y="8" width="9" height="12" rx="4.5"/><path d="M9.5 8a2.5 2.5 0 0 1 5 0M12 12v8M7.5 13H4M20 13h-3.5M7.5 17.5l-3 1.5M16.5 17.5l3 1.5M8 9.5 5 7.5M16 9.5l3-2"/></svg></span><div><h2>Reporting a problem</h2><p class="desc">What to tell us so we can help quickly.</p></div></header><div class="testo"><p>To help us reproduce it quickly, tell us your iPhone, iPad or Apple TV model, the system version and the app version with its build (you find them at the bottom of the &#9432; screen), plus what you were doing just before the problem appeared.</p></div></section></div></div><section class="riquadro contatti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><h2>Didn't find your answer?</h2><p class="desc">Write to us: we usually reply within a couple of days.</p></div></header><a class="cta" href="mailto:bacchin@tiscali.it?subject=Guess%20the%20US%20State%20support">Write to us</a></section><p class="nessuno" hidden>No question matches. Write to us and we'll answer.</p></div></main>
+<footer><span lang-block="en">© 2026 Fabrizio Bacchin · <a href="privacy-usstate.html">Privacy Policy</a></span></footer>
+<script>
+var LANGS = ["en"], TITOLI = {"en": "Support · Guess the US State"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = "en";
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  var c = document.getElementById("cerca");
+  if (c) { c.placeholder = c.getAttribute("data-" + l); filtra(); }
+  try { localStorage.setItem("usstate-lang", l); } catch (e) {}
+}
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var c = document.getElementById("cerca"); if (!c) return;
+  var q = norm(c.value.trim()), l = document.documentElement.lang;
+  var g = document.querySelector('.griglia[lang-block="' + l + '"]'); if (!g) return;
+  var trovati = 0;
+  g.querySelectorAll(".riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti")) return;
+    var d = r.querySelectorAll("details"), visibili = 0;
+    d.forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var testo = r.querySelector(".testo, header");
+    var okR = !q || visibili > 0 || norm(r.textContent).indexOf(q) >= 0;
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  g.querySelector(".nessuno").hidden = trovati > 0;
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+try { saved = localStorage.getItem("usstate-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : "en"));
+</script>
+<noscript><style>[lang-block]{display:revert !important}</style></noscript>
 </body>
 </html>

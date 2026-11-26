@@ -1,195 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Privacy Policy — Guess the US State</title>
+<meta name="theme-color" content="#13203A">
+<title>Privacy · Guess the US State</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <style>
+:root {
+  --accento: #1E4FA8; --accento-tenue: #E6EEFB; --inchiostro: #13203A; --inchiostro-tenue: #5D6B84;
+  --carta: #EEF1F6; --riquadro: #FFFFFF; --linea: #DCE3EE; --fascia-a: #13203A; --fascia-b: #1E4FA8;
+  --ombra: 0 1px 2px rgba(19,32,58,.06), 0 8px 24px rgba(19,32,58,.08);
+}
+@media (prefers-color-scheme: dark) {
   :root {
-    --accent: #1E4FA8;
-    --accent-soft: #E6EEFB;
-    --ink: #13203A;
-    --ink-soft: #5D6B84;
-    --paper: #EEF1F6;
-    --card: #FFFFFF;
-    --line: #DCE3EE;
+    --accento: #FFCC0D; --accento-tenue: #16243F; --inchiostro: #EEF2F8; --inchiostro-tenue: #9BA9C2;
+    --carta: #0A1428; --riquadro: #111E38; --linea: #22314F; --fascia-a: #07101F; --fascia-b: #16305F;
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #FFCC0D;
-      --accent-soft: #16243F;
-      --ink: #EEF2F8;
-      --ink-soft: #9BA9C2;
-      --paper: #0A1428;
-      --card: #111E38;
-      --line: #22314F;
-    }
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 0 64px; }
-  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  h1 { font-size: 1.9em; line-height: 1.2; }
-  .updated { color: var(--ink-soft); margin: 6px 0 32px; font-size: .9em; text-align: left; }
-  h2 { color: var(--accent); font-size: 1.25em; margin: 36px 0 10px; }
-  p, li, .tldr { color: var(--ink); margin-bottom: 10px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  ul { padding-left: 22px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 20px; margin: 14px 0;
-  }
-  .tldr { background: var(--accent-soft); border-color: transparent; }
-  a { color: var(--accent); }
-  a[href^="mailto:"] { white-space: nowrap; }
-  table { width: 100%; border-collapse: collapse; font-size: .95em; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--ink-soft); font-weight: 600; }
-  td:last-child { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  footer { color: var(--ink-soft); font-size: .85em; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--inchiostro);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+h1, h2, .ora { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+a { color: var(--accento); }
+:focus-visible { outline: 3px solid #FFCC0D; outline-offset: 2px; border-radius: 6px; }
+
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='220' viewBox='0 0 360 220' fill='none' stroke='white' stroke-opacity='.16' stroke-width='1.3'%3E%3Cg stroke-dasharray='7 5'%3E%3Cpath d='M40 0V70H0M40 70H150V0M95 70V150H0M95 150H210V40H270V0M150 150V220M210 150V220M210 110H290V220'/%3E%3Cpath d='M290 110V60H360M320 60V0M290 170H360M40 220V150'/%3E%3C/g%3E%3Cpath stroke-opacity='.22' stroke-width='1.6' d='M250 0C238 30 262 52 246 80S258 128 240 156S252 196 236 220'/%3E%3Cg fill='white' fill-opacity='.18' stroke='none'%3E%3Ccircle cx='120' cy='40' r='2.2'/%3E%3Ccircle cx='60' cy='112' r='2.2'/%3E%3Ccircle cx='180' cy='190' r='2.2'/%3E%3Ccircle cx='325' cy='140' r='2.2'/%3E%3C/g%3E%3C/svg%3E") center bottom / 360px 220px repeat,
+                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
+  color: #fff;
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: inherit; font-size: .95em; font-weight: 600;
+  color: var(--inchiostro); background: #fff; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid var(--inchiostro); border-bottom: 2px solid var(--inchiostro); transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
+.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 22px auto 0; }
+.cerca input { width: 100%; font: inherit; color: var(--inchiostro); background: #fff; border: 0; border-radius: 14px;
+  padding: 15px 18px 15px 50px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: var(--inchiostro-tenue); }
+
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border-radius: 18px; box-shadow: var(--ombra); padding: 20px 22px; min-width: 0; }
+
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--accento);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.22em; line-height: 1.25; color: var(--inchiostro); }
+.desc { color: var(--inchiostro-tenue); font-size: .93em; line-height: 1.4; margin-top: 2px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 30px 10px 0; position: relative; line-height: 1.4; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--accento); border-bottom: 2px solid var(--accento); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--inchiostro-tenue); font-size: .95em; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: .93em; }
+th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--linea); vertical-align: top; }
+th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
+.scorre { overflow-x: auto; }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .cta { color: #0A1428; } }
+.nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
+.sintesi { background: var(--accento-tenue); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--inchiostro-tenue); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"], html[data-lang="de"] [lang-block="de"],
+html[data-lang="fr"] [lang-block="fr"], html[data-lang="nl"] [lang-block="nl"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="en"] .griglia[lang-block="en"], html[data-lang="it"] .griglia[lang-block="it"], html[data-lang="de"] .griglia[lang-block="de"],
+html[data-lang="fr"] .griglia[lang-block="fr"], html[data-lang="nl"] .griglia[lang-block="nl"] { display: block !important; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<main>
-  <div class="logo">
-    <img src="icon.png" width="44" height="44" alt="" style="border-radius:10px;display:block">
-    <h1>Privacy Policy</h1>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="support-usstate.html"><img src="icon.png" alt="">Guess the US State</a>
+    
   </div>
-  <p class="updated">Guess the US State, Guess the US State Classic, Guess the US State Light, Guess the US State Kids, Guess the US State HD, Guess the US State HD Light, Guess the US State HD Kids and Guess the US State TV — last updated October 1, 2026</p>
-
-  <div class="card tldr">
-    <strong>In short:</strong> your answers and scores stay on your device and there are no accounts.
-    Guess the US State sends only a few anonymous usage statistics, for example which game mode is chosen:
-    never answers or scores. On iPhone and iPad the app is free and shows Google AdMob ads suitable for all ages.
-    In Europe the ads first ask for your consent; then the app asks whether you allow ad tracking, and you can
-    decline. Premium removes the ads. The Apple TV app shows no ads at all. The old <strong>paid</strong> and
-    Kids versions, no longer on sale, contain no advertising.
-  </div>
-
-  <h2>1. Who we are</h2>
-  <p>Guess the US State (for iPhone, iPad and Apple TV) is an app by Fabrizio Bacchin (Switzerland) for learning to
-  recognize the 50 states of the USA. This policy also covers the previous versions, which are no longer on sale and
-  no longer updated.</p>
-  <div class="card">
-    <table>
-      <tr><th>App</th><th>Advertising</th></tr>
-      <tr><td>Guess the US State (iPhone and iPad, free)</td><td>Google AdMob banners and interstitials, which can be removed with Premium — see sections 4 and 6.</td></tr>
-      <tr><td>Guess the US State (Apple TV)</td><td>None. Playable with Premium only — see section 6.</td></tr>
-      <tr><td>Guess the US State Classic (iPhone, paid)</td><td>None. The app contains no advertising code.</td></tr>
-      <tr><td>Guess the US State Kids (iPhone, paid, no longer on sale)</td><td>None. The app contains no advertising code.</td></tr>
-      <tr><td>Guess the US State HD and HD Kids (iPad, paid, no longer on sale), Guess the US State TV (Apple TV, no longer on sale)</td><td>None. The apps contain no advertising code.</td></tr>
-      <tr><td>Guess the US State HD Light (iPad, free, no longer on sale)</td><td>Google AdMob interstitials — see section 4.</td></tr>
-    </table>
-  </div>
-
-  <h2>2. Your data stays on your device</h2>
-  <p>The answers you type or choose, your scores and your game progress stay on your device and are not uploaded
-  anywhere. There is no account and no cloud sync.</p>
-  <p>If you use <strong>Game Center</strong> and complete a game, the app sends your final score to the Game Center
-  leaderboard of the mode you played. Game Center is an Apple service governed by Apple's privacy policy: we only see
-  the leaderboards, like any other player.</p>
-
-  <h2>3. Push notifications — iPhone and iPad only</h2>
-  <p>If — and only if — you allow notifications, the app registers your device with our notification service
-  (Back4App, a Parse hosting provider). The registration contains:</p>
-  <div class="card">
-    <ul>
-      <li>your device's anonymous notification token (APNs)</li>
-      <li>a random installation identifier generated by the app</li>
-      <li>the device type ("ios"), the app name and version, the time zone and the language setting</li>
-    </ul>
-  </div>
-  <p>None of this identifies you personally and none of it is linked to an account. It is used only to send
-  occasional notifications about the app, and it is never sold or shared for advertising. If you decline
-  notifications, or turn them off later, no registration is used. You can ask us to delete it at any time by
-  writing to us. The Apple TV app does not use notifications.</p>
-
-  <h2>4. Advertising — Guess the US State on iPhone and iPad, and HD Light</h2>
-  <p>The free versions are supported by <strong>Google AdMob</strong> advertising. To choose and measure ads,
-  Google may process data such as device and advertising identifiers, your IP address (which indicates an
-  approximate location) and information about how you interact with ads.</p>
-
-  <p>Because the app is also used by children and teenagers, Guess the US State asks Google for <strong>ads
-  suitable for all ages only</strong> (rating "G").</p>
-
-  <p><strong>Your consent (EEA, UK and Switzerland).</strong> Before the app requests an ad, Google's consent message
-  appears. If you agree, ads can be personalized. If you decline, the app keeps showing ads, but <em>limited</em> and
-  non-personalized ones. You can change your mind at any time: in the app tap <strong>&#9432;</strong> and then
-  <strong>"Privacy settings"</strong>.</p>
-
-  <p><strong>Tracking (App Tracking Transparency).</strong> From version 4.0, after Google's consent message, Guess
-  the US State uses Apple's system prompt to ask whether you allow it to track your activity across other
-  companies' apps and websites.</p>
-  <div class="card">
-    <ul>
-      <li>If you allow it, Google can use the device's advertising identifier (IDFA) to show you more relevant ads and measure their results.</li>
-      <li>If you decline, the IDFA is not used and you still see ads, just less personalized.</li>
-      <li>The prompt does not appear if you declined Google's consent or if you have Premium.</li>
-      <li>You can change your choice at any time in Settings › Privacy &amp; Security › Tracking.</li>
-    </ul>
-  </div>
-
-  <p>How Google uses this data is explained in
-  <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps
-  that use our services</a> and in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
-
-  <p>With Premium (section 6), Guess the US State shows no ads, does not contact Google AdMob and does not ask for
-  advertising consent. The <strong>Multiple choice</strong> mode never shows ads either.</p>
-
-  <h2>5. Anonymous usage statistics — Guess the US State only</h2>
-  <p>To understand which features are really used, Guess the US State (from version 4.0) sends a few anonymous usage
-  statistics to <strong>PostHog</strong>, on servers in the European Union. They are always and only these signals:</p>
-  <div class="card">
-    <ul>
-      <li>which screen you open: mode selection, information, Premium</li>
-      <li>the start of a game, its completion or abandonment, with the chosen mode (Classic or Multiple choice)</li>
-      <li>the opening of the Premium page, and where it was opened from</li>
-      <li>a possible in-app purchase problem, reduced to a generic cause (for example "products unreachable")</li>
-    </ul>
-  </div>
-  <p>Each signal also carries whether you use an iPhone, an iPad or an Apple TV, a random identifier generated by the
-  app and the technical data that comes with any internet request (device model, system and app versions, language,
-  IP address). Answers, scores and other game content never leave the device. No profile is built and the screen is
-  never recorded. This data is not used to track you across other companies' apps or websites: the tracking in
-  section 4 concerns Google advertising only, and only if you allow it.</p>
-
-  <h2>6. Premium — Guess the US State only</h2>
-  <p>In Guess the US State you can buy <strong>Premium</strong> with a yearly subscription or a one-time purchase.
-  Premium removes the ads and unlocks the Multiple choice mode on iPhone and iPad, and unlocks the Apple TV app, with
-  the same Apple Account. Payment is handled by Apple: we never see your payment details. To verify the purchase the
-  app uses <strong>RevenueCat</strong>, which receives the purchase receipt from Apple together with a random
-  identifier generated by the app: no name, no email, no account. You manage and cancel the subscription in your App
-  Store account settings; purchases can be restored in the app, on the Premium screen.</p>
-
-  <h2>7. What we don't do</h2>
-  <ul>
-    <li>No accounts, no profiles</li>
-    <li>No tracking unless you allow it, and only for Google advertising (section 4)</li>
-    <li>No statistics that identify you: those in section 5 are anonymous and build no profiles</li>
-    <li>No location: the app never asks for it</li>
-    <li>No advertising in the paid and Kids versions, on Apple TV, in Multiple choice mode, and in Guess the US State with Premium</li>
-    <li>No selling of your data</li>
-    <li>No personal data knowingly collected from children</li>
-  </ul>
-
-  <h2>8. Your rights</h2>
-  <p>Under the Swiss Federal Act on Data Protection (FADP) and the GDPR you can request access to, correction or
-  deletion of the data described in section 3. Since we keep no information that identifies you, please tell us the
-  approximate date you enabled notifications, so we can find the registration. For the advertising data in section 4,
-  Google acts as an independent controller: you can also exercise your rights directly with Google, through the links
-  above. The statistics in section 5 and the purchase data in section 6 contain nothing that identifies you, so we
-  cannot link them to you. Write to <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
-
-  <h2>9. Changes</h2>
-  <p>If the apps gain new features, for example screen recording, this policy will be updated before their release,
-  and the "last updated" date above will change.</p>
-
-  <footer>
-    © 2026 Fabrizio Bacchin · <a href="support-usstate.html">Support</a>
-  </footer>
-</main>
+  <div class="titolo"><div lang-block="en"><p class="eti">Privacy</p><h1>Your data, in plain words</h1><p class="agg">Last updated November 26, 2026</p></div></div>
+  
+</div>
+<main><div class="griglia" lang-block="en"><section class="riquadro sintesi"><p><strong>In short:</strong> your answers and scores stay on your device and there are no accounts. Guess the US State sends only a few anonymous usage statistics, for example which game mode is chosen: never answers or scores. On iPhone and iPad the app is free and shows Google AdMob ads suitable for all ages. In Europe the ads first ask for your consent; then the app asks whether you allow ad tracking, and you can decline. Premium removes the ads. The Apple TV app shows no ads at all. The old <strong>paid</strong> and Kids versions, no longer on sale, contain no advertising.</p></section><section class="riquadro" id="sez1"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></span><div><h2>Who we are</h2></div></header><div class="testo"><p>Guess the US State (for iPhone, iPad and Apple TV) is an app by Fabrizio Bacchin (Switzerland) for learning to recognize the 50 states of the USA. This policy also covers the previous versions, which are no longer on sale and no longer updated.</p> <div class="scorre"><table> <tr><th>App</th><th>Advertising</th></tr> <tr><td>Guess the US State, formerly Guess the US State Light (iPhone and iPad, free)</td><td>Google AdMob banners and interstitials, which can be removed with Premium (see sections 4 and 6).</td></tr> <tr><td>Guess the US State (Apple TV)</td><td>None. Playable with Premium only (see section 6).</td></tr> <tr><td>Guess the US State Classic (iPhone, paid, no longer on sale)</td><td>None. The app contains no advertising code.</td></tr> <tr><td>Guess the US State Kids (iPhone, paid, no longer on sale)</td><td>None. The app contains no advertising code.</td></tr> <tr><td>Guess the US State HD and HD Kids (iPad, paid, no longer on sale), Guess the US State TV (Apple TV, no longer on sale)</td><td>None. The apps contain no advertising code.</td></tr> <tr><td>Guess the US State HD Light (iPad, free, no longer on sale)</td><td>Google AdMob interstitials (see section 4).</td></tr> </table></div></div></section><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="sez2"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span><div><h2>Your data stays on your device</h2></div></header><div class="testo"><p>The answers you type or choose, your scores and your game progress stay on your device and are not uploaded anywhere. There is no account and no cloud sync.</p> <p>If you use <strong>Game Center</strong> and complete a game, the app sends your final score to the Game Center leaderboard of the mode you played. Game Center is an Apple service governed by Apple's privacy policy: we only see the leaderboards, like any other player.</p></div></section><section style="order:2" class="riquadro" id="sez4"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4h3l7 4V6l-7 4z"/><path d="M17 9a4 4 0 0 1 0 6M6.5 14l1 5h2.5l-1-5"/></svg></span><div><h2>Advertising (iPhone, iPad and HD Light)</h2></div></header><div class="testo"><p>The free versions are supported by <strong>Google AdMob</strong> advertising. To choose and measure ads, Google may process data such as device and advertising identifiers, your IP address (which indicates an approximate location) and information about how you interact with ads.</p> <p>Because the app is also used by children and teenagers, Guess the US State asks Google for <strong>ads suitable for all ages only</strong> (rating "G").</p> <p><strong>Your consent (EEA, UK and Switzerland).</strong> Before the app requests an ad, Google's consent message appears. If you agree, ads can be personalized. If you decline, the app keeps showing ads, but <em>limited</em> and non-personalized ones. You can change your mind at any time: in the app tap <strong>&#9432;</strong> and then <strong>"Privacy settings"</strong>.</p> <p><strong>Tracking (App Tracking Transparency).</strong> From version 4.0, after Google's consent message, Guess the US State uses Apple's system prompt to ask whether you allow it to track your activity across other companies' apps and websites.</p> <ul> <li>If you allow it, Google can use the device's advertising identifier (IDFA) to show you more relevant ads and measure their results.</li> <li>If you decline, the IDFA is not used and you still see ads, just less personalized.</li> <li>The prompt does not appear if you declined Google's consent or if you have Premium.</li> <li>You can change your choice at any time in Settings › Privacy &amp; Security › Tracking.</li> </ul> <p>How Google uses this data is explained in <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a> and in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p> <p>With Premium (section 6), Guess the US State shows no ads, does not contact Google AdMob and does not ask for advertising consent. The <strong>Multiple choice</strong> mode never shows ads either.</p></div></section><section style="order:5" class="riquadro" id="sez7"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg></span><div><h2>What we don't do</h2></div></header><div class="testo"><ul> <li>No accounts, no profiles</li> <li>No tracking unless you allow it, and only for Google advertising (section 4)</li> <li>No statistics that identify you: those in section 5 are anonymous and build no profiles</li> <li>No precise location: the app never asks for it. Only the approximate location estimated from the IP address is used, by Google for ads (section 4) and by PostHog for statistics (section 5)</li> <li>No advertising in the paid and Kids versions, on Apple TV, in Multiple choice mode, and in Guess the US State with Premium</li> <li>No selling of your data</li> <li>No personal data knowingly collected from children</li> </ul></div></section><section style="order:7" class="riquadro" id="sez9"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><div><h2>Changes</h2></div></header><div class="testo"><p>If the apps gain new features, for example screen recording, this policy will be updated before their release, and the "last updated" date above will change.</p></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="sez3"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><div><h2>Push notifications (iPhone and iPad)</h2></div></header><div class="testo"><p>If, and only if, you allow notifications, the app registers your device with our notification service (Back4App, a Parse hosting provider). The registration contains:</p> <ul> <li>your device's anonymous notification token (APNs)</li> <li>a random installation identifier generated by the app</li> <li>the device type ("ios"), the app name, identifier and version, the version of the notification library, the time zone and the language setting</li><li>the name of the channel used for messages to all users</li> </ul> <p>None of this identifies you personally and none of it is linked to an account. It is used only to send occasional notifications about the app, and it is never sold or shared for advertising. If you decline notifications, or turn them off later, no registration is used. You can ask us to delete it at any time by writing to us. The Apple TV app does not use notifications.</p></div></section><section style="order:3" class="riquadro" id="sez5"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-6"/></svg></span><div><h2>Anonymous usage statistics</h2></div></header><div class="testo"><p>To understand which features are really used, Guess the US State (from version 4.0) sends a few anonymous usage statistics to <strong>PostHog</strong>, on servers in the European Union. They are always and only these signals:</p> <ul> <li>which screen you open: mode selection, information, Premium</li> <li>the start of a game, its completion or abandonment, with the chosen mode (Classic or Multiple choice)</li> <li>the opening of the Premium page, and where it was opened from</li> <li>a possible in-app purchase problem, reduced to a generic cause (for example "products unreachable")</li> </ul> <p>Each signal also carries whether you use an iPhone, an iPad or an Apple TV, a random identifier generated by the app and the technical data that comes with any internet request (device model, system and app versions, language, IP address). PostHog uses the IP address only to estimate an approximate location (country and city) and does not keep the address itself. Answers, scores and other game content never leave the device. No profile is built and the screen is never recorded. This data is not used to track you across other companies' apps or websites: the tracking in section 4 concerns Google advertising only, and only if you allow it.</p></div></section><section style="order:4" class="riquadro" id="sez6"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8z"/><path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"/></svg></span><div><h2>Premium</h2></div></header><div class="testo"><p>In Guess the US State you can buy <strong>Premium</strong> with a yearly subscription or a one-time purchase. Premium removes the ads and unlocks the Multiple choice mode on iPhone and iPad, and unlocks the Apple TV app, with the same Apple Account. Payment is handled by Apple: we never see your payment details. To verify the purchase the app uses <strong>RevenueCat</strong>, which receives the purchase receipt from Apple together with a random identifier generated by the app: no name, no email, no account. You manage and cancel the subscription in your App Store account settings; purchases can be restored in the app, on the Premium screen.</p></div></section><section style="order:6" class="riquadro" id="sez8"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></svg></span><div><h2>Your rights</h2></div></header><div class="testo"><p>Under the Swiss Federal Act on Data Protection (FADP) and the GDPR you can request access to, correction or deletion of the data described in section 3. Since we keep no information that identifies you, please tell us the approximate date you enabled notifications, so we can find the registration. For the advertising data in section 4, Google acts as an independent controller: you can also exercise your rights directly with Google, through the links above. The statistics in section 5 and the purchase data in section 6 contain nothing that identifies you, so we cannot link them to you. Write to <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div></div></div></main>
+<footer><span lang-block="en">© 2026 Fabrizio Bacchin · <a href="support-usstate.html">Support</a></span></footer>
+<script>
+var LANGS = ["en"], TITOLI = {"en": "Privacy · Guess the US State"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = "en";
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  var c = document.getElementById("cerca");
+  if (c) { c.placeholder = c.getAttribute("data-" + l); filtra(); }
+  try { localStorage.setItem("usstate-lang", l); } catch (e) {}
+}
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var c = document.getElementById("cerca"); if (!c) return;
+  var q = norm(c.value.trim()), l = document.documentElement.lang;
+  var g = document.querySelector('.griglia[lang-block="' + l + '"]'); if (!g) return;
+  var trovati = 0;
+  g.querySelectorAll(".riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti")) return;
+    var d = r.querySelectorAll("details"), visibili = 0;
+    d.forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var testo = r.querySelector(".testo, header");
+    var okR = !q || visibili > 0 || norm(r.textContent).indexOf(q) >= 0;
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  g.querySelector(".nessuno").hidden = trovati > 0;
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+try { saved = localStorage.getItem("usstate-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : "en"));
+</script>
+<noscript><style>[lang-block]{display:revert !important}</style></noscript>
 </body>
 </html>
