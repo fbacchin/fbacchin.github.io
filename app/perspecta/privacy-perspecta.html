@@ -1,264 +1,115 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Privacy Policy — Perspecta</title>
+<meta name="theme-color" content="#2A1D52">
+<title>Privacy Policy · Perspecta</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
-  :root {
-    --notte: #120B26;
-    --notte2: #1C1238;
-    --velluto: #2A1D52;
-    --oro: #D9B35C;
-    --oro-chiaro: #F0D79A;
-    --pergamena: #EFE6D2;
-    --lavanda: #BCB0D8;
-    --rosso-arcano: #A8434F;
-  }
+:root {
+  color-scheme: dark;
+  --notte: #120B26; --velluto: #2A1D52; --oro: #D9B35C; --oro-chiaro: #F0D79A; --pergamena: #EFE6D2; --lavanda: #BCB0D8;
+  --carta: #120B26; --riquadro: #1C1238; --linea: rgba(188,176,216,.18); --accento-tenue: rgba(217,179,92,.13);
+  --ombra: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.28);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--pergamena);
+  font: 20px/1.55 "Cormorant Garamond", "Iowan Old Style", Georgia, serif; font-weight: 500; }
+h1, h2, .eti, .marchio span { font-family: "Cinzel", "Iowan Old Style", Georgia, serif; }
+a { color: var(--oro-chiaro); }
+strong { font-weight: 700; color: #fff8e6; }
+:focus-visible { outline: 3px solid var(--oro-chiaro); outline-offset: 2px; border-radius: 6px; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='220' viewBox='0 0 640 220' fill='none'%3E%3Cg stroke='%23D9B35C' stroke-opacity='.16' stroke-width='1.1'%3E%3Ccircle cx='470' cy='230' r='60'/%3E%3Ccircle cx='470' cy='230' r='100'/%3E%3Ccircle cx='470' cy='230' r='140'/%3E%3Ccircle cx='470' cy='230' r='180'/%3E%3Ccircle cx='470' cy='230' r='220'/%3E%3Ccircle cx='470' cy='230' r='260'/%3E%3C/g%3E%3Cg fill='%23F0D79A' fill-opacity='.55'%3E%3Ccircle cx='60' cy='40' r='1.6'/%3E%3Ccircle cx='130' cy='150' r='1.2'/%3E%3Ccircle cx='210' cy='60' r='1.4'/%3E%3Ccircle cx='300' cy='170' r='1.0'/%3E%3Ccircle cx='390' cy='35' r='1.8'/%3E%3Ccircle cx='470' cy='120' r='1.2'/%3E%3Ccircle cx='560' cy='55' r='1.4'/%3E%3Ccircle cx='610' cy='160' r='1.0'/%3E%3Ccircle cx='170' cy='105' r='1.0'/%3E%3Ccircle cx='520' cy='20' r='1.0'/%3E%3C/g%3E%3C/svg%3E") right bottom / 640px 220px no-repeat,
+                      linear-gradient(165deg, var(--velluto), var(--notte) 78%);
+  border-bottom: 1px solid var(--linea);
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: var(--pergamena); text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.45); }
+.marchio span { letter-spacing: .08em; font-size: .95em; }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: 600 .85em "Cinzel", Georgia, serif; letter-spacing: .04em;
+  color: #120B26; background: #EFE6D2; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,.35); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid #120B26; border-bottom: 2px solid #120B26; transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 28px auto 0; text-align: center; }
+.titolo .eti { font-size: .74em; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--oro); }
+.titolo h1 { font-size: clamp(1.6em, 5vw, 2.3em); line-height: 1.2; margin-top: 8px; letter-spacing: .03em; font-weight: 600;
+  color: var(--pergamena); text-wrap: balance; }
+.titolo .agg { margin-top: 10px; color: var(--lavanda); font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 24px auto 0; }
+.cerca input { width: 100%; font: inherit; font-weight: 600; color: #120B26; background: #EFE6D2; border: 0; border-radius: 14px;
+  padding: 14px 18px 14px 50px; box-shadow: 0 6px 22px rgba(0,0,0,.35); }
+.cerca input::placeholder { color: #5b4f78; opacity: 1; }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: #5b4f78; }
 
-  html { scroll-behavior: smooth; }
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border: 1px solid var(--linea); border-radius: 18px; box-shadow: var(--ombra);
+  padding: 20px 22px; min-width: 0; }
 
-  body {
-    background:
-      radial-gradient(circle at 20% 10%, rgba(217,179,92,0.10), transparent 40%),
-      radial-gradient(circle at 80% 0%, rgba(188,176,216,0.08), transparent 45%),
-      linear-gradient(180deg, var(--notte) 0%, var(--notte2) 50%, var(--notte) 100%);
-    background-attachment: fixed;
-    color: var(--pergamena);
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 20px;
-    line-height: 1.7;
-    min-height: 100vh;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-
-  /* cielo stellato */
-  .stelle {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .stella {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: var(--oro-chiaro);
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: brilla 4s ease-in-out infinite;
-  }
-  @keyframes brilla {
-    0%, 100% { opacity: 0.2; transform: scale(0.8); }
-    50% { opacity: 0.9; transform: scale(1.2); }
-  }
-
-  .wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 64px 28px 96px;
-  }
-
-  /* intestazione */
-  header { text-align: center; margin-bottom: 40px; }
-
-  .luna {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 24px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, var(--oro-chiaro), var(--oro) 70%);
-    box-shadow: 0 0 28px rgba(240,215,154,0.55), 0 0 60px rgba(217,179,92,0.30);
-    position: relative;
-  }
-  .luna::after {
-    content: "";
-    position: absolute;
-    top: -6px; left: 14px;
-    width: 58px; height: 58px;
-    border-radius: 50%;
-    background: var(--notte);
-    box-shadow: 0 0 0 2px rgba(18,11,38,1);
-  }
-
-  h1 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: var(--oro-chiaro);
-    text-transform: uppercase;
-    line-height: 1.3;
-  }
-  .sottotitolo {
-    color: var(--lavanda);
-    font-style: italic;
-    font-size: 19px;
-    margin-top: 10px;
-  }
-  .aggiornato {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 5px 16px;
-    border: 1px solid rgba(217,179,92,0.4);
-    border-radius: 999px;
-    color: var(--oro);
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-family: 'Cinzel', serif;
-  }
-
-  /* selettore lingua */
-  .langbar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 24px 0 40px;
-  }
-  .langbar button {
-    font-family: 'Cinzel', serif;
-    font-size: 16px;
-    letter-spacing: 1px;
-    padding: 8px 24px;
-    border-radius: 999px;
-    cursor: pointer;
-    border: 1px solid rgba(217,179,92,0.5);
-    background: transparent;
-    color: var(--oro-chiaro);
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-  .langbar button:hover { background: rgba(217,179,92,0.12); }
-  .langbar button[aria-pressed="true"] {
-    background: var(--oro);
-    border-color: var(--oro);
-    color: var(--notte);
-  }
-
-  /* blocchi lingua */
-  [lang-block] { display: none !important; }
-  html[data-lang="it"] [lang-block="it"],
-  html[data-lang="en"] [lang-block="en"] { display: revert !important; }
-
-  /* sezioni */
-  section {
-    background: linear-gradient(160deg, rgba(42,29,82,0.55), rgba(28,18,56,0.55));
-    border: 1px solid rgba(217,179,92,0.18);
-    border-radius: 18px;
-    padding: 28px 30px;
-    margin-bottom: 22px;
-    backdrop-filter: blur(2px);
-  }
-
-  h2 {
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--oro);
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  h2::before {
-    content: "✦";
-    color: var(--oro-chiaro);
-    font-size: 16px;
-  }
-
-  p { margin-bottom: 12px; }
-  /* Testo giustificato, con la sillabazione della lingua attiva (html lang,
-     cambiato da setLang): senza, sulle colonne strette del telefono la
-     giustificazione apre buchi tra le parole. Titoli, contatti e footer
-     restano come sono. */
-  section p, section li, details .risposta {
-    text-align: justify;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
-  /* Mai sillabare link e indirizzi: «bacchin@tiscal-i.it» copiato a mano e'
-     un indirizzo sbagliato. */
-  section a, details .risposta a {
-    -webkit-hyphens: none;
-    hyphens: none;
-  }
-  p:last-child { margin-bottom: 0; }
-
-  strong { color: var(--oro-chiaro); font-weight: 600; }
-
-  a { color: var(--oro); text-decoration: none; border-bottom: 1px dotted rgba(217,179,92,0.6); }
-  a:hover { color: var(--oro-chiaro); }
-
-  ul { list-style: none; margin: 8px 0 4px; }
-  li {
-    position: relative;
-    padding-left: 26px;
-    margin-bottom: 10px;
-  }
-  li::before {
-    content: "☾";
-    position: absolute;
-    left: 0;
-    color: var(--oro);
-    font-size: 16px;
-    top: 2px;
-  }
-
-  .contatto {
-    text-align: center;
-    margin-top: 36px;
-    color: var(--lavanda);
-  }
-  .contatto a { font-size: 21px; }
-
-  footer {
-    text-align: center;
-    margin-top: 48px;
-    color: rgba(188,176,216,0.6);
-    font-size: 15px;
-    font-style: italic;
-  }
-
-  @media (max-width: 600px) {
-    body { font-size: 18px; }
-    .wrap { padding: 44px 18px 72px; }
-    h1 { font-size: 24px; }
-    section { padding: 22px 20px; }
-  }
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--oro);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.02em; line-height: 1.3; color: var(--pergamena); font-weight: 600; letter-spacing: .05em; }
+.desc { color: var(--lavanda); font-size: .93em; line-height: 1.35; margin-top: 3px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 700; padding: 10px 30px 10px 0; position: relative; line-height: 1.35; color: var(--pergamena); }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--oro); border-bottom: 2px solid var(--oro); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--lavanda); }
+details > :not(summary) strong { color: #fff8e6; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+li::marker { color: var(--oro); }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--oro); color: #120B26; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font: 600 .8em "Cinzel", Georgia, serif; letter-spacing: .08em; }
+.tempo { width: 100%; color: var(--lavanda); font-size: .9em; text-align: left; hyphens: manual; }
+.nessuno { text-align: center; color: var(--lavanda); padding: 20px; }
+.sintesi { background: var(--accento-tenue); border-color: rgba(217,179,92,.3); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--lavanda); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="it"] [lang-block="it"], html[data-lang="en"] [lang-block="en"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="it"] .griglia[lang-block="it"], html[data-lang="en"] .griglia[lang-block="en"] { display: block !important; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<div class="stelle" id="stelle" aria-hidden="true"></div>
-
-<div class="wrap">
-  <header>
-    <div class="luna" aria-hidden="true"></div>
-    <h1>Privacy Policy</h1>
-    <div class="sottotitolo"><span lang-block="it">Perspecta · Diario Riflessivo</span><span lang-block="en">Perspecta: Reflection Journal</span></div>
-    <span class="aggiornato"><span lang-block="it">Ultimo aggiornamento: settembre 2026</span><span lang-block="en">Last updated: September 2026</span></span>
-  </header>
-
-  <div class="langbar">
-    <button id="btn-it" aria-pressed="true" onclick="setLang('it')">Italiano</button>
-    <button id="btn-en" aria-pressed="false" onclick="setLang('en')">English</button>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="support-perspecta.html"><img src="icon.png" alt=""><span>PERSPECTA</span></a>
+    <label class="lingua"><span hidden>Language</span><select id="lingua" onchange="setLang(this.value)" aria-label="Language"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option></select></label>
   </div>
-
-  <!-- ============================ ITALIANO ============================ -->
-  <div lang-block="it">
-    <section>
-      <h2>Titolare del trattamento</h2>
-      <p>Fabrizio Bacchin<br>Email: <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a></p>
-    </section>
-
-    <section>
-      <h2>Dati che raccogliamo</h2>
-      <p>Quando accedi con <strong>“Sign in with Apple”</strong> e usi le funzioni online, trattiamo:</p>
+  <div class="titolo"><div lang-block="it"><p class="eti">Privacy Policy</p><h1>I tuoi dati, detto chiaramente</h1><p class="agg">Ultimo aggiornamento: novembre 2026</p></div><div lang-block="en"><p class="eti">Privacy Policy</p><h1>Your data, in plain words</h1><p class="agg">Last updated: November 2026</p></div></div>
+  
+</div>
+<main><div class="griglia" lang-block="it"><section class="riquadro sintesi largo"><p><strong>In breve:</strong> le tue riflessioni sono salvate nel tuo account e non vengono vendute. Per scrivere le domande su misura, il testo che inserisci passa dal nostro server ad Anthropic, che lo usa solo per rispondere. Le statistiche d'uso anonime e la misura delle nostre campagne pubblicitarie non contengono mai ciò che scrivi.</p></section><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="sez1-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></span><div><h2>Titolare del trattamento</h2></div></header><div class="testo"><p>Fabrizio Bacchin<br>Email: <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a></p></div></section><section style="order:2" class="riquadro" id="sez3-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="2.5"/><rect x="9.8" y="9.8" width="4.4" height="4.4" rx="1"/><path d="M9.5 3.5v3M14.5 3.5v3M9.5 17.5v3M14.5 17.5v3M3.5 9.5h3M3.5 14.5h3M17.5 9.5h3M17.5 14.5h3"/></svg></span><div><h2>Testi generati con intelligenza artificiale</h2></div></header><div class="testo"><p>Le domande di un esercizio sono scritte su misura per te: non sono un questionario fisso. Per generarle, il <strong>pensiero che hai scritto</strong> viene inviato, tramite il nostro server, ad <strong>Anthropic</strong> (modelli Claude), che agisce come fornitore del servizio AI. Lo stesso vale per il riepilogo finale, che rilegge <strong>le tue risposte</strong>. I dati inviati servono solo a generare il testo e non vengono usati da Anthropic per addestrare i propri modelli, secondo i suoi termini commerciali.</p>
+      <p>In alternativa, sui dispositivi compatibili puoi scegliere il motore <strong>Apple Intelligence</strong> (Profilo → Motore della riflessione). Vale <strong>solo per gli esercizi con i simboli</strong>: in quel caso il testo è generato sul dispositivo e, se il modello sul dispositivo non riesce a rispondere, l'app usa il servizio cloud. Gli esercizi guidati (Check-in Quotidiano, Esploratore di Decisioni, Cambio di Prospettiva, Diario Guidato) usano sempre il servizio cloud, qualunque motore tu abbia scelto.</p></div></section><section style="order:4" class="riquadro" id="sez5-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></svg></span><div><h2>Finalità e base giuridica</h2></div></header><div class="testo"><p>I dati sono trattati per fornire il servizio (esecuzione del contratto, art. 6.1.b GDPR): salvataggio delle riflessioni e del tuo percorso, generazione delle domande e dei riepiloghi, gestione delle riflessioni acquistate e dell'abbonamento, invio delle notifiche.</p></div></section><section style="order:6" class="riquadro" id="attribuzione-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4h3l7 4V6l-7 4z"/><path d="M17 9a4 4 0 0 1 0 6M6.5 14l1 5h2.5l-1-5"/></svg></span><div><h2>Provenienza dell'installazione</h2></div></header><div class="testo"><p>Per capire se le nostre campagne su Apple Ads funzionano, l'app usa il sistema di attribuzione di Apple (AdServices). Una volta per installazione l'app ottiene da Apple un <strong>token anonimo</strong> e lo passa a <strong>RevenueCat</strong>, che lo scambia con Apple per sapere se l'installazione, e un eventuale acquisto successivo, arrivano da un annuncio e da quale campagna e parola chiave.</p><p>Il token non contiene il tuo nome né la tua email e non usa l'identificativo pubblicitario (IDFA): per questo iOS non ti chiede il consenso al tracciamento. Il dato di campagna è collegato al tuo identificativo cliente di RevenueCat, serve solo a misurare le nostre campagne e non viene usato per seguirti su altre app o siti né ceduto a terzi.</p></div></section><section style="order:8" class="riquadro" id="sez8-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><div><h2>Conservazione</h2></div></header><div class="testo"><p>Conserviamo i dati finché mantieni l'account. Puoi eliminare l'account in qualsiasi momento dall'app (<strong>Profilo → Elimina account</strong>): ciò cancella in modo permanente le tue riflessioni e i dati associati.</p></div></section><section style="order:9" class="riquadro" id="sez9-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.8"/><path d="M10.7 12.3L20 3M16 7l3 3M13.5 9.5l2 2"/></svg></span><div><h2>I tuoi diritti</h2></div></header><div class="testo"><p>Hai diritto di accesso, rettifica, cancellazione, limitazione e portabilità dei dati (artt. 15–20 GDPR). Per esercitarli scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="sez2-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.1-7.5 9.5-4.3-1.4-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h2>Dati che raccogliamo</h2></div></header><div class="testo"><p>Quando accedi con <strong>“Sign in with Apple”</strong> e usi le funzioni online, trattiamo:</p>
       <ul>
         <li><strong>Identificativo utente Apple</strong>: per creare e identificare il tuo account.</li>
         <li><strong>Email</strong> (se fornita da Apple e da te salvata): per la gestione dell'account.</li>
@@ -266,35 +117,10 @@
         <li><strong>Dati di riflessione</strong> (facoltativi): il tuo stato d'animo prima e dopo un esercizio, le decisioni che registri, gli esiti e le note che scegli di annotare.</li>
         <li><strong>Storico acquisti</strong>: i prodotti acquistati tramite In-App Purchase di Apple.</li>
         <li><strong>Token di notifica</strong>: per inviarti notifiche push, se le attivi.</li>
+<li><strong>Provenienza dell'installazione</strong>: se hai scaricato l'app da un annuncio su Apple Ads, la campagna da cui arrivi (vedi la sezione dedicata).</li>
       </ul>
-      <p>Non utilizziamo i dati per pubblicità né li condividiamo con terze parti a scopi di marketing o tracciamento.</p>
-    </section>
-
-    <section>
-      <h2>Testi generati con intelligenza artificiale</h2>
-      <p>Le domande di un esercizio sono scritte su misura per te: non sono un questionario fisso. Per generarle, il <strong>pensiero che hai scritto</strong> viene inviato — tramite il nostro server — ad <strong>Anthropic</strong> (modelli Claude), che agisce come fornitore del servizio AI. Lo stesso vale per il riepilogo finale, che rilegge <strong>le tue risposte</strong>. I dati inviati servono solo a generare il testo e non vengono usati da Anthropic per addestrare i propri modelli, secondo i suoi termini commerciali.</p>
-      <p>In alternativa, sui dispositivi compatibili puoi scegliere il motore <strong>Apple Intelligence</strong> (Profilo → Motore della riflessione). Vale <strong>solo per gli esercizi con i simboli</strong>: in quel caso il testo è generato sul dispositivo e, se il modello sul dispositivo non riesce a rispondere, l'app usa il servizio cloud. Gli esercizi guidati (Check-in Quotidiano, Esploratore di Decisioni, Cambio di Prospettiva, Diario Guidato) usano sempre il servizio cloud, qualunque motore tu abbia scelto.</p>
-    </section>
-
-    <section>
-      <h2>Calendario</h2>
-      <p>Il collegamento al calendario è <strong>facoltativo</strong> e in sola lettura: serve a proporti una breve riflessione di preparazione prima di un impegno. I tuoi eventi vengono letti <strong>solo sul dispositivo</strong> e non vengono mai inviati ai nostri server: al server arriva soltanto la domanda che vedi e confermi esplicitamente. Puoi revocare l'accesso in qualsiasi momento dalle Impostazioni di iOS.</p>
-    </section>
-
-    <section>
-      <h2>Finalità e base giuridica</h2>
-      <p>I dati sono trattati per fornire il servizio (esecuzione del contratto, art. 6.1.b GDPR): salvataggio delle riflessioni e del tuo percorso, generazione delle domande e dei riepiloghi, gestione delle riflessioni acquistate e dell'abbonamento, invio delle notifiche.</p>
-    </section>
-
-    <section>
-      <h2>Dove sono conservati i dati</h2>
-      <p>I dati sono ospitati su <strong>Back4App</strong> (Parse Server), che agisce come responsabile del trattamento. I pagamenti sono gestiti da <strong>Apple</strong>: non abbiamo accesso ai dati della tua carta.</p>
-      <p>Gli acquisti e lo stato dell'abbonamento sono gestiti tramite <strong>RevenueCat</strong>, che agisce come responsabile del trattamento. A RevenueCat arrivano l'identificativo del tuo account e i dati della transazione forniti da Apple: non riceve il tuo nome, la tua email, né nulla di ciò che scrivi nell'app.</p>
-    </section>
-
-    <section>
-      <h2>Statistiche d'uso</h2>
-      <p>Per capire quali esercizi vengono usati davvero e dove l'app si inceppa, raccogliamo un piccolo numero di <strong>statistiche d'uso anonime</strong> tramite <strong>PostHog</strong>, su server nell'<strong>Unione Europea</strong> (Francoforte).</p>
+      <p>Non utilizziamo i dati per pubblicità né li condividiamo con terze parti a scopi di marketing o tracciamento.</p></div></section><section style="order:3" class="riquadro" id="sez4-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 14.5l2 2 4-4"/></svg></span><div><h2>Calendario</h2></div></header><div class="testo"><p>Il collegamento al calendario è <strong>facoltativo</strong> e in sola lettura: serve a proporti una breve riflessione di preparazione prima di un impegno. I tuoi eventi vengono letti <strong>solo sul dispositivo</strong> e non vengono mai inviati ai nostri server: al server arriva soltanto la domanda che vedi e confermi esplicitamente. Puoi revocare l'accesso in qualsiasi momento dalle Impostazioni di iOS.</p></div></section><section style="order:5" class="riquadro" id="sez6-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.3 3.6 5.2 3.6 8.5s-1.1 6.2-3.6 8.5c-2.5-2.3-3.6-5.2-3.6-8.5S9.5 5.8 12 3.5z"/></svg></span><div><h2>Dove sono conservati i dati</h2></div></header><div class="testo"><p>I dati sono ospitati su <strong>Back4App</strong> (Parse Server), che agisce come responsabile del trattamento. I pagamenti sono gestiti da <strong>Apple</strong>: non abbiamo accesso ai dati della tua carta.</p>
+      <p>Gli acquisti e lo stato dell'abbonamento sono gestiti tramite <strong>RevenueCat</strong>, che agisce come responsabile del trattamento. A RevenueCat arrivano l'identificativo del tuo account e i dati della transazione forniti da Apple e il token di attribuzione di Apple Ads (vedi «Provenienza dell'installazione»): non riceve il tuo nome, la tua email, né nulla di ciò che scrivi nell'app.</p></div></section><section style="order:7" class="riquadro" id="sez7-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-6"/></svg></span><div><h2>Statistiche d'uso</h2></div></header><div class="testo"><p>Per capire quali esercizi vengono usati davvero e dove l'app si inceppa, raccogliamo un piccolo numero di <strong>statistiche d'uso anonime</strong> tramite <strong>PostHog</strong>, su server nell'<strong>Unione Europea</strong> (Francoforte).</p>
       <p>Escono dall'app <strong>otto segnali soltanto</strong>, che contengono unicamente nomi fissi:</p>
       <ul>
         <li>quale schermata è stata aperta;</li>
@@ -306,35 +132,8 @@
         <li>quando la presentazione iniziale viene completata;</li>
         <li>quando la schermata d'acquisto non riesce a caricare i prodotti, con una causa generica.</li>
       </ul>
-      <p><strong>Non esce nulla di ciò che scrivi.</strong> Né il pensiero da cui parti, né le tue risposte, né le domande generate per te, né quali carte sono uscite. Non raccogliamo la posizione, non creiamo profili di persona e non registriamo lo schermo. Non c'è tracciamento tra app diverse o tra siti; questi dati non sono collegati al tuo account.</p>
-    </section>
-
-    <section>
-      <h2>Conservazione</h2>
-      <p>Conserviamo i dati finché mantieni l'account. Puoi eliminare l'account in qualsiasi momento dall'app (<strong>Profilo → Elimina account</strong>): ciò cancella in modo permanente le tue riflessioni e i dati associati.</p>
-    </section>
-
-    <section>
-      <h2>I tuoi diritti</h2>
-      <p>Hai diritto di accesso, rettifica, cancellazione, limitazione e portabilità dei dati (artt. 15–20 GDPR). Per esercitarli scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
-    </section>
-
-    <div class="contatto">
-      <p>Per qualsiasi domanda sulla privacy</p>
-      <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>
-    </div>
-  </div>
-
-  <!-- ============================ ENGLISH ============================ -->
-  <div lang-block="en">
-    <section>
-      <h2>Data controller</h2>
-      <p>Fabrizio Bacchin<br>Email: <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a></p>
-    </section>
-
-    <section>
-      <h2>Data we collect</h2>
-      <p>When you sign in with <strong>“Sign in with Apple”</strong> and use the online features, we process:</p>
+      <p><strong>Non esce nulla di ciò che scrivi.</strong> Né il pensiero da cui parti, né le tue risposte, né le domande generate per te, né quali carte sono uscite. Non raccogliamo la posizione, non creiamo profili di persona e non registriamo lo schermo. Non c'è tracciamento tra app diverse o tra siti; questi dati non sono collegati al tuo account.</p></div></section></div></div><section class="riquadro contatti largo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><h2>Domande sulla privacy</h2><p class="desc">Scrivici: rispondiamo a ogni messaggio.</p></div></header><a class="cta" href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a></section></div><div class="griglia" lang-block="en"><section class="riquadro sintesi largo"><p><strong>In short:</strong> your reflections are saved in your account and are never sold. To write the tailored questions, the text you enter goes through our server to Anthropic, which uses it only to reply. Anonymous usage statistics and the measurement of our ad campaigns never contain what you write.</p></section><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="sez1-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></span><div><h2>Data controller</h2></div></header><div class="testo"><p>Fabrizio Bacchin<br>Email: <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a></p></div></section><section style="order:2" class="riquadro" id="sez3-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="2.5"/><rect x="9.8" y="9.8" width="4.4" height="4.4" rx="1"/><path d="M9.5 3.5v3M14.5 3.5v3M9.5 17.5v3M14.5 17.5v3M3.5 9.5h3M3.5 14.5h3M17.5 9.5h3M17.5 14.5h3"/></svg></span><div><h2>AI-generated text</h2></div></header><div class="testo"><p>The questions in an exercise are written specifically for you: this is not a fixed questionnaire. To generate them, the <strong>thought you wrote</strong> is sent, through our server, to <strong>Anthropic</strong> (Claude models), acting as our AI service provider. The same applies to the closing summary, which reads back <strong>your own answers</strong>. The data sent is used only to generate the text and is not used by Anthropic to train its models, under its commercial terms.</p>
+      <p>Alternatively, on compatible devices you can choose the <strong>Apple Intelligence</strong> engine (Profile → Reflection engine). It applies to <strong>the symbol exercises only</strong>: in that case the text is generated on your device and, if the on-device model cannot respond, the app uses the cloud service. The guided exercises (Daily Check-In, Decision Explorer, Perspective Shift, Guided Journal) always use the cloud service, whichever engine you have chosen.</p></div></section><section style="order:4" class="riquadro" id="sez5-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></svg></span><div><h2>Purpose and legal basis</h2></div></header><div class="testo"><p>Data is processed to provide the service (performance of contract, Art. 6.1.b GDPR): saving your reflections and your journey, generating the questions and summaries, managing purchased reflections and the subscription, sending notifications.</p></div></section><section style="order:6" class="riquadro" id="attribuzione-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4h3l7 4V6l-7 4z"/><path d="M17 9a4 4 0 0 1 0 6M6.5 14l1 5h2.5l-1-5"/></svg></span><div><h2>Where the install came from</h2></div></header><div class="testo"><p>To find out whether our Apple Ads campaigns work, the app uses Apple's own attribution system (AdServices). Once per installation the app gets an <strong>anonymous token</strong> from Apple and passes it to <strong>RevenueCat</strong>, which exchanges it with Apple to learn whether the install, and any purchase that follows, came from an ad and from which campaign and keyword.</p><p>The token contains neither your name nor your email and does not use the advertising identifier (IDFA), which is why iOS does not ask for tracking permission. The campaign data is linked to your RevenueCat customer identifier, is used only to measure our own campaigns, and is not used to follow you across other apps or websites or passed on to third parties.</p></div></section><section style="order:8" class="riquadro" id="sez8-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><div><h2>Retention</h2></div></header><div class="testo"><p>We keep your data as long as you keep your account. You can delete your account at any time from the app (<strong>Profile → Delete account</strong>): this permanently deletes your reflections and associated data.</p></div></section><section style="order:9" class="riquadro" id="sez9-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.8"/><path d="M10.7 12.3L20 3M16 7l3 3M13.5 9.5l2 2"/></svg></span><div><h2>Your rights</h2></div></header><div class="testo"><p>You have the right of access, rectification, erasure, restriction and portability of your data (Arts. 15–20 GDPR). To exercise them, write to <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="sez2-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.1-7.5 9.5-4.3-1.4-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h2>Data we collect</h2></div></header><div class="testo"><p>When you sign in with <strong>“Sign in with Apple”</strong> and use the online features, we process:</p>
       <ul>
         <li><strong>Apple user identifier</strong>: to create and identify your account.</li>
         <li><strong>Email</strong> (if provided by Apple and saved by you): for account management.</li>
@@ -342,35 +141,10 @@
         <li><strong>Reflection data</strong> (optional): your mood before and after an exercise, the decisions you record, their outcomes and any notes you choose to add.</li>
         <li><strong>Purchase history</strong>: products bought via Apple In-App Purchase.</li>
         <li><strong>Notification token</strong>: to send you push notifications, if you enable them.</li>
+<li><strong>Where the install came from</strong>: if you downloaded the app from an Apple Ads ad, the campaign you came from (see the dedicated section).</li>
       </ul>
-      <p>We do not use your data for advertising, nor share it with third parties for marketing or tracking purposes.</p>
-    </section>
-
-    <section>
-      <h2>AI-generated text</h2>
-      <p>The questions in an exercise are written specifically for you — this is not a fixed questionnaire. To generate them, the <strong>thought you wrote</strong> is sent — through our server — to <strong>Anthropic</strong> (Claude models), acting as our AI service provider. The same applies to the closing summary, which reads back <strong>your own answers</strong>. The data sent is used only to generate the text and is not used by Anthropic to train its models, under its commercial terms.</p>
-      <p>Alternatively, on compatible devices you can choose the <strong>Apple Intelligence</strong> engine (Profile → Reflection engine). It applies to <strong>the symbol exercises only</strong>: in that case the text is generated on your device and, if the on-device model cannot respond, the app uses the cloud service. The guided exercises (Daily Check-In, Decision Explorer, Perspective Shift, Guided Journal) always use the cloud service, whichever engine you have chosen.</p>
-    </section>
-
-    <section>
-      <h2>Calendar</h2>
-      <p>The calendar connection is <strong>optional</strong> and read-only: it is used to suggest a short preparation reflection before a commitment. Your events are read <strong>on your device only</strong> and are never sent to our servers: only the question you see and explicitly confirm is transmitted. You can revoke access at any time in iOS Settings.</p>
-    </section>
-
-    <section>
-      <h2>Purpose and legal basis</h2>
-      <p>Data is processed to provide the service (performance of contract, Art. 6.1.b GDPR): saving your reflections and your journey, generating the questions and summaries, managing purchased reflections and the subscription, sending notifications.</p>
-    </section>
-
-    <section>
-      <h2>Where data is stored</h2>
-      <p>Data is hosted on <strong>Back4App</strong> (Parse Server), acting as data processor. Payments are handled by <strong>Apple</strong>: we never have access to your card details.</p>
-      <p>Purchases and subscription status are handled through <strong>RevenueCat</strong>, acting as a data processor. RevenueCat receives your account identifier and the transaction data provided by Apple: it does not receive your name, your email, or anything you write in the app.</p>
-    </section>
-
-    <section>
-      <h2>Usage statistics</h2>
-      <p>To understand which exercises are actually used and where the app gets stuck, we collect a small number of <strong>anonymous usage statistics</strong> through <strong>PostHog</strong>, on servers in the <strong>European Union</strong> (Frankfurt).</p>
+      <p>We do not use your data for advertising, nor share it with third parties for marketing or tracking purposes.</p></div></section><section style="order:3" class="riquadro" id="sez4-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 14.5l2 2 4-4"/></svg></span><div><h2>Calendar</h2></div></header><div class="testo"><p>The calendar connection is <strong>optional</strong> and read-only: it is used to suggest a short preparation reflection before a commitment. Your events are read <strong>on your device only</strong> and are never sent to our servers: only the question you see and explicitly confirm is transmitted. You can revoke access at any time in iOS Settings.</p></div></section><section style="order:5" class="riquadro" id="sez6-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.3 3.6 5.2 3.6 8.5s-1.1 6.2-3.6 8.5c-2.5-2.3-3.6-5.2-3.6-8.5S9.5 5.8 12 3.5z"/></svg></span><div><h2>Where data is stored</h2></div></header><div class="testo"><p>Data is hosted on <strong>Back4App</strong> (Parse Server), acting as data processor. Payments are handled by <strong>Apple</strong>: we never have access to your card details.</p>
+      <p>Purchases and subscription status are handled through <strong>RevenueCat</strong>, acting as a data processor. RevenueCat receives your account identifier and the transaction data provided by Apple and the Apple Ads attribution token (see “Where the install came from”): it does not receive your name, your email, or anything you write in the app.</p></div></section><section style="order:7" class="riquadro" id="sez7-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-6"/></svg></span><div><h2>Usage statistics</h2></div></header><div class="testo"><p>To understand which exercises are actually used and where the app gets stuck, we collect a small number of <strong>anonymous usage statistics</strong> through <strong>PostHog</strong>, on servers in the <strong>European Union</strong> (Frankfurt).</p>
       <p><strong>Eight signals only</strong> leave the app, and they contain fixed names alone:</p>
       <ul>
         <li>which screen was opened;</li>
@@ -382,60 +156,43 @@
         <li>when the introduction is completed;</li>
         <li>when the purchase screen cannot load the products, with a generic cause.</li>
       </ul>
-      <p><strong>Nothing you write ever leaves the app.</strong> Not the thought you start from, not your answers, not the questions generated for you, not which cards came up. We do not collect location, we do not create person profiles and we do not record the screen. There is no tracking across apps or websites, and this data is not linked to your account.</p>
-    </section>
-
-    <section>
-      <h2>Retention</h2>
-      <p>We keep your data as long as you keep your account. You can delete your account at any time from the app (<strong>Profile → Delete account</strong>): this permanently deletes your reflections and associated data.</p>
-    </section>
-
-    <section>
-      <h2>Your rights</h2>
-      <p>You have the right of access, rectification, erasure, restriction and portability of your data (Arts. 15–20 GDPR). To exercise them, write to <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
-    </section>
-
-    <div class="contatto">
-      <p>For any privacy question</p>
-      <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>
-    </div>
-  </div>
-
-  <footer>
-    <span lang-block="it">Perspecta è uno strumento di riflessione personale. Non predice il futuro e non fornisce consigli medici, legali o finanziari. · <a href="support-perspecta.html">Supporto</a></span>
-    <span lang-block="en">Perspecta is a personal reflection tool. It does not predict the future and does not provide medical, legal or financial advice. · <a href="support-perspecta.html">Support</a></span>
-  </footer>
-</div>
-
+      <p><strong>Nothing you write ever leaves the app.</strong> Not the thought you start from, not your answers, not the questions generated for you, not which cards came up. We do not collect location, we do not create person profiles and we do not record the screen. There is no tracking across apps or websites, and this data is not linked to your account.</p></div></section></div></div><section class="riquadro contatti largo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><h2>Privacy questions</h2><p class="desc">Write to us: we answer every message.</p></div></header><a class="cta" href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a></section></div></main>
+<footer><span lang-block="it">© 2026 Fabrizio Bacchin · <a href="support-perspecta.html">Supporto</a></span><span lang-block="en">© 2026 Fabrizio Bacchin · <a href="support-perspecta.html">Support</a></span></footer>
 <script>
-  function setLang(l) {
-    document.documentElement.setAttribute("data-lang", l);
-    document.documentElement.lang = l;
-    document.getElementById("btn-it").setAttribute("aria-pressed", l === "it" ? "true" : "false");
-    document.getElementById("btn-en").setAttribute("aria-pressed", l === "en" ? "true" : "false");
-    try { localStorage.setItem("perspecta-lang", l); } catch (e) {}
-  }
-  var saved = null;
-  try { saved = localStorage.getItem("perspecta-lang"); } catch (e) {}
-  if (location.hash.toLowerCase().indexOf("english") !== -1) saved = "en";
-  setLang(saved || ((navigator.language || "en").toLowerCase().indexOf("it") === 0 ? "it" : "en"));
-
-  // genera il cielo stellato
-  (function () {
-    const c = document.getElementById('stelle');
-    const n = 70;
-    for (let i = 0; i < n; i++) {
-      const s = document.createElement('div');
-      s.className = 'stella';
-      s.style.left = Math.random() * 100 + '%';
-      s.style.top = Math.random() * 100 + '%';
-      s.style.animationDelay = (Math.random() * 4) + 's';
-      const size = Math.random() * 2 + 1;
-      s.style.width = size + 'px';
-      s.style.height = size + 'px';
-      c.appendChild(s);
-    }
-  })();
+var LANGS = ["it", "en"], TITOLI = {"it": "Privacy Policy · Perspecta", "en": "Privacy Policy · Perspecta"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = "en";
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  var c = document.getElementById("cerca");
+  if (c) { c.placeholder = c.getAttribute("data-" + l); filtra(); }
+  try { localStorage.setItem("perspecta-lang", l); } catch (e) {}
+}
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var c = document.getElementById("cerca"); if (!c) return;
+  var q = norm(c.value.trim()), l = document.documentElement.lang;
+  var g = document.querySelector('.griglia[lang-block="' + l + '"]'); if (!g) return;
+  var trovati = 0;
+  g.querySelectorAll(".riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti")) return;
+    var d = r.querySelectorAll("details"), visibili = 0;
+    d.forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var okR = !q || visibili > 0 || (!d.length && norm(r.textContent).indexOf(q) >= 0);
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  g.querySelector(".nessuno").hidden = trovati > 0;
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+if (!q && location.hash === "#english") q = "en";
+try { saved = localStorage.getItem("perspecta-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : "en"));
 </script>
 <noscript><style>[lang-block]{display:revert !important}</style></noscript>
 </body>

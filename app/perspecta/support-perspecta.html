@@ -1,510 +1,166 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Supporto / Support — Perspecta</title>
+<meta name="theme-color" content="#2A1D52">
+<title>Support · Perspecta</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
-  :root {
-    --notte: #120B26;
-    --notte2: #1C1238;
-    --velluto: #2A1D52;
-    --oro: #D9B35C;
-    --oro-chiaro: #F0D79A;
-    --pergamena: #EFE6D2;
-    --lavanda: #BCB0D8;
-    --rosso-arcano: #A8434F;
-  }
+:root {
+  color-scheme: dark;
+  --notte: #120B26; --velluto: #2A1D52; --oro: #D9B35C; --oro-chiaro: #F0D79A; --pergamena: #EFE6D2; --lavanda: #BCB0D8;
+  --carta: #120B26; --riquadro: #1C1238; --linea: rgba(188,176,216,.18); --accento-tenue: rgba(217,179,92,.13);
+  --ombra: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.28);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--pergamena);
+  font: 20px/1.55 "Cormorant Garamond", "Iowan Old Style", Georgia, serif; font-weight: 500; }
+h1, h2, .eti, .marchio span { font-family: "Cinzel", "Iowan Old Style", Georgia, serif; }
+a { color: var(--oro-chiaro); }
+strong { font-weight: 700; color: #fff8e6; }
+:focus-visible { outline: 3px solid var(--oro-chiaro); outline-offset: 2px; border-radius: 6px; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='220' viewBox='0 0 640 220' fill='none'%3E%3Cg stroke='%23D9B35C' stroke-opacity='.16' stroke-width='1.1'%3E%3Ccircle cx='470' cy='230' r='60'/%3E%3Ccircle cx='470' cy='230' r='100'/%3E%3Ccircle cx='470' cy='230' r='140'/%3E%3Ccircle cx='470' cy='230' r='180'/%3E%3Ccircle cx='470' cy='230' r='220'/%3E%3Ccircle cx='470' cy='230' r='260'/%3E%3C/g%3E%3Cg fill='%23F0D79A' fill-opacity='.55'%3E%3Ccircle cx='60' cy='40' r='1.6'/%3E%3Ccircle cx='130' cy='150' r='1.2'/%3E%3Ccircle cx='210' cy='60' r='1.4'/%3E%3Ccircle cx='300' cy='170' r='1.0'/%3E%3Ccircle cx='390' cy='35' r='1.8'/%3E%3Ccircle cx='470' cy='120' r='1.2'/%3E%3Ccircle cx='560' cy='55' r='1.4'/%3E%3Ccircle cx='610' cy='160' r='1.0'/%3E%3Ccircle cx='170' cy='105' r='1.0'/%3E%3Ccircle cx='520' cy='20' r='1.0'/%3E%3C/g%3E%3C/svg%3E") right bottom / 640px 220px no-repeat,
+                      linear-gradient(165deg, var(--velluto), var(--notte) 78%);
+  border-bottom: 1px solid var(--linea);
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: var(--pergamena); text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.45); }
+.marchio span { letter-spacing: .08em; font-size: .95em; }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: 600 .85em "Cinzel", Georgia, serif; letter-spacing: .04em;
+  color: #120B26; background: #EFE6D2; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,.35); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid #120B26; border-bottom: 2px solid #120B26; transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 28px auto 0; text-align: center; }
+.titolo .eti { font-size: .74em; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--oro); }
+.titolo h1 { font-size: clamp(1.6em, 5vw, 2.3em); line-height: 1.2; margin-top: 8px; letter-spacing: .03em; font-weight: 600;
+  color: var(--pergamena); text-wrap: balance; }
+.titolo .agg { margin-top: 10px; color: var(--lavanda); font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 24px auto 0; }
+.cerca input { width: 100%; font: inherit; font-weight: 600; color: #120B26; background: #EFE6D2; border: 0; border-radius: 14px;
+  padding: 14px 18px 14px 50px; box-shadow: 0 6px 22px rgba(0,0,0,.35); }
+.cerca input::placeholder { color: #5b4f78; opacity: 1; }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: #5b4f78; }
 
-  html { scroll-behavior: smooth; }
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border: 1px solid var(--linea); border-radius: 18px; box-shadow: var(--ombra);
+  padding: 20px 22px; min-width: 0; }
 
-  body {
-    background:
-      radial-gradient(circle at 20% 10%, rgba(217,179,92,0.10), transparent 40%),
-      radial-gradient(circle at 80% 0%, rgba(188,176,216,0.08), transparent 45%),
-      linear-gradient(180deg, var(--notte) 0%, var(--notte2) 50%, var(--notte) 100%);
-    background-attachment: fixed;
-    color: var(--pergamena);
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 20px;
-    line-height: 1.7;
-    min-height: 100vh;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-
-  /* cielo stellato */
-  .stelle {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .stella {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: var(--oro-chiaro);
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: brilla 4s ease-in-out infinite;
-  }
-  @keyframes brilla {
-    0%, 100% { opacity: 0.2; transform: scale(0.8); }
-    50% { opacity: 0.9; transform: scale(1.2); }
-  }
-
-  .wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 64px 28px 96px;
-  }
-
-  /* intestazione */
-  header { text-align: center; margin-bottom: 40px; }
-
-  .luna {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 24px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, var(--oro-chiaro), var(--oro) 70%);
-    box-shadow: 0 0 28px rgba(240,215,154,0.55), 0 0 60px rgba(217,179,92,0.30);
-    position: relative;
-  }
-  .luna::after {
-    content: "";
-    position: absolute;
-    top: -6px; left: 14px;
-    width: 58px; height: 58px;
-    border-radius: 50%;
-    background: var(--notte);
-    box-shadow: 0 0 0 2px rgba(18,11,38,1);
-  }
-
-  h1 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: var(--oro-chiaro);
-    text-transform: uppercase;
-    line-height: 1.3;
-  }
-  .sottotitolo {
-    color: var(--lavanda);
-    font-style: italic;
-    font-size: 19px;
-    margin-top: 10px;
-  }
-
-  /* selettore lingua */
-  .langbar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 24px 0 40px;
-  }
-  .langbar button {
-    font-family: 'Cinzel', serif;
-    font-size: 16px;
-    letter-spacing: 1px;
-    padding: 8px 24px;
-    border-radius: 999px;
-    cursor: pointer;
-    border: 1px solid rgba(217,179,92,0.5);
-    background: transparent;
-    color: var(--oro-chiaro);
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-  .langbar button:hover { background: rgba(217,179,92,0.12); }
-  .langbar button[aria-pressed="true"] {
-    background: var(--oro);
-    border-color: var(--oro);
-    color: var(--notte);
-  }
-
-  /* blocchi lingua */
-  [lang-block] { display: none !important; }
-  html[data-lang="it"] [lang-block="it"],
-  html[data-lang="en"] [lang-block="en"] { display: revert !important; }
-
-  /* sezioni */
-  section {
-    background: linear-gradient(160deg, rgba(42,29,82,0.55), rgba(28,18,56,0.55));
-    border: 1px solid rgba(217,179,92,0.18);
-    border-radius: 18px;
-    padding: 28px 30px;
-    margin-bottom: 22px;
-    backdrop-filter: blur(2px);
-  }
-
-  h2 {
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--oro);
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  h2::before {
-    content: "✦";
-    color: var(--oro-chiaro);
-    font-size: 16px;
-  }
-
-  p { margin-bottom: 12px; }
-  /* Testo giustificato, con la sillabazione della lingua attiva (html lang,
-     cambiato da setLang): senza, sulle colonne strette del telefono la
-     giustificazione apre buchi tra le parole. Titoli, contatti e footer
-     restano come sono. */
-  section p, section li, details .risposta {
-    text-align: justify;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
-  /* Mai sillabare link e indirizzi: «bacchin@tiscal-i.it» copiato a mano e'
-     un indirizzo sbagliato. */
-  section a, details .risposta a {
-    -webkit-hyphens: none;
-    hyphens: none;
-  }
-  p:last-child { margin-bottom: 0; }
-
-  strong { color: var(--oro-chiaro); font-weight: 600; }
-
-  a { color: var(--oro); text-decoration: none; border-bottom: 1px dotted rgba(217,179,92,0.6); }
-  a:hover { color: var(--oro-chiaro); }
-
-  /* FAQ a fisarmonica */
-  details {
-    border-top: 1px solid rgba(217,179,92,0.15);
-    padding: 14px 0;
-  }
-  details:first-of-type { border-top: none; }
-  summary {
-    font-family: 'Cinzel', serif;
-    font-size: 17px;
-    color: var(--oro-chiaro);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    letter-spacing: 0.5px;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary::before {
-    content: "☾";
-    color: var(--oro);
-    transition: transform 0.25s ease;
-  }
-  details[open] summary::before { transform: rotate(90deg); }
-  details .risposta {
-    padding: 12px 0 4px 26px;
-    color: var(--pergamena);
-  }
-
-  /* contatto in evidenza */
-  .contatto-box {
-    text-align: center;
-    background: linear-gradient(160deg, rgba(42,29,82,0.7), rgba(28,18,56,0.7));
-    border: 1px solid rgba(217,179,92,0.3);
-    border-radius: 18px;
-    padding: 36px 30px;
-    margin-top: 6px;
-  }
-  .contatto-box p { color: var(--lavanda); }
-  .mail-cta {
-    display: inline-block;
-    margin-top: 14px;
-    padding: 12px 28px;
-    border: 1px solid var(--oro);
-    border-radius: 999px;
-    color: var(--oro-chiaro);
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
-    letter-spacing: 1px;
-    border-bottom: 1px solid var(--oro);
-    transition: background 0.2s ease;
-  }
-  .mail-cta:hover { background: rgba(217,179,92,0.12); }
-  .tempo {
-    margin-top: 16px;
-    font-style: italic;
-    font-size: 16px;
-    color: rgba(188,176,216,0.8);
-  }
-
-  footer {
-    text-align: center;
-    margin-top: 48px;
-    color: rgba(188,176,216,0.6);
-    font-size: 15px;
-    font-style: italic;
-  }
-
-  @media (max-width: 600px) {
-    body { font-size: 18px; }
-    .wrap { padding: 44px 18px 72px; }
-    h1 { font-size: 24px; }
-    section, .contatto-box { padding: 22px 20px; }
-  }
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--oro);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.02em; line-height: 1.3; color: var(--pergamena); font-weight: 600; letter-spacing: .05em; }
+.desc { color: var(--lavanda); font-size: .93em; line-height: 1.35; margin-top: 3px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 700; padding: 10px 30px 10px 0; position: relative; line-height: 1.35; color: var(--pergamena); }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--oro); border-bottom: 2px solid var(--oro); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--lavanda); }
+details > :not(summary) strong { color: #fff8e6; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+li::marker { color: var(--oro); }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--oro); color: #120B26; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font: 600 .8em "Cinzel", Georgia, serif; letter-spacing: .08em; }
+.tempo { width: 100%; color: var(--lavanda); font-size: .9em; text-align: left; hyphens: manual; }
+.nessuno { text-align: center; color: var(--lavanda); padding: 20px; }
+.sintesi { background: var(--accento-tenue); border-color: rgba(217,179,92,.3); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--lavanda); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="it"] [lang-block="it"], html[data-lang="en"] [lang-block="en"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="it"] .griglia[lang-block="it"], html[data-lang="en"] .griglia[lang-block="en"] { display: block !important; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<div class="stelle" id="stelle" aria-hidden="true"></div>
-
-<div class="wrap">
-  <header>
-    <div class="luna" aria-hidden="true"></div>
-    <h1><span lang-block="it">Supporto</span><span lang-block="en">Support</span></h1>
-    <div class="sottotitolo"><span lang-block="it">Perspecta · Diario Riflessivo</span><span lang-block="en">Perspecta: Reflection Journal</span></div>
-  </header>
-
-  <div class="langbar">
-    <button id="btn-it" aria-pressed="true" onclick="setLang('it')">Italiano</button>
-    <button id="btn-en" aria-pressed="false" onclick="setLang('en')">English</button>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="support-perspecta.html"><img src="icon.png" alt=""><span>PERSPECTA</span></a>
+    <label class="lingua"><span hidden>Language</span><select id="lingua" onchange="setLang(this.value)" aria-label="Language"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option></select></label>
   </div>
-
-  <!-- ============================ ITALIANO ============================ -->
-  <div lang-block="it">
-    <section>
-      <h2>Come funziona Perspecta</h2>
-      <p>Scrivi ciò che hai in mente: una situazione, una decisione, un'emozione, qualcosa che vuoi solo capire meglio. Non serve sapere già che forma dargli.</p>
+  <div class="titolo"><div lang-block="it"><p class="eti">Supporto</p><h1>Come possiamo aiutarti?</h1></div><div lang-block="en"><p class="eti">Support</p><h1>How can we help?</h1></div></div>
+  <div class="cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/></svg><input id="cerca" type="search" autocomplete="off" aria-label="Search" data-it="Cerca fra le domande…" data-en="Search the questions…" oninput="filtra()"></div>
+</div>
+<main><div class="griglia" lang-block="it"><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="come-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></svg></span><div><h2>Come funziona Perspecta</h2><p class="desc">Quattro esercizi guidati, una domanda alla volta.</p></div></header><div class="testo"><p>Scrivi ciò che hai in mente: una situazione, una decisione, un'emozione, qualcosa che vuoi solo capire meglio. Non serve sapere già che forma dargli.</p>
       <p>Poi scegli come esplorarlo, fra quattro esercizi guidati:</p>
-      <p>• <strong>Check-in Quotidiano</strong> — fermati, nota come stai e metti in parole i tuoi pensieri.</p>
-      <p>• <strong>Esploratore di Decisioni</strong> — chiarisci che cosa conta davvero quando hai una scelta difficile davanti.</p>
-      <p>• <strong>Cambio di Prospettiva</strong> — guarda una situazione da un punto di vista diverso.</p>
-      <p>• <strong>Diario Guidato</strong> — esplora un tema che scegli tu: lavoro, relazioni, decisioni, crescita personale, cambiamento, fiducia, obiettivi.</p>
-      <p>Le domande arrivano <strong>una alla volta</strong>: puoi sempre tornare indietro a correggere una risposta. Alla fine Perspecta ti rilegge le tue stesse parole e ti lascia con un'ultima domanda su cui fermarti. Tutto resta nel tuo Diario.</p>
-      <p><strong>Nessuno dei quattro esercizi usa carte.</strong></p>
-    </section>
-
-    <section>
-      <h2>Acquisti e abbonamento</h2>
-      <p>All'inizio ricevi <strong>3 riflessioni gratuite</strong> per provare senza spese.</p>
+      <ul><li><strong>Check-in Quotidiano</strong>: fermati, nota come stai e metti in parole i tuoi pensieri.</li><li><strong>Esploratore di Decisioni</strong>: chiarisci che cosa conta davvero quando hai una scelta difficile davanti.</li><li><strong>Cambio di Prospettiva</strong>: guarda una situazione da un punto di vista diverso.</li><li><strong>Diario Guidato</strong>: esplora un tema che scegli tu: lavoro, relazioni, decisioni, crescita personale, cambiamento, fiducia, obiettivi.</li></ul><p>Le domande arrivano <strong>una alla volta</strong>: puoi sempre tornare indietro a correggere una risposta. Alla fine Perspecta ti rilegge le tue stesse parole e ti lascia con un'ultima domanda su cui fermarti. Tutto resta nel tuo Diario.</p>
+      <p><strong>Nessuno dei quattro esercizi usa carte.</strong></p></div></section><section style="order:2" class="riquadro" id="domande-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .9-1 1.6"/><path d="M12 16.8v.2"/></svg></span><div><h2>Esercizi e domande</h2><p class="desc">Come nascono le domande e cosa non fa l'app.</p></div></header><div class="domande"><details><summary>Le domande sono sempre le stesse?</summary><p>No. Sono scritte su misura per il pensiero che hai appena messo per iscritto: non è un questionario fisso. Se il servizio non riesce a prepararle, l'app te lo dice, ti propone le domande di base e <strong>non ti scala nessuna riflessione</strong>.</p></details><details><summary>Perspecta predice il futuro?</summary><p>No. È uno strumento di riflessione personale e di intrattenimento: serve ad aiutarti a pensare, non a dirti che cosa accadrà. Non fornisce consigli medici, legali o finanziari.</p></details><details><summary>Come funzionano decisione e verifica?</summary><p>Dopo una riflessione puoi annotare una decisione concreta e scegliere quando verificarla: 7, 30 o 90 giorni. Alla scadenza ricevi una notifica e nel Diario racconti com'è andata davvero. Col tempo, <strong>Il tuo percorso</strong> ti mostra i tuoi pattern: andamento dell'umore, esiti delle decisioni, ricorrenze.</p></details></div></section><section style="order:4" class="riquadro" id="agenda-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><div><h2>Calendario e notifiche</h2><p class="desc">Decisioni da verificare e preparazione agli impegni.</p></div></header><div class="domande"><details><summary>Come funziona il collegamento al calendario?</summary><p>È facoltativo. Se lo attivi, prima di un impegno nelle successive 48 ore l'app ti propone una breve riflessione di preparazione. I tuoi eventi <strong>restano sul dispositivo</strong>: al server arriva solo la domanda che vedi e confermi tu. Puoi revocare l'accesso quando vuoi dalle Impostazioni di iOS.</p></details><details><summary>Non ricevo le notifiche</summary><p>Verifica che le notifiche siano attive in iPhone → Impostazioni → Perspecta → Notifiche. Se il problema persiste, scrivici.</p></details></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="acquisti-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8z"/><path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"/></svg></span><div><h2>Acquisti e abbonamento</h2><p class="desc">Tre riflessioni gratuite, poi come preferisci.</p></div></header><div class="testo"><p>All'inizio ricevi <strong>3 riflessioni gratuite</strong> per provare senza spese.</p>
       <p>Poi puoi continuare in due modi:</p>
-      <p>• <strong>Riflessioni</strong> (singole, o pacchetti da 5 e da 10): ogni esercizio guidato ne usa una. Non scadono e restano legate al tuo account.</p>
-      <p>• <strong>Abbonamento mensile</strong>: riflessioni illimitate finché l'abbonamento è attivo.</p>
-      <p>Non consumano mai nulla: il <strong>Diario</strong>, <strong>Il tuo percorso</strong>, la <strong>Palestra dei Simboli</strong>, la <strong>libreria dei simboli</strong>, il riepilogo finale di un esercizio e gli approfondimenti che chiedi dopo.</p>
+      <ul><li><strong>Riflessioni</strong> (singole, o pacchetti da 5 e da 10): ogni esercizio guidato ne usa una. Non scadono e restano legate al tuo account.</li><li><strong>Abbonamento mensile o annuale</strong>: riflessioni illimitate finché l'abbonamento è attivo.</li></ul><p>Non consumano mai nulla: il <strong>Diario</strong>, <strong>Il tuo percorso</strong>, la <strong>Palestra dei Simboli</strong>, la <strong>libreria dei simboli</strong>, il riepilogo finale di un esercizio e gli approfondimenti che chiedi dopo.</p>
       <p>I prezzi esatti, nella tua valuta, sono mostrati nell'app al momento dell'acquisto.</p>
       <p style="margin-top:16px;"><strong>Termini di rinnovo automatico.</strong> L'abbonamento si rinnova automaticamente alla stessa tariffa salvo disdetta almeno 24 ore prima della fine del periodo in corso. Il pagamento è addebitato sul tuo ID Apple alla conferma dell'acquisto e a ogni rinnovo. Puoi gestire o annullare l'abbonamento in qualsiasi momento da <strong>iPhone → Impostazioni → [il tuo nome] → Abbonamenti</strong>.</p>
-      <p>Consulta i <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Termini d'uso (EULA)</a> e la nostra <a href="privacy-perspecta.html">Privacy Policy</a>.</p>
-    </section>
-
-    <section>
-      <h2>Domande frequenti</h2>
-
-      <details open>
-        <summary>Le domande sono sempre le stesse?</summary>
-        <div class="risposta">No. Sono scritte su misura per il pensiero che hai appena messo per iscritto: non è un questionario fisso. Se il servizio non riesce a prepararle, l'app te lo dice, ti propone le domande di base e <strong>non ti scala nessuna riflessione</strong>.</div>
-      </details>
-
-      <details>
-        <summary>Perspecta predice il futuro?</summary>
-        <div class="risposta">No. È uno strumento di riflessione personale e di intrattenimento: serve ad aiutarti a pensare, non a dirti che cosa accadrà. Non fornisce consigli medici, legali o finanziari.</div>
-      </details>
-
-      <details>
-        <summary>Che cos'è la Palestra dei Simboli?</summary>
-        <div class="risposta">Un esercizio <strong>facoltativo</strong> e gratuito, costruito sul simbolismo dei 22 Arcani Maggiori. Si svolge in quattro passi: osservi un'immagine, scrivi tu che cosa ti suggerisce e <strong>solo dopo</strong> compaiono il nome della carta e il simbolismo tradizionale, da confrontare con quello che avevi scritto. Non si predice nulla: chi interpreta sei tu.</div>
-      </details>
-
-      <details>
-        <summary>Posso esplorare anche con i simboli?</summary>
-        <div class="risposta">Sì, ma è una scelta in più, non il percorso principale: in fondo a un esercizio trovi il pulsante facoltativo per proseguire con i simboli. Quella esplorazione usa una riflessione, come un esercizio guidato.</div>
-      </details>
-
-      <details>
-        <summary>Come funzionano decisione e verifica?</summary>
-        <div class="risposta">Dopo una riflessione puoi annotare una decisione concreta e scegliere quando verificarla: 7, 30 o 90 giorni. Alla scadenza ricevi una notifica e nel Diario racconti com'è andata davvero. Col tempo, <strong>Il tuo percorso</strong> ti mostra i tuoi pattern: andamento dell'umore, esiti delle decisioni, ricorrenze.</div>
-      </details>
-
-      <details>
-        <summary>Come funziona il collegamento al calendario?</summary>
-        <div class="risposta">È facoltativo. Se lo attivi, prima di un impegno nelle successive 48 ore l'app ti propone una breve riflessione di preparazione. I tuoi eventi <strong>restano sul dispositivo</strong>: al server arriva solo la domanda che vedi e confermi tu. Puoi revocare l'accesso quando vuoi dalle Impostazioni di iOS.</div>
-      </details>
-
-      <details>
-        <summary>Che cos'è il motore Apple Intelligence?</summary>
-        <div class="risposta">Sui dispositivi compatibili puoi scegliere in <strong>Profilo → Motore della riflessione</strong> di generare sul dispositivo, con Apple Intelligence, i testi degli esercizi con i simboli. Se il modello sul dispositivo non riesce a rispondere, l'app usa il servizio cloud. Gli esercizi guidati usano sempre il servizio cloud, qualunque motore tu abbia scelto.</div>
-      </details>
-
-      <details>
-        <summary>Ho cambiato iPhone: ritrovo tutto?</summary>
-        <div class="risposta">Sì. Accedi con lo stesso “Sign in with Apple” sul nuovo dispositivo: riflessioni salvate, decisioni, riflessioni ancora disponibili e abbonamento sono legati al tuo account e tornano tutti.</div>
-      </details>
-
-      <details>
-        <summary>Come ripristino un acquisto?</summary>
-        <div class="risposta">Apri <strong>Profilo</strong> e tocca “Ripristina acquisti”. L'abbonamento attivo viene riconosciuto automaticamente tramite il tuo ID Apple.</div>
-      </details>
-
-      <details>
-        <summary>Come gestisco o annullo l'abbonamento?</summary>
-        <div class="risposta">L'abbonamento si gestisce da Apple: iPhone → Impostazioni → [il tuo nome] → Abbonamenti. Da lì puoi modificarlo o annullarlo in qualsiasi momento.</div>
-      </details>
-
-      <details>
-        <summary>Come elimino il mio account?</summary>
-        <div class="risposta">Dall'app: <strong>Profilo → Elimina account</strong>. L'operazione cancella in modo permanente le tue riflessioni e i dati associati, comprese quelle ancora disponibili.</div>
-      </details>
-
-      <details>
-        <summary>Non ricevo le notifiche</summary>
-        <div class="risposta">Verifica che le notifiche siano attive in iPhone → Impostazioni → Perspecta → Notifiche. Se il problema persiste, scrivici.</div>
-      </details>
-    </section>
-
-    <div class="contatto-box">
-      <h2 style="justify-content:center;">Hai bisogno di aiuto?</h2>
-      <p>Scrivici: rispondiamo a ogni messaggio.</p>
-      <a class="mail-cta" href="mailto:bacchin@tiscali.it?subject=Supporto%20Perspecta">bacchin@tiscali.it</a>
-      <p class="tempo">Tempo di risposta indicativo: entro 48 ore.</p>
-    </div>
-  </div>
-
-  <!-- ============================ ENGLISH ============================ -->
-  <div lang-block="en">
-    <section>
-      <h2>How Perspecta works</h2>
-      <p>Write down what's on your mind: a situation, a decision, a feeling, something you simply want to understand better. You don't need to know what shape to give it yet.</p>
+      <p>Consulta i <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Termini d'uso (EULA)</a> e la nostra <a href="privacy-perspecta.html">Privacy Policy</a>.</p></div></section><section style="order:3" class="riquadro" id="simboli-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/><path d="M17 4v3M15.5 5.5h3"/></svg></span><div><h2>Simboli e Apple Intelligence</h2><p class="desc">La Palestra, i simboli e il motore sul dispositivo.</p></div></header><div class="domande"><details><summary>Che cos'è la Palestra dei Simboli?</summary><p>Un esercizio <strong>facoltativo</strong> e gratuito, costruito sul simbolismo dei 22 Arcani Maggiori. Si svolge in quattro passi: osservi un'immagine, scrivi tu che cosa ti suggerisce e <strong>solo dopo</strong> compaiono il nome della carta e il simbolismo tradizionale, da confrontare con quello che avevi scritto. Non si predice nulla: chi interpreta sei tu.</p></details><details><summary>Posso esplorare anche con i simboli?</summary><p>Sì, ma è una scelta in più, non il percorso principale: in fondo a un esercizio trovi il pulsante facoltativo per proseguire con i simboli. Quella esplorazione usa una riflessione, come un esercizio guidato.</p></details><details><summary>Che cos'è il motore Apple Intelligence?</summary><p>Sui dispositivi compatibili puoi scegliere in <strong>Profilo → Motore della riflessione</strong> di generare sul dispositivo, con Apple Intelligence, i testi degli esercizi con i simboli. Se il modello sul dispositivo non riesce a rispondere, l'app usa il servizio cloud. Gli esercizi guidati usano sempre il servizio cloud, qualunque motore tu abbia scelto.</p></details></div></section><section style="order:5" class="riquadro" id="account-it"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.8"/><path d="M10.7 12.3L20 3M16 7l3 3M13.5 9.5l2 2"/></svg></span><div><h2>Account e acquisti</h2><p class="desc">Cambio di iPhone, ripristino, disdetta e cancellazione.</p></div></header><div class="domande"><details><summary>Ho cambiato iPhone: ritrovo tutto?</summary><p>Sì. Accedi con lo stesso “Sign in with Apple” sul nuovo dispositivo: riflessioni salvate, decisioni, riflessioni ancora disponibili e abbonamento sono legati al tuo account e tornano tutti.</p></details><details><summary>Come ripristino un acquisto?</summary><p>Apri <strong>Profilo</strong> e tocca “Ripristina acquisti”. L'abbonamento attivo viene riconosciuto automaticamente tramite il tuo ID Apple.</p></details><details><summary>Come gestisco o annullo l'abbonamento?</summary><p>L'abbonamento si gestisce da Apple: iPhone → Impostazioni → [il tuo nome] → Abbonamenti. Da lì puoi modificarlo o annullarlo in qualsiasi momento.</p></details><details><summary>Come elimino il mio account?</summary><p>Dall'app: <strong>Profilo → Elimina account</strong>. L'operazione cancella in modo permanente le tue riflessioni e i dati associati, comprese quelle ancora disponibili.</p></details></div></section></div></div><section class="riquadro contatti largo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><h2>Hai bisogno di aiuto?</h2><p class="desc">Scrivici: rispondiamo a ogni messaggio.</p></div></header><a class="cta" href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a><p class="tempo">Tempo di risposta indicativo: entro 48 ore.</p></section><p class="nessuno" hidden>Nessuna domanda corrisponde. Scrivici e ti rispondiamo.</p></div><div class="griglia" lang-block="en"><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="come-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></svg></span><div><h2>How Perspecta works</h2><p class="desc">Four guided exercises, one question at a time.</p></div></header><div class="testo"><p>Write down what's on your mind: a situation, a decision, a feeling, something you simply want to understand better. You don't need to know what shape to give it yet.</p>
       <p>Then choose how to explore it, from four guided exercises:</p>
-      <p>• <strong>Daily Check-In</strong> — pause, notice how you feel, and put your thoughts into words.</p>
-      <p>• <strong>Decision Explorer</strong> — clarify what matters when you're facing a difficult choice.</p>
-      <p>• <strong>Perspective Shift</strong> — look at a situation from a different point of view.</p>
-      <p>• <strong>Guided Journal</strong> — explore a topic you choose: work, relationships, decisions, personal growth, change, confidence, goals.</p>
-      <p>Questions arrive <strong>one at a time</strong>, and you can always go back and change an answer. At the end Perspecta reads your own words back to you and leaves you with one further question to sit with. Everything stays in your Journal.</p>
-      <p><strong>None of the four exercises uses cards.</strong></p>
-    </section>
-
-    <section>
-      <h2>Purchases &amp; subscription</h2>
-      <p>You start with <strong>3 free reflections</strong> to try it at no cost.</p>
+      <ul><li><strong>Daily Check-In</strong>: pause, notice how you feel, and put your thoughts into words.</li><li><strong>Decision Explorer</strong>: clarify what matters when you're facing a difficult choice.</li><li><strong>Perspective Shift</strong>: look at a situation from a different point of view.</li><li><strong>Guided Journal</strong>: explore a topic you choose: work, relationships, decisions, personal growth, change, confidence, goals.</li></ul><p>Questions arrive <strong>one at a time</strong>, and you can always go back and change an answer. At the end Perspecta reads your own words back to you and leaves you with one further question to sit with. Everything stays in your Journal.</p>
+      <p><strong>None of the four exercises uses cards.</strong></p></div></section><section style="order:2" class="riquadro" id="domande-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .9-1 1.6"/><path d="M12 16.8v.2"/></svg></span><div><h2>Exercises and questions</h2><p class="desc">How the questions are made and what the app does not do.</p></div></header><div class="domande"><details><summary>Are the questions always the same?</summary><p>No. They are written specifically for the thought you just put into words: this is not a fixed questionnaire. If the service can't prepare them, the app tells you, offers the standard questions and <strong>does not use up a reflection</strong>.</p></details><details><summary>Does Perspecta predict the future?</summary><p>No. It is a personal reflection and entertainment tool: it helps you think, it doesn't tell you what will happen. It does not provide medical, legal or financial advice.</p></details><details><summary>How do decisions and check-ins work?</summary><p>After a reflection you can note down a concrete decision and choose when to review it: 7, 30 or 90 days. When the time comes you get a notification, and in the Journal you record how it actually went. Over time, <strong>Your journey</strong> shows you your patterns: mood trend, decision outcomes, recurrences.</p></details></div></section><section style="order:4" class="riquadro" id="agenda-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><div><h2>Calendar and notifications</h2><p class="desc">Decisions to review and preparation for commitments.</p></div></header><div class="domande"><details><summary>How does the calendar connection work?</summary><p>It's optional. If you enable it, before a commitment in the next 48 hours the app suggests a short preparation reflection. Your events <strong>stay on your device</strong>: only the question you see and confirm is sent to the server. You can revoke access at any time in iOS Settings.</p></details><details><summary>I'm not receiving notifications</summary><p>Check that notifications are enabled in iPhone → Settings → Perspecta → Notifications. If the problem persists, write to us.</p></details></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="acquisti-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8z"/><path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"/></svg></span><div><h2>Purchases and subscription</h2><p class="desc">Three free reflections, then as you prefer.</p></div></header><div class="testo"><p>You start with <strong>3 free reflections</strong> to try it at no cost.</p>
       <p>After that you can continue in two ways:</p>
-      <p>• <strong>Reflections</strong> (single, or packs of 5 and 10): each guided exercise uses one. They never expire and stay tied to your account.</p>
-      <p>• <strong>Monthly subscription</strong>: unlimited reflections while the subscription is active.</p>
-      <p>These never use anything up: the <strong>Journal</strong>, <strong>Your journey</strong>, <strong>Symbol Practice</strong>, the <strong>symbol library</strong>, an exercise's closing summary and the follow-ups you ask afterwards.</p>
+      <ul><li><strong>Reflections</strong> (single, or packs of 5 and 10): each guided exercise uses one. They never expire and stay tied to your account.</li><li><strong>Monthly or annual subscription</strong>: unlimited reflections while the subscription is active.</li></ul><p>These never use anything up: the <strong>Journal</strong>, <strong>Your journey</strong>, <strong>Symbol Practice</strong>, the <strong>symbol library</strong>, an exercise's closing summary and the follow-ups you ask afterwards.</p>
       <p>Exact prices, in your currency, are shown in the app at the time of purchase.</p>
       <p style="margin-top:16px;"><strong>Auto-renewal terms.</strong> The subscription renews automatically at the same rate unless cancelled at least 24 hours before the end of the current period. Payment is charged to your Apple ID at confirmation of purchase and at each renewal. You can manage or cancel the subscription at any time from <strong>iPhone → Settings → [your name] → Subscriptions</strong>.</p>
-      <p>See the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use (EULA)</a> and our <a href="privacy-perspecta.html">Privacy Policy</a>.</p>
-    </section>
-
-    <section>
-      <h2>Frequently asked questions</h2>
-
-      <details open>
-        <summary>Are the questions always the same?</summary>
-        <div class="risposta">No. They are written specifically for the thought you just put into words — this is not a fixed questionnaire. If the service can't prepare them, the app tells you, offers the standard questions and <strong>does not use up a reflection</strong>.</div>
-      </details>
-
-      <details>
-        <summary>Does Perspecta predict the future?</summary>
-        <div class="risposta">No. It is a personal reflection and entertainment tool: it helps you think, it doesn't tell you what will happen. It does not provide medical, legal or financial advice.</div>
-      </details>
-
-      <details>
-        <summary>What is Symbol Practice?</summary>
-        <div class="risposta">An <strong>optional</strong>, free exercise built on the symbolism of the 22 Major Arcana. It runs in four steps: you look at an image, you write what it suggests to you, and <strong>only afterwards</strong> do the card's name and its traditional symbolism appear, to compare with what you wrote. Nothing is predicted: you are the one interpreting.</div>
-      </details>
-
-      <details>
-        <summary>Can I explore with symbols too?</summary>
-        <div class="risposta">Yes, but it's an extra choice, not the main path: at the end of an exercise you'll find an optional button to carry on with the symbols. That exploration uses one reflection, like a guided exercise.</div>
-      </details>
-
-      <details>
-        <summary>How do decisions and check-ins work?</summary>
-        <div class="risposta">After a reflection you can note down a concrete decision and choose when to review it: 7, 30 or 90 days. When the time comes you get a notification, and in the Journal you record how it actually went. Over time, <strong>Your journey</strong> shows you your patterns: mood trend, decision outcomes, recurrences.</div>
-      </details>
-
-      <details>
-        <summary>How does the calendar connection work?</summary>
-        <div class="risposta">It's optional. If you enable it, before a commitment in the next 48 hours the app suggests a short preparation reflection. Your events <strong>stay on your device</strong>: only the question you see and confirm is sent to the server. You can revoke access at any time in iOS Settings.</div>
-      </details>
-
-      <details>
-        <summary>What is the Apple Intelligence engine?</summary>
-        <div class="risposta">On compatible devices you can choose, in <strong>Profile → Reflection engine</strong>, to generate the text of the symbol exercises on your device with Apple Intelligence. If the on-device model cannot respond, the app uses the cloud service. The guided exercises always use the cloud service, whichever engine you have chosen.</div>
-      </details>
-
-      <details>
-        <summary>I changed my iPhone: do I get everything back?</summary>
-        <div class="risposta">Yes. Sign in with the same “Sign in with Apple” on the new device: saved reflections, decisions, any reflections still available and your subscription are tied to your account and all come back.</div>
-      </details>
-
-      <details>
-        <summary>How do I restore a purchase?</summary>
-        <div class="risposta">Open <strong>Profile</strong> and tap “Restore purchases”. An active subscription is recognised automatically through your Apple ID.</div>
-      </details>
-
-      <details>
-        <summary>How do I manage or cancel the subscription?</summary>
-        <div class="risposta">Subscriptions are managed by Apple: iPhone → Settings → [your name] → Subscriptions. From there you can change or cancel it at any time.</div>
-      </details>
-
-      <details>
-        <summary>How do I delete my account?</summary>
-        <div class="risposta">From the app: <strong>Profile → Delete account</strong>. This permanently deletes your reflections and associated data, including any still available.</div>
-      </details>
-
-      <details>
-        <summary>I'm not receiving notifications</summary>
-        <div class="risposta">Check that notifications are enabled in iPhone → Settings → Perspecta → Notifications. If the problem persists, write to us.</div>
-      </details>
-    </section>
-
-    <div class="contatto-box">
-      <h2 style="justify-content:center;">Need help?</h2>
-      <p>Write to us — we answer every message.</p>
-      <a class="mail-cta" href="mailto:bacchin@tiscali.it?subject=Perspecta%20Support">bacchin@tiscali.it</a>
-      <p class="tempo">Typical response time: within 48 hours.</p>
-    </div>
-  </div>
-
-  <footer>
-    <span lang-block="it">Per il trattamento dei dati consulta la nostra <a href="privacy-perspecta.html">Privacy Policy</a>.</span>
-    <span lang-block="en">For data processing see our <a href="privacy-perspecta.html">Privacy Policy</a>.</span>
-  </footer>
-</div>
-
+      <p>See the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use (EULA)</a> and our <a href="privacy-perspecta.html">Privacy Policy</a>.</p></div></section><section style="order:3" class="riquadro" id="simboli-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/><path d="M17 4v3M15.5 5.5h3"/></svg></span><div><h2>Symbols and Apple Intelligence</h2><p class="desc">Symbol Practice, the symbols and the on-device engine.</p></div></header><div class="domande"><details><summary>What is Symbol Practice?</summary><p>An <strong>optional</strong>, free exercise built on the symbolism of the 22 Major Arcana. It runs in four steps: you look at an image, you write what it suggests to you, and <strong>only afterwards</strong> do the card's name and its traditional symbolism appear, to compare with what you wrote. Nothing is predicted: you are the one interpreting.</p></details><details><summary>Can I explore with symbols too?</summary><p>Yes, but it's an extra choice, not the main path: at the end of an exercise you'll find an optional button to carry on with the symbols. That exploration uses one reflection, like a guided exercise.</p></details><details><summary>What is the Apple Intelligence engine?</summary><p>On compatible devices you can choose, in <strong>Profile → Reflection engine</strong>, to generate the text of the symbol exercises on your device with Apple Intelligence. If the on-device model cannot respond, the app uses the cloud service. The guided exercises always use the cloud service, whichever engine you have chosen.</p></details></div></section><section style="order:5" class="riquadro" id="account-en"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.8"/><path d="M10.7 12.3L20 3M16 7l3 3M13.5 9.5l2 2"/></svg></span><div><h2>Account and purchases</h2><p class="desc">New iPhone, restoring, cancelling and deleting.</p></div></header><div class="domande"><details><summary>I changed my iPhone: do I get everything back?</summary><p>Yes. Sign in with the same “Sign in with Apple” on the new device: saved reflections, decisions, any reflections still available and your subscription are tied to your account and all come back.</p></details><details><summary>How do I restore a purchase?</summary><p>Open <strong>Profile</strong> and tap “Restore purchases”. An active subscription is recognised automatically through your Apple ID.</p></details><details><summary>How do I manage or cancel the subscription?</summary><p>Subscriptions are managed by Apple: iPhone → Settings → [your name] → Subscriptions. From there you can change or cancel it at any time.</p></details><details><summary>How do I delete my account?</summary><p>From the app: <strong>Profile → Delete account</strong>. This permanently deletes your reflections and associated data, including any still available.</p></details></div></section></div></div><section class="riquadro contatti largo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><h2>Need help?</h2><p class="desc">Write to us: we answer every message.</p></div></header><a class="cta" href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a><p class="tempo">Typical response time: within 48 hours.</p></section><p class="nessuno" hidden>No question matches. Write to us and we'll answer.</p></div></main>
+<footer><span lang-block="it">© 2026 Fabrizio Bacchin · <a href="privacy-perspecta.html">Privacy Policy</a></span><span lang-block="en">© 2026 Fabrizio Bacchin · <a href="privacy-perspecta.html">Privacy Policy</a></span></footer>
 <script>
-  function setLang(l) {
-    document.documentElement.setAttribute("data-lang", l);
-    document.documentElement.lang = l;
-    document.getElementById("btn-it").setAttribute("aria-pressed", l === "it" ? "true" : "false");
-    document.getElementById("btn-en").setAttribute("aria-pressed", l === "en" ? "true" : "false");
-    try { localStorage.setItem("perspecta-lang", l); } catch (e) {}
-  }
-  var saved = null;
-  try { saved = localStorage.getItem("perspecta-lang"); } catch (e) {}
-  if (location.hash.toLowerCase().indexOf("english") !== -1) saved = "en";
-  setLang(saved || ((navigator.language || "en").toLowerCase().indexOf("it") === 0 ? "it" : "en"));
-
-  // genera il cielo stellato
-  (function () {
-    const c = document.getElementById('stelle');
-    const n = 70;
-    for (let i = 0; i < n; i++) {
-      const s = document.createElement('div');
-      s.className = 'stella';
-      s.style.left = Math.random() * 100 + '%';
-      s.style.top = Math.random() * 100 + '%';
-      s.style.animationDelay = (Math.random() * 4) + 's';
-      const size = Math.random() * 2 + 1;
-      s.style.width = size + 'px';
-      s.style.height = size + 'px';
-      c.appendChild(s);
-    }
-  })();
+var LANGS = ["it", "en"], TITOLI = {"it": "Supporto · Perspecta", "en": "Support · Perspecta"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = "en";
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  var c = document.getElementById("cerca");
+  if (c) { c.placeholder = c.getAttribute("data-" + l); filtra(); }
+  try { localStorage.setItem("perspecta-lang", l); } catch (e) {}
+}
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var c = document.getElementById("cerca"); if (!c) return;
+  var q = norm(c.value.trim()), l = document.documentElement.lang;
+  var g = document.querySelector('.griglia[lang-block="' + l + '"]'); if (!g) return;
+  var trovati = 0;
+  g.querySelectorAll(".riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti")) return;
+    var d = r.querySelectorAll("details"), visibili = 0;
+    d.forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var okR = !q || visibili > 0 || (!d.length && norm(r.textContent).indexOf(q) >= 0);
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  g.querySelector(".nessuno").hidden = trovati > 0;
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+if (!q && location.hash === "#english") q = "en";
+try { saved = localStorage.getItem("perspecta-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : "en"));
 </script>
 <noscript><style>[lang-block]{display:revert !important}</style></noscript>
 </body>
