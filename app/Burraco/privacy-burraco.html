@@ -1,190 +1,208 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Informativa sulla privacy — Burraco Score</title>
+<meta name="theme-color" content="#0B4A2C">
+<title>Privacy · Burraco Score</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
+:root {
+  --accento: #127942; --accento-tenue: #E4F3EC; --inchiostro: #17211C; --inchiostro-tenue: #5C6E63;
+  --carta: #EEF2EC; --riquadro: #FFFFFF; --linea: #DCE7E0; --fascia-a: #0B4A2C; --fascia-b: #127942;
+  --ombra: 0 1px 2px rgba(14,60,36,.06), 0 8px 24px rgba(14,60,36,.07);
+}
+@media (prefers-color-scheme: dark) {
   :root {
-    --accent: #0F6E56;
-    --accent-soft: #E4F3EC;
-    --ink: #14261C;
-    --ink-soft: #5C6E63;
-    --paper: #EEF2EC;
-    --card: #FFFFFF;
-    --line: #DCE7E0;
+    --accento: #5FD39A; --accento-tenue: #14301F; --inchiostro: #E6F0EA; --inchiostro-tenue: #93A99E;
+    --carta: #0C1510; --riquadro: #14261C; --linea: #24382C; --fascia-a: #08301D; --fascia-b: #0E5A33;
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #1D9E75;
-      --accent-soft: #12261E;
-      --ink: #EAF3EE;
-      --ink-soft: #93A99E;
-      --paper: #0E1512;
-      --card: #17211C;
-      --line: #24383F;
-    }
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 0 64px; }
-  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  .logo svg { flex: none; }
-  h1 { font-size: 1.9em; line-height: 1.2; }
-  .updated { color: var(--ink-soft); margin: 6px 0 32px; font-size: .9em; text-align: left; }
-  h2 { color: var(--accent); font-size: 1.25em; margin: 36px 0 10px; }
-  p, li, .tldr { color: var(--ink); margin-bottom: 10px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  ul { padding-left: 22px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 20px; margin: 14px 0;
-  }
-  .tldr { background: var(--accent-soft); border-color: transparent; }
-  a { color: var(--accent); }
-  a[href^="mailto:"] { white-space: nowrap; }
-  table { width: 100%; border-collapse: collapse; font-size: .95em; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--ink-soft); font-weight: 600; }
-  td:last-child { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-  footer { color: var(--ink-soft); font-size: .85em; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--inchiostro);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+h1, h2, .ora { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+a { color: var(--accento); }
+:focus-visible { outline: 3px solid #F2B84B; outline-offset: 2px; border-radius: 6px; }
+
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='200' viewBox='0 0 360 200' fill='white' fill-opacity='.075' font-family='Arial, Helvetica, sans-serif'%3E%3Ctext x='14' y='78' font-size='70'%3E&%239824;%3C/text%3E%3Ctext x='196' y='60' font-size='46'%3E&%239829;%3C/text%3E%3Ctext x='262' y='158' font-size='78'%3E&%239827;%3C/text%3E%3Ctext x='84' y='178' font-size='52'%3E&%239830;%3C/text%3E%3C/svg%3E") center / 360px 200px repeat,
+                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
+  color: #fff;
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: inherit; font-size: .95em; font-weight: 600;
+  color: var(--inchiostro); background: #fff; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid var(--inchiostro); border-bottom: 2px solid var(--inchiostro); transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
+.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 22px auto 0; }
+.cerca input { width: 100%; font: inherit; color: var(--inchiostro); background: #fff; border: 0; border-radius: 14px;
+  padding: 15px 18px 15px 50px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: var(--inchiostro-tenue); }
+
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border-radius: 18px; box-shadow: var(--ombra); padding: 20px 22px; min-width: 0; }
+
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--accento);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.22em; line-height: 1.25; color: var(--inchiostro); }
+.desc { color: var(--inchiostro-tenue); font-size: .93em; line-height: 1.4; margin-top: 2px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 30px 10px 0; position: relative; line-height: 1.4; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--accento); border-bottom: 2px solid var(--accento); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--inchiostro-tenue); font-size: .95em; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: .93em; }
+th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--linea); vertical-align: top; }
+th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
+.scorre { overflow-x: auto; }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .cta { color: #0C1510; } }
+.nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
+.sintesi { background: var(--accento-tenue); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--inchiostro-tenue); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"], html[data-lang="de"] [lang-block="de"],
+html[data-lang="fr"] [lang-block="fr"], html[data-lang="nl"] [lang-block="nl"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="en"] .griglia[lang-block="en"], html[data-lang="it"] .griglia[lang-block="it"], html[data-lang="de"] .griglia[lang-block="de"],
+html[data-lang="fr"] .griglia[lang-block="fr"], html[data-lang="nl"] .griglia[lang-block="nl"] { display: block !important; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<main>
-  <div class="logo">
-    <img src="icon.png" width="44" height="44" alt="" style="border-radius:10px;display:block">
-    <h1>Informativa sulla privacy</h1>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="support-burraco.html"><img src="icon.png" alt="">Burraco Score</a>
+    
   </div>
-  <p class="updated">Burraco Score, Burraco Score Classic, Burraco Score HD e Burraco Score HD Light — ultimo aggiornamento 23 settembre 2026</p>
-
-  <div class="card tldr">
-    <strong>In breve:</strong> i nomi e i punteggi che scrivi restano sul tuo dispositivo e non ci sono account.
-    Burraco Score manda solo poche statistiche d'uso anonime, per esempio quali schermate si aprono: mai nomi né
-    punteggi. È gratuita e mostra annunci di Google AdMob, che in Europa chiedono prima il tuo consenso e che puoi
-    togliere con un acquisto. Le vecchie versioni <strong>a pagamento</strong>, non più in vendita, non contengono alcuna pubblicità.
-  </div>
-
-  <h2>1. Chi siamo</h2>
-  <p>Burraco Score (per iPhone e iPad) è un'app di Fabrizio Bacchin (Svizzera) che tiene il punteggio del gioco
-  di carte Burraco. Questa informativa vale anche per le versioni precedenti, non più in vendita e non più
-  aggiornate: Burraco Score Classic (per iPhone), Burraco Score HD e Burraco Score HD Light (per iPad).</p>
-  <div class="card">
-    <table>
-      <tr><th>App</th><th>Pubblicità</th></tr>
-      <tr><td>Burraco Score (iPhone e iPad, gratuita)</td><td>Banner e interstiziali di Google AdMob, che si possono togliere con un acquisto — vedi i punti 4 e 6.</td></tr>
-      <tr><td>Burraco Score Classic (iPhone, a pagamento, non più in vendita)</td><td>Nessuna. L'app non contiene codice pubblicitario.</td></tr>
-      <tr><td>Burraco Score HD (iPad, a pagamento, non più in vendita)</td><td>Nessuna. L'app non contiene codice pubblicitario.</td></tr>
-      <tr><td>Burraco Score HD Light (iPad, gratuita, non più in vendita)</td><td>Banner e interstiziali di Google AdMob — vedi il punto 4.</td></tr>
-    </table>
-  </div>
-
-  <h2>2. I dati restano sul tuo dispositivo</h2>
-  <p>I nomi, le mani e i punteggi della <strong>partita in corso</strong> restano sul tuo dispositivo mentre
-  giochi; chiudendo l'app o iniziando una nuova partita i valori correnti vengono azzerati.</p>
-  <p>Le <strong>partite concluse</strong> vengono invece salvate in uno storico, insieme alla classifica dei
-  giocatori e ai <strong>nomi</strong> che riusi. Questi dati restano memorizzati sul dispositivo finché non li
-  cancelli tu, dalla schermata della classifica con "Cancella storico e nomi". In ogni caso nulla viene caricato
-  da nessuna parte: non esiste alcun account e non c'è sincronizzazione sul cloud.</p>
-
-  <h2>3. Notifiche push</h2>
-  <p>Se — e solo se — autorizzi le notifiche, l'app registra il tuo dispositivo presso il nostro servizio di
-  notifica (Back4App, un fornitore di hosting Parse). La registrazione contiene:</p>
-  <div class="card">
-    <ul>
-      <li>il token di notifica anonimo del tuo dispositivo (APNs)</li>
-      <li>un identificativo di installazione casuale generato dall'app</li>
-      <li>il tipo di dispositivo ("ios"), la versione dell'app, il fuso orario e la lingua impostata</li>
-    </ul>
-  </div>
-  <p>Nessuno di questi dati ti identifica personalmente, non è collegato ad alcun account ed è usato
-  esclusivamente per inviare occasionali notifiche sull'app. Non viene mai venduto né condiviso a fini
-  pubblicitari. Se rifiuti o disattivi in seguito le notifiche, non viene usata alcuna registrazione. Puoi
-  chiedere in qualsiasi momento la cancellazione della tua registrazione scrivendoci.</p>
-
-  <h2>4. Pubblicità — solo Burraco Score e Burraco Score HD Light</h2>
-  <p>Le versioni gratuite sono sostenute dalla pubblicità servita da <strong>Google AdMob</strong>. Per
-  selezionare e misurare gli annunci, Google può trattare dati come gli identificativi del dispositivo e della
-  pubblicità, il tuo indirizzo IP (che indica una posizione approssimativa) e informazioni su come interagisci
-  con gli annunci.</p>
-
-  <p><strong>Il tuo consenso (SEE, Regno Unito e Svizzera).</strong> Prima che l'app richieda un annuncio, ti
-  viene mostrato il messaggio di consenso di Google. Se acconsenti, gli annunci possono essere personalizzati.
-  Se rifiuti, l'app continua a mostrare annunci, ma <em>limitati</em> (non personalizzati). Puoi cambiare idea
-  quando vuoi: apri il pulsante <strong>&#9432;</strong> nell'app e tocca <strong>"Impostazioni
-  privacy"</strong>.</p>
-
-  <p>L'app <strong>non</strong> ti chiede l'autorizzazione a tracciarti nelle app e nei siti di altre aziende
-  (App Tracking Transparency di Apple) e quindi non usa a questo scopo l'identificativo pubblicitario.</p>
-
-  <p>Il modo in cui Google utilizza questi dati è descritto in
-  <a href="https://policies.google.com/technologies/partner-sites">Come Google utilizza le informazioni
-  provenienti da siti o app che utilizzano i nostri servizi</a> e nelle
-  <a href="https://policies.google.com/privacy">Norme sulla privacy di Google</a>.</p>
-
-  <p>Se hai acquistato la rimozione della pubblicità (punto 6), Burraco Score non mostra più annunci, non contatta
-  Google AdMob e non ti chiede il consenso pubblicitario.</p>
-
-  <p>Quando non è possibile mostrare alcun annuncio (per esempio senza connessione a internet), l'app mostra
-  la promozione di altre app dello stesso sviluppatore. Quella promozione è integrata nell'app, non raccoglie
-  nulla e non contatta alcun server.</p>
-
-  <h2>5. Statistiche d'uso anonime — solo Burraco Score</h2>
-  <p>Per capire quali funzioni si usano davvero, Burraco Score (dalla versione 5.0) manda alcune statistiche d'uso
-  anonime a <strong>PostHog</strong>, su server nell'Unione europea. Sono sempre e solo questi segnali:</p>
-  <div class="card">
-    <ul>
-      <li>quale schermata apri: partita, classifica, come si gioca, giocatori salvati, tabellone, rimozione della pubblicità</li>
-      <li>l'inizio e la fine di una partita, con il traguardo scelto (2000, 3000, 4000 o 5000) e se si gioca uno contro uno o in coppia</li>
-      <li>la correzione di una mano già inserita</li>
-      <li>un eventuale problema dell'acquisto in-app, ridotto a una causa generica (per esempio «prodotti non raggiungibili»)</li>
-    </ul>
-  </div>
-  <p>A ogni segnale si aggiungono se usi un iPhone o un iPad, un identificativo casuale generato dall'app e i dati
-  tecnici che accompagnano qualsiasi richiesta su internet (modello del dispositivo, versioni di iOS e dell'app,
-  lingua, indirizzo IP). Non escono mai i nomi dei giocatori, i punteggi o altri contenuti delle partite. Non si crea
-  alcun profilo, lo schermo non viene registrato e questi dati non servono a tracciarti nelle app o nei siti di altre
-  aziende.</p>
-
-  <h2>6. Acquisti per togliere la pubblicità — solo Burraco Score</h2>
-  <p>In Burraco Score puoi togliere la pubblicità con un abbonamento annuale oppure con un acquisto una tantum. Il
-  pagamento lo gestisce Apple: noi non vediamo mai i tuoi dati di pagamento. Per verificare l'acquisto l'app usa
-  <strong>RevenueCat</strong>, che riceve da Apple la ricevuta dell'acquisto insieme a un identificativo casuale
-  generato dall'app: nessun nome, nessuna email, nessun account. L'abbonamento si gestisce e si disdice dalle
-  impostazioni del tuo account App Store; gli acquisti si ripristinano dall'app, nella schermata
-  «Rimuovi la pubblicità».</p>
-
-  <h2>7. Cosa non facciamo</h2>
-  <ul>
-    <li>Nessun account, nessun profilo</li>
-    <li>Nessuna statistica che ti identifichi: quelle del punto 5 sono anonime e non creano profili</li>
-    <li>Nessuna posizione: l'app non la richiede mai</li>
-    <li>Nessuna pubblicità, di nessun genere, in Burraco Score Classic, in Burraco Score HD e in Burraco Score dopo l'acquisto della rimozione</li>
-    <li>Nessuna vendita dei tuoi dati</li>
-    <li>Nessun dato raccolto consapevolmente da minori — sono segnapunti classificati 4+</li>
-  </ul>
-
-  <h2>8. I tuoi diritti</h2>
-  <p>In base alla legge svizzera sulla protezione dei dati (nLPD) e al GDPR puoi chiedere l'accesso, la
-  rettifica o la cancellazione dei dati descritti al punto 3. Poiché non conserviamo alcuna informazione
-  identificativa, indica per favore la data approssimativa in cui hai attivato le notifiche, così possiamo
-  ritrovare la registrazione. Per i dati pubblicitari del punto 4, Google agisce come titolare autonomo:
-  puoi esercitare i tuoi diritti anche direttamente presso Google tramite i link qui sopra. Le statistiche del
-  punto 5 e i dati d'acquisto del punto 6 non contengono nulla che ti identifichi: per questo non possiamo
-  ricondurli a te. Scrivi a
-  <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
-
-  <h2>9. Modifiche</h2>
-  <p>Se le app dovessero acquisire nuove funzioni (per esempio una richiesta di tracciamento nelle altre app, o
-  la registrazione dello schermo), questa informativa verrà aggiornata prima che tali funzioni vengano rilasciate; anche la data di
-  "ultimo aggiornamento" qui sopra cambierà.</p>
-
-  <footer>
-    © 2026 Fabrizio Bacchin · <a href="support-burraco.html">Assistenza</a>
-  </footer>
-</main>
+  <div class="titolo"><div lang-block="it"><p class="eti">Privacy</p><h1>I tuoi dati, detto chiaramente</h1><p class="agg">Ultimo aggiornamento 26 novembre 2026</p></div></div>
+  
+</div>
+<main><div class="griglia" lang-block="it"><section class="riquadro sintesi largo"><p><strong>In breve:</strong> nessun account, nessuna posizione, nessuna vendita di dati. I nomi e i punteggi che scrivi restano sul tuo dispositivo. L'app è gratuita e mostra annunci di Google AdMob, personalizzati solo se lo permetti, e che puoi togliere con un acquisto. Notifiche, acquisti e statistiche d'uso anonime mandano il minimo descritto qui sotto.</p></section><section class="riquadro largo" id="sez1"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></span><div><h2>1. Chi siamo</h2></div></header><div class="testo"><p>Burraco Score (per iPhone e iPad) è un'app di Fabrizio Bacchin (Svizzera) che tiene il punteggio del gioco di carte Burraco. Questa informativa
+vale anche per le versioni precedenti, ritirate dall'App Store e non più aggiornate: Burraco Score Classic (per iPhone), Burraco Score HD e
+Burraco Score HD Light (per iPad).</p>
+<div class="scorre"><table><tr><th>App</th><th>Pubblicità</th></tr>
+<tr><td>Burraco Score (iPhone e iPad, gratuita)</td><td>Banner e interstiziali di Google AdMob, che si possono togliere con un acquisto (punti 4 e 6).</td></tr>
+<tr><td>Burraco Score Classic (iPhone, a pagamento, ritirata)</td><td>Nessuna. L'app non contiene codice pubblicitario.</td></tr>
+<tr><td>Burraco Score HD (iPad, a pagamento, ritirata)</td><td>Nessuna. L'app non contiene codice pubblicitario.</td></tr>
+<tr><td>Burraco Score HD Light (iPad, gratuita, ritirata)</td><td>Banner e interstiziali di Google AdMob (punto 4).</td></tr></table></div></div></section><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="sez2"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4h3l7 4V6l-7 4z"/><path d="M17 9a4 4 0 0 1 0 6M6.5 14l1 5h2.5l-1-5"/></svg></span><div><h2>2. I dati restano sul tuo dispositivo</h2></div></header><div class="testo"><p>I nomi, le mani e i punteggi della partita in corso restano sul tuo dispositivo mentre giochi; chiudendo l'app o iniziando una nuova partita i
+valori correnti vengono azzerati. Le partite concluse vengono invece salvate in uno storico, insieme alla classifica dei giocatori e ai nomi che
+riusi. Questi dati restano memorizzati sul dispositivo finché non li cancelli tu, dalla schermata della classifica con «Cancella storico e nomi».
+In ogni caso nulla viene caricato da nessuna parte: non esiste alcun account e non c'è sincronizzazione sul cloud.</p></div></section><section style="order:2" class="riquadro" id="sez4"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.3 3.6 5.2 3.6 8.5s-1.1 6.2-3.6 8.5c-2.5-2.3-3.6-5.2-3.6-8.5S9.5 5.8 12 3.5z"/></svg></span><div><h2>4. Pubblicità</h2></div></header><div class="testo"><p>Burraco Score (e la vecchia HD Light) sono sostenute dalla pubblicità servita da Google AdMob. Per selezionare e misurare gli annunci, Google
+può trattare dati come gli identificativi del dispositivo e della pubblicità, il tuo indirizzo IP (che indica una posizione approssimativa) e
+informazioni su come interagisci con gli annunci.</p>
+<p><strong>Il tuo consenso (SEE, Regno Unito e Svizzera).</strong> Prima che l'app richieda un annuncio, ti viene mostrato il messaggio di
+consenso di Google. Se acconsenti, gli annunci possono essere personalizzati. Se rifiuti, l'app continua a mostrare annunci, ma limitati (non
+personalizzati). Puoi cambiare idea quando vuoi: apri il pulsante ⓘ nell'app e tocca «Impostazioni privacy».</p>
+<p>L'app non ti chiede l'autorizzazione a tracciarti nelle app e nei siti di altre aziende (App Tracking Transparency di Apple) e quindi non usa a
+questo scopo l'identificativo pubblicitario. Il modo in cui Google utilizza questi dati è descritto in
+<a href="https://policies.google.com/technologies/partner-sites">Come Google utilizza le informazioni provenienti da siti o app che utilizzano i
+nostri servizi</a> e nelle <a href="https://policies.google.com/privacy">Norme sulla privacy di Google</a>.</p>
+<p>Se hai acquistato la rimozione della pubblicità (punto 6), Burraco Score non mostra più annunci, non contatta Google AdMob e non ti chiede il
+consenso pubblicitario.</p>
+<p>Quando non è possibile mostrare alcun annuncio (per esempio senza connessione a internet), l'app mostra la promozione di altre app gratuite dello
+stesso sviluppatore. Quella promozione è integrata nell'app, non raccoglie nulla e non contatta alcun server: solo se la tocchi si apre la pagina
+dell'App Store.</p></div></section><section style="order:5" class="riquadro" id="sez7"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg></span><div><h2>7. Cosa non facciamo</h2></div></header><div class="testo"><ul><li>Nessun account, nessun profilo</li>
+<li>Nessuna statistica che ti identifichi: quelle del punto 5 sono anonime e non creano profili</li>
+<li>Nessuna posizione: l'app non la richiede mai</li>
+<li>Nessuna pubblicità nelle vecchie versioni a pagamento (Classic e HD) e in Burraco Score dopo l'acquisto della rimozione</li>
+<li>Nessuna vendita dei tuoi dati</li>
+<li>Nessun dato raccolto consapevolmente da minori: sono segnapunti classificati 4+</li></ul></div></section><section style="order:7" class="riquadro" id="sez9"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><div><h2>9. Modifiche</h2></div></header><div class="testo"><p>Se le app dovessero acquisire nuove funzioni (per esempio una richiesta di tracciamento nelle altre app, o la registrazione dello schermo),
+questa informativa verrà aggiornata prima che tali funzioni vengano rilasciate; anche la data di «ultimo aggiornamento» qui sopra cambierà.</p></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="sez3"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><div><h2>3. Notifiche push</h2></div></header><div class="testo"><p>Se, e solo se, autorizzi le notifiche, l'app registra il tuo dispositivo presso il nostro servizio di notifica (Back4App, un fornitore di
+hosting Parse). La registrazione contiene:</p>
+<ul><li>il token di notifica anonimo del tuo dispositivo (APNs)</li>
+<li>un identificativo di installazione casuale generato dall'app</li>
+<li>il tipo di dispositivo («ios»), la versione dell'app, il fuso orario e la lingua impostata</li></ul>
+<p>Nessuno di questi dati ti identifica personalmente, non è collegato ad alcun account ed è usato esclusivamente per inviare occasionali
+notifiche sull'app. Non viene mai venduto né condiviso a fini pubblicitari. Se rifiuti o disattivi in seguito le notifiche, non viene usata alcuna
+registrazione. Puoi chiedere in qualsiasi momento la cancellazione della tua registrazione scrivendoci.</p></div></section><section style="order:3" class="riquadro" id="sez5"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-6"/></svg></span><div><h2>5. Statistiche d'uso anonime</h2></div></header><div class="testo"><p>Per capire quali funzioni si usano davvero, Burraco Score (dalla versione 5.0) manda alcune statistiche d'uso anonime a PostHog, su server
+nell'Unione europea. Sono sempre e solo questi segnali:</p>
+<ul><li>quale schermata apri: partita, classifica, come si gioca, giocatori salvati, tabellone, rimozione della pubblicità</li>
+<li>l'inizio e la fine di una partita, con il traguardo scelto (2000, 3000, 4000 o 5000) e se si gioca uno contro uno o in coppia</li>
+<li>la correzione di una mano già inserita</li>
+<li>un eventuale problema dell'acquisto in-app, ridotto a una causa generica (per esempio «prodotti non raggiungibili»)</li></ul>
+<p>A ogni segnale si aggiungono se usi un iPhone o un iPad, un identificativo casuale generato dall'app e i dati tecnici che accompagnano qualsiasi
+richiesta su internet (modello del dispositivo, versioni di iOS e dell'app, lingua, indirizzo IP). Non escono mai i nomi dei giocatori, i punteggi o
+altri contenuti delle partite. Non si crea alcun profilo, lo schermo non viene registrato e questi dati non servono a tracciarti nelle app o nei
+siti di altre aziende.</p></div></section><section style="order:4" class="riquadro" id="sez6"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8z"/><path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"/></svg></span><div><h2>6. Acquisti per togliere la pubblicità</h2></div></header><div class="testo"><p>In Burraco Score puoi togliere la pubblicità con un abbonamento annuale oppure con un acquisto una tantum. Il pagamento lo gestisce Apple: noi
+non vediamo mai i tuoi dati di pagamento. Per verificare l'acquisto l'app usa RevenueCat, che riceve da Apple la ricevuta dell'acquisto insieme a
+un identificativo casuale generato dall'app: nessun nome, nessuna email, nessun account. L'abbonamento si gestisce e si disdice dalle impostazioni
+del tuo account App Store; gli acquisti si ripristinano dall'app, nella schermata «Rimuovi la pubblicità».</p></div></section><section style="order:6" class="riquadro" id="sez8"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></svg></span><div><h2>8. I tuoi diritti</h2></div></header><div class="testo"><p>In base alla legge svizzera sulla protezione dei dati (nLPD) e al GDPR puoi chiedere l'accesso, la rettifica o la cancellazione dei dati
+descritti al punto 3. Poiché non conserviamo alcuna informazione identificativa, indica per favore la data approssimativa in cui hai attivato le
+notifiche, così possiamo ritrovare la registrazione. Per i dati pubblicitari del punto 4, Google agisce come titolare autonomo: puoi esercitare i
+tuoi diritti anche direttamente presso Google tramite i link qui sopra. Le statistiche del punto 5 e i dati d'acquisto del punto 6 non contengono
+nulla che ti identifichi: per questo non possiamo ricondurli a te. Scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div></div></div></main>
+<footer><span lang-block="it">© 2026 Fabrizio Bacchin · <a href="support-burraco.html">Supporto</a></span></footer>
+<script>
+var LANGS = ["it"], TITOLI = {"it": "Privacy · Burraco Score"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = "it";
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  var c = document.getElementById("cerca");
+  if (c) { c.placeholder = c.getAttribute("data-" + l); filtra(); }
+  try { localStorage.setItem("burraco-lang", l); } catch (e) {}
+}
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var c = document.getElementById("cerca"); if (!c) return;
+  var q = norm(c.value.trim()), l = document.documentElement.lang;
+  var g = document.querySelector('.griglia[lang-block="' + l + '"]'); if (!g) return;
+  var trovati = 0;
+  g.querySelectorAll(".riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti")) return;
+    var d = r.querySelectorAll("details"), visibili = 0;
+    d.forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var testo = r.querySelector(".testo, header");
+    var okR = !q || visibili > 0 || norm(r.textContent).indexOf(q) >= 0;
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  g.querySelector(".nessuno").hidden = trovati > 0;
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+try { saved = localStorage.getItem("burraco-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : "it"));
+</script>
+<noscript><style>[lang-block]{display:revert !important}</style></noscript>
 </body>
 </html>
