@@ -1,259 +1,159 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Informativa sulla privacy — Codice di Gara Burraco</title>
+<meta name="theme-color" content="#0B4D3C">
+<title>Privacy · Codice di Gara Burraco</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
+:root {
+  --accento: #0F6E56; --accento-tenue: #E4F3EC; --inchiostro: #14261C; --inchiostro-tenue: #5C6E63;
+  --carta: #EEF2EC; --riquadro: #FFFFFF; --linea: #DCE7E0; --fascia-a: #0B4D3C; --fascia-b: #0F6E56;
+  --ombra: 0 1px 2px rgba(15,110,86,.06), 0 8px 24px rgba(15,110,86,.07);
+}
+@media (prefers-color-scheme: dark) {
   :root {
-    --accent: #0F6E56;
-    --accent-soft: #E4F3EC;
-    --ink: #14261C;
-    --ink-soft: #5C6E63;
-    --paper: #EEF2EC;
-    --card: #FFFFFF;
-    --line: #DCE7E0;
+    --accento: #1D9E75; --accento-tenue: #12261E; --inchiostro: #EAF3EE; --inchiostro-tenue: #93A99E;
+    --carta: #0E1512; --riquadro: #17211C; --linea: #24383F; --fascia-a: #08342A; --fascia-b: #0E5744;
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --accent: #1D9E75;
-      --accent-soft: #12261E;
-      --ink: #EAF3EE;
-      --ink-soft: #93A99E;
-      --paper: #0E1512;
-      --card: #17211C;
-      --line: #24383F;
-    }
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom);
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 0 64px; }
-  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  /* L'icona è la versione con la cornice dorata, quella scartata per l'app
-     perché iOS ne taglia i bordi: qui non c'è nessuna maschera di sistema e la
-     cornice si vede intera. Gli angoli del file sono bianchi opachi, non
-     trasparenti, e sul fondo della pagina si noterebbero: il 10% è il raggio
-     della cornice stessa, misurato sull'immagine. */
-  .logo img {
-    flex: none; width: 44px; height: 44px;
-    border-radius: 10%;
-    box-shadow: 0 1px 3px rgb(0 0 0 / .18);
-  }
-  h1 { font-size: 1.9em; line-height: 1.2; }
-  .tag { color: var(--ink-soft); margin: 6px 0 32px; font-size: .95em; }
-  .updated { color: var(--ink-soft); margin: 6px 0 32px; font-size: .9em; }
-  .tldr { background: var(--accent-soft); border-color: transparent; }
-  h2 { color: var(--accent); font-size: 1.25em; margin: 36px 0 10px; }
-  /* Testo giustificato. La sillabazione non è un vezzo: senza, in una colonna
-     stretta l'italiano — che ha parole lunghe — lascia buchi bianchi larghi fra
-     le parole. La lingua per sillabare la prende da <html lang="it">. */
-  /* `.tldr` sta nell'elenco perché il suo testo è dentro il div, senza <p>:
-     senza nominarlo resterebbe l'unico paragrafo non giustificato della pagina. */
-  p, li, .tldr {
-    margin-bottom: 10px;
-    text-align: justify;
-    -webkit-hyphens: auto; hyphens: auto;
-  }
-  /* Le righe di intestazione sono una o due: giustificarle allargherebbe gli
-     spazi dell'ultima riga senza guadagnarci niente. */
-  .tag, .updated { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
-  ul { padding-left: 22px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 20px; margin: 14px 0;
-  }
-  .cta {
-    display: inline-block; background: var(--accent); color: #fff !important;
-    padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600;
-    margin: 6px 0 10px;
-  }
-  details { border-bottom: 1px solid var(--line); padding: 12px 0; }
-  details:last-of-type { border-bottom: none; }
-  summary { cursor: pointer; font-weight: 600; }
-  details p { margin-top: 8px; color: var(--ink-soft); }
-  a { color: var(--accent); }
-  table { width: 100%; border-collapse: collapse; font-size: .95em; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--ink-soft); font-weight: 600; }
-  .plat {
-    display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px;
-    background: var(--accent-soft); color: var(--accent); font-size: .78em; font-weight: 600;
-  }
-  footer { color: var(--ink-soft); font-size: .85em; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--inchiostro);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+h1, h2, .ora { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+a { color: var(--accento); }
+:focus-visible { outline: 3px solid #F2B84B; outline-offset: 2px; border-radius: 6px; }
+
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='220' viewBox='0 0 560 220' fill='none' stroke='white' stroke-opacity='.14' stroke-width='1.3'%3E%3Cg transform='translate(70 150) rotate(-18)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3Cg transform='translate(120 165) rotate(6)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3Cg transform='translate(168 150) rotate(24)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3Cg transform='translate(320 158) rotate(-10)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3Cg transform='translate(366 170) rotate(12)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3Cg transform='translate(470 148) rotate(-24)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3Cg transform='translate(516 162) rotate(4)'%3E%3Crect x='-17' y='-24' width='34' height='48' rx='5'/%3E%3Cpath d='M0 -13 L7 -4 L0 5 L-7 -4 Z'/%3E%3C/g%3E%3C/svg%3E") center bottom / 640px 220px repeat-x,
+                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
+  color: #fff;
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: inherit; font-size: .95em; font-weight: 600;
+  color: #1C2A2E; background: #fff; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid #1C2A2E; border-bottom: 2px solid #1C2A2E; transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
+.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+.cerca { position: relative; max-width: 640px; margin: 22px auto 0; }
+/* Il campo ha sfondo #fff FISSO, anche in modo scuro: testo e lente devono
+   quindi essere scuri fissi della palette, mai var(--inchiostro), che in scuro
+   diventa chiaro e sparisce sul bianco. */
+.cerca input { width: 100%; font: inherit; color: #14261C; background: #fff; border: 0; border-radius: 14px;
+  padding: 15px 18px 15px 50px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.cerca input::placeholder { color: #5C6E63; opacity: 1; }
+.cerca svg { position: absolute; left: 17px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: #5C6E63; }
+
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border-radius: 18px; box-shadow: var(--ombra); padding: 20px 22px; min-width: 0; }
+
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--accento);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.22em; line-height: 1.25; color: var(--inchiostro); }
+.desc { color: var(--inchiostro-tenue); font-size: .93em; line-height: 1.4; margin-top: 2px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 30px 10px 0; position: relative; line-height: 1.4; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--accento); border-bottom: 2px solid var(--accento); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--inchiostro-tenue); font-size: .95em; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: .93em; }
+th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--linea); vertical-align: top; }
+th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
+.scorre { overflow-x: auto; }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .cta { color: #0C1619; } }
+.nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
+.sintesi { background: var(--accento-tenue); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--inchiostro-tenue); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"], html[data-lang="de"] [lang-block="de"],
+html[data-lang="fr"] [lang-block="fr"], html[data-lang="nl"] [lang-block="nl"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="en"] .griglia[lang-block="en"], html[data-lang="it"] .griglia[lang-block="it"], html[data-lang="de"] .griglia[lang-block="de"],
+html[data-lang="fr"] .griglia[lang-block="fr"], html[data-lang="nl"] .griglia[lang-block="nl"] { display: block !important; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
 </style>
 </head>
 <body>
-<main>
-  <div class="logo">
-    <img src="icona-codicedigara.png" width="44" height="44" alt="" aria-hidden="true">
-    <h1>Informativa sulla privacy</h1>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="support-codicedigara.html"><img src="icona-codicedigara.png" alt="">Codice di Gara Burraco</a>
+    
   </div>
-  <p class="updated">Codice di Gara Burraco e Codice di Gara Classic &mdash; ultimo aggiornamento 2 ottobre 2026</p>
-
-  <div class="card tldr">
-    <strong>In breve:</strong> l&rsquo;app mostra i regolamenti ufficiali di gara del Burraco. Non c&rsquo;&egrave; alcun
-    account e non ti chiediamo dati. Preferiti, note e articoli consultati di recente restano sul tuo
-    dispositivo: non ne riceviamo copia. L&rsquo;unica cosa che ci arriva &egrave; se una notifica &egrave;
-    stata aperta, sempre che tu abbia accettato le notifiche. L&rsquo;app <strong>gratuita</strong> mostra annunci di
-    Google AdMob &mdash; in Europa ti chiede il consenso prima di richiedere anche un solo annuncio &mdash; e
-    raccoglie qualche conteggio anonimo su quali funzioni vengono usate: mai quali articoli leggi n&eacute; cosa
-    cerchi. Se acquisti la rimozione della pubblicit&agrave;, gli annunci si fermano.
-    <strong>Codice di Gara Classic</strong>, la vecchia versione a pagamento, non contiene nulla di tutto questo.
-  </div>
-
-  <h2>1. Chi siamo</h2>
-  <p><strong>Codice di Gara Burraco</strong> (gratuita, in precedenza chiamata Codice di Gara Burraco Light)
-  e <strong>Codice di Gara Classic</strong> (a pagamento, la versione storica) sono app di Fabrizio Bacchin
-  (Svizzera) che permettono di consultare i regolamenti ufficiali di gara del Burraco delle federazioni
-  <strong>FIBur</strong> e <strong>FITaB</strong>. Questa informativa vale per entrambe; dove fanno cose
-  diverse, &egrave; detto di volta in volta. Per qualsiasi cosa la riguardi, scrivi&nbsp;a&nbsp;<a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
-
-  <h2>2. Quello che scrivi resta sul tuo dispositivo</h2>
-  <p>L&rsquo;app non crea account e non chiede registrazione. Alcune funzioni per&ograve; conservano qualcosa.
-  Vale la pena dire con precisione dove finisce: <strong>nella memoria dell&rsquo;app, sul tuo dispositivo,
-  da cui non si muove</strong>.</p>
-  <div class="card">
-    <table>
-      <tr><th>Funzione</th><th>Cosa conserva</th></tr>
-      <tr><td>Preferiti</td><td>Quali articoli hai contrassegnato con la stella</td></tr>
-      <tr><td>Note</td><td>Il testo che scrivi tu su un articolo</td></tr>
-      <tr><td>Consultati di recente</td><td>Gli ultimi articoli aperti: tre su iPhone, cinque su iPad</td></tr>
-    </table>
-  </div>
-  <p>Non ne riceviamo copia, non finiscono su alcun server, non vengono sincronizzati e non sono compresi
-  in nessun backup nostro. Spariscono quando disinstalli l&rsquo;app. Una nota si cancella riaprendola e
-  svuotando il campo; una stella si toglie ritoccandola.</p>
-  <p>L&rsquo;app non usa la posizione, la rubrica, la fotocamera, il microfono n&eacute; la libreria foto:
-  non ne chiede il permesso perch&eacute; non le utilizza.</p>
-
-  <h2>3. Aggiornamento dei regolamenti</h2>
-  <p>Le federazioni pubblicano una nuova edizione del codice ogni uno o due anni. Per non costringerti ad
-  aggiornare l&rsquo;app ogni volta, al massimo una volta al giorno l&rsquo;app controlla su
-  <code>fbacchin.github.io</code> se esiste un&rsquo;edizione pi&ugrave; recente e, in caso, la scarica.</p>
-  <div class="card">
-    <p>&Egrave; una normale richiesta a un sito web: <strong>noi non inviamo alcun identificativo</strong> e non
-    riceviamo nulla in cambio. Come per qualsiasi pagina web, il server che ospita i file (GitHub Pages,
-    di GitHub&nbsp;Inc.) vede l&rsquo;indirizzo IP da cui arriva la richiesta. Il regolamento scaricato resta
-    sul tuo dispositivo.</p>
-  </div>
-
-  <h2>4. Notifiche push</h2>
-  <p>Se accetti le notifiche, il dispositivo riceve da Apple un identificativo tecnico (token APNs) che viene
-  registrato sul servizio <strong>Back4App</strong>, che usiamo per inviare gli avvisi. Insieme al token viene
-  salvato un identificativo di installazione generato a caso e, quando apri l&rsquo;app da una notifica, il fatto
-  che quella notifica sia stata aperta.</p>
-  <div class="card">
-    <table>
-      <tr><th>Dato</th><th>A cosa serve</th></tr>
-      <tr><td>Token APNs</td><td>Recapitare la notifica a quel dispositivo</td></tr>
-      <tr><td>ID di installazione</td><td>Distinguere le installazioni senza sapere chi sei</td></tr>
-      <tr><td>Apertura della notifica</td><td>Capire se un avviso &egrave; stato utile</td></tr>
-    </table>
-  </div>
-  <p>Non sono legati al tuo nome, alla tua email n&eacute; al tuo Apple Account: non permettono di risalire a te.
-  Se non accetti le notifiche, non viene registrato nulla. Puoi revocarle in qualsiasi momento da
-  Impostazioni &rsaquo; Notifiche.</p>
-
-  <h2>5. Pubblicit&agrave; &mdash; solo nell&rsquo;app gratuita</h2>
-  <p><strong>Codice di Gara Classic non contiene alcuna pubblicit&agrave;</strong> e nessun SDK pubblicitario:
-  questo punto e i due successivi non la riguardano.</p>
-  <p><strong>Codice di Gara Burraco</strong> &egrave; gratuita e sostenuta dagli annunci di
-  <a href="https://policies.google.com/technologies/partner-sites">Google AdMob</a>. In Europa, prima di
-  richiedere anche un solo annuncio, l&rsquo;app ti mostra il modulo di consenso di Google: finch&eacute; non
-  rispondi non viene inviata alcuna richiesta pubblicitaria. Puoi cambiare idea in qualsiasi momento dalla
-  voce <strong>Impostazioni privacy</strong>, in fondo all&rsquo;elenco degli articoli.</p>
-  <p>Separatamente, iOS ti chiede se l&rsquo;app pu&ograve; usare l&rsquo;identificativo pubblicitario del dispositivo
-  (IDFA) per mostrarti annunci pi&ugrave; pertinenti. Puoi rifiutare: l&rsquo;app funziona esattamente allo stesso
-  modo, con annunci non personalizzati. La scelta si cambia da Impostazioni &rsaquo; Privacy e sicurezza &rsaquo;
-  Tracciamento.</p>
-  <p>I dati raccolti dagli annunci sono trattati da Google come titolare autonomo: vedi le
-  <a href="https://policies.google.com/privacy">norme sulla privacy di Google</a>.</p>
-  <p>Se preferisci non vedere annunci del tutto, puoi rimuoverli con un acquisto: vedi il punto&nbsp;6.</p>
-
-  <h2>6. Rimuovere la pubblicit&agrave; &mdash; l&rsquo;acquisto in-app</h2>
-  <p>Nell&rsquo;app gratuita, dalla voce <strong>Rimuovi la pubblicit&agrave;</strong> in fondo all&rsquo;elenco
-  degli articoli, puoi togliere gli annunci: con un abbonamento annuale oppure con un pagamento unico che
-  vale per sempre. I regolamenti, l&rsquo;indice e gli aggiornamenti restano gratuiti in ogni caso.</p>
-  <p>Il pagamento avviene <strong>interamente tramite Apple</strong>, con il tuo Apple Account: noi non
-  vediamo e non riceviamo mai il tuo nome, il tuo indirizzo n&eacute; i dati della tua carta.</p>
-  <div class="card">
-    <p>Per sapere se l&rsquo;acquisto &egrave; valido &mdash; anche quando reinstalli l&rsquo;app o cambi
-    dispositivo &mdash; ci appoggiamo a <strong>RevenueCat</strong> (RevenueCat,&nbsp;Inc., Stati Uniti), che
-    riceve da Apple la ricevuta dell&rsquo;acquisto e ci dice soltanto se la rimozione della pubblicit&agrave;
-    &egrave; attiva o no.</p>
-    <table>
-      <tr><th>Dato</th><th>A cosa serve</th></tr>
-      <tr><td>Ricevuta Apple dell&rsquo;acquisto</td><td>Verificare che l&rsquo;acquisto sia autentico e ancora valido</td></tr>
-      <tr><td>ID anonimo generato a caso</td><td>Ritrovare il tuo acquisto se reinstalli l&rsquo;app</td></tr>
-      <tr><td>Modello del dispositivo e versione di iOS</td><td>Dati tecnici che accompagnano la richiesta</td></tr>
-    </table>
-  </div>
-  <p>Non viene creato alcun account e non ti viene chiesta un&rsquo;email: l&rsquo;identificativo &egrave; un
-  numero casuale, non collegato alla tua persona. Le condizioni di rinnovo e disdetta dell&rsquo;abbonamento
-  sono scritte nella schermata dell&rsquo;acquisto; la gestione avviene da Impostazioni &rsaquo; il tuo nome
-  &rsaquo; Abbonamenti. Vedi anche l&rsquo;<a href="https://www.revenuecat.com/privacy/">informativa di
-  RevenueCat</a>.</p>
-
-  <h2>7. Statistiche d&rsquo;uso &mdash; solo nell&rsquo;app gratuita</h2>
-  <p>Per capire quali funzioni servono davvero, l&rsquo;app gratuita invia alcuni conteggi anonimi a
-  <strong>PostHog</strong>, su <strong>server europei</strong> (<code>eu.i.posthog.com</code>). Sono sette
-  segnali in tutto; questo &egrave; l&rsquo;elenco completo:</p>
-  <div class="card">
-    <table>
-      <tr><th>Segnale</th><th>Cosa dice</th></tr>
-      <tr><td>Cambio di codice</td><td>Se stai consultando il FIBur o il FITaB</td></tr>
-      <tr><td>Apertura di un articolo</td><td>Da dove ci sei arrivato: elenco, ricerca, preferiti, cronologia</td></tr>
-      <tr><td>Ricerca</td><td>Soltanto se ha prodotto risultati oppure no</td></tr>
-      <tr><td>Uso di stelle e note</td><td>Che &egrave; stata messa o tolta una stella, o scritta una nota</td></tr>
-      <tr><td>Filtro delle novit&agrave;</td><td>Che il filtro &egrave; stato acceso o spento</td></tr>
-      <tr><td>Controllo dell&rsquo;edizione</td><td>Se il controllo giornaliero ha trovato un&rsquo;edizione nuova</td></tr>
-      <tr><td>Schermata dell&rsquo;acquisto</td><td>Che &egrave; stata aperta e come &egrave; andata</td></tr>
-    </table>
-  </div>
-  <p>Quello che <strong>non</strong> viene inviato, per scelta esplicita nel codice: <strong>quale articolo
-  apri</strong>, <strong>che cosa cerchi</strong>, il testo delle tue note, le schermate che visiti, i tocchi
-  sullo schermo. Non c&rsquo;&egrave; registrazione delle sessioni, non c&rsquo;&egrave; raccolta automatica
-  delle interazioni e non viene creato alcun profilo di persona: i conteggi restano numeri aggregati, senza
-  nulla che riconduca a te. Vedi l&rsquo;<a href="https://posthog.com/privacy">informativa di PostHog</a>.</p>
-  <p>Questi conteggi proseguono anche dopo l&rsquo;acquisto del punto&nbsp;6: riguardano l&rsquo;uso delle
-  funzioni, non la pubblicit&agrave;. Restano anonimi come prima: continuano a non dire quale articolo leggi
-  n&eacute; che cosa cerchi.</p>
-
-  <h2>8. Cosa non facciamo</h2>
-  <ul>
-    <li>Non vendiamo n&eacute; cediamo dati a terzi.</li>
-    <li>Non sappiamo quali articoli del regolamento consulti, n&eacute; che cosa cerchi: i preferiti, le note
-    e i consultati di recente restano sul tuo dispositivo e non ci vengono trasmessi.</li>
-    <li>Non registriamo le sessioni, non fotografiamo le schermate e non raccogliamo i tocchi sullo schermo.</li>
-    <li>Non costruiamo profili: n&eacute; i conteggi del punto&nbsp;7 n&eacute; l&rsquo;acquisto del
-    punto&nbsp;6 sono collegati alla tua persona.</li>
-    <li>Non chiediamo la posizione.</li>
-    <li>Non vediamo mai i dati di pagamento: l&rsquo;acquisto passa per Apple.</li>
-    <li>In Codice di Gara Classic non c&rsquo;&egrave; nulla di tutto questo: niente pubblicit&agrave;,
-    niente conteggi, nessun acquisto in-app.</li>
-  </ul>
-
-  <h2>9. I tuoi diritti</h2>
-  <p>I dati del punto&nbsp;2 non li abbiamo: sono sul tuo dispositivo e li cancelli tu, dall&rsquo;app o
-  disinstallandola. Per quelli del punto&nbsp;4 puoi chiedere l&rsquo;accesso, la rettifica o la cancellazione. Poich&eacute; non
-  conserviamo alcuna informazione identificativa, indica per favore la data approssimativa in cui hai
-  attivato le notifiche, cos&igrave; possiamo ritrovare la registrazione. Per i dati pubblicitari del punto&nbsp;5
-  puoi rivolgerti anche direttamente a Google tramite i link qui sopra. Per l&rsquo;acquisto del punto&nbsp;6 e i
-  conteggi del punto&nbsp;7 vale lo stesso limite di fondo: essendo legati a un identificativo casuale,
-  servir&agrave; che ce lo indichi tu perch&eacute; possiamo ritrovarli. Per l&rsquo;acquisto lo trovi nella
-  ricevuta che Apple ti ha inviato. Scrivi&nbsp;a&nbsp;<a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p>
-
-  <h2>10. Modifiche</h2>
-  <p>Se le app dovessero acquisire nuove funzioni che trattano dati, questa informativa verr&agrave; aggiornata
-  prima che tali funzioni vengano rilasciate; anche la data di &ldquo;ultimo aggiornamento&rdquo; qui sopra cambier&agrave;.</p>
-
-  <footer>
-    &copy; 2026 Fabrizio Bacchin &middot; <a href="support-codicedigara.html">Assistenza</a>
-  </footer>
-</main>
+  <div class="titolo"><div lang-block="it"><p class="eti">Privacy</p><h1>I tuoi dati, detto chiaramente</h1><p class="agg">Ultimo aggiornamento 27 novembre 2026</p></div></div>
+  
+</div>
+<main><div class="sintesi"><p><strong>In breve:</strong> l&rsquo;app mostra i regolamenti ufficiali di gara del Burraco. Non c&rsquo;&egrave; alcun account, non ti chiediamo dati. Preferiti, note e articoli consultati di recente restano sul tuo dispositivo: non ne riceviamo copia. L&rsquo;unica cosa che ci arriva &egrave; se una notifica &egrave; stata aperta, sempre che tu abbia accettato le notifiche. L&rsquo;app <strong>gratuita</strong> mostra annunci di Google AdMob, in Europa ti chiede il consenso prima di richiedere anche un solo annuncio, e raccoglie qualche conteggio anonimo su quali funzioni vengono usate: mai quali articoli leggi n&eacute; cosa cerchi. Se acquisti la rimozione della pubblicit&agrave;, gli annunci si fermano. <strong>Codice di Gara Classic</strong>, la vecchia versione a pagamento, non contiene nulla di tutto questo.</p></div><div class="griglia" lang-block="it"><div class="colonne"><div class="colonna"><section style="order:0" class="riquadro" id="chi-siamo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></span><div><h2>Chi siamo</h2></div></header><div class="testo"><p><strong>Codice di Gara Burraco</strong> (gratuita, in precedenza chiamata Codice di Gara Burraco Light) e <strong>Codice di Gara Classic</strong> (a pagamento, la versione storica) sono app di Fabrizio Bacchin (Svizzera) che permettono di consultare i regolamenti ufficiali di gara del Burraco delle federazioni <strong>FIBur</strong> e <strong>FITaB</strong>. Questa informativa vale per entrambe; dove fanno cose diverse, &egrave; detto di volta in volta. Per qualsiasi cosa la riguardi, scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section><section style="order:2" class="riquadro" id="regolamenti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4 4 0 0 1 .4-8 5.5 5.5 0 0 1 10.5 1.6A3.5 3.5 0 0 1 17.5 18.5z"/><path d="M12 11v5M9.5 14l2.5 2.5 2.5-2.5"/></svg></span><div><h2>Aggiornamento dei regolamenti</h2></div></header><div class="testo"><p>Le federazioni pubblicano una nuova edizione del codice ogni uno o due anni. Per non costringerti ad aggiornare l&rsquo;app ogni volta, al massimo una volta al giorno l&rsquo;app controlla su <code>fbacchin.github.io</code> se esiste un&rsquo;edizione pi&ugrave; recente e, in caso, la scarica.</p><p>&Egrave; una normale richiesta a un sito web: <strong>noi non inviamo alcun identificativo</strong> e non riceviamo nulla in cambio. Come per qualsiasi pagina web, il server che ospita i file (GitHub Pages, di GitHub&nbsp;Inc.) vede l&rsquo;indirizzo IP da cui arriva la richiesta. Il regolamento scaricato resta sul tuo dispositivo.</p></div></section><section style="order:4" class="riquadro" id="pubblicita"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4h3l7 4V6l-7 4z"/><path d="M17 9a4 4 0 0 1 0 6M6.5 14l1 5h2.5l-1-5"/></svg></span><div><h2>Pubblicit&agrave;, solo nell&rsquo;app gratuita</h2></div></header><div class="testo"><p><strong>Codice di Gara Classic non contiene alcuna pubblicit&agrave;</strong> e nessun SDK pubblicitario: questo blocco e i due successivi non la riguardano.</p><p><strong>Codice di Gara Burraco</strong> &egrave; gratuita e sostenuta dagli annunci di <a href="https://policies.google.com/technologies/partner-sites">Google AdMob</a>. In Europa, prima di richiedere anche un solo annuncio, l&rsquo;app ti mostra il modulo di consenso di Google: finch&eacute; non rispondi non viene inviata alcuna richiesta pubblicitaria. Puoi cambiare idea in qualsiasi momento dalla voce <strong>Impostazioni privacy</strong>, in fondo all&rsquo;elenco degli articoli.</p><p>Separatamente, iOS ti chiede se l&rsquo;app pu&ograve; usare l&rsquo;identificativo pubblicitario del dispositivo (IDFA) per mostrarti annunci pi&ugrave; pertinenti. Puoi rifiutare: l&rsquo;app funziona esattamente allo stesso modo, con annunci non personalizzati. La scelta si cambia da Impostazioni &rsaquo; Privacy e sicurezza &rsaquo; Tracciamento.</p><p>I dati raccolti dagli annunci sono trattati da Google come titolare autonomo: vedi le <a href="https://policies.google.com/privacy">norme sulla privacy di Google</a>. Se preferisci non vedere annunci del tutto, puoi rimuoverli con un acquisto.</p></div></section><section style="order:6" class="riquadro" id="non-facciamo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg></span><div><h2>Cosa non facciamo</h2></div></header><div class="testo"><ul><li>Non vendiamo n&eacute; cediamo dati a terzi.</li><li>Non sappiamo quali articoli del regolamento consulti, n&eacute; che cosa cerchi: i preferiti, le note e i consultati di recente restano sul tuo dispositivo e non ci vengono trasmessi.</li><li>Non registriamo le sessioni, non fotografiamo le schermate e non raccogliamo i tocchi sullo schermo.</li><li>Non costruiamo profili: n&eacute; i conteggi d&rsquo;uso n&eacute; l&rsquo;acquisto sono collegati alla tua persona.</li><li>Non chiediamo la posizione.</li><li>Non vediamo mai i dati di pagamento: l&rsquo;acquisto passa per Apple.</li><li>In Codice di Gara Classic non c&rsquo;&egrave; nulla di tutto questo: niente pubblicit&agrave;, niente conteggi, nessun acquisto in-app.</li></ul></div></section><section style="order:8" class="riquadro" id="modifiche"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><div><h2>Modifiche</h2></div></header><div class="testo"><p>Se le app dovessero acquisire nuove funzioni che trattano dati, questa informativa verr&agrave; aggiornata prima che tali funzioni vengano rilasciate, e la data di &ldquo;ultimo aggiornamento&rdquo; qui sopra cambier&agrave;.</p></div></section></div><div class="colonna"><section style="order:1" class="riquadro" id="sul-dispositivo"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span><div><h2>Quello che scrivi resta sul tuo dispositivo</h2></div></header><div class="testo"><p>L&rsquo;app non crea account e non chiede registrazione. Alcune funzioni per&ograve; conservano qualcosa. Vale la pena dire con precisione dove finisce: <strong>nella memoria dell&rsquo;app, sul tuo dispositivo, da cui non si muove</strong>.</p><table><tr><th>Funzione</th><th>Cosa conserva</th></tr><tr><td>Preferiti</td><td>Quali articoli hai contrassegnato con la stella</td></tr><tr><td>Note</td><td>Il testo che scrivi tu su un articolo</td></tr><tr><td>Consultati di recente</td><td>Gli ultimi articoli aperti: tre su iPhone, cinque su iPad</td></tr></table><p>Non ne riceviamo copia, non finiscono su alcun server, non vengono sincronizzati e non sono compresi in nessun backup nostro. Spariscono quando disinstalli l&rsquo;app. Una nota si cancella riaprendola e svuotando il campo; una stella si toglie ritoccandola.</p><p>L&rsquo;app non usa la posizione, la rubrica, la fotocamera, il microfono n&eacute; la libreria foto: non ne chiede il permesso perch&eacute; non le utilizza.</p></div></section><section style="order:3" class="riquadro" id="notifiche"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><div><h2>Notifiche push</h2></div></header><div class="testo"><p>Se accetti le notifiche, il dispositivo riceve da Apple un identificativo tecnico (token APNs) che viene registrato sul servizio <strong>Back4App</strong>, che usiamo per inviare gli avvisi. Insieme al token viene salvato un identificativo di installazione generato a caso e, quando apri l&rsquo;app da una notifica, il fatto che quella notifica sia stata aperta.</p><table><tr><th>Dato</th><th>A cosa serve</th></tr><tr><td>Token APNs</td><td>Recapitare la notifica a quel dispositivo</td></tr><tr><td>ID di installazione</td><td>Distinguere le installazioni senza sapere chi sei</td></tr><tr><td>Apertura della notifica</td><td>Capire se un avviso &egrave; stato utile</td></tr></table><p>Non sono legati al tuo nome, alla tua email n&eacute; al tuo Apple Account: non permettono di risalire a te. Se non accetti le notifiche, non viene registrato nulla. Puoi revocarle in qualsiasi momento da Impostazioni &rsaquo; Notifiche.</p></div></section><section style="order:5" class="riquadro" id="acquisto"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8z"/><path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"/></svg></span><div><h2>Rimuovere la pubblicit&agrave;, l&rsquo;acquisto in-app</h2></div></header><div class="testo"><p>Nell&rsquo;app gratuita, dalla voce <strong>Rimuovi la pubblicit&agrave;</strong> in fondo all&rsquo;elenco degli articoli, puoi togliere gli annunci: con un abbonamento annuale oppure con un pagamento unico che vale per sempre. I regolamenti, l&rsquo;indice e gli aggiornamenti restano gratuiti in ogni caso.</p><p>Il pagamento avviene <strong>interamente tramite Apple</strong>, con il tuo Apple Account: noi non vediamo e non riceviamo mai il tuo nome, il tuo indirizzo n&eacute; i dati della tua carta.</p><p>Per sapere se l&rsquo;acquisto &egrave; valido, anche quando reinstalli l&rsquo;app o cambi dispositivo, ci appoggiamo a <strong>RevenueCat</strong> (RevenueCat,&nbsp;Inc., Stati Uniti), che riceve da Apple la ricevuta dell&rsquo;acquisto e ci dice soltanto se la rimozione della pubblicit&agrave; &egrave; attiva o no.</p><table><tr><th>Dato</th><th>A cosa serve</th></tr><tr><td>Ricevuta Apple dell&rsquo;acquisto</td><td>Verificare che l&rsquo;acquisto sia autentico e ancora valido</td></tr><tr><td>ID anonimo generato a caso</td><td>Ritrovare il tuo acquisto se reinstalli l&rsquo;app</td></tr><tr><td>Modello del dispositivo e versione di iOS</td><td>Dati tecnici che accompagnano la richiesta</td></tr></table><p>Non viene creato alcun account e non ti viene chiesta un&rsquo;email: l&rsquo;identificativo &egrave; un numero casuale, non collegato alla tua persona. Le condizioni di rinnovo e disdetta dell&rsquo;abbonamento sono scritte nella schermata dell&rsquo;acquisto; la gestione avviene da Impostazioni &rsaquo; il tuo nome &rsaquo; Abbonamenti. Vedi anche l&rsquo;<a href="https://www.revenuecat.com/privacy/">informativa di RevenueCat</a>.</p></div></section><section style="order:7" class="riquadro" id="diritti"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></svg></span><div><h2>I tuoi diritti</h2></div></header><div class="testo"><p>I dati che restano sul dispositivo non li abbiamo: li cancelli tu, dall&rsquo;app o disinstallandola. Per quelli legati alle notifiche puoi chiedere l&rsquo;accesso, la rettifica o la cancellazione. Poich&eacute; non conserviamo alcuna informazione identificativa, indica per favore la data approssimativa in cui hai attivato le notifiche, cos&igrave; possiamo ritrovare la registrazione. Per i dati pubblicitari puoi rivolgerti anche direttamente a Google tramite i link qui sopra.</p><p>Per l&rsquo;acquisto e per i conteggi d&rsquo;uso vale lo stesso limite di fondo: essendo legati a un identificativo casuale, servir&agrave; che ce lo indichi tu perch&eacute; possiamo ritrovarli. Per l&rsquo;acquisto lo trovi nella ricevuta che Apple ti ha inviato. Scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div></div><section class="riquadro largo" id="statistiche"><header><span class="icona" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="M7.5 15l3.5-4 3 2.5 4.5-6"/></svg></span><div><h2>Statistiche d&rsquo;uso, solo nell&rsquo;app gratuita</h2></div></header><div class="testo"><p>Per capire quali funzioni servono davvero, l&rsquo;app gratuita invia alcuni conteggi anonimi a <strong>PostHog</strong>, su <strong>server europei</strong> (<code>eu.i.posthog.com</code>). Sono sette segnali in tutto; questo &egrave; l&rsquo;elenco completo:</p><table><tr><th>Segnale</th><th>Cosa dice</th></tr><tr><td>Cambio di codice</td><td>Se stai consultando il FIBur o il FITaB</td></tr><tr><td>Apertura di un articolo</td><td>Da dove ci sei arrivato: elenco, ricerca, preferiti, cronologia</td></tr><tr><td>Ricerca</td><td>Soltanto se ha prodotto risultati oppure no</td></tr><tr><td>Uso di stelle e note</td><td>Che &egrave; stata messa o tolta una stella, o scritta una nota</td></tr><tr><td>Filtro delle novit&agrave;</td><td>Che il filtro &egrave; stato acceso o spento</td></tr><tr><td>Controllo dell&rsquo;edizione</td><td>Se il controllo giornaliero ha trovato un&rsquo;edizione nuova</td></tr><tr><td>Schermata dell&rsquo;acquisto</td><td>Che &egrave; stata aperta e come &egrave; andata</td></tr></table><p>Quello che <strong>non</strong> viene inviato, per scelta esplicita nel codice: <strong>quale articolo apri</strong>, <strong>che cosa cerchi</strong>, il testo delle tue note, le schermate che visiti, i tocchi sullo schermo. Non c&rsquo;&egrave; registrazione delle sessioni, non c&rsquo;&egrave; raccolta automatica delle interazioni e non viene creato alcun profilo di persona: i conteggi restano numeri aggregati, senza nulla che riconduca a te. Vedi l&rsquo;<a href="https://posthog.com/privacy">informativa di PostHog</a>.</p><p>Questi conteggi proseguono anche dopo l&rsquo;acquisto: riguardano l&rsquo;uso delle funzioni, non la pubblicit&agrave;. Restano anonimi come prima, e continuano a non dire quale articolo leggi n&eacute; che cosa cerchi.</p></div></section></div></main>
+<footer><span lang-block="it">© 2026 Fabrizio Bacchin · <a href="support-codicedigara.html">Assistenza</a></span></footer>
+<script>
+var LANGS = ["it"], TITOLI = {"it": "Privacy · Codice di Gara Burraco"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = LANGS[0];
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  var c = document.getElementById("cerca");
+  if (c) { c.placeholder = c.getAttribute("data-" + l); filtra(); }
+  try { localStorage.setItem("codicedigara-lang", l); } catch (e) {}
+}
+function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+function filtra() {
+  var c = document.getElementById("cerca"); if (!c) return;
+  var q = norm(c.value.trim()), l = document.documentElement.lang;
+  var g = document.querySelector('.griglia[lang-block="' + l + '"]'); if (!g) return;
+  var trovati = 0;
+  g.querySelectorAll(".riquadro").forEach(function (r) {
+    if (r.classList.contains("contatti")) return;
+    var d = r.querySelectorAll("details"), visibili = 0;
+    d.forEach(function (x) {
+      var ok = !q || norm(x.textContent).indexOf(q) >= 0;
+      x.hidden = !ok; x.open = !!q && ok; if (ok) visibili++;
+    });
+    var testo = r.querySelector(".testo, header");
+    var okR = !q || visibili > 0 || norm(r.textContent).indexOf(q) >= 0;
+    r.hidden = !okR; if (okR) trovati++;
+  });
+  g.querySelector(".nessuno").hidden = trovati > 0;
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+try { saved = localStorage.getItem("codicedigara-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : LANGS[0]));
+</script>
+<noscript><style>[lang-block]{display:revert !important}</style></noscript>
 </body>
 </html>
