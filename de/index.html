@@ -380,7 +380,7 @@
   }
 
   /* Euribor — stesso CSV che legge l'app */
-  fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' })
+  fetch('https://bacchin.app/tassi/EURIBOR.csv', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw 0; return r.text(); })
     .then(function (testo) {
       var righe = testo.trim().split(/\r?\n/);

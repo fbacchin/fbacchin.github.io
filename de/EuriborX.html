@@ -70,7 +70,7 @@
       <div><dt>Plattform</dt><dd>iPhone und iPad</dd></div>
       <div><dt>Preis</dt><dd>Kostenlos mit Werbung · entfernbar per Jahresabo oder einmaligem Kauf</dd></div>
       <div><dt>Sprachen</dt><dd>Italienisch, Englisch, Französisch, Spanisch und Deutsch</dd></div>
-      <div><dt>Daten</dt><dd>EMMI (Euribor) und Europäische Zentralbank (€STR)</dd></div>
+      <div><dt>Daten</dt><dd>Euribor: EMMI, über die Deutsche Bundesbank · €STR: Europäische Zentralbank</dd></div>
       <div><dt>App Store</dt><dd><a href="https://apps.apple.com/de/app/euribor-x-tassi-e-mutuo/id951735963">Zur App-Seite</a></dd></div>
       <div><dt>Support</dt><dd><a href="/app/EuriborX/support">Anleitung und häufige Fragen</a></dd></div>
       <div><dt>Datenschutz</dt><dd><a href="/app/EuriborX/privacy">Datenschutzerklärung</a></dd></div>
@@ -99,8 +99,8 @@
     if (e && v) e.textContent = (Math.round(parseFloat(v) * 1000) / 1000).toFixed(3).replace('.', ',') + '\u00a0%';
   }
   Promise.all([
-    fetch('https://fbacchin.github.io/app/Euribor/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
-    fetch('https://fbacchin.github.io/app/Euribor/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
+    fetch('https://bacchin.app/tassi/EURIBOR.csv', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }),
+    fetch('https://bacchin.app/tassi/ESTER.csv',   { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); })
   ]).then(function (t) {
     var e = campi(t[0].trim().split(/\r?\n/)[1]);   // Date,Wd,1W,?,1M,?,3M,?,12M — vedi intestazione reale
     var testa = campi(t[0].trim().split(/\r?\n/)[0]);

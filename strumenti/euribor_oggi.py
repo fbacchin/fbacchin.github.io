@@ -5,8 +5,8 @@ Pagine: finanza/euribor-oggi.html (italiano), euribor-today (inglese),
 euribor-aujourdhui (francese), euribor-heute (tedesco), euribor-hoy (spagnolo).
 Si collegano fra loro con hreflang e con il selettore di lingua.
 
-Legge i CSV pubblici di https://fbacchin.github.io/app/Euribor/ (EURIBOR.csv ed
-ESTER.csv, le stesse serie usate dall'app Euribor X), calcola variazioni e
+Legge i CSV pubblici di https://bacchin.app/tassi/ (EURIBOR.csv ed ESTER.csv,
+le stesse serie usate dall'app Euribor X; li genera un Worker di Cloudflare), calcola variazioni e
 lettura della curva e scrive le pagine con i valori già dentro, così Google li
 vede senza JavaScript.
 
@@ -17,7 +17,7 @@ Solo libreria standard: nessuna dipendenza da installare.
 import csv, html, io, json, math, os, re, urllib.request
 from datetime import date, timedelta
 
-BASE = "https://fbacchin.github.io/app/Euribor/"
+BASE = "https://bacchin.app/tassi/"
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITEMAP = os.path.join(QUI, "sitemap.xml")
 SITO = "https://bacchin.app"
@@ -106,13 +106,13 @@ L = {
   grafico_aria="Euribor 3 e 12 mesi, ultimi dodici mesi", leg3="Euribor 3 mesi", leg12="Euribor 12 mesi",
   invito_app=lambda u: f'<strong>Lo stesso, sul telefono.</strong> <a href="{u}">Euribor X</a> mostra i fixing di ogni giorno con i grafici storici e un simulatore di mutuo, anche senza rete. Gratis su iPhone e iPad.',
   invito_dash=lambda u: f'Per esplorare tutto lo storico e confrontarlo con il tasso BCE c\'è la <a href="{u}">dashboard BCE &amp; Euribor</a>.',
-  scheda=[("Dati", "Euribor (EMMI) ed €STR (BCE), le stesse serie usate dall'app Euribor X"),
+  scheda=[("Dati", "Euribor (EMMI, tramite la Deutsche Bundesbank) ed €STR (BCE), le stesse serie usate dall'app Euribor X"),
           ("Esempio di rata", "Mutuo da 100.000 € a 20 anni, rata mensile ad ammortamento francese, Euribor 3 mesi + 1%. È un esempio: la rata vera dipende da contratto, spread e calendario di revisione."),
           ("Aggiornamento", "Ogni giorno lavorativo, in automatico")],
   faq=[
    ("Che cos'è l'Euribor?", "È il tasso medio a cui le principali banche dell'area euro si prestano denaro senza garanzie. Lo calcola ogni giorno lavorativo l'EMMI (European Money Markets Institute) per cinque scadenze: 1 settimana, 1, 3, 6 e 12 mesi. È l'indice a cui è agganciata la maggior parte dei mutui e dei finanziamenti a tasso variabile in Italia."),
    ("Quale Euribor usa il mio mutuo?", "Lo trovi nel contratto, alla voce che descrive il tasso: di solito è l'Euribor a 1 o a 3 mesi, più uno spread fisso stabilito dalla banca. Il contratto dice anche ogni quanto la rata viene ricalcolata e quale fixing si usa, per esempio la media del mese precedente o il valore di un giorno preciso."),
-   ("Quando viene pubblicato?", "L'EMMI pubblica l'Euribor ogni giorno lavorativo del calendario TARGET, verso le 11 ora di Bruxelles. Questa pagina si aggiorna in automatico quando il nuovo fixing è disponibile nei dati pubblici, di norma entro il giorno lavorativo successivo. Nei fine settimana e nei festivi TARGET non esce nessun fixing."),
+   ("Quando viene pubblicato?", "L'EMMI pubblica l'Euribor ogni giorno lavorativo del calendario TARGET, verso le 11 ora di Bruxelles. La Deutsche Bundesbank ridistribuisce i dati con un giorno lavorativo di ritardo, come prevede la licenza EMMI. Questa pagina si aggiorna in automatico quando il nuovo fixing è disponibile nei dati pubblici: quello di un giorno arriva quindi nel corso del giorno lavorativo successivo. Nei fine settimana e nei festivi TARGET non esce nessun fixing."),
    ("Che cos'è l'€STR?", "È il tasso a un giorno (overnight) del mercato monetario in euro, calcolato dalla Banca Centrale Europea. Misura il costo del denaro da un giorno all'altro ed è il riferimento più vicino alle decisioni della BCE; l'Euribor a 1 settimana gli si muove intorno."),
    ("Cosa vuol dire «pb»?", "Punti base: un centesimo di punto percentuale. Se l'Euribor passa dal 2,620% al 2,633% è salito di 1,3 punti base."),
   ]),
@@ -147,13 +147,13 @@ L = {
   grafico_aria="3-month and 12-month Euribor, past twelve months", leg3="3-month Euribor", leg12="12-month Euribor",
   invito_app=lambda u: f'<strong>The same, on your phone.</strong> <a href="{u}">Euribor X</a> shows every day\'s fixings with historical charts and a mortgage simulator, even offline. Free on iPhone and iPad.',
   invito_dash=lambda u: f'To explore the full history and compare it with the ECB rate, there is the <a href="{u}">ECB &amp; Euribor dashboard</a>.',
-  scheda=[("Data", "Euribor (EMMI) and €STR (ECB), the same series used by the Euribor X app"),
+  scheda=[("Data", "Euribor (EMMI, via the Deutsche Bundesbank) and €STR (ECB), the same series used by the Euribor X app"),
           ("Payment example", "€100,000 mortgage over 20 years, monthly annuity repayment, 3-month Euribor + 1%. It is an example: the real payment depends on the contract, the margin and the reset schedule."),
           ("Updates", "Every working day, automatically")],
   faq=[
    ("What is Euribor?", "It is the average rate at which the main banks in the euro area lend to each other without collateral. The EMMI (European Money Markets Institute) calculates it every working day for five maturities: 1 week and 1, 3, 6 and 12 months. In Italy, Spain, Portugal and other euro countries, most variable-rate mortgages and loans are tied to it."),
    ("Which Euribor does my mortgage use?", "It is in your contract, where the interest rate is described: usually a 1, 3, 6 or 12-month Euribor plus a fixed margin set by the bank. The contract also says how often the payment is reset and which fixing is used, for example the previous month's average or the value on a specific day."),
-   ("When is it published?", "The EMMI publishes Euribor every TARGET working day, around 11:00 Brussels time. This page updates automatically once the new fixing is available in the public data, normally by the following working day. No fixing is published at weekends or on TARGET holidays."),
+   ("When is it published?", "The EMMI publishes Euribor every TARGET working day, around 11:00 Brussels time. The Deutsche Bundesbank redistributes the data with a one-working-day delay, as the EMMI licence requires. This page updates automatically once the new fixing is available in the public data: a given day's fixing therefore arrives during the next working day. No fixing is published at weekends or on TARGET holidays."),
    ("What is €STR?", "It is the overnight rate of the euro money market, calculated by the European Central Bank. It measures the cost of money from one day to the next and is the benchmark closest to ECB decisions; the 1-week Euribor moves around it."),
    ("What does “bp” mean?", "Basis points: one hundredth of a percentage point. If Euribor goes from 2.620% to 2.633%, it has risen by 1.3 basis points."),
   ]),
@@ -188,13 +188,13 @@ L = {
   grafico_aria="Euribor 3 et 12 mois, douze derniers mois", leg3="Euribor 3 mois", leg12="Euribor 12 mois",
   invito_app=lambda u: f'<strong>La même chose, sur votre téléphone.</strong> <a href="{u}">Euribor X</a> affiche les fixings de chaque jour avec les graphiques historiques et un simulateur de prêt, même hors ligne. Gratuit sur iPhone et iPad.',
   invito_dash=lambda u: f'Pour explorer tout l\'historique et le comparer au taux de la BCE, il y a le <a href="{u}">tableau de bord BCE &amp; Euribor</a>.',
-  scheda=[("Données", "Euribor (EMMI) et €STR (BCE), les mêmes séries que celles de l'app Euribor X"),
+  scheda=[("Données", "Euribor (EMMI, via la Deutsche Bundesbank) et €STR (BCE), les mêmes séries que celles de l'app Euribor X"),
           ("Exemple de mensualité", f"Prêt de 100{NNBSP}000{NBSP}€ sur 20 ans, mensualités constantes, Euribor 3 mois + 1{NBSP}%. C'est un exemple : la mensualité réelle dépend du contrat, de la marge et du calendrier de révision."),
           ("Mise à jour", "Chaque jour ouvré, automatiquement")],
   faq=[
    ("Qu'est-ce que l'Euribor ?", "C'est le taux moyen auquel les principales banques de la zone euro se prêtent de l'argent sans garantie. L'EMMI (European Money Markets Institute) le calcule chaque jour ouvré pour cinq échéances : 1 semaine, 1, 3, 6 et 12 mois. En Italie, en Espagne, au Portugal et dans d'autres pays de la zone euro, la plupart des prêts à taux variable y sont indexés."),
    ("Quel Euribor utilise mon prêt ?", "Il figure dans le contrat, là où le taux est décrit : en général un Euribor à 1, 3, 6 ou 12 mois, plus une marge fixe définie par la banque. Le contrat indique aussi à quelle fréquence la mensualité est révisée et quel fixing est retenu, par exemple la moyenne du mois précédent ou la valeur d'un jour précis."),
-   ("Quand est-il publié ?", "L'EMMI publie l'Euribor chaque jour ouvré du calendrier TARGET, vers 11 heures, heure de Bruxelles. Cette page se met à jour automatiquement dès que le nouveau fixing est disponible dans les données publiques, normalement le jour ouvré suivant au plus tard. Aucun fixing n'est publié le week-end ni les jours fériés TARGET."),
+   ("Quand est-il publié ?", "L'EMMI publie l'Euribor chaque jour ouvré du calendrier TARGET, vers 11 heures, heure de Bruxelles. La Deutsche Bundesbank rediffuse les données avec un jour ouvré de retard, comme l'exige la licence EMMI. Cette page se met à jour automatiquement dès que le nouveau fixing est disponible dans les données publiques : celui d'un jour donné arrive donc dans le courant du jour ouvré suivant. Aucun fixing n'est publié le week-end ni les jours fériés TARGET."),
    ("Qu'est-ce que l'€STR ?", "C'est le taux au jour le jour (overnight) du marché monétaire en euros, calculé par la Banque centrale européenne. Il mesure le coût de l'argent d'un jour à l'autre et c'est la référence la plus proche des décisions de la BCE ; l'Euribor à 1 semaine évolue autour de lui."),
    ("Que signifie « pb » ?", f"Points de base : un centième de point de pourcentage. Si l'Euribor passe de 2,620{NBSP}% à 2,633{NBSP}%, il a augmenté de 1,3 point de base."),
   ]),
@@ -229,13 +229,13 @@ L = {
   grafico_aria="Euribor 3 und 12 Monate, letzte zwölf Monate", leg3="Euribor 3 Monate", leg12="Euribor 12 Monate",
   invito_app=lambda u: f'<strong>Dasselbe auf dem Telefon.</strong> <a href="{u}">Euribor X</a> zeigt die Fixings jedes Tages mit historischen Charts und einem Kreditrechner, auch offline. Kostenlos für iPhone und iPad.',
   invito_dash=lambda u: f'Die ganze Historie im Vergleich mit dem EZB-Zins zeigt das <a href="{u}">EZB- &amp; Euribor-Dashboard</a>.',
-  scheda=[("Daten", "Euribor (EMMI) und €STR (EZB), dieselben Reihen wie in der App Euribor X"),
+  scheda=[("Daten", "Euribor (EMMI, über die Deutsche Bundesbank) und €STR (EZB), dieselben Reihen wie in der App Euribor X"),
           ("Ratenbeispiel", f"Darlehen über 100.000{NBSP}€ mit 20 Jahren Laufzeit, Annuitätenrate monatlich, 3-Monats-Euribor + 1{NBSP}%. Das ist ein Beispiel: Die tatsächliche Rate hängt von Vertrag, Aufschlag und Anpassungsterminen ab."),
           ("Aktualisierung", "An jedem Arbeitstag, automatisch")],
   faq=[
    ("Was ist der Euribor?", "Der durchschnittliche Zinssatz, zu dem sich die wichtigsten Banken im Euroraum ohne Sicherheiten Geld leihen. Das EMMI (European Money Markets Institute) berechnet ihn an jedem Arbeitstag für fünf Laufzeiten: 1 Woche sowie 1, 3, 6 und 12 Monate. In Italien, Spanien, Portugal und anderen Euroländern sind die meisten variabel verzinsten Kredite daran gebunden."),
    ("Welchen Euribor nutzt mein Kredit?", "Das steht im Vertrag, dort, wo der Zinssatz beschrieben ist: meist ein Euribor mit 1, 3, 6 oder 12 Monaten plus ein fester Aufschlag der Bank. Der Vertrag legt auch fest, wie oft die Rate angepasst wird und welches Fixing gilt, etwa der Durchschnitt des Vormonats oder der Wert eines bestimmten Tages."),
-   ("Wann wird er veröffentlicht?", "Das EMMI veröffentlicht den Euribor an jedem TARGET-Arbeitstag gegen 11 Uhr Brüsseler Zeit. Diese Seite aktualisiert sich automatisch, sobald das neue Fixing in den öffentlichen Daten verfügbar ist, normalerweise bis zum folgenden Arbeitstag. An Wochenenden und TARGET-Feiertagen gibt es kein Fixing."),
+   ("Wann wird er veröffentlicht?", "Das EMMI veröffentlicht den Euribor an jedem TARGET-Arbeitstag gegen 11 Uhr Brüsseler Zeit. Die Deutsche Bundesbank verbreitet die Daten mit einem Arbeitstag Verzögerung weiter, wie es die EMMI-Lizenz vorsieht. Diese Seite aktualisiert sich automatisch, sobald das neue Fixing in den öffentlichen Daten verfügbar ist: Das Fixing eines Tages kommt also im Lauf des nächsten Arbeitstags. An Wochenenden und TARGET-Feiertagen gibt es kein Fixing."),
    ("Was ist der €STR?", "Der Tagesgeldsatz (Overnight) des Euro-Geldmarkts, berechnet von der Europäischen Zentralbank. Er misst die Kosten für Geld von einem Tag auf den nächsten und ist der Referenzwert, der den EZB-Entscheidungen am nächsten liegt; der 1-Wochen-Euribor bewegt sich um ihn herum."),
    ("Was bedeutet „Bp“?", f"Basispunkte: ein Hundertstel Prozentpunkt. Steigt der Euribor von 2,620{NBSP}% auf 2,633{NBSP}%, ist er um 1,3 Basispunkte gestiegen."),
   ]),
@@ -270,13 +270,13 @@ L = {
   grafico_aria="Euríbor a 3 y 12 meses, últimos doce meses", leg3="Euríbor 3 meses", leg12="Euríbor 12 meses",
   invito_app=lambda u: f'<strong>Lo mismo, en el móvil.</strong> <a href="{u}">Euribor X</a> muestra los fixings de cada día con gráficos históricos y un simulador de hipoteca, incluso sin conexión. Gratis en iPhone y iPad.',
   invito_dash=lambda u: f'Para explorar todo el histórico y compararlo con el tipo del BCE está el <a href="{u}">panel BCE &amp; Euríbor</a>.',
-  scheda=[("Datos", "Euríbor (EMMI) y €STR (BCE), las mismas series que usa la app Euribor X"),
+  scheda=[("Datos", "Euríbor (EMMI, a través del Deutsche Bundesbank) y €STR (BCE), las mismas series que usa la app Euribor X"),
           ("Ejemplo de cuota", f"Hipoteca de 100.000{NBSP}€ a 20 años, cuota mensual con sistema francés, Euríbor 3 meses + 1{NBSP}%. Es un ejemplo: la cuota real depende del contrato, el diferencial y el calendario de revisión."),
           ("Actualización", "Cada día hábil, automáticamente")],
   faq=[
    ("¿Qué es el Euríbor?", "Es el tipo de interés medio al que los principales bancos de la zona euro se prestan dinero sin garantías. Lo calcula cada día hábil el EMMI (European Money Markets Institute) para cinco plazos: 1 semana y 1, 3, 6 y 12 meses. En España la mayoría de las hipotecas variables están referenciadas al Euríbor a 12 meses."),
    ("¿Qué Euríbor usa mi hipoteca?", "Figura en la escritura, donde se describe el tipo de interés: normalmente el Euríbor a 12 meses en España, o a 1, 3 o 6 meses en otros países, más un diferencial fijo que establece el banco. El contrato indica también cada cuánto se revisa la cuota y qué valor se toma, por ejemplo la media del mes anterior o el de un día concreto."),
-   ("¿Cuándo se publica?", "El EMMI publica el Euríbor cada día hábil del calendario TARGET, hacia las 11 hora de Bruselas. Esta página se actualiza sola cuando el nuevo fixing está disponible en los datos públicos, normalmente como muy tarde el día hábil siguiente. Los fines de semana y los festivos TARGET no se publica ningún fixing."),
+   ("¿Cuándo se publica?", "El EMMI publica el Euríbor cada día hábil del calendario TARGET, hacia las 11 hora de Bruselas. El Deutsche Bundesbank redistribuye los datos con un día hábil de retraso, como establece la licencia de EMMI. Esta página se actualiza sola cuando el nuevo fixing está disponible en los datos públicos: el de un día llega, por tanto, a lo largo del día hábil siguiente. Los fines de semana y los festivos TARGET no se publica ningún fixing."),
    ("¿Qué es el €STR?", "Es el tipo a un día (overnight) del mercado monetario en euros, que calcula el Banco Central Europeo. Mide el coste del dinero de un día para otro y es la referencia más cercana a las decisiones del BCE; el Euríbor a 1 semana se mueve en torno a él."),
    ("¿Qué significa «pb»?", f"Puntos básicos: una centésima de punto porcentual. Si el Euríbor pasa del 2,620{NBSP}% al 2,633{NBSP}%, ha subido 1,3 puntos básicos."),
   ]),
@@ -291,7 +291,9 @@ def url(lg):
 # --------------------------------------------------------------- dati -----
 
 def scarica(nome):
-    with urllib.request.urlopen(BASE + nome, timeout=30) as r:
+    # La sicurezza della zona risponde 403 allo user agent «Python-urllib»: ne serve uno proprio.
+    richiesta = urllib.request.Request(BASE + nome, headers={"User-Agent": "Mozilla/5.0 (compatible; bacchin.app euribor-oggi)"})
+    with urllib.request.urlopen(richiesta, timeout=30) as r:
         testo = r.read().decode("utf-8-sig")
     serie = {}
     for riga in csv.DictReader(io.StringIO(testo)):
