@@ -43,20 +43,23 @@ html { -webkit-text-size-adjust: 100%; }
   border-radius: 4px;
 }
 
-/* Testata e lingue */
-.fv-testata, .fv-lingue {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  font-size: 13px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
+/* Testata: icona dell'app a sinistra, selettore lingua a destra */
+.fv-testata { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 20px; }
+.fv-marchio { display: block; line-height: 0; }
+.fv-marchio img { width: 44px; height: 44px; border-radius: 11px; box-shadow: 0 2px 10px rgba(0,0,0,.35); }
+.fv-lingua { position: relative; }
+.fv-lingua select {
+  appearance: none; -webkit-appearance: none;
+  font: inherit; font-size: 15px; font-weight: 600;
+  color: var(--fv-fondo); background: var(--fv-testo);
+  border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
 }
-.fv-testata { justify-content: space-between; padding-top: 20px; }
-.fv-lingue { justify-content: flex-end; padding-top: 8px; }
-.fv-testata a, .fv-lingue a { color: var(--fv-tenue); text-decoration: none; }
-.fv-testata a:hover, .fv-lingue a:hover { color: var(--fv-ottone); }
-.fv-lingue strong { color: var(--fv-testo); font-weight: 600; }
+.fv-lingua::after {
+  content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid var(--fv-fondo); border-bottom: 2px solid var(--fv-fondo);
+  transform: rotate(45deg); pointer-events: none;
+}
 
 /* Copertina */
 .fv-copertina { padding: 40px 0 32px; border-bottom: 1px solid var(--fv-linea); }
@@ -219,17 +222,4 @@ html { -webkit-text-size-adjust: 100%; }
 .fv .nl__esito { margin: 0; font-weight: 600; text-align: left; }
 
 /* Piede */
-.fv-piede {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px 16px;
-  padding: 24px 0 40px;
-  font-size: 13px;
-  color: var(--fv-tenue);
-}
-.fv-piede nav { display: flex; flex-wrap: wrap; gap: 8px 16px; }
-.fv-piede a { color: var(--fv-tenue); }
-
-/* App icon above the title */
-.fv-icona { display: block; width: 96px; height: 96px; border-radius: 22px; margin-bottom: 24px; box-shadow: 0 6px 24px rgba(0,0,0,.35); }
+.fv-piede { padding: 24px 0 40px; font-size: 13px; color: var(--fv-tenue); text-align: center; }

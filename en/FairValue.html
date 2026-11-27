@@ -24,14 +24,12 @@
 <div class="fv-foglio">
 
   <header class="fv-testata">
-    <a href="/en/">Fabrizio Bacchin</a>
-    <a href="/en/#t-app">All apps</a>
+    <a class="fv-marchio" href="/en/FairValue"><img src="/app/FairValue/icon.png" width="44" height="44" alt="FairValue"></a>
+    <label class="fv-lingua"><select aria-label="Language" onchange="try{localStorage.setItem('bacchin-lang',this.value)}catch(e){}location.href=this.value=='it'?'/FairValue':'/en/FairValue'"><option value="it">🇮🇹 Italiano</option><option value="en" selected>🇬🇧 English</option></select></label>
   </header>
-  <nav class="fv-lingue" aria-label="Language"><a href="/FairValue" hreflang="it" lang="it">Italiano</a> <strong lang="en">English</strong></nav><script>document.querySelectorAll('.fv-lingue a[hreflang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('bacchin-lang',a.hreflang)}catch(e){}})})</script>
 
   <main>
   <section class="fv-copertina">
-    <img class="fv-icona" src="/app/FairValue/icon.png" width="96" height="96" alt="">
     <h1>What Is My Company Actually Worth?</h1>
     <!-- CREDENZIALE: una riga di Fabrizio sotto il titolo (anni nel settore, mandati, mercato seguito) -->
     <p class="fv-sottotitolo">The fair value method for owners and CFOs of Italian and Swiss SMEs</p>
@@ -152,13 +150,7 @@
   </section>
   </main>
 
-  <footer class="fv-piede">
-    <span>© 2026 Fabrizio Bacchin</span>
-    <nav aria-label="Contact">
-      <a href="mailto:info@bacchin.app">info@bacchin.app</a>
-      <a href="/en/privacy">Privacy and support</a>
-    </nav>
-  </footer>
+  <footer class="fv-piede">© 2026 Fabrizio Bacchin</footer>
 
 </div>
 </body>
