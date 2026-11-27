@@ -67,7 +67,6 @@ html { -webkit-text-size-adjust: 100%; }
 .fv .fv-sottotitolo { margin-top: 14px; color: var(--fv-tenue); font-size: 18px; }
 .fv-copertina h1, .fv .fv-sottotitolo, .fv .fv-apertura { text-align: justify; -webkit-hyphens: manual; hyphens: manual; }
 .fv .fv-apertura { -webkit-hyphens: auto; hyphens: auto; }
-.fv .fv-avvertenza p { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
 
 .fv-figura { margin: 32px 0 0; }
 .fv-cifre { display: flex; flex-wrap: nowrap; gap: 12px 40px; }
