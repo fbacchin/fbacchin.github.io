@@ -1,0 +1,347 @@
+/* Bozza del sito di advisory: un solo foglio di stile per tutte le pagine.
+   Caratteri di sistema in bozza; i WOFF2 self-hosted arrivano con la fase di design. */
+
+:root {
+  --carta: #f7f5f0;
+  --bianco: #fffefb;
+  --inchiostro: #1c232b;
+  --tenue: #535d68;
+  --accento: #1f4e5a;
+  --accento-chiaro: #e2ebec;
+  --linea: #d9d3c7;
+  --segnaposto-fondo: #fff0b3;
+  --segnaposto-bordo: #9a7300;
+  --titoli: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --testo: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --larghezza: 72rem;
+  --margine: clamp(1rem, 0.5rem + 3vw, 2.5rem);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-block-start: 1rem; }
+
+body {
+  margin: 0;
+  background: var(--carta);
+  color: var(--inchiostro);
+  font-family: var(--testo);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-size-adjust: from-font;
+  overflow-wrap: break-word;
+}
+
+/* Testo giustificato: solo con la sillabazione e con lang="it" sull'elemento html */
+p, li, dd {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+}
+/* Sugli schermi stretti le voci d'elenco brevi creano vuoti: lì restano a bandiera */
+@media (width < 40rem) {
+  li { text-align: start; }
+}
+
+h1, h2, h3 {
+  font-family: var(--titoli);
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+  font-size-adjust: from-font;
+  margin-block: 0 0.75em;
+}
+h1 { font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.125rem); }
+h3 { font-size: clamp(1.1875rem, 1.1rem + 0.45vw, 1.375rem); }
+
+p { margin-block: 0 1em; }
+a { color: var(--accento); text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--accento); outline-offset: 3px; border-radius: 2px; }
+
+.contenuto { max-inline-size: var(--larghezza); margin-inline: auto; padding-inline: var(--margine); }
+.prosa { max-inline-size: 65ch; }
+.prosa ul, .prosa ol { padding-inline-start: 1.25rem; }
+.prosa li { margin-block-end: 0.35em; }
+
+/* Avviso di bozza */
+.avviso-bozza {
+  margin: 0;
+  padding: 0.45rem var(--margine);
+  background: var(--inchiostro);
+  color: #f3efe6;
+  font-size: 0.8125rem;
+  text-align: center;
+  hyphens: manual;
+}
+
+/* Segnaposto: tutto ciò che è ancora da decidere */
+.segnaposto {
+  background: var(--segnaposto-fondo);
+  outline: 1px dashed var(--segnaposto-bordo);
+  padding-inline: 0.25em;
+  border-radius: 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.blocco-segnaposto {
+  display: block;
+  margin-block: 0 1em;
+  padding: 0.9rem 1rem;
+  background: var(--segnaposto-fondo);
+  border: 1px dashed var(--segnaposto-bordo);
+  border-radius: 0.375rem;
+  text-align: start;
+}
+
+/* Navigazione: un solo albero di link, popover quando la riga non ci sta */
+.site-header { background: var(--carta); border-block-end: 1px solid var(--linea); }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-inline-size: var(--larghezza);
+  margin-inline: auto;
+  padding: 0.9rem var(--margine);
+}
+.header-inner > * { flex-shrink: 0; white-space: nowrap; }
+.site-logo {
+  font-family: var(--titoli);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+.menu-button {
+  anchor-name: --menu-button;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-size: 1rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--inchiostro);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.menu-button svg { inline-size: 1.1rem; block-size: 1.1rem; }
+.site-menu {
+  position: fixed;
+  inset: auto;
+  inset-block-start: 6.5rem;
+  inset-block-start: anchor(--menu-button bottom);
+  inset-inline-end: 1rem;
+  inline-size: min(80dvw, 20rem);
+  max-inline-size: calc(100dvw - 2rem);
+  block-size: fit-content;
+  max-block-size: calc(100dvh - 6rem);
+  margin: 0.5rem 0 0;
+  padding: 0.5rem;
+  overflow: auto;
+  list-style: none;
+  color: inherit;
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: 0.375rem;
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.12);
+}
+.site-menu li { text-align: start; hyphens: manual; }
+.site-menu a {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+.site-menu a:hover { background: var(--accento-chiaro); }
+.site-menu a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline 2px var(--accento);
+  text-underline-offset: 0.4em;
+}
+@supports not selector(:popover-open) {
+  [popover]:not(.\:popover-open) { display: none; }
+}
+.site-header.is-wide .menu-button { display: none; }
+.site-header.is-wide .site-menu {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  inline-size: auto;
+  max-inline-size: none;
+  block-size: auto;
+  max-block-size: none;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.site-header.is-wide .site-menu a { padding: 0.5rem 0.7rem; }
+.site-header.is-wide .site-menu::backdrop { display: none; }
+.site-header.is-wide .nav-contatto a { border: 1px solid var(--accento); color: var(--accento); margin-inline-start: 0.5rem; }
+.is-measuring * { transition: none !important; }
+
+/* Sezioni */
+.hero { padding-block: clamp(3rem, 2rem + 5vw, 6rem) clamp(2rem, 1.5rem + 3vw, 4rem); }
+.occhiello {
+  margin: 0 0 1rem;
+  color: var(--accento);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: start;
+}
+.lead { max-inline-size: 60ch; color: var(--tenue); font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem); }
+.sezione { padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem); border-block-start: 1px solid var(--linea); }
+.sezione > .contenuto > h2:first-child { margin-block-start: 0; }
+.introduzione { max-inline-size: 60ch; color: var(--tenue); }
+
+.griglia {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.scheda {
+  padding: 1.5rem;
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: 0.375rem;
+}
+.scheda > :last-child { margin-block-end: 0; }
+.scheda ul { padding-inline-start: 1.1rem; margin-block: 0 1em; }
+.etichetta { display: block; margin-block-end: 0.35rem; color: var(--tenue); font-size: 0.875rem; text-align: start; }
+
+.azioni { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 2rem; }
+.bottone {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  color: #fff;
+  background: var(--accento);
+  border: 2px solid var(--accento);
+  border-radius: 0.25rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bottone:hover { background: #163a43; border-color: #163a43; }
+.bottone.secondario { color: var(--accento); background: transparent; }
+.bottone.secondario:hover { background: var(--accento-chiaro); }
+
+/* Servizi in dettaglio */
+.servizio { display: grid; gap: 1rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.servizio h3 { margin-block-start: 0.5rem; }
+.servizio ul { padding-inline-start: 1.1rem; }
+
+/* Fasi del metodo */
+.fasi { counter-reset: fase; list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 1rem; }
+.fasi > li {
+  counter-increment: fase;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0 1rem;
+  padding: 1.25rem;
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: 0.375rem;
+}
+.fasi > li::before {
+  content: counter(fase);
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  color: var(--accento);
+  font-family: var(--titoli);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: 1px solid var(--accento);
+  border-radius: 50%;
+}
+.fasi h3 { margin: 0.25rem 0 0.35rem; }
+.fasi p { margin: 0; }
+
+/* Profili */
+.profilo { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); align-items: start; }
+@media (width < 40rem) { .profilo { grid-template-columns: 1fr; } .ritratto { max-inline-size: 12rem; } }
+.ritratto {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  padding: 1rem;
+  background: var(--segnaposto-fondo);
+  border: 1px dashed var(--segnaposto-bordo);
+  border-radius: 0.375rem;
+  color: var(--inchiostro);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Dati in elenco */
+.dati { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.25rem; margin: 0; }
+.dati dt { font-weight: 600; }
+.dati dd { margin: 0; text-align: start; }
+
+/* Invito al colloquio, in fondo a ogni pagina */
+.invito { padding-block: clamp(2.5rem, 2rem + 3vw, 4rem); color: #f4f1ea; background: var(--accento); }
+.invito h2 { color: #fff; }
+.invito p { max-inline-size: 60ch; }
+.invito .bottone { color: var(--accento); background: #fff; border-color: #fff; }
+.invito .bottone:hover { background: var(--accento-chiaro); border-color: var(--accento-chiaro); }
+.invito :focus-visible { outline-color: #fff; }
+
+/* Modulo di contatto */
+.colonne { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+.modulo { max-inline-size: 36rem; }
+.campo { display: flex; flex-direction: column; gap: 0.3rem; margin-block-end: 1.25rem; }
+.campo label { font-weight: 600; }
+.campo .facoltativo { color: var(--tenue); font-weight: 400; }
+.campo input, .campo textarea {
+  inline-size: 100%;
+  min-block-size: 3rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  font-size: max(1rem, 1em);
+  color: inherit;
+  background: var(--bianco);
+  border: 1px solid #6f7781;
+  border-radius: 0.25rem;
+}
+.campo textarea { min-block-size: 9rem; resize: vertical; }
+.campo :user-invalid { border: 2px solid #a3261c; }
+.campo:has(:user-invalid) label::after { content: " · da completare"; color: #a3261c; font-weight: 400; }
+.suggerimento { color: var(--tenue); font-size: 0.875rem; text-align: start; }
+.trappola { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.esito:not(:empty) { margin-block-start: 1.25rem; padding: 0.9rem 1rem; background: var(--segnaposto-fondo); border: 1px dashed var(--segnaposto-bordo); border-radius: 0.375rem; }
+
+/* Piè di pagina */
+.piede { padding-block: 2rem; color: var(--tenue); font-size: 0.9375rem; border-block-start: 1px solid var(--linea); }
+.piede .contenuto { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.piede p { margin: 0; text-align: start; }
+.piede ul { display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+
+/* Transizioni morbide tra le pagine, solo se l'utente non ha ridotto il movimento */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+@media (forced-colors: active) {
+  .segnaposto, .blocco-segnaposto, .ritratto { outline: 1px dashed CanvasText; }
+  .site-menu a[aria-current="page"] { text-decoration-color: CanvasText; }
+}
+
+.spazio-sopra { margin-block-start: 1.5rem; }

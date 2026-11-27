@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Contatto · [Nome dello studio]</title>
+<meta name="description" content="Un colloquio riservato e senza impegno: scriveteci, rispondiamo entro 2 giorni lavorativi.">
+<link rel="stylesheet" href="stile.css">
+<script src="sito.js" defer></script>
+</head>
+<body>
+<p class="avviso-bozza">Bozza di lavoro riservata, non pubblicata. I testi evidenziati tra parentesi quadre sono ancora da decidere.</p>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html"><span class="segnaposto">[Nome dello studio]</span></a>
+    <nav class="site-nav" aria-label="Principale">
+      <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>Menu</span></button>
+      <ul id="site-menu" class="site-menu" popover="auto">
+        <li><a href="servizi.html">Servizi</a></li>
+        <li><a href="health-check.html">Health Check</a></li>
+        <li><a href="metodo.html">Metodo</a></li>
+        <li><a href="per-chi.html">Per chi</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li class="nav-contatto"><a href="contatto.html" aria-current="page">Contatto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="contenuto">
+    <p class="occhiello">Contatto</p>
+    <h1>Un colloquio riservato, senza impegno</h1>
+    <p class="lead">Scriveteci due righe sul tema che vi interessa. Rispondiamo entro 2 giorni lavorativi per fissare un primo colloquio di 20 o 30 minuti.</p>
+  </div>
+</section>
+
+<section class="sezione" aria-labelledby="titolo-modulo">
+  <div class="contenuto colonne">
+    <form class="modulo" action="contatto.html" method="post" aria-labelledby="titolo-modulo">
+      <h2 id="titolo-modulo">Richiesta di colloquio</h2>
+      <p class="blocco-segnaposto">Modulo dimostrativo: in questa bozza il messaggio non viene inviato.</p>
+      <div class="campo">
+        <label for="nome">Nome e cognome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" maxlength="100" required>
+      </div>
+      <div class="campo">
+        <label for="ruolo">Ruolo</label>
+        <input id="ruolo" name="ruolo" type="text" autocomplete="organization-title" maxlength="100" aria-describedby="ruolo-aiuto" required>
+        <span class="suggerimento" id="ruolo-aiuto">Per esempio: proprietario, presidente del CdA, CEO, CFO.</span>
+      </div>
+      <div class="campo">
+        <label for="azienda">Azienda</label>
+        <input id="azienda" name="azienda" type="text" autocomplete="organization" maxlength="150" required>
+      </div>
+      <div class="campo">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" maxlength="200" required>
+      </div>
+      <div class="campo">
+        <label for="telefono">Telefono <span class="facoltativo">(facoltativo)</span></label>
+        <input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="40">
+      </div>
+      <div class="campo">
+        <label for="messaggio">Messaggio</label>
+        <textarea id="messaggio" name="messaggio" maxlength="3000" aria-describedby="messaggio-aiuto" required></textarea>
+        <span class="suggerimento" id="messaggio-aiuto">Bastano poche righe sul tema; i dettagli li vedremo al colloquio.</span>
+      </div>
+      <div class="trappola" aria-hidden="true">
+        <label for="sito_web">Non compilare questo campo</label>
+        <input id="sito_web" name="sito_web" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <p class="suggerimento">Tutti i campi sono obbligatori, salvo il telefono. Usiamo i dati solo per rispondere alla richiesta: <a href="privacy.html">informativa sulla privacy</a>.</p>
+      <button class="bottone" type="submit">Inviare la richiesta</button>
+      <p class="esito" role="status"></p>
+    </form>
+
+    <div class="prosa">
+      <h2>Recapiti</h2>
+      <dl class="dati">
+        <dt>Email</dt><dd><span class="segnaposto">[email sul dominio dello studio]</span></dd>
+        <dt>Telefono</dt><dd><span class="segnaposto">[numero di telefono]</span></dd>
+        <dt>Sedi</dt><dd><span class="segnaposto">[indirizzi in Ticino e nella Svizzera tedesca, da definire]</span></dd>
+      </dl>
+      <p class="blocco-segnaposto spazio-sopra">[Chi riceve i messaggi e quando nasce un mandato con l'avvocato: testo da chiarire con l'Avv. Domenghini, per il segreto professionale.]</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="piede">
+  <div class="contenuto">
+    <p><span class="segnaposto">[Nome dello studio]</span> · Advisory strategico e finanziario per PMI industriali · Svizzera tedesca e Ticino</p>
+    <ul>
+      <li><a href="contatto.html">Contatto</a></li>
+      <li><a href="privacy.html">Privacy e note legali</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
