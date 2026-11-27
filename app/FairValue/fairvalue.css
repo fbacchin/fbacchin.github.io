@@ -215,3 +215,4 @@ html { -webkit-text-size-adjust: 100%; }
 
 /* Lettere AI del nome in oro, come nel logo */
 .fv-ai { color: var(--fv-ottone); }
+.fv-nome { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; }
