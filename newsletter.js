@@ -22,9 +22,9 @@ document.querySelectorAll('form[data-nl]').forEach(function (f) {
       var r = await fetch(f.action, { method: 'POST', body: new URLSearchParams(new FormData(f)) });
       if (!(await r.json()).success) throw new Error('rifiutata');
       f.querySelectorAll('label, button, .nl__nota').forEach(function (x) { x.hidden = true; });
-      esito.textContent = NL_T[0];
+      esito.textContent = f.dataset.nlOk || NL_T[0];
     } catch (err) {
-      esito.textContent = NL_T[1];
+      esito.textContent = f.dataset.nlErr || NL_T[1];
       bottone.disabled = false;
     }
     esito.hidden = false;
