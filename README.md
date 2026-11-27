@@ -107,6 +107,7 @@ Una cartella per app. Attenzione: i nomi dei file non sono uniformi.
 | Libor X | `app/LiborX/` | `support.html` | `privacy.html` |
 | Mortgage Calculators | `app/Mortgage/` | `support.html` | `privacy.html` |
 | Leasing Calculators | `app/Leasing/` | `support.html` | `privacy.html` |
+| FairValue | `app/FairValue/` | `support.html` | `privacy.html` |
 | Gottardo Live | `app/gotthard/` | `support-gotthard.html` | `privacy-gotthard.html` |
 | Burraco Score | `app/Burraco/` | `support-burraco.html` | `privacy-burraco.html` |
 | Codice di Gara Burraco | `app/codici/` | `support-codicedigara.html` | `privacy-codicedigara.html` |

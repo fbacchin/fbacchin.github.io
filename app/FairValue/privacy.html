@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#232E6B">
+<title>Privacy · FairValue</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1622'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23C9A45C'/%3E%3C/svg%3E">
+<style>
+
+:root {
+  --accento: #3A4B9E; --accento-tenue: #E4E7F6; --inchiostro: #141A33; --inchiostro-tenue: #5A6285;
+  --carta: #EEF0FA; --riquadro: #FFFFFF; --linea: #DDE1F0; --fascia-a: #232E6B; --fascia-b: #3A4B9E; --ambra: #C9761B;
+  --ombra: 0 1px 2px rgba(20,26,51,.06), 0 8px 24px rgba(20,26,51,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accento: #8B96E2; --accento-tenue: #1F2547; --inchiostro: #EEF0FA; --inchiostro-tenue: #98A0BE;
+    --carta: #0C0E19; --riquadro: #171B2C; --linea: #262C45; --fascia-a: #141A33; --fascia-b: #28336F; --ambra: #F0A542;
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--carta); color: var(--inchiostro);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+h1, h2, .ora { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+a { color: var(--accento); }
+:focus-visible { outline: 3px solid var(--ambra); outline-offset: 2px; border-radius: 6px; }
+
+.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='220' viewBox='0 0 640 220'%3E%3Cg fill='white' fill-opacity='.08'%3E%3Crect x='10' y='62' width='7' height='150' rx='2'/%3E%3Crect x='22' y='73' width='7' height='139' rx='2'/%3E%3Crect x='34' y='84' width='7' height='128' rx='2'/%3E%3Crect x='46' y='95' width='7' height='117' rx='2'/%3E%3Crect x='58' y='106' width='7' height='106' rx='2'/%3E%3Crect x='70' y='117' width='7' height='95' rx='2'/%3E%3Crect x='82' y='128' width='7' height='84' rx='2'/%3E%3Crect x='94' y='139' width='7' height='73' rx='2'/%3E%3Crect x='106' y='150' width='7' height='62' rx='2'/%3E%3Crect x='118' y='161' width='7' height='51' rx='2'/%3E%3Crect x='130' y='172' width='7' height='40' rx='2'/%3E%3Crect x='142' y='183' width='7' height='29' rx='2'/%3E%3Crect x='170' y='62' width='7' height='150' rx='2'/%3E%3Crect x='182' y='73' width='7' height='139' rx='2'/%3E%3Crect x='194' y='84' width='7' height='128' rx='2'/%3E%3Crect x='206' y='95' width='7' height='117' rx='2'/%3E%3Crect x='218' y='106' width='7' height='106' rx='2'/%3E%3Crect x='230' y='117' width='7' height='95' rx='2'/%3E%3Crect x='242' y='128' width='7' height='84' rx='2'/%3E%3Crect x='254' y='139' width='7' height='73' rx='2'/%3E%3Crect x='266' y='150' width='7' height='62' rx='2'/%3E%3Crect x='278' y='161' width='7' height='51' rx='2'/%3E%3Crect x='290' y='172' width='7' height='40' rx='2'/%3E%3Crect x='302' y='183' width='7' height='29' rx='2'/%3E%3Crect x='330' y='62' width='7' height='150' rx='2'/%3E%3Crect x='342' y='73' width='7' height='139' rx='2'/%3E%3Crect x='354' y='84' width='7' height='128' rx='2'/%3E%3Crect x='366' y='95' width='7' height='117' rx='2'/%3E%3Crect x='378' y='106' width='7' height='106' rx='2'/%3E%3Crect x='390' y='117' width='7' height='95' rx='2'/%3E%3Crect x='402' y='128' width='7' height='84' rx='2'/%3E%3Crect x='414' y='139' width='7' height='73' rx='2'/%3E%3Crect x='426' y='150' width='7' height='62' rx='2'/%3E%3Crect x='438' y='161' width='7' height='51' rx='2'/%3E%3Crect x='450' y='172' width='7' height='40' rx='2'/%3E%3Crect x='462' y='183' width='7' height='29' rx='2'/%3E%3Crect x='490' y='62' width='7' height='150' rx='2'/%3E%3Crect x='502' y='73' width='7' height='139' rx='2'/%3E%3Crect x='514' y='84' width='7' height='128' rx='2'/%3E%3Crect x='526' y='95' width='7' height='117' rx='2'/%3E%3Crect x='538' y='106' width='7' height='106' rx='2'/%3E%3Crect x='550' y='117' width='7' height='95' rx='2'/%3E%3Crect x='562' y='128' width='7' height='84' rx='2'/%3E%3Crect x='574' y='139' width='7' height='73' rx='2'/%3E%3Crect x='586' y='150' width='7' height='62' rx='2'/%3E%3Crect x='598' y='161' width='7' height='51' rx='2'/%3E%3Crect x='610' y='172' width='7' height='40' rx='2'/%3E%3Crect x='622' y='183' width='7' height='29' rx='2'/%3E%3C/g%3E%3Cg fill='none' stroke='white' stroke-opacity='.16' stroke-width='1.2' stroke-dasharray='3 5'%3E%3Cpath d='M10 58 L149 179'/%3E%3Cpath d='M170 58 L309 179'/%3E%3Cpath d='M330 58 L469 179'/%3E%3Cpath d='M490 58 L629 179'/%3E%3C/g%3E%3C/svg%3E") center bottom / 640px 220px repeat-x,
+                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
+  color: #fff;
+  padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
+.barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
+.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.lingua { position: relative; }
+.lingua select { appearance: none; -webkit-appearance: none; font: inherit; font-size: .95em; font-weight: 600;
+  color: #141A33; background: #fff; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
+  border-right: 2px solid #141A33; border-bottom: 2px solid #141A33; transform: rotate(45deg); pointer-events: none; }
+.titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #F6C27A; }
+.titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
+.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+
+main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
+.griglia > .riquadro, .colonne { margin-bottom: 18px; }
+.colonne { display: flex; gap: 18px; align-items: flex-start; }
+.colonna { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+@media (max-width: 860px) {
+  .colonne { flex-direction: column; align-items: stretch; gap: 18px; }
+  .colonna { display: contents; }
+}
+.riquadro { background: var(--riquadro); border-radius: 18px; box-shadow: var(--ombra); padding: 20px 22px; min-width: 0; }
+
+.riquadro > header { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.icona { flex: none; width: 52px; height: 52px; border-radius: 15px; background: var(--accento-tenue); color: var(--accento);
+  display: grid; place-items: center; }
+.icona svg { width: 28px; height: 28px; }
+.riquadro h2 { font-size: 1.22em; line-height: 1.25; color: var(--inchiostro); }
+.desc { color: var(--inchiostro-tenue); font-size: .93em; line-height: 1.4; margin-top: 2px; }
+.domande { margin-top: 6px; }
+details { border-top: 1px solid var(--linea); }
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 30px 10px 0; position: relative; line-height: 1.4; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--accento); border-bottom: 2px solid var(--accento); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > :not(summary) { margin: 0 0 12px; color: var(--inchiostro-tenue); font-size: .95em; }
+.testo { margin-top: 10px; }
+.testo > * + * { margin-top: 10px; }
+p, li { text-align: justify; text-wrap: pretty; -webkit-hyphens: auto; hyphens: auto; }
+.desc, summary { text-align: left; hyphens: manual; }
+.titolo p { text-align: center; hyphens: manual; }
+ul { padding-left: 20px; } li + li { margin-top: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: .93em; }
+th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--linea); vertical-align: top; }
+th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
+.scorre { overflow-x: auto; }
+.contatti { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.contatti > header { margin: 0; }
+.cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
+  text-decoration: none; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .cta { color: #0C0E19; } }
+.nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
+.sintesi { background: var(--accento-tenue); }
+footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
+  color: var(--inchiostro-tenue); font-size: .85em; text-align: center; }
+[lang-block] { display: none !important; }
+html[data-lang="en"] [lang-block="en"], html[data-lang="it"] [lang-block="it"] { display: revert !important; }
+html[data-lang] .griglia[lang-block] { display: none !important; }
+html[data-lang="en"] .griglia[lang-block="en"], html[data-lang="it"] .griglia[lang-block="it"] { display: block !important; }
+.marchio svg { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
+</style>
+</head>
+<body>
+<div class="fascia">
+  <div class="barra">
+    <a class="marchio" href="/FairValue"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0F1622"/><circle cx="32" cy="32" r="11" fill="#C9A45C"/></svg><span>FairValue</span></a>
+    <label class="lingua"><span hidden>Language</span><select id="lingua" onchange="setLang(this.value)" aria-label="Language"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option></select></label>
+  </div>
+  <div class="titolo"><div lang-block="it"><p class="eti">Privacy</p><h1>I tuoi dati, detto chiaramente</h1><p class="agg">Aggiornato al 27 novembre 2026</p></div><div lang-block="en"><p class="eti">Privacy</p><h1>Your data, in plain words</h1><p class="agg">Updated 27 November 2026</p></div></div>
+</div>
+<main><div class="griglia" lang-block="it"><section class="riquadro largo sintesi"><header><div><h2>In breve</h2></div></header><div class="testo"><p>FairValue è un'app di Fabrizio Bacchin (Svizzera). <b>Non raccoglie dati</b>: nessun account, nessun server, nessuna statistica d'uso, nessuna pubblicità. L'unica connessione di rete è quella con l'App Store per l'acquisto.</p></div></section><section class="riquadro largo"><header><div><h2>Dove stanno le valutazioni</h2></div></header><div class="testo"><p>Le valutazioni che crei <b>restano solo sul tuo dispositivo</b>. Non le vediamo e non le riceviamo. Finiscono nei backup del dispositivo, compreso il backup iCloud se lo hai attivato, e per questo sono protette come il resto dei tuoi dati. Non si sincronizzano tra i tuoi dispositivi.</p></div></section><section class="riquadro largo"><header><div><h2>Acquisto</h2></div></header><div class="testo"><p>Lo sblocco dell'app è un unico acquisto, gestito da Apple. Pagamento e dati di fatturazione restano tra te e Apple. All'app arriva solo la conferma che lo sblocco è attivo.</p></div></section><section class="riquadro largo"><header><div><h2>Il PDF</h2></div></header><div class="testo"><p>Il PDF di una valutazione lascia il dispositivo <b>solo quando lo condividi tu</b>, dal pulsante «Condividi PDF» del passo 7, e solo verso le persone o le app che scegli tu.</p></div></section><section class="riquadro largo"><header><div><h2>Sito ed email</h2></div></header><div class="testo"><p>Il sito bacchin.app e l'iscrizione email hanno una loro informativa: <a href="https://bacchin.app/privacy">https://bacchin.app/privacy</a>.</p></div></section><section class="riquadro largo"><header><div><h2>Contatti</h2></div></header><div class="testo"><p>Per qualsiasi domanda sulla privacy scrivi a <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div><div class="griglia" lang-block="en"><section class="riquadro largo sintesi"><header><div><h2>In brief</h2></div></header><div class="testo"><p>FairValue is an app by Fabrizio Bacchin (Switzerland). It <b>does not collect data</b>: no account, no server, no usage statistics, no ads. The only network connection is to the App Store for the purchase.</p></div></section><section class="riquadro largo"><header><div><h2>Where your valuations live</h2></div></header><div class="testo"><p>The valuations you create <b>stay on your device only</b>. We never see or receive them. They are included in your device backups, iCloud backup too if you have it turned on, so they are protected like the rest of your data. They are not synced between your devices.</p></div></section><section class="riquadro largo"><header><div><h2>Purchase</h2></div></header><div class="testo"><p>Unlocking the app is a single purchase, handled by Apple. Payment and billing details stay between you and Apple. The app only learns that the unlock is active.</p></div></section><section class="riquadro largo"><header><div><h2>The PDF</h2></div></header><div class="testo"><p>The PDF of a valuation leaves your device <b>only when you share it</b>, with the "Share PDF" button in step 7, and only to the people or apps you choose.</p></div></section><section class="riquadro largo"><header><div><h2>Website and email</h2></div></header><div class="testo"><p>The bacchin.app website and the email sign-up have their own notice: <a href="https://bacchin.app/privacy">https://bacchin.app/privacy</a>.</p></div></section><section class="riquadro largo"><header><div><h2>Contact</h2></div></header><div class="testo"><p>For any privacy question write to <a href="mailto:bacchin@tiscali.it">bacchin@tiscali.it</a>.</p></div></section></div></main>
+<footer><span lang-block="it">© 2026 Fabrizio Bacchin · <a href="support">Assistenza</a> · <a href="/FairValue">FairValue</a></span><span lang-block="en">© 2026 Fabrizio Bacchin · <a href="support">Support</a> · <a href="/FairValue">FairValue</a></span></footer>
+<script>
+var LANGS = ["it", "en"], TITOLI = {"it": "Privacy · FairValue", "en": "Privacy · FairValue"};
+function setLang(l) {
+  if (LANGS.indexOf(l) < 0) l = "en";
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  document.title = TITOLI[l];
+  var s = document.getElementById("lingua"); if (s) s.value = l;
+  try { localStorage.setItem("fairvalue-lang", l); } catch (e) {}
+}
+var q = new URLSearchParams(location.search).get("lang"), saved = null;
+try { saved = localStorage.getItem("fairvalue-lang"); } catch (e) {}
+var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+setLang(q || saved || (LANGS.indexOf(nav) >= 0 ? nav : "en"));
+</script>
+</body>
+</html>
