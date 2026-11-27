@@ -45,8 +45,8 @@ html { -webkit-text-size-adjust: 100%; }
 
 /* Testata: icona dell'app a sinistra, selettore lingua a destra */
 .fv-testata { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 20px; }
-.fv-marchio { display: block; line-height: 0; }
-.fv-marchio img { width: 44px; height: 44px; border-radius: 11px; box-shadow: 0 2px 10px rgba(0,0,0,.35); }
+.fv-marchio { display: block; line-height: 0; padding: 8px 14px; background: var(--fv-testo); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+.fv-marchio img { display: block; width: auto; height: 24px; }
 .fv-lingua { position: relative; }
 .fv-lingua select {
   appearance: none; -webkit-appearance: none;
