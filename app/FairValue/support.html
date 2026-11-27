@@ -3,49 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#232E6B">
+<meta name="theme-color" content="#F7F4EE">
 <title>Support · fAIrvalue</title>
 <link rel="icon" type="image/png" href="/app/FairValue/favicon.png">
 <link rel="apple-touch-icon" href="/app/FairValue/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 
 :root {
-  --accento: #3A4B9E; --accento-tenue: #E4E7F6; --inchiostro: #141A33; --inchiostro-tenue: #5A6285;
-  --carta: #EEF0FA; --riquadro: #FFFFFF; --linea: #DDE1F0; --fascia-a: #232E6B; --fascia-b: #3A4B9E; --ambra: #C9761B;
-  --ombra: 0 1px 2px rgba(20,26,51,.06), 0 8px 24px rgba(20,26,51,.07);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --accento: #8B96E2; --accento-tenue: #1F2547; --inchiostro: #EEF0FA; --inchiostro-tenue: #98A0BE;
-    --carta: #0C0E19; --riquadro: #171B2C; --linea: #262C45; --fascia-a: #141A33; --fascia-b: #28336F; --ambra: #F0A542;
-    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-  }
+  --accento: #8A6A1F; --accento-tenue: #EFE6D2; --inchiostro: #14211B; --inchiostro-tenue: #5C6660;
+  --carta: #F7F4EE; --riquadro: #FFFFFF; --linea: #DDD6C8; --ambra: #8A6A1F;
+  --ombra: 0 1px 2px rgba(20,33,27,.05), 0 8px 24px rgba(20,33,27,.06);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; }
 body { background: var(--carta); color: var(--inchiostro);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-h1, h2, .ora { font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; }
+  font: 17px/1.6 'Archivo', system-ui, sans-serif; }
+h1, h2, .ora { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; }
 a { color: var(--accento); }
 :focus-visible { outline: 3px solid var(--ambra); outline-offset: 2px; border-radius: 6px; }
 
-.fascia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='220' viewBox='0 0 640 220'%3E%3Cg fill='white' fill-opacity='.08'%3E%3Crect x='10' y='62' width='7' height='150' rx='2'/%3E%3Crect x='22' y='73' width='7' height='139' rx='2'/%3E%3Crect x='34' y='84' width='7' height='128' rx='2'/%3E%3Crect x='46' y='95' width='7' height='117' rx='2'/%3E%3Crect x='58' y='106' width='7' height='106' rx='2'/%3E%3Crect x='70' y='117' width='7' height='95' rx='2'/%3E%3Crect x='82' y='128' width='7' height='84' rx='2'/%3E%3Crect x='94' y='139' width='7' height='73' rx='2'/%3E%3Crect x='106' y='150' width='7' height='62' rx='2'/%3E%3Crect x='118' y='161' width='7' height='51' rx='2'/%3E%3Crect x='130' y='172' width='7' height='40' rx='2'/%3E%3Crect x='142' y='183' width='7' height='29' rx='2'/%3E%3Crect x='170' y='62' width='7' height='150' rx='2'/%3E%3Crect x='182' y='73' width='7' height='139' rx='2'/%3E%3Crect x='194' y='84' width='7' height='128' rx='2'/%3E%3Crect x='206' y='95' width='7' height='117' rx='2'/%3E%3Crect x='218' y='106' width='7' height='106' rx='2'/%3E%3Crect x='230' y='117' width='7' height='95' rx='2'/%3E%3Crect x='242' y='128' width='7' height='84' rx='2'/%3E%3Crect x='254' y='139' width='7' height='73' rx='2'/%3E%3Crect x='266' y='150' width='7' height='62' rx='2'/%3E%3Crect x='278' y='161' width='7' height='51' rx='2'/%3E%3Crect x='290' y='172' width='7' height='40' rx='2'/%3E%3Crect x='302' y='183' width='7' height='29' rx='2'/%3E%3Crect x='330' y='62' width='7' height='150' rx='2'/%3E%3Crect x='342' y='73' width='7' height='139' rx='2'/%3E%3Crect x='354' y='84' width='7' height='128' rx='2'/%3E%3Crect x='366' y='95' width='7' height='117' rx='2'/%3E%3Crect x='378' y='106' width='7' height='106' rx='2'/%3E%3Crect x='390' y='117' width='7' height='95' rx='2'/%3E%3Crect x='402' y='128' width='7' height='84' rx='2'/%3E%3Crect x='414' y='139' width='7' height='73' rx='2'/%3E%3Crect x='426' y='150' width='7' height='62' rx='2'/%3E%3Crect x='438' y='161' width='7' height='51' rx='2'/%3E%3Crect x='450' y='172' width='7' height='40' rx='2'/%3E%3Crect x='462' y='183' width='7' height='29' rx='2'/%3E%3Crect x='490' y='62' width='7' height='150' rx='2'/%3E%3Crect x='502' y='73' width='7' height='139' rx='2'/%3E%3Crect x='514' y='84' width='7' height='128' rx='2'/%3E%3Crect x='526' y='95' width='7' height='117' rx='2'/%3E%3Crect x='538' y='106' width='7' height='106' rx='2'/%3E%3Crect x='550' y='117' width='7' height='95' rx='2'/%3E%3Crect x='562' y='128' width='7' height='84' rx='2'/%3E%3Crect x='574' y='139' width='7' height='73' rx='2'/%3E%3Crect x='586' y='150' width='7' height='62' rx='2'/%3E%3Crect x='598' y='161' width='7' height='51' rx='2'/%3E%3Crect x='610' y='172' width='7' height='40' rx='2'/%3E%3Crect x='622' y='183' width='7' height='29' rx='2'/%3E%3C/g%3E%3Cg fill='none' stroke='white' stroke-opacity='.16' stroke-width='1.2' stroke-dasharray='3 5'%3E%3Cpath d='M10 58 L149 179'/%3E%3Cpath d='M170 58 L309 179'/%3E%3Cpath d='M330 58 L469 179'/%3E%3Cpath d='M490 58 L629 179'/%3E%3C/g%3E%3C/svg%3E") center bottom / 640px 220px repeat-x,
-                      linear-gradient(160deg, var(--fascia-a), var(--fascia-b));
-  color: #fff;
+.fascia { background: var(--carta);
+  color: var(--inchiostro); border-bottom: 1px solid var(--linea);
   padding: calc(env(safe-area-inset-top) + 18px) 20px 34px; }
 .barra { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.marchio { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600; }
-.marchio img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.marchio { display: block; line-height: 0; }
+.marchio img { display: block; width: auto; height: 28px; }
 .lingua { position: relative; }
 .lingua select { appearance: none; -webkit-appearance: none; font: inherit; font-size: .95em; font-weight: 600;
-  color: #141A33; background: #fff; border: 0; border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+  color: var(--inchiostro); background: #fff; border: 1px solid var(--linea); border-radius: 12px; padding: 9px 36px 9px 14px; cursor: pointer;
+  box-shadow: 0 1px 6px rgba(20,33,27,.08); }
 .lingua::after { content: ""; position: absolute; right: 14px; top: 50%; width: 7px; height: 7px; margin-top: -5px;
-  border-right: 2px solid #141A33; border-bottom: 2px solid #141A33; transform: rotate(45deg); pointer-events: none; }
+  border-right: 2px solid var(--inchiostro); border-bottom: 2px solid var(--inchiostro); transform: rotate(45deg); pointer-events: none; }
 .titolo { max-width: 760px; margin: 26px auto 0; text-align: center; }
-.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #F6C27A; }
+.titolo .eti { font-size: .78em; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accento); }
 .titolo h1 { font-size: clamp(1.7em, 5vw, 2.4em); line-height: 1.15; margin-top: 6px; text-wrap: balance; }
-.titolo .agg { margin-top: 8px; opacity: .85; font-size: .92em; }
+.titolo .agg { margin-top: 8px; color: var(--inchiostro-tenue); font-size: .92em; }
 
 main { max-width: 1100px; margin: 0 auto; padding: 22px 20px calc(env(safe-area-inset-bottom) + 40px); }
 .griglia > .riquadro, .colonne { margin-bottom: 18px; }
@@ -85,7 +78,6 @@ th { color: var(--inchiostro-tenue); font-weight: 600; border-top: 0; }
 .contatti > header { margin: 0; }
 .cta { display: inline-block; background: var(--accento); color: #fff; padding: 11px 22px; border-radius: 99px;
   text-decoration: none; font-weight: 600; }
-@media (prefers-color-scheme: dark) { .cta { color: #0C0E19; } }
 .nessuno { text-align: center; color: var(--inchiostro-tenue); padding: 20px; }
 .sintesi { background: var(--accento-tenue); }
 footer { max-width: 1100px; margin: 0 auto; padding: 0 20px calc(env(safe-area-inset-bottom) + 32px);
@@ -96,16 +88,14 @@ html[data-lang] .griglia[lang-block] { display: none !important; }
 html[data-lang="en"] .griglia[lang-block="en"], html[data-lang="it"] .griglia[lang-block="it"] { display: block !important; }
 [hidden] { display: none !important; }
 @media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
-.fv-ai { color: #9A7425; }
+.fv-ai { color: var(--accento); }
 .fv-nome { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; color: #002B1D; }
-.marchio .fv-ai { color: #C9A45C; }
-.marchio .fv-nome { color: #fff; }
 </style>
 </head>
 <body>
 <div class="fascia">
   <div class="barra">
-    <a class="marchio" href="/en/FairValue"><img src="/app/FairValue/icon.png" alt=""><span><span class="fv-nome">f<span class="fv-ai">AI</span>rvalue</span></span></a>
+    <a class="marchio" href="/en/FairValue"><img src="/app/FairValue/logo.png" width="146" height="28" alt="fAIrvalue"></a>
     <label class="lingua"><span hidden>Language</span><select id="lingua" onchange="setLang(this.value)" aria-label="Language"><option value="it">🇮🇹 Italiano</option><option value="en">🇬🇧 English</option></select></label>
   </div>
   <div class="titolo"><div lang-block="it"><p class="eti">Assistenza</p><h1>Come possiamo aiutarti</h1><p class="agg">Aggiornato al 27 novembre 2026</p></div><div lang-block="en"><p class="eti">Support</p><h1>How can we help</h1><p class="agg">Updated 27 November 2026</p></div></div>
