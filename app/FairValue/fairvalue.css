@@ -161,6 +161,7 @@ html { -webkit-text-size-adjust: 100%; }
 .fv-avvertenza p { margin: 0; }
 
 .fv dl { margin: 28px 0 0; }
+.fv h3 + dl { margin-top: 0; }
 .fv dl div { display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid var(--fv-linea); }
 .fv dt { color: var(--fv-tenue); }
 .fv dd { margin: 0; }
@@ -186,7 +187,7 @@ html { -webkit-text-size-adjust: 100%; }
   font-size: 16px;
   color: var(--fv-testo);
   background: var(--fv-fondo);
-  border: 1px solid var(--fv-linea);
+  border: 1px solid #6B7585;
   border-radius: 8px;
 }
 .fv-nl button {
