@@ -102,6 +102,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 /* Sezioni */
 .fv-sezione { padding: 36px 0; border-bottom: 1px solid var(--fv-linea); }
+.fv-sezione:last-child { padding-bottom: 12px; }
 
 .fv-passi { list-style: none; counter-reset: passo; margin: 0 0 16px; padding: 0; }
 .fv-passi li {
