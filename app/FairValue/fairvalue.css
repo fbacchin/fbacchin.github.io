@@ -211,3 +211,6 @@ html { -webkit-text-size-adjust: 100%; }
 
 /* Piede */
 .fv-piede { padding: 24px 0 40px; font-size: 13px; color: var(--fv-tenue); text-align: center; }
+
+/* Lettere AI del nome in oro, come nel logo */
+.fv-ai { color: var(--fv-ottone); }
