@@ -219,3 +219,6 @@ html { -webkit-text-size-adjust: 100%; }
 }
 .fv-piede nav { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .fv-piede a { color: var(--fv-tenue); }
+
+/* App icon above the title */
+.fv-icona { display: block; width: 96px; height: 96px; border-radius: 22px; margin-bottom: 24px; box-shadow: 0 6px 24px rgba(0,0,0,.35); }
