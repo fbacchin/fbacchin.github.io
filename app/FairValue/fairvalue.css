@@ -96,10 +96,10 @@ html { -webkit-text-size-adjust: 100%; }
   font-size: 26px;
   line-height: 1.3;
 }
-.fv-arrivo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 8px; }
-.fv-arrivo__testo { color: var(--fv-ottone); font-size: 16px; font-weight: 600; }
-.fv-arrivo__badge { display: block; height: 48px; width: auto; }
-.fv-arrivo__per { flex-basis: 100%; color: var(--fv-tenue); font-size: 14px; }
+.fv-arrivo { display: grid; grid-template-columns: auto auto; justify-content: start; align-items: center; column-gap: 14px; row-gap: 10px; margin-top: 10px; }
+.fv-arrivo__testo { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 600; font-style: italic; line-height: 1; color: var(--fv-ottone); }
+.fv-arrivo__badge { display: block; height: 44px; width: auto; }
+.fv-arrivo__per { grid-column: 1 / -1; font-size: 14px; letter-spacing: .02em; color: var(--fv-tenue); }
 
 /* Sezioni */
 .fv-sezione { padding: 36px 0; border-bottom: 1px solid var(--fv-linea); }
